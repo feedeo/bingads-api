@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.reporting;
 public class CallDetailReportRequest  extends com.microsoft.bingads.v9.reporting.ReportRequest  implements java.io.Serializable {
     private com.microsoft.bingads.v9.reporting.ReportAggregation aggregation;
 
-    private com.microsoft.bingads.v9.reporting.ArrayOfCallDetailReportColumn columns;
+    private com.microsoft.bingads.v9.reporting.CallDetailReportColumn[] columns;
 
     private com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope;
 
@@ -25,7 +25,7 @@ public class CallDetailReportRequest  extends com.microsoft.bingads.v9.reporting
            java.lang.String reportName,
            java.lang.Boolean returnOnlyCompleteData,
            com.microsoft.bingads.v9.reporting.ReportAggregation aggregation,
-           com.microsoft.bingads.v9.reporting.ArrayOfCallDetailReportColumn columns,
+           com.microsoft.bingads.v9.reporting.CallDetailReportColumn[] columns,
            com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope,
            com.microsoft.bingads.v9.reporting.ReportTime time) {
         super(
@@ -65,7 +65,7 @@ public class CallDetailReportRequest  extends com.microsoft.bingads.v9.reporting
      * 
      * @return columns
      */
-    public com.microsoft.bingads.v9.reporting.ArrayOfCallDetailReportColumn getColumns() {
+    public com.microsoft.bingads.v9.reporting.CallDetailReportColumn[] getColumns() {
         return columns;
     }
 
@@ -75,7 +75,7 @@ public class CallDetailReportRequest  extends com.microsoft.bingads.v9.reporting
      * 
      * @param columns
      */
-    public void setColumns(com.microsoft.bingads.v9.reporting.ArrayOfCallDetailReportColumn columns) {
+    public void setColumns(com.microsoft.bingads.v9.reporting.CallDetailReportColumn[] columns) {
         this.columns = columns;
     }
 
@@ -136,7 +136,7 @@ public class CallDetailReportRequest  extends com.microsoft.bingads.v9.reporting
               this.aggregation.equals(other.getAggregation()))) &&
             ((this.columns==null && other.getColumns()==null) || 
              (this.columns!=null &&
-              this.columns.equals(other.getColumns()))) &&
+              java.util.Arrays.equals(this.columns, other.getColumns()))) &&
             ((this.scope==null && other.getScope()==null) || 
              (this.scope!=null &&
               this.scope.equals(other.getScope()))) &&
@@ -158,7 +158,15 @@ public class CallDetailReportRequest  extends com.microsoft.bingads.v9.reporting
             _hashCode += getAggregation().hashCode();
         }
         if (getColumns() != null) {
-            _hashCode += getColumns().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getColumns());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getColumns(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getScope() != null) {
             _hashCode += getScope().hashCode();
@@ -185,8 +193,9 @@ public class CallDetailReportRequest  extends com.microsoft.bingads.v9.reporting
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("columns");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Columns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfCallDetailReportColumn"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "CallDetailReportColumn"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "CallDetailReportColumn"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("scope");

@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetNegativeKeywordsByAdGroupIdsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeKeywords adGroupNegativeKeywords;
+    private com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeKeywords[] adGroupNegativeKeywords;
 
     public GetNegativeKeywordsByAdGroupIdsResponse() {
     }
 
     public GetNegativeKeywordsByAdGroupIdsResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeKeywords adGroupNegativeKeywords) {
+           com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeKeywords[] adGroupNegativeKeywords) {
            this.adGroupNegativeKeywords = adGroupNegativeKeywords;
     }
 
@@ -24,7 +24,7 @@ public class GetNegativeKeywordsByAdGroupIdsResponse  implements java.io.Seriali
      * 
      * @return adGroupNegativeKeywords
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeKeywords getAdGroupNegativeKeywords() {
+    public com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeKeywords[] getAdGroupNegativeKeywords() {
         return adGroupNegativeKeywords;
     }
 
@@ -34,7 +34,7 @@ public class GetNegativeKeywordsByAdGroupIdsResponse  implements java.io.Seriali
      * 
      * @param adGroupNegativeKeywords
      */
-    public void setAdGroupNegativeKeywords(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeKeywords adGroupNegativeKeywords) {
+    public void setAdGroupNegativeKeywords(com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeKeywords[] adGroupNegativeKeywords) {
         this.adGroupNegativeKeywords = adGroupNegativeKeywords;
     }
 
@@ -52,7 +52,7 @@ public class GetNegativeKeywordsByAdGroupIdsResponse  implements java.io.Seriali
         _equals = true && 
             ((this.adGroupNegativeKeywords==null && other.getAdGroupNegativeKeywords()==null) || 
              (this.adGroupNegativeKeywords!=null &&
-              this.adGroupNegativeKeywords.equals(other.getAdGroupNegativeKeywords())));
+              java.util.Arrays.equals(this.adGroupNegativeKeywords, other.getAdGroupNegativeKeywords())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetNegativeKeywordsByAdGroupIdsResponse  implements java.io.Seriali
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAdGroupNegativeKeywords() != null) {
-            _hashCode += getAdGroupNegativeKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdGroupNegativeKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdGroupNegativeKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetNegativeKeywordsByAdGroupIdsResponse  implements java.io.Seriali
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adGroupNegativeKeywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupNegativeKeywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAdGroupNegativeKeywords"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupNegativeKeywords"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupNegativeKeywords"));
         typeDesc.addFieldDesc(elemField);
     }
 

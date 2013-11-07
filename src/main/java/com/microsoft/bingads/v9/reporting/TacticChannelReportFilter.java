@@ -8,22 +8,22 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class TacticChannelReportFilter  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong channelIds;
+    private long[] channelIds;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong tacticIds;
+    private long[] tacticIds;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong thirdPartyAdGroupIds;
+    private long[] thirdPartyAdGroupIds;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong thirdPartyCampaignIds;
+    private long[] thirdPartyCampaignIds;
 
     public TacticChannelReportFilter() {
     }
 
     public TacticChannelReportFilter(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong channelIds,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong tacticIds,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong thirdPartyAdGroupIds,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong thirdPartyCampaignIds) {
+           long[] channelIds,
+           long[] tacticIds,
+           long[] thirdPartyAdGroupIds,
+           long[] thirdPartyCampaignIds) {
            this.channelIds = channelIds;
            this.tacticIds = tacticIds;
            this.thirdPartyAdGroupIds = thirdPartyAdGroupIds;
@@ -36,7 +36,7 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
      * 
      * @return channelIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getChannelIds() {
+    public long[] getChannelIds() {
         return channelIds;
     }
 
@@ -46,7 +46,7 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
      * 
      * @param channelIds
      */
-    public void setChannelIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong channelIds) {
+    public void setChannelIds(long[] channelIds) {
         this.channelIds = channelIds;
     }
 
@@ -56,7 +56,7 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
      * 
      * @return tacticIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getTacticIds() {
+    public long[] getTacticIds() {
         return tacticIds;
     }
 
@@ -66,7 +66,7 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
      * 
      * @param tacticIds
      */
-    public void setTacticIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong tacticIds) {
+    public void setTacticIds(long[] tacticIds) {
         this.tacticIds = tacticIds;
     }
 
@@ -76,7 +76,7 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
      * 
      * @return thirdPartyAdGroupIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getThirdPartyAdGroupIds() {
+    public long[] getThirdPartyAdGroupIds() {
         return thirdPartyAdGroupIds;
     }
 
@@ -86,7 +86,7 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
      * 
      * @param thirdPartyAdGroupIds
      */
-    public void setThirdPartyAdGroupIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong thirdPartyAdGroupIds) {
+    public void setThirdPartyAdGroupIds(long[] thirdPartyAdGroupIds) {
         this.thirdPartyAdGroupIds = thirdPartyAdGroupIds;
     }
 
@@ -96,7 +96,7 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
      * 
      * @return thirdPartyCampaignIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getThirdPartyCampaignIds() {
+    public long[] getThirdPartyCampaignIds() {
         return thirdPartyCampaignIds;
     }
 
@@ -106,7 +106,7 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
      * 
      * @param thirdPartyCampaignIds
      */
-    public void setThirdPartyCampaignIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong thirdPartyCampaignIds) {
+    public void setThirdPartyCampaignIds(long[] thirdPartyCampaignIds) {
         this.thirdPartyCampaignIds = thirdPartyCampaignIds;
     }
 
@@ -124,16 +124,16 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
         _equals = true && 
             ((this.channelIds==null && other.getChannelIds()==null) || 
              (this.channelIds!=null &&
-              this.channelIds.equals(other.getChannelIds()))) &&
+              java.util.Arrays.equals(this.channelIds, other.getChannelIds()))) &&
             ((this.tacticIds==null && other.getTacticIds()==null) || 
              (this.tacticIds!=null &&
-              this.tacticIds.equals(other.getTacticIds()))) &&
+              java.util.Arrays.equals(this.tacticIds, other.getTacticIds()))) &&
             ((this.thirdPartyAdGroupIds==null && other.getThirdPartyAdGroupIds()==null) || 
              (this.thirdPartyAdGroupIds!=null &&
-              this.thirdPartyAdGroupIds.equals(other.getThirdPartyAdGroupIds()))) &&
+              java.util.Arrays.equals(this.thirdPartyAdGroupIds, other.getThirdPartyAdGroupIds()))) &&
             ((this.thirdPartyCampaignIds==null && other.getThirdPartyCampaignIds()==null) || 
              (this.thirdPartyCampaignIds!=null &&
-              this.thirdPartyCampaignIds.equals(other.getThirdPartyCampaignIds())));
+              java.util.Arrays.equals(this.thirdPartyCampaignIds, other.getThirdPartyCampaignIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -146,16 +146,48 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getChannelIds() != null) {
-            _hashCode += getChannelIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getChannelIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getChannelIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getTacticIds() != null) {
-            _hashCode += getTacticIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getTacticIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getTacticIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getThirdPartyAdGroupIds() != null) {
-            _hashCode += getThirdPartyAdGroupIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getThirdPartyAdGroupIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getThirdPartyAdGroupIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getThirdPartyCampaignIds() != null) {
-            _hashCode += getThirdPartyCampaignIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getThirdPartyCampaignIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getThirdPartyCampaignIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -170,30 +202,34 @@ public class TacticChannelReportFilter  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("channelIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ChannelIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("tacticIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "TacticIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("thirdPartyAdGroupIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ThirdPartyAdGroupIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("thirdPartyCampaignIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ThirdPartyCampaignIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

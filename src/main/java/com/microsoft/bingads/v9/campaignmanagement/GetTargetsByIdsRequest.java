@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetTargetsByIdsRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong targetIds;
+    private long[] targetIds;
 
     private java.lang.String locationTargetVersion;
 
@@ -16,7 +16,7 @@ public class GetTargetsByIdsRequest  implements java.io.Serializable {
     }
 
     public GetTargetsByIdsRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong targetIds,
+           long[] targetIds,
            java.lang.String locationTargetVersion) {
            this.targetIds = targetIds;
            this.locationTargetVersion = locationTargetVersion;
@@ -28,7 +28,7 @@ public class GetTargetsByIdsRequest  implements java.io.Serializable {
      * 
      * @return targetIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getTargetIds() {
+    public long[] getTargetIds() {
         return targetIds;
     }
 
@@ -38,7 +38,7 @@ public class GetTargetsByIdsRequest  implements java.io.Serializable {
      * 
      * @param targetIds
      */
-    public void setTargetIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong targetIds) {
+    public void setTargetIds(long[] targetIds) {
         this.targetIds = targetIds;
     }
 
@@ -76,7 +76,7 @@ public class GetTargetsByIdsRequest  implements java.io.Serializable {
         _equals = true && 
             ((this.targetIds==null && other.getTargetIds()==null) || 
              (this.targetIds!=null &&
-              this.targetIds.equals(other.getTargetIds()))) &&
+              java.util.Arrays.equals(this.targetIds, other.getTargetIds()))) &&
             ((this.locationTargetVersion==null && other.getLocationTargetVersion()==null) || 
              (this.locationTargetVersion!=null &&
               this.locationTargetVersion.equals(other.getLocationTargetVersion())));
@@ -92,7 +92,15 @@ public class GetTargetsByIdsRequest  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getTargetIds() != null) {
-            _hashCode += getTargetIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getTargetIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getTargetIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLocationTargetVersion() != null) {
             _hashCode += getLocationTargetVersion().hashCode();
@@ -110,9 +118,10 @@ public class GetTargetsByIdsRequest  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("targetIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "TargetIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("locationTargetVersion");

@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.customermanagement.entities;
 public class PilotFeature  implements java.io.Serializable {
     private java.lang.Integer id;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring countries;
+    private java.lang.String[] countries;
 
     public PilotFeature() {
     }
 
     public PilotFeature(
            java.lang.Integer id,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring countries) {
+           java.lang.String[] countries) {
            this.id = id;
            this.countries = countries;
     }
@@ -48,7 +48,7 @@ public class PilotFeature  implements java.io.Serializable {
      * 
      * @return countries
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getCountries() {
+    public java.lang.String[] getCountries() {
         return countries;
     }
 
@@ -58,7 +58,7 @@ public class PilotFeature  implements java.io.Serializable {
      * 
      * @param countries
      */
-    public void setCountries(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring countries) {
+    public void setCountries(java.lang.String[] countries) {
         this.countries = countries;
     }
 
@@ -79,7 +79,7 @@ public class PilotFeature  implements java.io.Serializable {
               this.id.equals(other.getId()))) &&
             ((this.countries==null && other.getCountries()==null) || 
              (this.countries!=null &&
-              this.countries.equals(other.getCountries())));
+              java.util.Arrays.equals(this.countries, other.getCountries())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class PilotFeature  implements java.io.Serializable {
             _hashCode += getId().hashCode();
         }
         if (getCountries() != null) {
-            _hashCode += getCountries().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getCountries());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getCountries(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class PilotFeature  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("countries");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "Countries"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

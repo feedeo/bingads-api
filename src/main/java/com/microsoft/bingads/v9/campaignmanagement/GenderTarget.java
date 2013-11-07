@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GenderTarget  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfGenderTargetBid bids;
+    private com.microsoft.bingads.v9.campaignmanagement.GenderTargetBid[] bids;
 
     public GenderTarget() {
     }
 
     public GenderTarget(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfGenderTargetBid bids) {
+           com.microsoft.bingads.v9.campaignmanagement.GenderTargetBid[] bids) {
            this.bids = bids;
     }
 
@@ -24,7 +24,7 @@ public class GenderTarget  implements java.io.Serializable {
      * 
      * @return bids
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfGenderTargetBid getBids() {
+    public com.microsoft.bingads.v9.campaignmanagement.GenderTargetBid[] getBids() {
         return bids;
     }
 
@@ -34,7 +34,7 @@ public class GenderTarget  implements java.io.Serializable {
      * 
      * @param bids
      */
-    public void setBids(com.microsoft.bingads.v9.campaignmanagement.ArrayOfGenderTargetBid bids) {
+    public void setBids(com.microsoft.bingads.v9.campaignmanagement.GenderTargetBid[] bids) {
         this.bids = bids;
     }
 
@@ -52,7 +52,7 @@ public class GenderTarget  implements java.io.Serializable {
         _equals = true && 
             ((this.bids==null && other.getBids()==null) || 
              (this.bids!=null &&
-              this.bids.equals(other.getBids())));
+              java.util.Arrays.equals(this.bids, other.getBids())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GenderTarget  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getBids() != null) {
-            _hashCode += getBids().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getBids());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getBids(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,8 +88,9 @@ public class GenderTarget  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("bids");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Bids"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfGenderTargetBid"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "GenderTargetBid"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "GenderTargetBid"));
         typeDesc.addFieldDesc(elemField);
     }
 

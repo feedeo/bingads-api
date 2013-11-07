@@ -12,7 +12,7 @@ public class KeywordHistoricalPerformance  implements java.io.Serializable {
 
     private java.lang.String device;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordKPI keywordKPIs;
+    private com.microsoft.bingads.v9.datacontracts.KeywordKPI[] keywordKPIs;
 
     public KeywordHistoricalPerformance() {
     }
@@ -20,7 +20,7 @@ public class KeywordHistoricalPerformance  implements java.io.Serializable {
     public KeywordHistoricalPerformance(
            java.lang.String keyword,
            java.lang.String device,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordKPI keywordKPIs) {
+           com.microsoft.bingads.v9.datacontracts.KeywordKPI[] keywordKPIs) {
            this.keyword = keyword;
            this.device = device;
            this.keywordKPIs = keywordKPIs;
@@ -72,7 +72,7 @@ public class KeywordHistoricalPerformance  implements java.io.Serializable {
      * 
      * @return keywordKPIs
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordKPI getKeywordKPIs() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordKPI[] getKeywordKPIs() {
         return keywordKPIs;
     }
 
@@ -82,7 +82,7 @@ public class KeywordHistoricalPerformance  implements java.io.Serializable {
      * 
      * @param keywordKPIs
      */
-    public void setKeywordKPIs(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordKPI keywordKPIs) {
+    public void setKeywordKPIs(com.microsoft.bingads.v9.datacontracts.KeywordKPI[] keywordKPIs) {
         this.keywordKPIs = keywordKPIs;
     }
 
@@ -106,7 +106,7 @@ public class KeywordHistoricalPerformance  implements java.io.Serializable {
               this.device.equals(other.getDevice()))) &&
             ((this.keywordKPIs==null && other.getKeywordKPIs()==null) || 
              (this.keywordKPIs!=null &&
-              this.keywordKPIs.equals(other.getKeywordKPIs())));
+              java.util.Arrays.equals(this.keywordKPIs, other.getKeywordKPIs())));
         __equalsCalc = null;
         return _equals;
     }
@@ -125,7 +125,15 @@ public class KeywordHistoricalPerformance  implements java.io.Serializable {
             _hashCode += getDevice().hashCode();
         }
         if (getKeywordKPIs() != null) {
-            _hashCode += getKeywordKPIs().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordKPIs());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordKPIs(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -154,9 +162,10 @@ public class KeywordHistoricalPerformance  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordKPIs");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordKPIs"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordKPI"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordKPI"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordKPI"));
         typeDesc.addFieldDesc(elemField);
     }
 

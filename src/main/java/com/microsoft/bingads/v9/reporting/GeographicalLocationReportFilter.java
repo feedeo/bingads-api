@@ -10,17 +10,17 @@ package com.microsoft.bingads.v9.reporting;
 public class GeographicalLocationReportFilter  implements java.io.Serializable {
     private java.lang.String[] adDistribution;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring countryCode;
+    private java.lang.String[] countryCode;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode;
+    private java.lang.String[] languageCode;
 
     public GeographicalLocationReportFilter() {
     }
 
     public GeographicalLocationReportFilter(
            java.lang.String[] adDistribution,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring countryCode,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode) {
+           java.lang.String[] countryCode,
+           java.lang.String[] languageCode) {
            this.adDistribution = adDistribution;
            this.countryCode = countryCode;
            this.languageCode = languageCode;
@@ -52,7 +52,7 @@ public class GeographicalLocationReportFilter  implements java.io.Serializable {
      * 
      * @return countryCode
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getCountryCode() {
+    public java.lang.String[] getCountryCode() {
         return countryCode;
     }
 
@@ -62,7 +62,7 @@ public class GeographicalLocationReportFilter  implements java.io.Serializable {
      * 
      * @param countryCode
      */
-    public void setCountryCode(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring countryCode) {
+    public void setCountryCode(java.lang.String[] countryCode) {
         this.countryCode = countryCode;
     }
 
@@ -72,7 +72,7 @@ public class GeographicalLocationReportFilter  implements java.io.Serializable {
      * 
      * @return languageCode
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getLanguageCode() {
+    public java.lang.String[] getLanguageCode() {
         return languageCode;
     }
 
@@ -82,7 +82,7 @@ public class GeographicalLocationReportFilter  implements java.io.Serializable {
      * 
      * @param languageCode
      */
-    public void setLanguageCode(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode) {
+    public void setLanguageCode(java.lang.String[] languageCode) {
         this.languageCode = languageCode;
     }
 
@@ -103,10 +103,10 @@ public class GeographicalLocationReportFilter  implements java.io.Serializable {
               java.util.Arrays.equals(this.adDistribution, other.getAdDistribution()))) &&
             ((this.countryCode==null && other.getCountryCode()==null) || 
              (this.countryCode!=null &&
-              this.countryCode.equals(other.getCountryCode()))) &&
+              java.util.Arrays.equals(this.countryCode, other.getCountryCode()))) &&
             ((this.languageCode==null && other.getLanguageCode()==null) || 
              (this.languageCode!=null &&
-              this.languageCode.equals(other.getLanguageCode())));
+              java.util.Arrays.equals(this.languageCode, other.getLanguageCode())));
         __equalsCalc = null;
         return _equals;
     }
@@ -130,10 +130,26 @@ public class GeographicalLocationReportFilter  implements java.io.Serializable {
             }
         }
         if (getCountryCode() != null) {
-            _hashCode += getCountryCode().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getCountryCode());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getCountryCode(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLanguageCode() != null) {
-            _hashCode += getLanguageCode().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getLanguageCode());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getLanguageCode(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -155,16 +171,18 @@ public class GeographicalLocationReportFilter  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("countryCode");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "CountryCode"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("languageCode");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "LanguageCode"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

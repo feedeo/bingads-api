@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class AddMediaResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong mediaIds;
+    private long[] mediaIds;
 
     public AddMediaResponse() {
     }
 
     public AddMediaResponse(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong mediaIds) {
+           long[] mediaIds) {
            this.mediaIds = mediaIds;
     }
 
@@ -24,7 +24,7 @@ public class AddMediaResponse  implements java.io.Serializable {
      * 
      * @return mediaIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getMediaIds() {
+    public long[] getMediaIds() {
         return mediaIds;
     }
 
@@ -34,7 +34,7 @@ public class AddMediaResponse  implements java.io.Serializable {
      * 
      * @param mediaIds
      */
-    public void setMediaIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong mediaIds) {
+    public void setMediaIds(long[] mediaIds) {
         this.mediaIds = mediaIds;
     }
 
@@ -52,7 +52,7 @@ public class AddMediaResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.mediaIds==null && other.getMediaIds()==null) || 
              (this.mediaIds!=null &&
-              this.mediaIds.equals(other.getMediaIds())));
+              java.util.Arrays.equals(this.mediaIds, other.getMediaIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class AddMediaResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getMediaIds() != null) {
-            _hashCode += getMediaIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getMediaIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getMediaIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class AddMediaResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("mediaIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "MediaIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

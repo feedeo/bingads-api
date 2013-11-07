@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class GetAdsByIdsRequest  implements java.io.Serializable {
     private java.lang.Long adGroupId;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong adIds;
+    private long[] adIds;
 
     public GetAdsByIdsRequest() {
     }
 
     public GetAdsByIdsRequest(
            java.lang.Long adGroupId,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong adIds) {
+           long[] adIds) {
            this.adGroupId = adGroupId;
            this.adIds = adIds;
     }
@@ -48,7 +48,7 @@ public class GetAdsByIdsRequest  implements java.io.Serializable {
      * 
      * @return adIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getAdIds() {
+    public long[] getAdIds() {
         return adIds;
     }
 
@@ -58,7 +58,7 @@ public class GetAdsByIdsRequest  implements java.io.Serializable {
      * 
      * @param adIds
      */
-    public void setAdIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong adIds) {
+    public void setAdIds(long[] adIds) {
         this.adIds = adIds;
     }
 
@@ -79,7 +79,7 @@ public class GetAdsByIdsRequest  implements java.io.Serializable {
               this.adGroupId.equals(other.getAdGroupId()))) &&
             ((this.adIds==null && other.getAdIds()==null) || 
              (this.adIds!=null &&
-              this.adIds.equals(other.getAdIds())));
+              java.util.Arrays.equals(this.adIds, other.getAdIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class GetAdsByIdsRequest  implements java.io.Serializable {
             _hashCode += getAdGroupId().hashCode();
         }
         if (getAdIds() != null) {
-            _hashCode += getAdIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class GetAdsByIdsRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

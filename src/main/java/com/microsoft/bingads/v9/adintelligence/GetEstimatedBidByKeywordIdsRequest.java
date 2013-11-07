@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetEstimatedBidByKeywordIdsRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong keywordIds;
+    private long[] keywordIds;
 
     private com.microsoft.bingads.v9.datacontracts.TargetAdPosition targetPositionForAds;
 
@@ -16,7 +16,7 @@ public class GetEstimatedBidByKeywordIdsRequest  implements java.io.Serializable
     }
 
     public GetEstimatedBidByKeywordIdsRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong keywordIds,
+           long[] keywordIds,
            com.microsoft.bingads.v9.datacontracts.TargetAdPosition targetPositionForAds) {
            this.keywordIds = keywordIds;
            this.targetPositionForAds = targetPositionForAds;
@@ -28,7 +28,7 @@ public class GetEstimatedBidByKeywordIdsRequest  implements java.io.Serializable
      * 
      * @return keywordIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getKeywordIds() {
+    public long[] getKeywordIds() {
         return keywordIds;
     }
 
@@ -38,7 +38,7 @@ public class GetEstimatedBidByKeywordIdsRequest  implements java.io.Serializable
      * 
      * @param keywordIds
      */
-    public void setKeywordIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong keywordIds) {
+    public void setKeywordIds(long[] keywordIds) {
         this.keywordIds = keywordIds;
     }
 
@@ -76,7 +76,7 @@ public class GetEstimatedBidByKeywordIdsRequest  implements java.io.Serializable
         _equals = true && 
             ((this.keywordIds==null && other.getKeywordIds()==null) || 
              (this.keywordIds!=null &&
-              this.keywordIds.equals(other.getKeywordIds()))) &&
+              java.util.Arrays.equals(this.keywordIds, other.getKeywordIds()))) &&
             ((this.targetPositionForAds==null && other.getTargetPositionForAds()==null) || 
              (this.targetPositionForAds!=null &&
               this.targetPositionForAds.equals(other.getTargetPositionForAds())));
@@ -92,7 +92,15 @@ public class GetEstimatedBidByKeywordIdsRequest  implements java.io.Serializable
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywordIds() != null) {
-            _hashCode += getKeywordIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getTargetPositionForAds() != null) {
             _hashCode += getTargetPositionForAds().hashCode();
@@ -110,9 +118,10 @@ public class GetEstimatedBidByKeywordIdsRequest  implements java.io.Serializable
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "KeywordIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("targetPositionForAds");

@@ -22,7 +22,7 @@ public class Customer  implements java.io.Serializable {
 
     private java.lang.String marketCountry;
 
-    private com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap;
+    private com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap;
 
     private com.microsoft.bingads.v9.customermanagement.entities.LanguageType marketLanguage;
 
@@ -47,7 +47,7 @@ public class Customer  implements java.io.Serializable {
            java.lang.Long lastModifiedByUserId,
            java.util.Calendar lastModifiedTime,
            java.lang.String marketCountry,
-           com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap,
+           com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap,
            com.microsoft.bingads.v9.customermanagement.entities.LanguageType marketLanguage,
            java.lang.String name,
            com.microsoft.bingads.v9.customermanagement.entities.ServiceLevel serviceLevel,
@@ -216,7 +216,7 @@ public class Customer  implements java.io.Serializable {
      * 
      * @return forwardCompatibilityMap
      */
-    public com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring getForwardCompatibilityMap() {
+    public com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] getForwardCompatibilityMap() {
         return forwardCompatibilityMap;
     }
 
@@ -226,7 +226,7 @@ public class Customer  implements java.io.Serializable {
      * 
      * @param forwardCompatibilityMap
      */
-    public void setForwardCompatibilityMap(com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap) {
+    public void setForwardCompatibilityMap(com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap) {
         this.forwardCompatibilityMap = forwardCompatibilityMap;
     }
 
@@ -385,7 +385,7 @@ public class Customer  implements java.io.Serializable {
               this.marketCountry.equals(other.getMarketCountry()))) &&
             ((this.forwardCompatibilityMap==null && other.getForwardCompatibilityMap()==null) || 
              (this.forwardCompatibilityMap!=null &&
-              this.forwardCompatibilityMap.equals(other.getForwardCompatibilityMap()))) &&
+              java.util.Arrays.equals(this.forwardCompatibilityMap, other.getForwardCompatibilityMap()))) &&
             ((this.marketLanguage==null && other.getMarketLanguage()==null) || 
              (this.marketLanguage!=null &&
               this.marketLanguage.equals(other.getMarketLanguage()))) &&
@@ -437,7 +437,15 @@ public class Customer  implements java.io.Serializable {
             _hashCode += getMarketCountry().hashCode();
         }
         if (getForwardCompatibilityMap() != null) {
-            _hashCode += getForwardCompatibilityMap().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getForwardCompatibilityMap());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getForwardCompatibilityMap(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getMarketLanguage() != null) {
             _hashCode += getMarketLanguage().hashCode();
@@ -527,9 +535,10 @@ public class Customer  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("forwardCompatibilityMap");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ForwardCompatibilityMap"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/System.Collections.Generic", "ArrayOfKeyValuePairOfstringstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/System.Collections.Generic", "KeyValuePairOfstringstring"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/System.Collections.Generic", "KeyValuePairOfstringstring"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("marketLanguage");

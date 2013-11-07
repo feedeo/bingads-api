@@ -22,7 +22,7 @@ public class AdGroup  implements java.io.Serializable {
 
     private com.microsoft.bingads.v9.campaignmanagement.Bid exactMatchBid;
 
-    private com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap;
+    private com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap;
 
     private java.lang.Long id;
 
@@ -51,7 +51,7 @@ public class AdGroup  implements java.io.Serializable {
            com.microsoft.bingads.v9.campaignmanagement.Bid contentMatchBid,
            com.microsoft.bingads.v9.campaignmanagement.Date endDate,
            com.microsoft.bingads.v9.campaignmanagement.Bid exactMatchBid,
-           com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap,
+           com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap,
            java.lang.Long id,
            java.lang.String language,
            java.lang.String name,
@@ -224,7 +224,7 @@ public class AdGroup  implements java.io.Serializable {
      * 
      * @return forwardCompatibilityMap
      */
-    public com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring getForwardCompatibilityMap() {
+    public com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] getForwardCompatibilityMap() {
         return forwardCompatibilityMap;
     }
 
@@ -234,7 +234,7 @@ public class AdGroup  implements java.io.Serializable {
      * 
      * @param forwardCompatibilityMap
      */
-    public void setForwardCompatibilityMap(com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap) {
+    public void setForwardCompatibilityMap(com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap) {
         this.forwardCompatibilityMap = forwardCompatibilityMap;
     }
 
@@ -433,7 +433,7 @@ public class AdGroup  implements java.io.Serializable {
               this.exactMatchBid.equals(other.getExactMatchBid()))) &&
             ((this.forwardCompatibilityMap==null && other.getForwardCompatibilityMap()==null) || 
              (this.forwardCompatibilityMap!=null &&
-              this.forwardCompatibilityMap.equals(other.getForwardCompatibilityMap()))) &&
+              java.util.Arrays.equals(this.forwardCompatibilityMap, other.getForwardCompatibilityMap()))) &&
             ((this.id==null && other.getId()==null) || 
              (this.id!=null &&
               this.id.equals(other.getId()))) &&
@@ -499,7 +499,15 @@ public class AdGroup  implements java.io.Serializable {
             _hashCode += getExactMatchBid().hashCode();
         }
         if (getForwardCompatibilityMap() != null) {
-            _hashCode += getForwardCompatibilityMap().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getForwardCompatibilityMap());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getForwardCompatibilityMap(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getId() != null) {
             _hashCode += getId().hashCode();
@@ -587,9 +595,10 @@ public class AdGroup  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("forwardCompatibilityMap");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ForwardCompatibilityMap"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/System.Collections.Generic", "ArrayOfKeyValuePairOfstringstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/System.Collections.Generic", "KeyValuePairOfstringstring"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/System.Collections.Generic", "KeyValuePairOfstringstring"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("id");

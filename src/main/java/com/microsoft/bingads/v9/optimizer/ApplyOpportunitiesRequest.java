@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.optimizer;
 public class ApplyOpportunitiesRequest  implements java.io.Serializable {
     private java.lang.Long accountId;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring opportunityKeys;
+    private java.lang.String[] opportunityKeys;
 
     public ApplyOpportunitiesRequest() {
     }
 
     public ApplyOpportunitiesRequest(
            java.lang.Long accountId,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring opportunityKeys) {
+           java.lang.String[] opportunityKeys) {
            this.accountId = accountId;
            this.opportunityKeys = opportunityKeys;
     }
@@ -48,7 +48,7 @@ public class ApplyOpportunitiesRequest  implements java.io.Serializable {
      * 
      * @return opportunityKeys
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getOpportunityKeys() {
+    public java.lang.String[] getOpportunityKeys() {
         return opportunityKeys;
     }
 
@@ -58,7 +58,7 @@ public class ApplyOpportunitiesRequest  implements java.io.Serializable {
      * 
      * @param opportunityKeys
      */
-    public void setOpportunityKeys(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring opportunityKeys) {
+    public void setOpportunityKeys(java.lang.String[] opportunityKeys) {
         this.opportunityKeys = opportunityKeys;
     }
 
@@ -79,7 +79,7 @@ public class ApplyOpportunitiesRequest  implements java.io.Serializable {
               this.accountId.equals(other.getAccountId()))) &&
             ((this.opportunityKeys==null && other.getOpportunityKeys()==null) || 
              (this.opportunityKeys!=null &&
-              this.opportunityKeys.equals(other.getOpportunityKeys())));
+              java.util.Arrays.equals(this.opportunityKeys, other.getOpportunityKeys())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class ApplyOpportunitiesRequest  implements java.io.Serializable {
             _hashCode += getAccountId().hashCode();
         }
         if (getOpportunityKeys() != null) {
-            _hashCode += getOpportunityKeys().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getOpportunityKeys());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getOpportunityKeys(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class ApplyOpportunitiesRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("opportunityKeys");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Optimizer/v9", "OpportunityKeys"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

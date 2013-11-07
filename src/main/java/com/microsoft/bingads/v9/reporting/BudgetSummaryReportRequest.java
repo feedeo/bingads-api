@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class BudgetSummaryReportRequest  extends com.microsoft.bingads.v9.reporting.ReportRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.reporting.ArrayOfBudgetSummaryReportColumn columns;
+    private com.microsoft.bingads.v9.reporting.BudgetSummaryReportColumn[] columns;
 
     private com.microsoft.bingads.v9.reporting.AccountThroughCampaignReportScope scope;
 
@@ -22,7 +22,7 @@ public class BudgetSummaryReportRequest  extends com.microsoft.bingads.v9.report
            com.microsoft.bingads.v9.reporting.ReportLanguage language,
            java.lang.String reportName,
            java.lang.Boolean returnOnlyCompleteData,
-           com.microsoft.bingads.v9.reporting.ArrayOfBudgetSummaryReportColumn columns,
+           com.microsoft.bingads.v9.reporting.BudgetSummaryReportColumn[] columns,
            com.microsoft.bingads.v9.reporting.AccountThroughCampaignReportScope scope,
            com.microsoft.bingads.v9.reporting.BudgetSummaryReportTime time) {
         super(
@@ -41,7 +41,7 @@ public class BudgetSummaryReportRequest  extends com.microsoft.bingads.v9.report
      * 
      * @return columns
      */
-    public com.microsoft.bingads.v9.reporting.ArrayOfBudgetSummaryReportColumn getColumns() {
+    public com.microsoft.bingads.v9.reporting.BudgetSummaryReportColumn[] getColumns() {
         return columns;
     }
 
@@ -51,7 +51,7 @@ public class BudgetSummaryReportRequest  extends com.microsoft.bingads.v9.report
      * 
      * @param columns
      */
-    public void setColumns(com.microsoft.bingads.v9.reporting.ArrayOfBudgetSummaryReportColumn columns) {
+    public void setColumns(com.microsoft.bingads.v9.reporting.BudgetSummaryReportColumn[] columns) {
         this.columns = columns;
     }
 
@@ -109,7 +109,7 @@ public class BudgetSummaryReportRequest  extends com.microsoft.bingads.v9.report
         _equals = super.equals(obj) && 
             ((this.columns==null && other.getColumns()==null) || 
              (this.columns!=null &&
-              this.columns.equals(other.getColumns()))) &&
+              java.util.Arrays.equals(this.columns, other.getColumns()))) &&
             ((this.scope==null && other.getScope()==null) || 
              (this.scope!=null &&
               this.scope.equals(other.getScope()))) &&
@@ -128,7 +128,15 @@ public class BudgetSummaryReportRequest  extends com.microsoft.bingads.v9.report
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getColumns() != null) {
-            _hashCode += getColumns().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getColumns());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getColumns(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getScope() != null) {
             _hashCode += getScope().hashCode();
@@ -149,8 +157,9 @@ public class BudgetSummaryReportRequest  extends com.microsoft.bingads.v9.report
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("columns");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Columns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfBudgetSummaryReportColumn"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BudgetSummaryReportColumn"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BudgetSummaryReportColumn"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("scope");

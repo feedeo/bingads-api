@@ -8,15 +8,15 @@
 package com.microsoft.bingads.v9.customermanagement.exception;
 
 public class ApiBatchFault  extends com.microsoft.bingads.v9.customermanagement.exception.ApiFault  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.customermanagement.exception.ArrayOfBatchError batchErrors;
+    private com.microsoft.bingads.v9.customermanagement.exception.BatchError[] batchErrors;
 
     public ApiBatchFault() {
     }
 
     public ApiBatchFault(
            java.lang.String trackingId,
-           com.microsoft.bingads.v9.customermanagement.exception.ArrayOfOperationError operationErrors,
-           com.microsoft.bingads.v9.customermanagement.exception.ArrayOfBatchError batchErrors) {
+           com.microsoft.bingads.v9.customermanagement.exception.OperationError[] operationErrors,
+           com.microsoft.bingads.v9.customermanagement.exception.BatchError[] batchErrors) {
         super(
             trackingId,
             operationErrors);
@@ -29,7 +29,7 @@ public class ApiBatchFault  extends com.microsoft.bingads.v9.customermanagement.
      * 
      * @return batchErrors
      */
-    public com.microsoft.bingads.v9.customermanagement.exception.ArrayOfBatchError getBatchErrors() {
+    public com.microsoft.bingads.v9.customermanagement.exception.BatchError[] getBatchErrors() {
         return batchErrors;
     }
 
@@ -39,7 +39,7 @@ public class ApiBatchFault  extends com.microsoft.bingads.v9.customermanagement.
      * 
      * @param batchErrors
      */
-    public void setBatchErrors(com.microsoft.bingads.v9.customermanagement.exception.ArrayOfBatchError batchErrors) {
+    public void setBatchErrors(com.microsoft.bingads.v9.customermanagement.exception.BatchError[] batchErrors) {
         this.batchErrors = batchErrors;
     }
 
@@ -57,7 +57,7 @@ public class ApiBatchFault  extends com.microsoft.bingads.v9.customermanagement.
         _equals = super.equals(obj) && 
             ((this.batchErrors==null && other.getBatchErrors()==null) || 
              (this.batchErrors!=null &&
-              this.batchErrors.equals(other.getBatchErrors())));
+              java.util.Arrays.equals(this.batchErrors, other.getBatchErrors())));
         __equalsCalc = null;
         return _equals;
     }
@@ -70,7 +70,15 @@ public class ApiBatchFault  extends com.microsoft.bingads.v9.customermanagement.
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getBatchErrors() != null) {
-            _hashCode += getBatchErrors().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getBatchErrors());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getBatchErrors(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -85,9 +93,10 @@ public class ApiBatchFault  extends com.microsoft.bingads.v9.customermanagement.
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("batchErrors");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "BatchErrors"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ArrayOfBatchError"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "BatchError"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "BatchError"));
         typeDesc.addFieldDesc(elemField);
     }
 

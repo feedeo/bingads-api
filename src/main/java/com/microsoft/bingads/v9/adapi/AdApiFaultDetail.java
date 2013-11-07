@@ -8,14 +8,14 @@
 package com.microsoft.bingads.v9.adapi;
 
 public class AdApiFaultDetail  extends com.microsoft.bingads.v9.adapi.ApplicationFault  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.adapi.ArrayOfAdApiError errors;
+    private com.microsoft.bingads.v9.adapi.AdApiError[] errors;
 
     public AdApiFaultDetail() {
     }
 
     public AdApiFaultDetail(
            java.lang.String trackingId,
-           com.microsoft.bingads.v9.adapi.ArrayOfAdApiError errors) {
+           com.microsoft.bingads.v9.adapi.AdApiError[] errors) {
         super(
             trackingId);
         this.errors = errors;
@@ -27,7 +27,7 @@ public class AdApiFaultDetail  extends com.microsoft.bingads.v9.adapi.Applicatio
      * 
      * @return errors
      */
-    public com.microsoft.bingads.v9.adapi.ArrayOfAdApiError getErrors() {
+    public com.microsoft.bingads.v9.adapi.AdApiError[] getErrors() {
         return errors;
     }
 
@@ -37,7 +37,7 @@ public class AdApiFaultDetail  extends com.microsoft.bingads.v9.adapi.Applicatio
      * 
      * @param errors
      */
-    public void setErrors(com.microsoft.bingads.v9.adapi.ArrayOfAdApiError errors) {
+    public void setErrors(com.microsoft.bingads.v9.adapi.AdApiError[] errors) {
         this.errors = errors;
     }
 
@@ -55,7 +55,7 @@ public class AdApiFaultDetail  extends com.microsoft.bingads.v9.adapi.Applicatio
         _equals = super.equals(obj) && 
             ((this.errors==null && other.getErrors()==null) || 
              (this.errors!=null &&
-              this.errors.equals(other.getErrors())));
+              java.util.Arrays.equals(this.errors, other.getErrors())));
         __equalsCalc = null;
         return _equals;
     }
@@ -68,7 +68,15 @@ public class AdApiFaultDetail  extends com.microsoft.bingads.v9.adapi.Applicatio
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getErrors() != null) {
-            _hashCode += getErrors().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getErrors());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getErrors(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -83,9 +91,10 @@ public class AdApiFaultDetail  extends com.microsoft.bingads.v9.adapi.Applicatio
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("errors");
         elemField.setXmlName(new javax.xml.namespace.QName("https://adapi.microsoft.com", "Errors"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://adapi.microsoft.com", "ArrayOfAdApiError"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -14,7 +14,7 @@ public class PlacementDetail  implements java.io.Serializable {
 
     private java.lang.Long placementId;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfMediaType supportedMediaTypes;
+    private com.microsoft.bingads.v9.campaignmanagement.MediaType[] supportedMediaTypes;
 
     public PlacementDetail() {
     }
@@ -23,7 +23,7 @@ public class PlacementDetail  implements java.io.Serializable {
            com.microsoft.bingads.v9.campaignmanagement.ImpressionsPerDayRange impressionsRangePerDay,
            java.lang.String pathName,
            java.lang.Long placementId,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfMediaType supportedMediaTypes) {
+           com.microsoft.bingads.v9.campaignmanagement.MediaType[] supportedMediaTypes) {
            this.impressionsRangePerDay = impressionsRangePerDay;
            this.pathName = pathName;
            this.placementId = placementId;
@@ -96,7 +96,7 @@ public class PlacementDetail  implements java.io.Serializable {
      * 
      * @return supportedMediaTypes
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfMediaType getSupportedMediaTypes() {
+    public com.microsoft.bingads.v9.campaignmanagement.MediaType[] getSupportedMediaTypes() {
         return supportedMediaTypes;
     }
 
@@ -106,7 +106,7 @@ public class PlacementDetail  implements java.io.Serializable {
      * 
      * @param supportedMediaTypes
      */
-    public void setSupportedMediaTypes(com.microsoft.bingads.v9.campaignmanagement.ArrayOfMediaType supportedMediaTypes) {
+    public void setSupportedMediaTypes(com.microsoft.bingads.v9.campaignmanagement.MediaType[] supportedMediaTypes) {
         this.supportedMediaTypes = supportedMediaTypes;
     }
 
@@ -133,7 +133,7 @@ public class PlacementDetail  implements java.io.Serializable {
               this.placementId.equals(other.getPlacementId()))) &&
             ((this.supportedMediaTypes==null && other.getSupportedMediaTypes()==null) || 
              (this.supportedMediaTypes!=null &&
-              this.supportedMediaTypes.equals(other.getSupportedMediaTypes())));
+              java.util.Arrays.equals(this.supportedMediaTypes, other.getSupportedMediaTypes())));
         __equalsCalc = null;
         return _equals;
     }
@@ -155,7 +155,15 @@ public class PlacementDetail  implements java.io.Serializable {
             _hashCode += getPlacementId().hashCode();
         }
         if (getSupportedMediaTypes() != null) {
-            _hashCode += getSupportedMediaTypes().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSupportedMediaTypes());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSupportedMediaTypes(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -191,9 +199,10 @@ public class PlacementDetail  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("supportedMediaTypes");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "SupportedMediaTypes"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfMediaType"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "MediaType"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "MediaType"));
         typeDesc.addFieldDesc(elemField);
     }
 

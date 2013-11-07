@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetAdGroupBidLandscapeResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfAdGroupBidLandscape bidLandscape;
+    private com.microsoft.bingads.v9.datacontracts.AdGroupBidLandscape[] bidLandscape;
 
     public GetAdGroupBidLandscapeResponse() {
     }
 
     public GetAdGroupBidLandscapeResponse(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfAdGroupBidLandscape bidLandscape) {
+           com.microsoft.bingads.v9.datacontracts.AdGroupBidLandscape[] bidLandscape) {
            this.bidLandscape = bidLandscape;
     }
 
@@ -24,7 +24,7 @@ public class GetAdGroupBidLandscapeResponse  implements java.io.Serializable {
      * 
      * @return bidLandscape
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfAdGroupBidLandscape getBidLandscape() {
+    public com.microsoft.bingads.v9.datacontracts.AdGroupBidLandscape[] getBidLandscape() {
         return bidLandscape;
     }
 
@@ -34,7 +34,7 @@ public class GetAdGroupBidLandscapeResponse  implements java.io.Serializable {
      * 
      * @param bidLandscape
      */
-    public void setBidLandscape(com.microsoft.bingads.v9.datacontracts.ArrayOfAdGroupBidLandscape bidLandscape) {
+    public void setBidLandscape(com.microsoft.bingads.v9.datacontracts.AdGroupBidLandscape[] bidLandscape) {
         this.bidLandscape = bidLandscape;
     }
 
@@ -52,7 +52,7 @@ public class GetAdGroupBidLandscapeResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.bidLandscape==null && other.getBidLandscape()==null) || 
              (this.bidLandscape!=null &&
-              this.bidLandscape.equals(other.getBidLandscape())));
+              java.util.Arrays.equals(this.bidLandscape, other.getBidLandscape())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetAdGroupBidLandscapeResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getBidLandscape() != null) {
-            _hashCode += getBidLandscape().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getBidLandscape());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getBidLandscape(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetAdGroupBidLandscapeResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("bidLandscape");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "BidLandscape"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfAdGroupBidLandscape"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "AdGroupBidLandscape"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "AdGroupBidLandscape"));
         typeDesc.addFieldDesc(elemField);
     }
 

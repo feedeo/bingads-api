@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.customermanagement;
 
 public class FindAccountsOrCustomersInfoResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.customermanagement.entities.ArrayOfAccountInfoWithCustomerData accountInfoWithCustomerData;
+    private com.microsoft.bingads.v9.customermanagement.entities.AccountInfoWithCustomerData[] accountInfoWithCustomerData;
 
     public FindAccountsOrCustomersInfoResponse() {
     }
 
     public FindAccountsOrCustomersInfoResponse(
-           com.microsoft.bingads.v9.customermanagement.entities.ArrayOfAccountInfoWithCustomerData accountInfoWithCustomerData) {
+           com.microsoft.bingads.v9.customermanagement.entities.AccountInfoWithCustomerData[] accountInfoWithCustomerData) {
            this.accountInfoWithCustomerData = accountInfoWithCustomerData;
     }
 
@@ -24,7 +24,7 @@ public class FindAccountsOrCustomersInfoResponse  implements java.io.Serializabl
      * 
      * @return accountInfoWithCustomerData
      */
-    public com.microsoft.bingads.v9.customermanagement.entities.ArrayOfAccountInfoWithCustomerData getAccountInfoWithCustomerData() {
+    public com.microsoft.bingads.v9.customermanagement.entities.AccountInfoWithCustomerData[] getAccountInfoWithCustomerData() {
         return accountInfoWithCustomerData;
     }
 
@@ -34,7 +34,7 @@ public class FindAccountsOrCustomersInfoResponse  implements java.io.Serializabl
      * 
      * @param accountInfoWithCustomerData
      */
-    public void setAccountInfoWithCustomerData(com.microsoft.bingads.v9.customermanagement.entities.ArrayOfAccountInfoWithCustomerData accountInfoWithCustomerData) {
+    public void setAccountInfoWithCustomerData(com.microsoft.bingads.v9.customermanagement.entities.AccountInfoWithCustomerData[] accountInfoWithCustomerData) {
         this.accountInfoWithCustomerData = accountInfoWithCustomerData;
     }
 
@@ -52,7 +52,7 @@ public class FindAccountsOrCustomersInfoResponse  implements java.io.Serializabl
         _equals = true && 
             ((this.accountInfoWithCustomerData==null && other.getAccountInfoWithCustomerData()==null) || 
              (this.accountInfoWithCustomerData!=null &&
-              this.accountInfoWithCustomerData.equals(other.getAccountInfoWithCustomerData())));
+              java.util.Arrays.equals(this.accountInfoWithCustomerData, other.getAccountInfoWithCustomerData())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class FindAccountsOrCustomersInfoResponse  implements java.io.Serializabl
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAccountInfoWithCustomerData() != null) {
-            _hashCode += getAccountInfoWithCustomerData().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAccountInfoWithCustomerData());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAccountInfoWithCustomerData(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class FindAccountsOrCustomersInfoResponse  implements java.io.Serializabl
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("accountInfoWithCustomerData");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "AccountInfoWithCustomerData"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ArrayOfAccountInfoWithCustomerData"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "AccountInfoWithCustomerData"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "AccountInfoWithCustomerData"));
         typeDesc.addFieldDesc(elemField);
     }
 

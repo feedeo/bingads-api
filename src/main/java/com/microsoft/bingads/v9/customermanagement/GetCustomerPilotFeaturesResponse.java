@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.customermanagement;
 
 public class GetCustomerPilotFeaturesResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfint featurePilotFlags;
+    private int[] featurePilotFlags;
 
     public GetCustomerPilotFeaturesResponse() {
     }
 
     public GetCustomerPilotFeaturesResponse(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfint featurePilotFlags) {
+           int[] featurePilotFlags) {
            this.featurePilotFlags = featurePilotFlags;
     }
 
@@ -24,7 +24,7 @@ public class GetCustomerPilotFeaturesResponse  implements java.io.Serializable {
      * 
      * @return featurePilotFlags
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfint getFeaturePilotFlags() {
+    public int[] getFeaturePilotFlags() {
         return featurePilotFlags;
     }
 
@@ -34,7 +34,7 @@ public class GetCustomerPilotFeaturesResponse  implements java.io.Serializable {
      * 
      * @param featurePilotFlags
      */
-    public void setFeaturePilotFlags(com.microsoft.bingads.v9.schemas.arrays.ArrayOfint featurePilotFlags) {
+    public void setFeaturePilotFlags(int[] featurePilotFlags) {
         this.featurePilotFlags = featurePilotFlags;
     }
 
@@ -52,7 +52,7 @@ public class GetCustomerPilotFeaturesResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.featurePilotFlags==null && other.getFeaturePilotFlags()==null) || 
              (this.featurePilotFlags!=null &&
-              this.featurePilotFlags.equals(other.getFeaturePilotFlags())));
+              java.util.Arrays.equals(this.featurePilotFlags, other.getFeaturePilotFlags())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetCustomerPilotFeaturesResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getFeaturePilotFlags() != null) {
-            _hashCode += getFeaturePilotFlags().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getFeaturePilotFlags());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getFeaturePilotFlags(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetCustomerPilotFeaturesResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("featurePilotFlags");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "FeaturePilotFlags"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfint"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "int"));
         typeDesc.addFieldDesc(elemField);
     }
 

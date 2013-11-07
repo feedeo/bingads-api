@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetAdExtensionIdsByAccountIdResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong adExtensionIds;
+    private long[] adExtensionIds;
 
     public GetAdExtensionIdsByAccountIdResponse() {
     }
 
     public GetAdExtensionIdsByAccountIdResponse(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong adExtensionIds) {
+           long[] adExtensionIds) {
            this.adExtensionIds = adExtensionIds;
     }
 
@@ -24,7 +24,7 @@ public class GetAdExtensionIdsByAccountIdResponse  implements java.io.Serializab
      * 
      * @return adExtensionIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getAdExtensionIds() {
+    public long[] getAdExtensionIds() {
         return adExtensionIds;
     }
 
@@ -34,7 +34,7 @@ public class GetAdExtensionIdsByAccountIdResponse  implements java.io.Serializab
      * 
      * @param adExtensionIds
      */
-    public void setAdExtensionIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong adExtensionIds) {
+    public void setAdExtensionIds(long[] adExtensionIds) {
         this.adExtensionIds = adExtensionIds;
     }
 
@@ -52,7 +52,7 @@ public class GetAdExtensionIdsByAccountIdResponse  implements java.io.Serializab
         _equals = true && 
             ((this.adExtensionIds==null && other.getAdExtensionIds()==null) || 
              (this.adExtensionIds!=null &&
-              this.adExtensionIds.equals(other.getAdExtensionIds())));
+              java.util.Arrays.equals(this.adExtensionIds, other.getAdExtensionIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetAdExtensionIdsByAccountIdResponse  implements java.io.Serializab
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAdExtensionIds() != null) {
-            _hashCode += getAdExtensionIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdExtensionIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdExtensionIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetAdExtensionIdsByAccountIdResponse  implements java.io.Serializab
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adExtensionIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

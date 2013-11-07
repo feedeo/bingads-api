@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class ProductAdExtension  extends com.microsoft.bingads.v9.campaignmanagement.AdExtension  implements java.io.Serializable {
     private java.lang.String name;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductConditionCollection productSelection;
+    private com.microsoft.bingads.v9.campaignmanagement.ProductConditionCollection[] productSelection;
 
     private java.lang.Long storeId;
 
@@ -20,13 +20,13 @@ public class ProductAdExtension  extends com.microsoft.bingads.v9.campaignmanage
     }
 
     public ProductAdExtension(
-           com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap,
+           com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap,
            java.lang.Long id,
            com.microsoft.bingads.v9.campaignmanagement.AdExtensionStatus status,
            java.lang.String type,
            java.lang.Integer version,
            java.lang.String name,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductConditionCollection productSelection,
+           com.microsoft.bingads.v9.campaignmanagement.ProductConditionCollection[] productSelection,
            java.lang.Long storeId,
            java.lang.String storeName) {
         super(
@@ -67,7 +67,7 @@ public class ProductAdExtension  extends com.microsoft.bingads.v9.campaignmanage
      * 
      * @return productSelection
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductConditionCollection getProductSelection() {
+    public com.microsoft.bingads.v9.campaignmanagement.ProductConditionCollection[] getProductSelection() {
         return productSelection;
     }
 
@@ -77,7 +77,7 @@ public class ProductAdExtension  extends com.microsoft.bingads.v9.campaignmanage
      * 
      * @param productSelection
      */
-    public void setProductSelection(com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductConditionCollection productSelection) {
+    public void setProductSelection(com.microsoft.bingads.v9.campaignmanagement.ProductConditionCollection[] productSelection) {
         this.productSelection = productSelection;
     }
 
@@ -138,7 +138,7 @@ public class ProductAdExtension  extends com.microsoft.bingads.v9.campaignmanage
               this.name.equals(other.getName()))) &&
             ((this.productSelection==null && other.getProductSelection()==null) || 
              (this.productSelection!=null &&
-              this.productSelection.equals(other.getProductSelection()))) &&
+              java.util.Arrays.equals(this.productSelection, other.getProductSelection()))) &&
             ((this.storeId==null && other.getStoreId()==null) || 
              (this.storeId!=null &&
               this.storeId.equals(other.getStoreId()))) &&
@@ -160,7 +160,15 @@ public class ProductAdExtension  extends com.microsoft.bingads.v9.campaignmanage
             _hashCode += getName().hashCode();
         }
         if (getProductSelection() != null) {
-            _hashCode += getProductSelection().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getProductSelection());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getProductSelection(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getStoreId() != null) {
             _hashCode += getStoreId().hashCode();
@@ -188,9 +196,10 @@ public class ProductAdExtension  extends com.microsoft.bingads.v9.campaignmanage
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("productSelection");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ProductSelection"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfProductConditionCollection"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ProductConditionCollection"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ProductConditionCollection"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("storeId");

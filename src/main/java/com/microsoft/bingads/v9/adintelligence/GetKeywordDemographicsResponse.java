@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetKeywordDemographicsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordDemographicResult keywordDemographicResult;
+    private com.microsoft.bingads.v9.datacontracts.KeywordDemographicResult[] keywordDemographicResult;
 
     public GetKeywordDemographicsResponse() {
     }
 
     public GetKeywordDemographicsResponse(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordDemographicResult keywordDemographicResult) {
+           com.microsoft.bingads.v9.datacontracts.KeywordDemographicResult[] keywordDemographicResult) {
            this.keywordDemographicResult = keywordDemographicResult;
     }
 
@@ -24,7 +24,7 @@ public class GetKeywordDemographicsResponse  implements java.io.Serializable {
      * 
      * @return keywordDemographicResult
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordDemographicResult getKeywordDemographicResult() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordDemographicResult[] getKeywordDemographicResult() {
         return keywordDemographicResult;
     }
 
@@ -34,7 +34,7 @@ public class GetKeywordDemographicsResponse  implements java.io.Serializable {
      * 
      * @param keywordDemographicResult
      */
-    public void setKeywordDemographicResult(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordDemographicResult keywordDemographicResult) {
+    public void setKeywordDemographicResult(com.microsoft.bingads.v9.datacontracts.KeywordDemographicResult[] keywordDemographicResult) {
         this.keywordDemographicResult = keywordDemographicResult;
     }
 
@@ -52,7 +52,7 @@ public class GetKeywordDemographicsResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.keywordDemographicResult==null && other.getKeywordDemographicResult()==null) || 
              (this.keywordDemographicResult!=null &&
-              this.keywordDemographicResult.equals(other.getKeywordDemographicResult())));
+              java.util.Arrays.equals(this.keywordDemographicResult, other.getKeywordDemographicResult())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetKeywordDemographicsResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywordDemographicResult() != null) {
-            _hashCode += getKeywordDemographicResult().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordDemographicResult());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordDemographicResult(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetKeywordDemographicsResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordDemographicResult");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "KeywordDemographicResult"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordDemographicResult"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordDemographicResult"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordDemographicResult"));
         typeDesc.addFieldDesc(elemField);
     }
 

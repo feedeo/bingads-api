@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.datacontracts;
 public class KeywordCategoryResult  implements java.io.Serializable {
     private java.lang.String keyword;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordCategory keywordCategories;
+    private com.microsoft.bingads.v9.datacontracts.KeywordCategory[] keywordCategories;
 
     public KeywordCategoryResult() {
     }
 
     public KeywordCategoryResult(
            java.lang.String keyword,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordCategory keywordCategories) {
+           com.microsoft.bingads.v9.datacontracts.KeywordCategory[] keywordCategories) {
            this.keyword = keyword;
            this.keywordCategories = keywordCategories;
     }
@@ -48,7 +48,7 @@ public class KeywordCategoryResult  implements java.io.Serializable {
      * 
      * @return keywordCategories
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordCategory getKeywordCategories() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordCategory[] getKeywordCategories() {
         return keywordCategories;
     }
 
@@ -58,7 +58,7 @@ public class KeywordCategoryResult  implements java.io.Serializable {
      * 
      * @param keywordCategories
      */
-    public void setKeywordCategories(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordCategory keywordCategories) {
+    public void setKeywordCategories(com.microsoft.bingads.v9.datacontracts.KeywordCategory[] keywordCategories) {
         this.keywordCategories = keywordCategories;
     }
 
@@ -79,7 +79,7 @@ public class KeywordCategoryResult  implements java.io.Serializable {
               this.keyword.equals(other.getKeyword()))) &&
             ((this.keywordCategories==null && other.getKeywordCategories()==null) || 
              (this.keywordCategories!=null &&
-              this.keywordCategories.equals(other.getKeywordCategories())));
+              java.util.Arrays.equals(this.keywordCategories, other.getKeywordCategories())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class KeywordCategoryResult  implements java.io.Serializable {
             _hashCode += getKeyword().hashCode();
         }
         if (getKeywordCategories() != null) {
-            _hashCode += getKeywordCategories().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordCategories());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordCategories(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class KeywordCategoryResult  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordCategories");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordCategories"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordCategory"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordCategory"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordCategory"));
         typeDesc.addFieldDesc(elemField);
     }
 

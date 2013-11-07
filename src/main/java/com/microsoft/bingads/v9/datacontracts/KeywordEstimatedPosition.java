@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.datacontracts;
 public class KeywordEstimatedPosition  implements java.io.Serializable {
     private java.lang.String keyword;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfEstimatedPositionAndTraffic estimatedPositions;
+    private com.microsoft.bingads.v9.datacontracts.EstimatedPositionAndTraffic[] estimatedPositions;
 
     public KeywordEstimatedPosition() {
     }
 
     public KeywordEstimatedPosition(
            java.lang.String keyword,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfEstimatedPositionAndTraffic estimatedPositions) {
+           com.microsoft.bingads.v9.datacontracts.EstimatedPositionAndTraffic[] estimatedPositions) {
            this.keyword = keyword;
            this.estimatedPositions = estimatedPositions;
     }
@@ -48,7 +48,7 @@ public class KeywordEstimatedPosition  implements java.io.Serializable {
      * 
      * @return estimatedPositions
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfEstimatedPositionAndTraffic getEstimatedPositions() {
+    public com.microsoft.bingads.v9.datacontracts.EstimatedPositionAndTraffic[] getEstimatedPositions() {
         return estimatedPositions;
     }
 
@@ -58,7 +58,7 @@ public class KeywordEstimatedPosition  implements java.io.Serializable {
      * 
      * @param estimatedPositions
      */
-    public void setEstimatedPositions(com.microsoft.bingads.v9.datacontracts.ArrayOfEstimatedPositionAndTraffic estimatedPositions) {
+    public void setEstimatedPositions(com.microsoft.bingads.v9.datacontracts.EstimatedPositionAndTraffic[] estimatedPositions) {
         this.estimatedPositions = estimatedPositions;
     }
 
@@ -79,7 +79,7 @@ public class KeywordEstimatedPosition  implements java.io.Serializable {
               this.keyword.equals(other.getKeyword()))) &&
             ((this.estimatedPositions==null && other.getEstimatedPositions()==null) || 
              (this.estimatedPositions!=null &&
-              this.estimatedPositions.equals(other.getEstimatedPositions())));
+              java.util.Arrays.equals(this.estimatedPositions, other.getEstimatedPositions())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class KeywordEstimatedPosition  implements java.io.Serializable {
             _hashCode += getKeyword().hashCode();
         }
         if (getEstimatedPositions() != null) {
-            _hashCode += getEstimatedPositions().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getEstimatedPositions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getEstimatedPositions(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class KeywordEstimatedPosition  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("estimatedPositions");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "EstimatedPositions"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfEstimatedPositionAndTraffic"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "EstimatedPositionAndTraffic"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "EstimatedPositionAndTraffic"));
         typeDesc.addFieldDesc(elemField);
     }
 

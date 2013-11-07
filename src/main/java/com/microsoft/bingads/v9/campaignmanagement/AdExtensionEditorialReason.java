@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class AdExtensionEditorialReason  implements java.io.Serializable {
     private java.lang.String location;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries;
+    private java.lang.String[] publisherCountries;
 
     private java.lang.Integer reasonCode;
 
@@ -21,7 +21,7 @@ public class AdExtensionEditorialReason  implements java.io.Serializable {
 
     public AdExtensionEditorialReason(
            java.lang.String location,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries,
+           java.lang.String[] publisherCountries,
            java.lang.Integer reasonCode,
            java.lang.String term) {
            this.location = location;
@@ -56,7 +56,7 @@ public class AdExtensionEditorialReason  implements java.io.Serializable {
      * 
      * @return publisherCountries
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getPublisherCountries() {
+    public java.lang.String[] getPublisherCountries() {
         return publisherCountries;
     }
 
@@ -66,7 +66,7 @@ public class AdExtensionEditorialReason  implements java.io.Serializable {
      * 
      * @param publisherCountries
      */
-    public void setPublisherCountries(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries) {
+    public void setPublisherCountries(java.lang.String[] publisherCountries) {
         this.publisherCountries = publisherCountries;
     }
 
@@ -127,7 +127,7 @@ public class AdExtensionEditorialReason  implements java.io.Serializable {
               this.location.equals(other.getLocation()))) &&
             ((this.publisherCountries==null && other.getPublisherCountries()==null) || 
              (this.publisherCountries!=null &&
-              this.publisherCountries.equals(other.getPublisherCountries()))) &&
+              java.util.Arrays.equals(this.publisherCountries, other.getPublisherCountries()))) &&
             ((this.reasonCode==null && other.getReasonCode()==null) || 
              (this.reasonCode!=null &&
               this.reasonCode.equals(other.getReasonCode()))) &&
@@ -149,7 +149,15 @@ public class AdExtensionEditorialReason  implements java.io.Serializable {
             _hashCode += getLocation().hashCode();
         }
         if (getPublisherCountries() != null) {
-            _hashCode += getPublisherCountries().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPublisherCountries());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPublisherCountries(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getReasonCode() != null) {
             _hashCode += getReasonCode().hashCode();
@@ -177,9 +185,10 @@ public class AdExtensionEditorialReason  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("publisherCountries");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "PublisherCountries"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("reasonCode");

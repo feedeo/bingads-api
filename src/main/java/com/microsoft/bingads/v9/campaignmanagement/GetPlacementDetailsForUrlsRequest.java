@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetPlacementDetailsForUrlsRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring urls;
+    private java.lang.String[] urls;
 
     public GetPlacementDetailsForUrlsRequest() {
     }
 
     public GetPlacementDetailsForUrlsRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring urls) {
+           java.lang.String[] urls) {
            this.urls = urls;
     }
 
@@ -24,7 +24,7 @@ public class GetPlacementDetailsForUrlsRequest  implements java.io.Serializable 
      * 
      * @return urls
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getUrls() {
+    public java.lang.String[] getUrls() {
         return urls;
     }
 
@@ -34,7 +34,7 @@ public class GetPlacementDetailsForUrlsRequest  implements java.io.Serializable 
      * 
      * @param urls
      */
-    public void setUrls(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring urls) {
+    public void setUrls(java.lang.String[] urls) {
         this.urls = urls;
     }
 
@@ -52,7 +52,7 @@ public class GetPlacementDetailsForUrlsRequest  implements java.io.Serializable 
         _equals = true && 
             ((this.urls==null && other.getUrls()==null) || 
              (this.urls!=null &&
-              this.urls.equals(other.getUrls())));
+              java.util.Arrays.equals(this.urls, other.getUrls())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetPlacementDetailsForUrlsRequest  implements java.io.Serializable 
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getUrls() != null) {
-            _hashCode += getUrls().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getUrls());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getUrls(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetPlacementDetailsForUrlsRequest  implements java.io.Serializable 
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("urls");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Urls"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

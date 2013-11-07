@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.datacontracts;
 public class KeywordAndMatchType  implements java.io.Serializable {
     private java.lang.String keywordText;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType matchTypes;
+    private com.microsoft.bingads.v9.datacontracts.MatchType[] matchTypes;
 
     public KeywordAndMatchType() {
     }
 
     public KeywordAndMatchType(
            java.lang.String keywordText,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType matchTypes) {
+           com.microsoft.bingads.v9.datacontracts.MatchType[] matchTypes) {
            this.keywordText = keywordText;
            this.matchTypes = matchTypes;
     }
@@ -48,7 +48,7 @@ public class KeywordAndMatchType  implements java.io.Serializable {
      * 
      * @return matchTypes
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType getMatchTypes() {
+    public com.microsoft.bingads.v9.datacontracts.MatchType[] getMatchTypes() {
         return matchTypes;
     }
 
@@ -58,7 +58,7 @@ public class KeywordAndMatchType  implements java.io.Serializable {
      * 
      * @param matchTypes
      */
-    public void setMatchTypes(com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType matchTypes) {
+    public void setMatchTypes(com.microsoft.bingads.v9.datacontracts.MatchType[] matchTypes) {
         this.matchTypes = matchTypes;
     }
 
@@ -79,7 +79,7 @@ public class KeywordAndMatchType  implements java.io.Serializable {
               this.keywordText.equals(other.getKeywordText()))) &&
             ((this.matchTypes==null && other.getMatchTypes()==null) || 
              (this.matchTypes!=null &&
-              this.matchTypes.equals(other.getMatchTypes())));
+              java.util.Arrays.equals(this.matchTypes, other.getMatchTypes())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class KeywordAndMatchType  implements java.io.Serializable {
             _hashCode += getKeywordText().hashCode();
         }
         if (getMatchTypes() != null) {
-            _hashCode += getMatchTypes().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getMatchTypes());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getMatchTypes(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class KeywordAndMatchType  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("matchTypes");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "MatchTypes"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfMatchType"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "MatchType"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "MatchType"));
         typeDesc.addFieldDesc(elemField);
     }
 

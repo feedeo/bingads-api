@@ -18,17 +18,17 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
 
     private java.lang.String[] deviceType;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfint keywordRelevance;
+    private int[] keywordRelevance;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords;
+    private java.lang.String[] keywords;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfint landingPageRelevance;
+    private int[] landingPageRelevance;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfint landingPageUserExperience;
+    private int[] landingPageUserExperience;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode;
+    private java.lang.String[] languageCode;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfint qualityScore;
+    private int[] qualityScore;
 
     public KeywordPerformanceReportFilter() {
     }
@@ -39,12 +39,12 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
            java.lang.String[] bidMatchType,
            java.lang.String[] deliveredMatchType,
            java.lang.String[] deviceType,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfint keywordRelevance,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfint landingPageRelevance,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfint landingPageUserExperience,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfint qualityScore) {
+           int[] keywordRelevance,
+           java.lang.String[] keywords,
+           int[] landingPageRelevance,
+           int[] landingPageUserExperience,
+           java.lang.String[] languageCode,
+           int[] qualityScore) {
            this.adDistribution = adDistribution;
            this.adType = adType;
            this.bidMatchType = bidMatchType;
@@ -164,7 +164,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @return keywordRelevance
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfint getKeywordRelevance() {
+    public int[] getKeywordRelevance() {
         return keywordRelevance;
     }
 
@@ -174,7 +174,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @param keywordRelevance
      */
-    public void setKeywordRelevance(com.microsoft.bingads.v9.schemas.arrays.ArrayOfint keywordRelevance) {
+    public void setKeywordRelevance(int[] keywordRelevance) {
         this.keywordRelevance = keywordRelevance;
     }
 
@@ -184,7 +184,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @return keywords
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getKeywords() {
+    public java.lang.String[] getKeywords() {
         return keywords;
     }
 
@@ -194,7 +194,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @param keywords
      */
-    public void setKeywords(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords) {
+    public void setKeywords(java.lang.String[] keywords) {
         this.keywords = keywords;
     }
 
@@ -204,7 +204,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @return landingPageRelevance
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfint getLandingPageRelevance() {
+    public int[] getLandingPageRelevance() {
         return landingPageRelevance;
     }
 
@@ -214,7 +214,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @param landingPageRelevance
      */
-    public void setLandingPageRelevance(com.microsoft.bingads.v9.schemas.arrays.ArrayOfint landingPageRelevance) {
+    public void setLandingPageRelevance(int[] landingPageRelevance) {
         this.landingPageRelevance = landingPageRelevance;
     }
 
@@ -224,7 +224,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @return landingPageUserExperience
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfint getLandingPageUserExperience() {
+    public int[] getLandingPageUserExperience() {
         return landingPageUserExperience;
     }
 
@@ -234,7 +234,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @param landingPageUserExperience
      */
-    public void setLandingPageUserExperience(com.microsoft.bingads.v9.schemas.arrays.ArrayOfint landingPageUserExperience) {
+    public void setLandingPageUserExperience(int[] landingPageUserExperience) {
         this.landingPageUserExperience = landingPageUserExperience;
     }
 
@@ -244,7 +244,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @return languageCode
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getLanguageCode() {
+    public java.lang.String[] getLanguageCode() {
         return languageCode;
     }
 
@@ -254,7 +254,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @param languageCode
      */
-    public void setLanguageCode(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode) {
+    public void setLanguageCode(java.lang.String[] languageCode) {
         this.languageCode = languageCode;
     }
 
@@ -264,7 +264,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @return qualityScore
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfint getQualityScore() {
+    public int[] getQualityScore() {
         return qualityScore;
     }
 
@@ -274,7 +274,7 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
      * 
      * @param qualityScore
      */
-    public void setQualityScore(com.microsoft.bingads.v9.schemas.arrays.ArrayOfint qualityScore) {
+    public void setQualityScore(int[] qualityScore) {
         this.qualityScore = qualityScore;
     }
 
@@ -307,22 +307,22 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
               java.util.Arrays.equals(this.deviceType, other.getDeviceType()))) &&
             ((this.keywordRelevance==null && other.getKeywordRelevance()==null) || 
              (this.keywordRelevance!=null &&
-              this.keywordRelevance.equals(other.getKeywordRelevance()))) &&
+              java.util.Arrays.equals(this.keywordRelevance, other.getKeywordRelevance()))) &&
             ((this.keywords==null && other.getKeywords()==null) || 
              (this.keywords!=null &&
-              this.keywords.equals(other.getKeywords()))) &&
+              java.util.Arrays.equals(this.keywords, other.getKeywords()))) &&
             ((this.landingPageRelevance==null && other.getLandingPageRelevance()==null) || 
              (this.landingPageRelevance!=null &&
-              this.landingPageRelevance.equals(other.getLandingPageRelevance()))) &&
+              java.util.Arrays.equals(this.landingPageRelevance, other.getLandingPageRelevance()))) &&
             ((this.landingPageUserExperience==null && other.getLandingPageUserExperience()==null) || 
              (this.landingPageUserExperience!=null &&
-              this.landingPageUserExperience.equals(other.getLandingPageUserExperience()))) &&
+              java.util.Arrays.equals(this.landingPageUserExperience, other.getLandingPageUserExperience()))) &&
             ((this.languageCode==null && other.getLanguageCode()==null) || 
              (this.languageCode!=null &&
-              this.languageCode.equals(other.getLanguageCode()))) &&
+              java.util.Arrays.equals(this.languageCode, other.getLanguageCode()))) &&
             ((this.qualityScore==null && other.getQualityScore()==null) || 
              (this.qualityScore!=null &&
-              this.qualityScore.equals(other.getQualityScore())));
+              java.util.Arrays.equals(this.qualityScore, other.getQualityScore())));
         __equalsCalc = null;
         return _equals;
     }
@@ -390,22 +390,70 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
             }
         }
         if (getKeywordRelevance() != null) {
-            _hashCode += getKeywordRelevance().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordRelevance());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordRelevance(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getKeywords() != null) {
-            _hashCode += getKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLandingPageRelevance() != null) {
-            _hashCode += getLandingPageRelevance().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getLandingPageRelevance());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getLandingPageRelevance(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLandingPageUserExperience() != null) {
-            _hashCode += getLandingPageUserExperience().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getLandingPageUserExperience());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getLandingPageUserExperience(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLanguageCode() != null) {
-            _hashCode += getLanguageCode().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getLanguageCode());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getLanguageCode(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getQualityScore() != null) {
-            _hashCode += getQualityScore().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getQualityScore());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getQualityScore(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -455,44 +503,50 @@ public class KeywordPerformanceReportFilter  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordRelevance");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "KeywordRelevance"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfint"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "int"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Keywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("landingPageRelevance");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "LandingPageRelevance"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfint"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "int"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("landingPageUserExperience");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "LandingPageUserExperience"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfint"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "int"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("languageCode");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "LanguageCode"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("qualityScore");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "QualityScore"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfint"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "int"));
         typeDesc.addFieldDesc(elemField);
     }
 

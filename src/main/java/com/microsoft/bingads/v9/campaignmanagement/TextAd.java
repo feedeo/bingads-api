@@ -22,7 +22,7 @@ public class TextAd  extends com.microsoft.bingads.v9.campaignmanagement.Ad  imp
     public TextAd(
            java.lang.Long devicePreference,
            com.microsoft.bingads.v9.campaignmanagement.AdEditorialStatus editorialStatus,
-           com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap,
+           com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap,
            java.lang.Long id,
            com.microsoft.bingads.v9.campaignmanagement.AdStatus status,
            com.microsoft.bingads.v9.campaignmanagement.AdType type,

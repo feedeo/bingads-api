@@ -171,10 +171,12 @@ public class BasicHttpBinding_IBulkServiceStub extends org.apache.axis.client.St
             java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.schemas.arrays.ArrayOflong.class;
+            cls = long[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long");
+            qName2 = new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError");
             cachedSerQNames.add(qName);
@@ -199,10 +201,12 @@ public class BasicHttpBinding_IBulkServiceStub extends org.apache.axis.client.St
 
             qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "ArrayOfAdApiError");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.adapi.ArrayOfAdApiError.class;
+            cls = com.microsoft.bingads.v9.adapi.AdApiError[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError");
+            qName2 = new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", ">DownloadCampaignsByAccountIdsRequest");
             cachedSerQNames.add(qName);
@@ -283,24 +287,30 @@ public class BasicHttpBinding_IBulkServiceStub extends org.apache.axis.client.St
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfBatchError");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError.class;
+            cls = com.microsoft.bingads.v9.campaignmanagement.BatchError[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BatchError");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BatchError");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfCampaignScope");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaignScope.class;
+            cls = com.microsoft.bingads.v9.campaignmanagement.CampaignScope[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "CampaignScope");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "CampaignScope");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfOperationError");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.campaignmanagement.ArrayOfOperationError.class;
+            cls = com.microsoft.bingads.v9.campaignmanagement.OperationError[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "OperationError");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "OperationError");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BatchError");
             cachedSerQNames.add(qName);

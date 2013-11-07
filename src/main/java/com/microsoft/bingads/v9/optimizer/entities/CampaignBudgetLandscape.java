@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.optimizer.entities;
 public class CampaignBudgetLandscape  extends com.microsoft.bingads.v9.optimizer.entities.Opportunity  implements java.io.Serializable {
     private java.util.Calendar baseDate;
 
-    private com.microsoft.bingads.v9.optimizer.entities.ArrayOfBudgetPoint budgetPoints;
+    private com.microsoft.bingads.v9.optimizer.entities.BudgetPoint[] budgetPoints;
 
     private java.lang.Long campaignId;
 
@@ -21,7 +21,7 @@ public class CampaignBudgetLandscape  extends com.microsoft.bingads.v9.optimizer
            java.util.Calendar expirationDate,
            java.lang.String opportunityKey,
            java.util.Calendar baseDate,
-           com.microsoft.bingads.v9.optimizer.entities.ArrayOfBudgetPoint budgetPoints,
+           com.microsoft.bingads.v9.optimizer.entities.BudgetPoint[] budgetPoints,
            java.lang.Long campaignId) {
         super(
             expirationDate,
@@ -57,7 +57,7 @@ public class CampaignBudgetLandscape  extends com.microsoft.bingads.v9.optimizer
      * 
      * @return budgetPoints
      */
-    public com.microsoft.bingads.v9.optimizer.entities.ArrayOfBudgetPoint getBudgetPoints() {
+    public com.microsoft.bingads.v9.optimizer.entities.BudgetPoint[] getBudgetPoints() {
         return budgetPoints;
     }
 
@@ -67,7 +67,7 @@ public class CampaignBudgetLandscape  extends com.microsoft.bingads.v9.optimizer
      * 
      * @param budgetPoints
      */
-    public void setBudgetPoints(com.microsoft.bingads.v9.optimizer.entities.ArrayOfBudgetPoint budgetPoints) {
+    public void setBudgetPoints(com.microsoft.bingads.v9.optimizer.entities.BudgetPoint[] budgetPoints) {
         this.budgetPoints = budgetPoints;
     }
 
@@ -108,7 +108,7 @@ public class CampaignBudgetLandscape  extends com.microsoft.bingads.v9.optimizer
               this.baseDate.equals(other.getBaseDate()))) &&
             ((this.budgetPoints==null && other.getBudgetPoints()==null) || 
              (this.budgetPoints!=null &&
-              this.budgetPoints.equals(other.getBudgetPoints()))) &&
+              java.util.Arrays.equals(this.budgetPoints, other.getBudgetPoints()))) &&
             ((this.campaignId==null && other.getCampaignId()==null) || 
              (this.campaignId!=null &&
               this.campaignId.equals(other.getCampaignId())));
@@ -127,7 +127,15 @@ public class CampaignBudgetLandscape  extends com.microsoft.bingads.v9.optimizer
             _hashCode += getBaseDate().hashCode();
         }
         if (getBudgetPoints() != null) {
-            _hashCode += getBudgetPoints().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getBudgetPoints());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getBudgetPoints(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getCampaignId() != null) {
             _hashCode += getCampaignId().hashCode();
@@ -152,9 +160,10 @@ public class CampaignBudgetLandscape  extends com.microsoft.bingads.v9.optimizer
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("budgetPoints");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BudgetPoints"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ArrayOfBudgetPoint"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BudgetPoint"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BudgetPoint"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("campaignId");

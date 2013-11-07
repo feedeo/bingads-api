@@ -12,7 +12,7 @@ public class DeviceOSTargetBid  implements java.io.Serializable {
 
     private java.lang.String deviceName;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring OSNames;
+    private java.lang.String[] OSNames;
 
     public DeviceOSTargetBid() {
     }
@@ -20,7 +20,7 @@ public class DeviceOSTargetBid  implements java.io.Serializable {
     public DeviceOSTargetBid(
            int bidAdjustment,
            java.lang.String deviceName,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring OSNames) {
+           java.lang.String[] OSNames) {
            this.bidAdjustment = bidAdjustment;
            this.deviceName = deviceName;
            this.OSNames = OSNames;
@@ -72,7 +72,7 @@ public class DeviceOSTargetBid  implements java.io.Serializable {
      * 
      * @return OSNames
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getOSNames() {
+    public java.lang.String[] getOSNames() {
         return OSNames;
     }
 
@@ -82,7 +82,7 @@ public class DeviceOSTargetBid  implements java.io.Serializable {
      * 
      * @param OSNames
      */
-    public void setOSNames(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring OSNames) {
+    public void setOSNames(java.lang.String[] OSNames) {
         this.OSNames = OSNames;
     }
 
@@ -104,7 +104,7 @@ public class DeviceOSTargetBid  implements java.io.Serializable {
               this.deviceName.equals(other.getDeviceName()))) &&
             ((this.OSNames==null && other.getOSNames()==null) || 
              (this.OSNames!=null &&
-              this.OSNames.equals(other.getOSNames())));
+              java.util.Arrays.equals(this.OSNames, other.getOSNames())));
         __equalsCalc = null;
         return _equals;
     }
@@ -121,7 +121,15 @@ public class DeviceOSTargetBid  implements java.io.Serializable {
             _hashCode += getDeviceName().hashCode();
         }
         if (getOSNames() != null) {
-            _hashCode += getOSNames().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getOSNames());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getOSNames(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -148,8 +156,9 @@ public class DeviceOSTargetBid  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("OSNames");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "OSNames"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

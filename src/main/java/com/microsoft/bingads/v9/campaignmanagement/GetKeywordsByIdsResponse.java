@@ -8,16 +8,16 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetKeywordsByIdsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfKeyword keywords;
+    private com.microsoft.bingads.v9.campaignmanagement.Keyword[] keywords;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError partialErrors;
+    private com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors;
 
     public GetKeywordsByIdsResponse() {
     }
 
     public GetKeywordsByIdsResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfKeyword keywords,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError partialErrors) {
+           com.microsoft.bingads.v9.campaignmanagement.Keyword[] keywords,
+           com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors) {
            this.keywords = keywords;
            this.partialErrors = partialErrors;
     }
@@ -28,7 +28,7 @@ public class GetKeywordsByIdsResponse  implements java.io.Serializable {
      * 
      * @return keywords
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfKeyword getKeywords() {
+    public com.microsoft.bingads.v9.campaignmanagement.Keyword[] getKeywords() {
         return keywords;
     }
 
@@ -38,7 +38,7 @@ public class GetKeywordsByIdsResponse  implements java.io.Serializable {
      * 
      * @param keywords
      */
-    public void setKeywords(com.microsoft.bingads.v9.campaignmanagement.ArrayOfKeyword keywords) {
+    public void setKeywords(com.microsoft.bingads.v9.campaignmanagement.Keyword[] keywords) {
         this.keywords = keywords;
     }
 
@@ -48,7 +48,7 @@ public class GetKeywordsByIdsResponse  implements java.io.Serializable {
      * 
      * @return partialErrors
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError getPartialErrors() {
+    public com.microsoft.bingads.v9.campaignmanagement.BatchError[] getPartialErrors() {
         return partialErrors;
     }
 
@@ -58,7 +58,7 @@ public class GetKeywordsByIdsResponse  implements java.io.Serializable {
      * 
      * @param partialErrors
      */
-    public void setPartialErrors(com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError partialErrors) {
+    public void setPartialErrors(com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors) {
         this.partialErrors = partialErrors;
     }
 
@@ -76,10 +76,10 @@ public class GetKeywordsByIdsResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.keywords==null && other.getKeywords()==null) || 
              (this.keywords!=null &&
-              this.keywords.equals(other.getKeywords()))) &&
+              java.util.Arrays.equals(this.keywords, other.getKeywords()))) &&
             ((this.partialErrors==null && other.getPartialErrors()==null) || 
              (this.partialErrors!=null &&
-              this.partialErrors.equals(other.getPartialErrors())));
+              java.util.Arrays.equals(this.partialErrors, other.getPartialErrors())));
         __equalsCalc = null;
         return _equals;
     }
@@ -92,10 +92,26 @@ public class GetKeywordsByIdsResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywords() != null) {
-            _hashCode += getKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getPartialErrors() != null) {
-            _hashCode += getPartialErrors().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPartialErrors());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPartialErrors(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -110,16 +126,18 @@ public class GetKeywordsByIdsResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Keywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfKeyword"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Keyword"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Keyword"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("partialErrors");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "PartialErrors"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfBatchError"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BatchError"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BatchError"));
         typeDesc.addFieldDesc(elemField);
     }
 

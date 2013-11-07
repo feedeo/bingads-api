@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.optimizer.entities;
 public class BudgetPoint  implements java.io.Serializable {
     private java.lang.Double budgetAmount;
 
-    private com.microsoft.bingads.v9.optimizer.entities.ArrayOfBudgetLandscapePoint budgetLandscapePoints;
+    private com.microsoft.bingads.v9.optimizer.entities.BudgetLandscapePoint[] budgetLandscapePoints;
 
     private com.microsoft.bingads.v9.optimizer.entities.BudgetPointType budgetPointType;
 
@@ -25,7 +25,7 @@ public class BudgetPoint  implements java.io.Serializable {
 
     public BudgetPoint(
            java.lang.Double budgetAmount,
-           com.microsoft.bingads.v9.optimizer.entities.ArrayOfBudgetLandscapePoint budgetLandscapePoints,
+           com.microsoft.bingads.v9.optimizer.entities.BudgetLandscapePoint[] budgetLandscapePoints,
            com.microsoft.bingads.v9.optimizer.entities.BudgetPointType budgetPointType,
            java.lang.Double estimatedAvgDailyClicks,
            java.lang.Double estimatedAvgDailyCost,
@@ -64,7 +64,7 @@ public class BudgetPoint  implements java.io.Serializable {
      * 
      * @return budgetLandscapePoints
      */
-    public com.microsoft.bingads.v9.optimizer.entities.ArrayOfBudgetLandscapePoint getBudgetLandscapePoints() {
+    public com.microsoft.bingads.v9.optimizer.entities.BudgetLandscapePoint[] getBudgetLandscapePoints() {
         return budgetLandscapePoints;
     }
 
@@ -74,7 +74,7 @@ public class BudgetPoint  implements java.io.Serializable {
      * 
      * @param budgetLandscapePoints
      */
-    public void setBudgetLandscapePoints(com.microsoft.bingads.v9.optimizer.entities.ArrayOfBudgetLandscapePoint budgetLandscapePoints) {
+    public void setBudgetLandscapePoints(com.microsoft.bingads.v9.optimizer.entities.BudgetLandscapePoint[] budgetLandscapePoints) {
         this.budgetLandscapePoints = budgetLandscapePoints;
     }
 
@@ -175,7 +175,7 @@ public class BudgetPoint  implements java.io.Serializable {
               this.budgetAmount.equals(other.getBudgetAmount()))) &&
             ((this.budgetLandscapePoints==null && other.getBudgetLandscapePoints()==null) || 
              (this.budgetLandscapePoints!=null &&
-              this.budgetLandscapePoints.equals(other.getBudgetLandscapePoints()))) &&
+              java.util.Arrays.equals(this.budgetLandscapePoints, other.getBudgetLandscapePoints()))) &&
             ((this.budgetPointType==null && other.getBudgetPointType()==null) || 
              (this.budgetPointType!=null &&
               this.budgetPointType.equals(other.getBudgetPointType()))) &&
@@ -203,7 +203,15 @@ public class BudgetPoint  implements java.io.Serializable {
             _hashCode += getBudgetAmount().hashCode();
         }
         if (getBudgetLandscapePoints() != null) {
-            _hashCode += getBudgetLandscapePoints().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getBudgetLandscapePoints());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getBudgetLandscapePoints(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getBudgetPointType() != null) {
             _hashCode += getBudgetPointType().hashCode();
@@ -237,9 +245,10 @@ public class BudgetPoint  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("budgetLandscapePoints");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BudgetLandscapePoints"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ArrayOfBudgetLandscapePoint"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BudgetLandscapePoint"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BudgetLandscapePoint"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("budgetPointType");

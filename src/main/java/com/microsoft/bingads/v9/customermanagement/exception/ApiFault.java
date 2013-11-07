@@ -8,14 +8,14 @@
 package com.microsoft.bingads.v9.customermanagement.exception;
 
 public class ApiFault  extends com.microsoft.bingads.v9.adapi.ApplicationFault  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.customermanagement.exception.ArrayOfOperationError operationErrors;
+    private com.microsoft.bingads.v9.customermanagement.exception.OperationError[] operationErrors;
 
     public ApiFault() {
     }
 
     public ApiFault(
            java.lang.String trackingId,
-           com.microsoft.bingads.v9.customermanagement.exception.ArrayOfOperationError operationErrors) {
+           com.microsoft.bingads.v9.customermanagement.exception.OperationError[] operationErrors) {
         super(
             trackingId);
         this.operationErrors = operationErrors;
@@ -27,7 +27,7 @@ public class ApiFault  extends com.microsoft.bingads.v9.adapi.ApplicationFault  
      * 
      * @return operationErrors
      */
-    public com.microsoft.bingads.v9.customermanagement.exception.ArrayOfOperationError getOperationErrors() {
+    public com.microsoft.bingads.v9.customermanagement.exception.OperationError[] getOperationErrors() {
         return operationErrors;
     }
 
@@ -37,7 +37,7 @@ public class ApiFault  extends com.microsoft.bingads.v9.adapi.ApplicationFault  
      * 
      * @param operationErrors
      */
-    public void setOperationErrors(com.microsoft.bingads.v9.customermanagement.exception.ArrayOfOperationError operationErrors) {
+    public void setOperationErrors(com.microsoft.bingads.v9.customermanagement.exception.OperationError[] operationErrors) {
         this.operationErrors = operationErrors;
     }
 
@@ -55,7 +55,7 @@ public class ApiFault  extends com.microsoft.bingads.v9.adapi.ApplicationFault  
         _equals = super.equals(obj) && 
             ((this.operationErrors==null && other.getOperationErrors()==null) || 
              (this.operationErrors!=null &&
-              this.operationErrors.equals(other.getOperationErrors())));
+              java.util.Arrays.equals(this.operationErrors, other.getOperationErrors())));
         __equalsCalc = null;
         return _equals;
     }
@@ -68,7 +68,15 @@ public class ApiFault  extends com.microsoft.bingads.v9.adapi.ApplicationFault  
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getOperationErrors() != null) {
-            _hashCode += getOperationErrors().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getOperationErrors());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getOperationErrors(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -83,9 +91,10 @@ public class ApiFault  extends com.microsoft.bingads.v9.adapi.ApplicationFault  
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("operationErrors");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationErrors"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ArrayOfOperationError"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationError"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationError"));
         typeDesc.addFieldDesc(elemField);
     }
 

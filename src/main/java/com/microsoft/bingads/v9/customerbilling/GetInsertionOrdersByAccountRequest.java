@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.customerbilling;
 public class GetInsertionOrdersByAccountRequest  implements java.io.Serializable {
     private java.lang.Long accountId;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong insertionOrderIds;
+    private long[] insertionOrderIds;
 
     public GetInsertionOrdersByAccountRequest() {
     }
 
     public GetInsertionOrdersByAccountRequest(
            java.lang.Long accountId,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong insertionOrderIds) {
+           long[] insertionOrderIds) {
            this.accountId = accountId;
            this.insertionOrderIds = insertionOrderIds;
     }
@@ -48,7 +48,7 @@ public class GetInsertionOrdersByAccountRequest  implements java.io.Serializable
      * 
      * @return insertionOrderIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getInsertionOrderIds() {
+    public long[] getInsertionOrderIds() {
         return insertionOrderIds;
     }
 
@@ -58,7 +58,7 @@ public class GetInsertionOrdersByAccountRequest  implements java.io.Serializable
      * 
      * @param insertionOrderIds
      */
-    public void setInsertionOrderIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong insertionOrderIds) {
+    public void setInsertionOrderIds(long[] insertionOrderIds) {
         this.insertionOrderIds = insertionOrderIds;
     }
 
@@ -79,7 +79,7 @@ public class GetInsertionOrdersByAccountRequest  implements java.io.Serializable
               this.accountId.equals(other.getAccountId()))) &&
             ((this.insertionOrderIds==null && other.getInsertionOrderIds()==null) || 
              (this.insertionOrderIds!=null &&
-              this.insertionOrderIds.equals(other.getInsertionOrderIds())));
+              java.util.Arrays.equals(this.insertionOrderIds, other.getInsertionOrderIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class GetInsertionOrdersByAccountRequest  implements java.io.Serializable
             _hashCode += getAccountId().hashCode();
         }
         if (getInsertionOrderIds() != null) {
-            _hashCode += getInsertionOrderIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getInsertionOrderIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getInsertionOrderIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class GetInsertionOrdersByAccountRequest  implements java.io.Serializable
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("insertionOrderIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Billing/v9", "InsertionOrderIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

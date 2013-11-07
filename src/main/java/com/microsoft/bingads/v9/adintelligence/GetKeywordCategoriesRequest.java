@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetKeywordCategoriesRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords;
+    private java.lang.String[] keywords;
 
     private java.lang.String language;
 
@@ -20,7 +20,7 @@ public class GetKeywordCategoriesRequest  implements java.io.Serializable {
     }
 
     public GetKeywordCategoriesRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords,
+           java.lang.String[] keywords,
            java.lang.String language,
            java.lang.String publisherCountry,
            java.lang.Integer maxCategories) {
@@ -36,7 +36,7 @@ public class GetKeywordCategoriesRequest  implements java.io.Serializable {
      * 
      * @return keywords
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getKeywords() {
+    public java.lang.String[] getKeywords() {
         return keywords;
     }
 
@@ -46,7 +46,7 @@ public class GetKeywordCategoriesRequest  implements java.io.Serializable {
      * 
      * @param keywords
      */
-    public void setKeywords(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords) {
+    public void setKeywords(java.lang.String[] keywords) {
         this.keywords = keywords;
     }
 
@@ -124,7 +124,7 @@ public class GetKeywordCategoriesRequest  implements java.io.Serializable {
         _equals = true && 
             ((this.keywords==null && other.getKeywords()==null) || 
              (this.keywords!=null &&
-              this.keywords.equals(other.getKeywords()))) &&
+              java.util.Arrays.equals(this.keywords, other.getKeywords()))) &&
             ((this.language==null && other.getLanguage()==null) || 
              (this.language!=null &&
               this.language.equals(other.getLanguage()))) &&
@@ -146,7 +146,15 @@ public class GetKeywordCategoriesRequest  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywords() != null) {
-            _hashCode += getKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLanguage() != null) {
             _hashCode += getLanguage().hashCode();
@@ -170,9 +178,10 @@ public class GetKeywordCategoriesRequest  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "Keywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("language");

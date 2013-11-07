@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class NegativeKeywordConflictReportRequest  extends com.microsoft.bingads.v9.reporting.ReportRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.reporting.ArrayOfNegativeKeywordConflictReportColumn columns;
+    private com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn[] columns;
 
     private com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope;
 
@@ -20,7 +20,7 @@ public class NegativeKeywordConflictReportRequest  extends com.microsoft.bingads
            com.microsoft.bingads.v9.reporting.ReportLanguage language,
            java.lang.String reportName,
            java.lang.Boolean returnOnlyCompleteData,
-           com.microsoft.bingads.v9.reporting.ArrayOfNegativeKeywordConflictReportColumn columns,
+           com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn[] columns,
            com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope) {
         super(
             format,
@@ -37,7 +37,7 @@ public class NegativeKeywordConflictReportRequest  extends com.microsoft.bingads
      * 
      * @return columns
      */
-    public com.microsoft.bingads.v9.reporting.ArrayOfNegativeKeywordConflictReportColumn getColumns() {
+    public com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn[] getColumns() {
         return columns;
     }
 
@@ -47,7 +47,7 @@ public class NegativeKeywordConflictReportRequest  extends com.microsoft.bingads
      * 
      * @param columns
      */
-    public void setColumns(com.microsoft.bingads.v9.reporting.ArrayOfNegativeKeywordConflictReportColumn columns) {
+    public void setColumns(com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn[] columns) {
         this.columns = columns;
     }
 
@@ -85,7 +85,7 @@ public class NegativeKeywordConflictReportRequest  extends com.microsoft.bingads
         _equals = super.equals(obj) && 
             ((this.columns==null && other.getColumns()==null) || 
              (this.columns!=null &&
-              this.columns.equals(other.getColumns()))) &&
+              java.util.Arrays.equals(this.columns, other.getColumns()))) &&
             ((this.scope==null && other.getScope()==null) || 
              (this.scope!=null &&
               this.scope.equals(other.getScope())));
@@ -101,7 +101,15 @@ public class NegativeKeywordConflictReportRequest  extends com.microsoft.bingads
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getColumns() != null) {
-            _hashCode += getColumns().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getColumns());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getColumns(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getScope() != null) {
             _hashCode += getScope().hashCode();
@@ -119,8 +127,9 @@ public class NegativeKeywordConflictReportRequest  extends com.microsoft.bingads
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("columns");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Columns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfNegativeKeywordConflictReportColumn"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportColumn"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportColumn"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("scope");

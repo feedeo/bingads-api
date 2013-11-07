@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetAdGroupBidLandscapeRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfAdGroupBidLandscapeInput adGroupBidLandscapeInputs;
+    private com.microsoft.bingads.v9.datacontracts.AdGroupBidLandscapeInput[] adGroupBidLandscapeInputs;
 
     public GetAdGroupBidLandscapeRequest() {
     }
 
     public GetAdGroupBidLandscapeRequest(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfAdGroupBidLandscapeInput adGroupBidLandscapeInputs) {
+           com.microsoft.bingads.v9.datacontracts.AdGroupBidLandscapeInput[] adGroupBidLandscapeInputs) {
            this.adGroupBidLandscapeInputs = adGroupBidLandscapeInputs;
     }
 
@@ -24,7 +24,7 @@ public class GetAdGroupBidLandscapeRequest  implements java.io.Serializable {
      * 
      * @return adGroupBidLandscapeInputs
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfAdGroupBidLandscapeInput getAdGroupBidLandscapeInputs() {
+    public com.microsoft.bingads.v9.datacontracts.AdGroupBidLandscapeInput[] getAdGroupBidLandscapeInputs() {
         return adGroupBidLandscapeInputs;
     }
 
@@ -34,7 +34,7 @@ public class GetAdGroupBidLandscapeRequest  implements java.io.Serializable {
      * 
      * @param adGroupBidLandscapeInputs
      */
-    public void setAdGroupBidLandscapeInputs(com.microsoft.bingads.v9.datacontracts.ArrayOfAdGroupBidLandscapeInput adGroupBidLandscapeInputs) {
+    public void setAdGroupBidLandscapeInputs(com.microsoft.bingads.v9.datacontracts.AdGroupBidLandscapeInput[] adGroupBidLandscapeInputs) {
         this.adGroupBidLandscapeInputs = adGroupBidLandscapeInputs;
     }
 
@@ -52,7 +52,7 @@ public class GetAdGroupBidLandscapeRequest  implements java.io.Serializable {
         _equals = true && 
             ((this.adGroupBidLandscapeInputs==null && other.getAdGroupBidLandscapeInputs()==null) || 
              (this.adGroupBidLandscapeInputs!=null &&
-              this.adGroupBidLandscapeInputs.equals(other.getAdGroupBidLandscapeInputs())));
+              java.util.Arrays.equals(this.adGroupBidLandscapeInputs, other.getAdGroupBidLandscapeInputs())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetAdGroupBidLandscapeRequest  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAdGroupBidLandscapeInputs() != null) {
-            _hashCode += getAdGroupBidLandscapeInputs().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdGroupBidLandscapeInputs());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdGroupBidLandscapeInputs(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetAdGroupBidLandscapeRequest  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adGroupBidLandscapeInputs");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "AdGroupBidLandscapeInputs"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfAdGroupBidLandscapeInput"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "AdGroupBidLandscapeInput"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "AdGroupBidLandscapeInput"));
         typeDesc.addFieldDesc(elemField);
     }
 

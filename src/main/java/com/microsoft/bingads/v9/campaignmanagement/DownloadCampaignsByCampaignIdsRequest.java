@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class DownloadCampaignsByCampaignIdsRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaignScope campaigns;
+    private com.microsoft.bingads.v9.campaignmanagement.CampaignScope[] campaigns;
 
     private java.lang.String[] dataScope;
 
@@ -26,7 +26,7 @@ public class DownloadCampaignsByCampaignIdsRequest  implements java.io.Serializa
     }
 
     public DownloadCampaignsByCampaignIdsRequest(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaignScope campaigns,
+           com.microsoft.bingads.v9.campaignmanagement.CampaignScope[] campaigns,
            java.lang.String[] dataScope,
            com.microsoft.bingads.v9.campaignmanagement.DownloadFileType downloadFileType,
            java.lang.String[] entities,
@@ -48,7 +48,7 @@ public class DownloadCampaignsByCampaignIdsRequest  implements java.io.Serializa
      * 
      * @return campaigns
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaignScope getCampaigns() {
+    public com.microsoft.bingads.v9.campaignmanagement.CampaignScope[] getCampaigns() {
         return campaigns;
     }
 
@@ -58,7 +58,7 @@ public class DownloadCampaignsByCampaignIdsRequest  implements java.io.Serializa
      * 
      * @param campaigns
      */
-    public void setCampaigns(com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaignScope campaigns) {
+    public void setCampaigns(com.microsoft.bingads.v9.campaignmanagement.CampaignScope[] campaigns) {
         this.campaigns = campaigns;
     }
 
@@ -196,7 +196,7 @@ public class DownloadCampaignsByCampaignIdsRequest  implements java.io.Serializa
         _equals = true && 
             ((this.campaigns==null && other.getCampaigns()==null) || 
              (this.campaigns!=null &&
-              this.campaigns.equals(other.getCampaigns()))) &&
+              java.util.Arrays.equals(this.campaigns, other.getCampaigns()))) &&
             ((this.dataScope==null && other.getDataScope()==null) || 
              (this.dataScope!=null &&
               java.util.Arrays.equals(this.dataScope, other.getDataScope()))) &&
@@ -227,7 +227,15 @@ public class DownloadCampaignsByCampaignIdsRequest  implements java.io.Serializa
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getCampaigns() != null) {
-            _hashCode += getCampaigns().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getCampaigns());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getCampaigns(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getDataScope() != null) {
             for (int i=0;
@@ -276,9 +284,10 @@ public class DownloadCampaignsByCampaignIdsRequest  implements java.io.Serializa
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("campaigns");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Campaigns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfCampaignScope"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "CampaignScope"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "CampaignScope"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("dataScope");

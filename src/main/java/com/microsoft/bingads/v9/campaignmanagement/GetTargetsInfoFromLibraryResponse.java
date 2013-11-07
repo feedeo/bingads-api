@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetTargetsInfoFromLibraryResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfTargetInfo targetsInfo;
+    private com.microsoft.bingads.v9.campaignmanagement.TargetInfo[] targetsInfo;
 
     public GetTargetsInfoFromLibraryResponse() {
     }
 
     public GetTargetsInfoFromLibraryResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfTargetInfo targetsInfo) {
+           com.microsoft.bingads.v9.campaignmanagement.TargetInfo[] targetsInfo) {
            this.targetsInfo = targetsInfo;
     }
 
@@ -24,7 +24,7 @@ public class GetTargetsInfoFromLibraryResponse  implements java.io.Serializable 
      * 
      * @return targetsInfo
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfTargetInfo getTargetsInfo() {
+    public com.microsoft.bingads.v9.campaignmanagement.TargetInfo[] getTargetsInfo() {
         return targetsInfo;
     }
 
@@ -34,7 +34,7 @@ public class GetTargetsInfoFromLibraryResponse  implements java.io.Serializable 
      * 
      * @param targetsInfo
      */
-    public void setTargetsInfo(com.microsoft.bingads.v9.campaignmanagement.ArrayOfTargetInfo targetsInfo) {
+    public void setTargetsInfo(com.microsoft.bingads.v9.campaignmanagement.TargetInfo[] targetsInfo) {
         this.targetsInfo = targetsInfo;
     }
 
@@ -52,7 +52,7 @@ public class GetTargetsInfoFromLibraryResponse  implements java.io.Serializable 
         _equals = true && 
             ((this.targetsInfo==null && other.getTargetsInfo()==null) || 
              (this.targetsInfo!=null &&
-              this.targetsInfo.equals(other.getTargetsInfo())));
+              java.util.Arrays.equals(this.targetsInfo, other.getTargetsInfo())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetTargetsInfoFromLibraryResponse  implements java.io.Serializable 
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getTargetsInfo() != null) {
-            _hashCode += getTargetsInfo().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getTargetsInfo());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getTargetsInfo(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetTargetsInfoFromLibraryResponse  implements java.io.Serializable 
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("targetsInfo");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "TargetsInfo"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfTargetInfo"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "TargetInfo"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "TargetInfo"));
         typeDesc.addFieldDesc(elemField);
     }
 

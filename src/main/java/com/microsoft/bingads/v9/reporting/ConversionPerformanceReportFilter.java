@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.reporting;
 public class ConversionPerformanceReportFilter  implements java.io.Serializable {
     private java.lang.String[] deviceType;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords;
+    private java.lang.String[] keywords;
 
     public ConversionPerformanceReportFilter() {
     }
 
     public ConversionPerformanceReportFilter(
            java.lang.String[] deviceType,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords) {
+           java.lang.String[] keywords) {
            this.deviceType = deviceType;
            this.keywords = keywords;
     }
@@ -48,7 +48,7 @@ public class ConversionPerformanceReportFilter  implements java.io.Serializable 
      * 
      * @return keywords
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getKeywords() {
+    public java.lang.String[] getKeywords() {
         return keywords;
     }
 
@@ -58,7 +58,7 @@ public class ConversionPerformanceReportFilter  implements java.io.Serializable 
      * 
      * @param keywords
      */
-    public void setKeywords(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords) {
+    public void setKeywords(java.lang.String[] keywords) {
         this.keywords = keywords;
     }
 
@@ -79,7 +79,7 @@ public class ConversionPerformanceReportFilter  implements java.io.Serializable 
               java.util.Arrays.equals(this.deviceType, other.getDeviceType()))) &&
             ((this.keywords==null && other.getKeywords()==null) || 
              (this.keywords!=null &&
-              this.keywords.equals(other.getKeywords())));
+              java.util.Arrays.equals(this.keywords, other.getKeywords())));
         __equalsCalc = null;
         return _equals;
     }
@@ -103,7 +103,15 @@ public class ConversionPerformanceReportFilter  implements java.io.Serializable 
             }
         }
         if (getKeywords() != null) {
-            _hashCode += getKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -125,9 +133,10 @@ public class ConversionPerformanceReportFilter  implements java.io.Serializable 
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Keywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

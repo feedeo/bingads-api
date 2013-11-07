@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class HourTarget  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfHourTargetBid bids;
+    private com.microsoft.bingads.v9.campaignmanagement.HourTargetBid[] bids;
 
     private java.lang.Boolean targetAllHours;
 
@@ -16,7 +16,7 @@ public class HourTarget  implements java.io.Serializable {
     }
 
     public HourTarget(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfHourTargetBid bids,
+           com.microsoft.bingads.v9.campaignmanagement.HourTargetBid[] bids,
            java.lang.Boolean targetAllHours) {
            this.bids = bids;
            this.targetAllHours = targetAllHours;
@@ -28,7 +28,7 @@ public class HourTarget  implements java.io.Serializable {
      * 
      * @return bids
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfHourTargetBid getBids() {
+    public com.microsoft.bingads.v9.campaignmanagement.HourTargetBid[] getBids() {
         return bids;
     }
 
@@ -38,7 +38,7 @@ public class HourTarget  implements java.io.Serializable {
      * 
      * @param bids
      */
-    public void setBids(com.microsoft.bingads.v9.campaignmanagement.ArrayOfHourTargetBid bids) {
+    public void setBids(com.microsoft.bingads.v9.campaignmanagement.HourTargetBid[] bids) {
         this.bids = bids;
     }
 
@@ -76,7 +76,7 @@ public class HourTarget  implements java.io.Serializable {
         _equals = true && 
             ((this.bids==null && other.getBids()==null) || 
              (this.bids!=null &&
-              this.bids.equals(other.getBids()))) &&
+              java.util.Arrays.equals(this.bids, other.getBids()))) &&
             ((this.targetAllHours==null && other.getTargetAllHours()==null) || 
              (this.targetAllHours!=null &&
               this.targetAllHours.equals(other.getTargetAllHours())));
@@ -92,7 +92,15 @@ public class HourTarget  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getBids() != null) {
-            _hashCode += getBids().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getBids());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getBids(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getTargetAllHours() != null) {
             _hashCode += getTargetAllHours().hashCode();
@@ -110,8 +118,9 @@ public class HourTarget  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("bids");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Bids"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfHourTargetBid"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "HourTargetBid"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "HourTargetBid"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("targetAllHours");

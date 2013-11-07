@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class SetNegativeSitesToCampaignsRequest  implements java.io.Serializable {
     private java.lang.Long accountId;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaignNegativeSites campaignNegativeSites;
+    private com.microsoft.bingads.v9.campaignmanagement.CampaignNegativeSites[] campaignNegativeSites;
 
     public SetNegativeSitesToCampaignsRequest() {
     }
 
     public SetNegativeSitesToCampaignsRequest(
            java.lang.Long accountId,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaignNegativeSites campaignNegativeSites) {
+           com.microsoft.bingads.v9.campaignmanagement.CampaignNegativeSites[] campaignNegativeSites) {
            this.accountId = accountId;
            this.campaignNegativeSites = campaignNegativeSites;
     }
@@ -48,7 +48,7 @@ public class SetNegativeSitesToCampaignsRequest  implements java.io.Serializable
      * 
      * @return campaignNegativeSites
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaignNegativeSites getCampaignNegativeSites() {
+    public com.microsoft.bingads.v9.campaignmanagement.CampaignNegativeSites[] getCampaignNegativeSites() {
         return campaignNegativeSites;
     }
 
@@ -58,7 +58,7 @@ public class SetNegativeSitesToCampaignsRequest  implements java.io.Serializable
      * 
      * @param campaignNegativeSites
      */
-    public void setCampaignNegativeSites(com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaignNegativeSites campaignNegativeSites) {
+    public void setCampaignNegativeSites(com.microsoft.bingads.v9.campaignmanagement.CampaignNegativeSites[] campaignNegativeSites) {
         this.campaignNegativeSites = campaignNegativeSites;
     }
 
@@ -79,7 +79,7 @@ public class SetNegativeSitesToCampaignsRequest  implements java.io.Serializable
               this.accountId.equals(other.getAccountId()))) &&
             ((this.campaignNegativeSites==null && other.getCampaignNegativeSites()==null) || 
              (this.campaignNegativeSites!=null &&
-              this.campaignNegativeSites.equals(other.getCampaignNegativeSites())));
+              java.util.Arrays.equals(this.campaignNegativeSites, other.getCampaignNegativeSites())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class SetNegativeSitesToCampaignsRequest  implements java.io.Serializable
             _hashCode += getAccountId().hashCode();
         }
         if (getCampaignNegativeSites() != null) {
-            _hashCode += getCampaignNegativeSites().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getCampaignNegativeSites());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getCampaignNegativeSites(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class SetNegativeSitesToCampaignsRequest  implements java.io.Serializable
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("campaignNegativeSites");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "CampaignNegativeSites"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfCampaignNegativeSites"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "CampaignNegativeSites"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "CampaignNegativeSites"));
         typeDesc.addFieldDesc(elemField);
     }
 

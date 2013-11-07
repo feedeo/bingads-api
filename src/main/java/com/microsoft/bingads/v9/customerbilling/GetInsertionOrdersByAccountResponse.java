@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.customerbilling;
 
 public class GetInsertionOrdersByAccountResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.customermanagement.entities.ArrayOfInsertionOrder insertionOrders;
+    private com.microsoft.bingads.v9.customermanagement.entities.InsertionOrder[] insertionOrders;
 
     public GetInsertionOrdersByAccountResponse() {
     }
 
     public GetInsertionOrdersByAccountResponse(
-           com.microsoft.bingads.v9.customermanagement.entities.ArrayOfInsertionOrder insertionOrders) {
+           com.microsoft.bingads.v9.customermanagement.entities.InsertionOrder[] insertionOrders) {
            this.insertionOrders = insertionOrders;
     }
 
@@ -24,7 +24,7 @@ public class GetInsertionOrdersByAccountResponse  implements java.io.Serializabl
      * 
      * @return insertionOrders
      */
-    public com.microsoft.bingads.v9.customermanagement.entities.ArrayOfInsertionOrder getInsertionOrders() {
+    public com.microsoft.bingads.v9.customermanagement.entities.InsertionOrder[] getInsertionOrders() {
         return insertionOrders;
     }
 
@@ -34,7 +34,7 @@ public class GetInsertionOrdersByAccountResponse  implements java.io.Serializabl
      * 
      * @param insertionOrders
      */
-    public void setInsertionOrders(com.microsoft.bingads.v9.customermanagement.entities.ArrayOfInsertionOrder insertionOrders) {
+    public void setInsertionOrders(com.microsoft.bingads.v9.customermanagement.entities.InsertionOrder[] insertionOrders) {
         this.insertionOrders = insertionOrders;
     }
 
@@ -52,7 +52,7 @@ public class GetInsertionOrdersByAccountResponse  implements java.io.Serializabl
         _equals = true && 
             ((this.insertionOrders==null && other.getInsertionOrders()==null) || 
              (this.insertionOrders!=null &&
-              this.insertionOrders.equals(other.getInsertionOrders())));
+              java.util.Arrays.equals(this.insertionOrders, other.getInsertionOrders())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetInsertionOrdersByAccountResponse  implements java.io.Serializabl
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getInsertionOrders() != null) {
-            _hashCode += getInsertionOrders().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getInsertionOrders());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getInsertionOrders(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetInsertionOrdersByAccountResponse  implements java.io.Serializabl
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("insertionOrders");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Billing/v9", "InsertionOrders"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ArrayOfInsertionOrder"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "InsertionOrder"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "InsertionOrder"));
         typeDesc.addFieldDesc(elemField);
     }
 

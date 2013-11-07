@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.customermanagement;
 
 public class SearchCustomersResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.customermanagement.entities.ArrayOfCustomer customers;
+    private com.microsoft.bingads.v9.customermanagement.entities.Customer[] customers;
 
     public SearchCustomersResponse() {
     }
 
     public SearchCustomersResponse(
-           com.microsoft.bingads.v9.customermanagement.entities.ArrayOfCustomer customers) {
+           com.microsoft.bingads.v9.customermanagement.entities.Customer[] customers) {
            this.customers = customers;
     }
 
@@ -24,7 +24,7 @@ public class SearchCustomersResponse  implements java.io.Serializable {
      * 
      * @return customers
      */
-    public com.microsoft.bingads.v9.customermanagement.entities.ArrayOfCustomer getCustomers() {
+    public com.microsoft.bingads.v9.customermanagement.entities.Customer[] getCustomers() {
         return customers;
     }
 
@@ -34,7 +34,7 @@ public class SearchCustomersResponse  implements java.io.Serializable {
      * 
      * @param customers
      */
-    public void setCustomers(com.microsoft.bingads.v9.customermanagement.entities.ArrayOfCustomer customers) {
+    public void setCustomers(com.microsoft.bingads.v9.customermanagement.entities.Customer[] customers) {
         this.customers = customers;
     }
 
@@ -52,7 +52,7 @@ public class SearchCustomersResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.customers==null && other.getCustomers()==null) || 
              (this.customers!=null &&
-              this.customers.equals(other.getCustomers())));
+              java.util.Arrays.equals(this.customers, other.getCustomers())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class SearchCustomersResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getCustomers() != null) {
-            _hashCode += getCustomers().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getCustomers());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getCustomers(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class SearchCustomersResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("customers");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "Customers"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ArrayOfCustomer"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "Customer"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "Customer"));
         typeDesc.addFieldDesc(elemField);
     }
 

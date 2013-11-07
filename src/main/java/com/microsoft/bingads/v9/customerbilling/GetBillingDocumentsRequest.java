@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.customerbilling;
 
 public class GetBillingDocumentsRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong documentIds;
+    private long[] documentIds;
 
     private com.microsoft.bingads.v9.customermanagement.entities.DataType type;
 
@@ -16,7 +16,7 @@ public class GetBillingDocumentsRequest  implements java.io.Serializable {
     }
 
     public GetBillingDocumentsRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong documentIds,
+           long[] documentIds,
            com.microsoft.bingads.v9.customermanagement.entities.DataType type) {
            this.documentIds = documentIds;
            this.type = type;
@@ -28,7 +28,7 @@ public class GetBillingDocumentsRequest  implements java.io.Serializable {
      * 
      * @return documentIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getDocumentIds() {
+    public long[] getDocumentIds() {
         return documentIds;
     }
 
@@ -38,7 +38,7 @@ public class GetBillingDocumentsRequest  implements java.io.Serializable {
      * 
      * @param documentIds
      */
-    public void setDocumentIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong documentIds) {
+    public void setDocumentIds(long[] documentIds) {
         this.documentIds = documentIds;
     }
 
@@ -76,7 +76,7 @@ public class GetBillingDocumentsRequest  implements java.io.Serializable {
         _equals = true && 
             ((this.documentIds==null && other.getDocumentIds()==null) || 
              (this.documentIds!=null &&
-              this.documentIds.equals(other.getDocumentIds()))) &&
+              java.util.Arrays.equals(this.documentIds, other.getDocumentIds()))) &&
             ((this.type==null && other.getType()==null) || 
              (this.type!=null &&
               this.type.equals(other.getType())));
@@ -92,7 +92,15 @@ public class GetBillingDocumentsRequest  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getDocumentIds() != null) {
-            _hashCode += getDocumentIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getDocumentIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getDocumentIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getType() != null) {
             _hashCode += getType().hashCode();
@@ -110,9 +118,10 @@ public class GetBillingDocumentsRequest  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("documentIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Billing/v9", "DocumentIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("type");

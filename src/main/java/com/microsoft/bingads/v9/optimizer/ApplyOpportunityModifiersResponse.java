@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.optimizer;
 
 public class ApplyOpportunityModifiersResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.optimizer.entities.ArrayOfAppliedResult appliedResults;
+    private com.microsoft.bingads.v9.optimizer.entities.AppliedResult[] appliedResults;
 
     public ApplyOpportunityModifiersResponse() {
     }
 
     public ApplyOpportunityModifiersResponse(
-           com.microsoft.bingads.v9.optimizer.entities.ArrayOfAppliedResult appliedResults) {
+           com.microsoft.bingads.v9.optimizer.entities.AppliedResult[] appliedResults) {
            this.appliedResults = appliedResults;
     }
 
@@ -24,7 +24,7 @@ public class ApplyOpportunityModifiersResponse  implements java.io.Serializable 
      * 
      * @return appliedResults
      */
-    public com.microsoft.bingads.v9.optimizer.entities.ArrayOfAppliedResult getAppliedResults() {
+    public com.microsoft.bingads.v9.optimizer.entities.AppliedResult[] getAppliedResults() {
         return appliedResults;
     }
 
@@ -34,7 +34,7 @@ public class ApplyOpportunityModifiersResponse  implements java.io.Serializable 
      * 
      * @param appliedResults
      */
-    public void setAppliedResults(com.microsoft.bingads.v9.optimizer.entities.ArrayOfAppliedResult appliedResults) {
+    public void setAppliedResults(com.microsoft.bingads.v9.optimizer.entities.AppliedResult[] appliedResults) {
         this.appliedResults = appliedResults;
     }
 
@@ -52,7 +52,7 @@ public class ApplyOpportunityModifiersResponse  implements java.io.Serializable 
         _equals = true && 
             ((this.appliedResults==null && other.getAppliedResults()==null) || 
              (this.appliedResults!=null &&
-              this.appliedResults.equals(other.getAppliedResults())));
+              java.util.Arrays.equals(this.appliedResults, other.getAppliedResults())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class ApplyOpportunityModifiersResponse  implements java.io.Serializable 
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAppliedResults() != null) {
-            _hashCode += getAppliedResults().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAppliedResults());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAppliedResults(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class ApplyOpportunityModifiersResponse  implements java.io.Serializable 
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("appliedResults");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Optimizer/v9", "AppliedResults"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ArrayOfAppliedResult"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "AppliedResult"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "AppliedResult"));
         typeDesc.addFieldDesc(elemField);
     }
 

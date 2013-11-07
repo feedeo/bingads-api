@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.customerbilling;
 
 public class GetKOHIOInvoicesRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring invoiceIds;
+    private java.lang.String[] invoiceIds;
 
     public GetKOHIOInvoicesRequest() {
     }
 
     public GetKOHIOInvoicesRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring invoiceIds) {
+           java.lang.String[] invoiceIds) {
            this.invoiceIds = invoiceIds;
     }
 
@@ -24,7 +24,7 @@ public class GetKOHIOInvoicesRequest  implements java.io.Serializable {
      * 
      * @return invoiceIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getInvoiceIds() {
+    public java.lang.String[] getInvoiceIds() {
         return invoiceIds;
     }
 
@@ -34,7 +34,7 @@ public class GetKOHIOInvoicesRequest  implements java.io.Serializable {
      * 
      * @param invoiceIds
      */
-    public void setInvoiceIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring invoiceIds) {
+    public void setInvoiceIds(java.lang.String[] invoiceIds) {
         this.invoiceIds = invoiceIds;
     }
 
@@ -52,7 +52,7 @@ public class GetKOHIOInvoicesRequest  implements java.io.Serializable {
         _equals = true && 
             ((this.invoiceIds==null && other.getInvoiceIds()==null) || 
              (this.invoiceIds!=null &&
-              this.invoiceIds.equals(other.getInvoiceIds())));
+              java.util.Arrays.equals(this.invoiceIds, other.getInvoiceIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetKOHIOInvoicesRequest  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getInvoiceIds() != null) {
-            _hashCode += getInvoiceIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getInvoiceIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getInvoiceIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetKOHIOInvoicesRequest  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("invoiceIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Billing/v9", "InvoiceIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

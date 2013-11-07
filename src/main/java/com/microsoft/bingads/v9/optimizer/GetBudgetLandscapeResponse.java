@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.optimizer;
 
 public class GetBudgetLandscapeResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.optimizer.entities.ArrayOfCampaignBudgetLandscape campaignBudgetLandscapes;
+    private com.microsoft.bingads.v9.optimizer.entities.CampaignBudgetLandscape[] campaignBudgetLandscapes;
 
     public GetBudgetLandscapeResponse() {
     }
 
     public GetBudgetLandscapeResponse(
-           com.microsoft.bingads.v9.optimizer.entities.ArrayOfCampaignBudgetLandscape campaignBudgetLandscapes) {
+           com.microsoft.bingads.v9.optimizer.entities.CampaignBudgetLandscape[] campaignBudgetLandscapes) {
            this.campaignBudgetLandscapes = campaignBudgetLandscapes;
     }
 
@@ -24,7 +24,7 @@ public class GetBudgetLandscapeResponse  implements java.io.Serializable {
      * 
      * @return campaignBudgetLandscapes
      */
-    public com.microsoft.bingads.v9.optimizer.entities.ArrayOfCampaignBudgetLandscape getCampaignBudgetLandscapes() {
+    public com.microsoft.bingads.v9.optimizer.entities.CampaignBudgetLandscape[] getCampaignBudgetLandscapes() {
         return campaignBudgetLandscapes;
     }
 
@@ -34,7 +34,7 @@ public class GetBudgetLandscapeResponse  implements java.io.Serializable {
      * 
      * @param campaignBudgetLandscapes
      */
-    public void setCampaignBudgetLandscapes(com.microsoft.bingads.v9.optimizer.entities.ArrayOfCampaignBudgetLandscape campaignBudgetLandscapes) {
+    public void setCampaignBudgetLandscapes(com.microsoft.bingads.v9.optimizer.entities.CampaignBudgetLandscape[] campaignBudgetLandscapes) {
         this.campaignBudgetLandscapes = campaignBudgetLandscapes;
     }
 
@@ -52,7 +52,7 @@ public class GetBudgetLandscapeResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.campaignBudgetLandscapes==null && other.getCampaignBudgetLandscapes()==null) || 
              (this.campaignBudgetLandscapes!=null &&
-              this.campaignBudgetLandscapes.equals(other.getCampaignBudgetLandscapes())));
+              java.util.Arrays.equals(this.campaignBudgetLandscapes, other.getCampaignBudgetLandscapes())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetBudgetLandscapeResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getCampaignBudgetLandscapes() != null) {
-            _hashCode += getCampaignBudgetLandscapes().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getCampaignBudgetLandscapes());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getCampaignBudgetLandscapes(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetBudgetLandscapeResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("campaignBudgetLandscapes");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Optimizer/v9", "CampaignBudgetLandscapes"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ArrayOfCampaignBudgetLandscape"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "CampaignBudgetLandscape"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "CampaignBudgetLandscape"));
         typeDesc.addFieldDesc(elemField);
     }
 

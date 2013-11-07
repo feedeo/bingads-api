@@ -8,22 +8,22 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetKeywordDemographicsRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords;
+    private java.lang.String[] keywords;
 
     private java.lang.String language;
 
     private java.lang.String publisherCountry;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring device;
+    private java.lang.String[] device;
 
     public GetKeywordDemographicsRequest() {
     }
 
     public GetKeywordDemographicsRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords,
+           java.lang.String[] keywords,
            java.lang.String language,
            java.lang.String publisherCountry,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring device) {
+           java.lang.String[] device) {
            this.keywords = keywords;
            this.language = language;
            this.publisherCountry = publisherCountry;
@@ -36,7 +36,7 @@ public class GetKeywordDemographicsRequest  implements java.io.Serializable {
      * 
      * @return keywords
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getKeywords() {
+    public java.lang.String[] getKeywords() {
         return keywords;
     }
 
@@ -46,7 +46,7 @@ public class GetKeywordDemographicsRequest  implements java.io.Serializable {
      * 
      * @param keywords
      */
-    public void setKeywords(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords) {
+    public void setKeywords(java.lang.String[] keywords) {
         this.keywords = keywords;
     }
 
@@ -96,7 +96,7 @@ public class GetKeywordDemographicsRequest  implements java.io.Serializable {
      * 
      * @return device
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getDevice() {
+    public java.lang.String[] getDevice() {
         return device;
     }
 
@@ -106,7 +106,7 @@ public class GetKeywordDemographicsRequest  implements java.io.Serializable {
      * 
      * @param device
      */
-    public void setDevice(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring device) {
+    public void setDevice(java.lang.String[] device) {
         this.device = device;
     }
 
@@ -124,7 +124,7 @@ public class GetKeywordDemographicsRequest  implements java.io.Serializable {
         _equals = true && 
             ((this.keywords==null && other.getKeywords()==null) || 
              (this.keywords!=null &&
-              this.keywords.equals(other.getKeywords()))) &&
+              java.util.Arrays.equals(this.keywords, other.getKeywords()))) &&
             ((this.language==null && other.getLanguage()==null) || 
              (this.language!=null &&
               this.language.equals(other.getLanguage()))) &&
@@ -133,7 +133,7 @@ public class GetKeywordDemographicsRequest  implements java.io.Serializable {
               this.publisherCountry.equals(other.getPublisherCountry()))) &&
             ((this.device==null && other.getDevice()==null) || 
              (this.device!=null &&
-              this.device.equals(other.getDevice())));
+              java.util.Arrays.equals(this.device, other.getDevice())));
         __equalsCalc = null;
         return _equals;
     }
@@ -146,7 +146,15 @@ public class GetKeywordDemographicsRequest  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywords() != null) {
-            _hashCode += getKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLanguage() != null) {
             _hashCode += getLanguage().hashCode();
@@ -155,7 +163,15 @@ public class GetKeywordDemographicsRequest  implements java.io.Serializable {
             _hashCode += getPublisherCountry().hashCode();
         }
         if (getDevice() != null) {
-            _hashCode += getDevice().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getDevice());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getDevice(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -170,9 +186,10 @@ public class GetKeywordDemographicsRequest  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "Keywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("language");
@@ -191,9 +208,10 @@ public class GetKeywordDemographicsRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("device");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "Device"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

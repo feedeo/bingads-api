@@ -12,7 +12,7 @@ public class KeywordSearchCount  implements java.io.Serializable {
 
     private java.lang.String device;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfHistoricalSearchCountPeriodic historicalSearchCounts;
+    private com.microsoft.bingads.v9.datacontracts.HistoricalSearchCountPeriodic[] historicalSearchCounts;
 
     public KeywordSearchCount() {
     }
@@ -20,7 +20,7 @@ public class KeywordSearchCount  implements java.io.Serializable {
     public KeywordSearchCount(
            java.lang.String keyword,
            java.lang.String device,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfHistoricalSearchCountPeriodic historicalSearchCounts) {
+           com.microsoft.bingads.v9.datacontracts.HistoricalSearchCountPeriodic[] historicalSearchCounts) {
            this.keyword = keyword;
            this.device = device;
            this.historicalSearchCounts = historicalSearchCounts;
@@ -72,7 +72,7 @@ public class KeywordSearchCount  implements java.io.Serializable {
      * 
      * @return historicalSearchCounts
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfHistoricalSearchCountPeriodic getHistoricalSearchCounts() {
+    public com.microsoft.bingads.v9.datacontracts.HistoricalSearchCountPeriodic[] getHistoricalSearchCounts() {
         return historicalSearchCounts;
     }
 
@@ -82,7 +82,7 @@ public class KeywordSearchCount  implements java.io.Serializable {
      * 
      * @param historicalSearchCounts
      */
-    public void setHistoricalSearchCounts(com.microsoft.bingads.v9.datacontracts.ArrayOfHistoricalSearchCountPeriodic historicalSearchCounts) {
+    public void setHistoricalSearchCounts(com.microsoft.bingads.v9.datacontracts.HistoricalSearchCountPeriodic[] historicalSearchCounts) {
         this.historicalSearchCounts = historicalSearchCounts;
     }
 
@@ -106,7 +106,7 @@ public class KeywordSearchCount  implements java.io.Serializable {
               this.device.equals(other.getDevice()))) &&
             ((this.historicalSearchCounts==null && other.getHistoricalSearchCounts()==null) || 
              (this.historicalSearchCounts!=null &&
-              this.historicalSearchCounts.equals(other.getHistoricalSearchCounts())));
+              java.util.Arrays.equals(this.historicalSearchCounts, other.getHistoricalSearchCounts())));
         __equalsCalc = null;
         return _equals;
     }
@@ -125,7 +125,15 @@ public class KeywordSearchCount  implements java.io.Serializable {
             _hashCode += getDevice().hashCode();
         }
         if (getHistoricalSearchCounts() != null) {
-            _hashCode += getHistoricalSearchCounts().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getHistoricalSearchCounts());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getHistoricalSearchCounts(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -154,9 +162,10 @@ public class KeywordSearchCount  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("historicalSearchCounts");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "HistoricalSearchCounts"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfHistoricalSearchCountPeriodic"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "HistoricalSearchCountPeriodic"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "HistoricalSearchCountPeriodic"));
         typeDesc.addFieldDesc(elemField);
     }
 

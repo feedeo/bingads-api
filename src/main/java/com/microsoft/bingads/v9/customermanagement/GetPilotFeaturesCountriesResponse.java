@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.customermanagement;
 
 public class GetPilotFeaturesCountriesResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.customermanagement.entities.ArrayOfPilotFeature pilotFeatures;
+    private com.microsoft.bingads.v9.customermanagement.entities.PilotFeature[] pilotFeatures;
 
     public GetPilotFeaturesCountriesResponse() {
     }
 
     public GetPilotFeaturesCountriesResponse(
-           com.microsoft.bingads.v9.customermanagement.entities.ArrayOfPilotFeature pilotFeatures) {
+           com.microsoft.bingads.v9.customermanagement.entities.PilotFeature[] pilotFeatures) {
            this.pilotFeatures = pilotFeatures;
     }
 
@@ -24,7 +24,7 @@ public class GetPilotFeaturesCountriesResponse  implements java.io.Serializable 
      * 
      * @return pilotFeatures
      */
-    public com.microsoft.bingads.v9.customermanagement.entities.ArrayOfPilotFeature getPilotFeatures() {
+    public com.microsoft.bingads.v9.customermanagement.entities.PilotFeature[] getPilotFeatures() {
         return pilotFeatures;
     }
 
@@ -34,7 +34,7 @@ public class GetPilotFeaturesCountriesResponse  implements java.io.Serializable 
      * 
      * @param pilotFeatures
      */
-    public void setPilotFeatures(com.microsoft.bingads.v9.customermanagement.entities.ArrayOfPilotFeature pilotFeatures) {
+    public void setPilotFeatures(com.microsoft.bingads.v9.customermanagement.entities.PilotFeature[] pilotFeatures) {
         this.pilotFeatures = pilotFeatures;
     }
 
@@ -52,7 +52,7 @@ public class GetPilotFeaturesCountriesResponse  implements java.io.Serializable 
         _equals = true && 
             ((this.pilotFeatures==null && other.getPilotFeatures()==null) || 
              (this.pilotFeatures!=null &&
-              this.pilotFeatures.equals(other.getPilotFeatures())));
+              java.util.Arrays.equals(this.pilotFeatures, other.getPilotFeatures())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetPilotFeaturesCountriesResponse  implements java.io.Serializable 
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getPilotFeatures() != null) {
-            _hashCode += getPilotFeatures().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPilotFeatures());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPilotFeatures(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetPilotFeaturesCountriesResponse  implements java.io.Serializable 
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("pilotFeatures");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "PilotFeatures"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ArrayOfPilotFeature"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "PilotFeature"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "PilotFeature"));
         typeDesc.addFieldDesc(elemField);
     }
 

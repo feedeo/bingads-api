@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class SuggestKeywordsForUrlResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordAndConfidence keywords;
+    private com.microsoft.bingads.v9.datacontracts.KeywordAndConfidence[] keywords;
 
     public SuggestKeywordsForUrlResponse() {
     }
 
     public SuggestKeywordsForUrlResponse(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordAndConfidence keywords) {
+           com.microsoft.bingads.v9.datacontracts.KeywordAndConfidence[] keywords) {
            this.keywords = keywords;
     }
 
@@ -24,7 +24,7 @@ public class SuggestKeywordsForUrlResponse  implements java.io.Serializable {
      * 
      * @return keywords
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordAndConfidence getKeywords() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordAndConfidence[] getKeywords() {
         return keywords;
     }
 
@@ -34,7 +34,7 @@ public class SuggestKeywordsForUrlResponse  implements java.io.Serializable {
      * 
      * @param keywords
      */
-    public void setKeywords(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordAndConfidence keywords) {
+    public void setKeywords(com.microsoft.bingads.v9.datacontracts.KeywordAndConfidence[] keywords) {
         this.keywords = keywords;
     }
 
@@ -52,7 +52,7 @@ public class SuggestKeywordsForUrlResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.keywords==null && other.getKeywords()==null) || 
              (this.keywords!=null &&
-              this.keywords.equals(other.getKeywords())));
+              java.util.Arrays.equals(this.keywords, other.getKeywords())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class SuggestKeywordsForUrlResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywords() != null) {
-            _hashCode += getKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class SuggestKeywordsForUrlResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "Keywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordAndConfidence"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordAndConfidence"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordAndConfidence"));
         typeDesc.addFieldDesc(elemField);
     }
 

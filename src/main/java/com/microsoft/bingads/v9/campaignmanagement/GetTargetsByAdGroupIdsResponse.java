@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetTargetsByAdGroupIdsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfTarget targets;
+    private com.microsoft.bingads.v9.campaignmanagement.Target[] targets;
 
     public GetTargetsByAdGroupIdsResponse() {
     }
 
     public GetTargetsByAdGroupIdsResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfTarget targets) {
+           com.microsoft.bingads.v9.campaignmanagement.Target[] targets) {
            this.targets = targets;
     }
 
@@ -24,7 +24,7 @@ public class GetTargetsByAdGroupIdsResponse  implements java.io.Serializable {
      * 
      * @return targets
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfTarget getTargets() {
+    public com.microsoft.bingads.v9.campaignmanagement.Target[] getTargets() {
         return targets;
     }
 
@@ -34,7 +34,7 @@ public class GetTargetsByAdGroupIdsResponse  implements java.io.Serializable {
      * 
      * @param targets
      */
-    public void setTargets(com.microsoft.bingads.v9.campaignmanagement.ArrayOfTarget targets) {
+    public void setTargets(com.microsoft.bingads.v9.campaignmanagement.Target[] targets) {
         this.targets = targets;
     }
 
@@ -52,7 +52,7 @@ public class GetTargetsByAdGroupIdsResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.targets==null && other.getTargets()==null) || 
              (this.targets!=null &&
-              this.targets.equals(other.getTargets())));
+              java.util.Arrays.equals(this.targets, other.getTargets())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetTargetsByAdGroupIdsResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getTargets() != null) {
-            _hashCode += getTargets().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getTargets());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getTargets(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetTargetsByAdGroupIdsResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("targets");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Targets"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfTarget"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Target"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Target"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -12,7 +12,7 @@ public class EditorialReasonCollection  implements java.io.Serializable {
 
     private com.microsoft.bingads.v9.campaignmanagement.AppealStatus appealStatus;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfEditorialReason reasons;
+    private com.microsoft.bingads.v9.campaignmanagement.EditorialReason[] reasons;
 
     public EditorialReasonCollection() {
     }
@@ -20,7 +20,7 @@ public class EditorialReasonCollection  implements java.io.Serializable {
     public EditorialReasonCollection(
            java.lang.Long adOrKeywordId,
            com.microsoft.bingads.v9.campaignmanagement.AppealStatus appealStatus,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfEditorialReason reasons) {
+           com.microsoft.bingads.v9.campaignmanagement.EditorialReason[] reasons) {
            this.adOrKeywordId = adOrKeywordId;
            this.appealStatus = appealStatus;
            this.reasons = reasons;
@@ -72,7 +72,7 @@ public class EditorialReasonCollection  implements java.io.Serializable {
      * 
      * @return reasons
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfEditorialReason getReasons() {
+    public com.microsoft.bingads.v9.campaignmanagement.EditorialReason[] getReasons() {
         return reasons;
     }
 
@@ -82,7 +82,7 @@ public class EditorialReasonCollection  implements java.io.Serializable {
      * 
      * @param reasons
      */
-    public void setReasons(com.microsoft.bingads.v9.campaignmanagement.ArrayOfEditorialReason reasons) {
+    public void setReasons(com.microsoft.bingads.v9.campaignmanagement.EditorialReason[] reasons) {
         this.reasons = reasons;
     }
 
@@ -106,7 +106,7 @@ public class EditorialReasonCollection  implements java.io.Serializable {
               this.appealStatus.equals(other.getAppealStatus()))) &&
             ((this.reasons==null && other.getReasons()==null) || 
              (this.reasons!=null &&
-              this.reasons.equals(other.getReasons())));
+              java.util.Arrays.equals(this.reasons, other.getReasons())));
         __equalsCalc = null;
         return _equals;
     }
@@ -125,7 +125,15 @@ public class EditorialReasonCollection  implements java.io.Serializable {
             _hashCode += getAppealStatus().hashCode();
         }
         if (getReasons() != null) {
-            _hashCode += getReasons().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getReasons());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getReasons(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -154,9 +162,10 @@ public class EditorialReasonCollection  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("reasons");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Reasons"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfEditorialReason"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "EditorialReason"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "EditorialReason"));
         typeDesc.addFieldDesc(elemField);
     }
 

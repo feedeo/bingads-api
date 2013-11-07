@@ -14,9 +14,9 @@ public class ShareOfVoiceReportFilter  implements java.io.Serializable {
 
     private java.lang.String[] deliveredMatchType;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords;
+    private java.lang.String[] keywords;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode;
+    private java.lang.String[] languageCode;
 
     public ShareOfVoiceReportFilter() {
     }
@@ -25,8 +25,8 @@ public class ShareOfVoiceReportFilter  implements java.io.Serializable {
            java.lang.String[] adDistribution,
            java.lang.String[] bidMatchType,
            java.lang.String[] deliveredMatchType,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode) {
+           java.lang.String[] keywords,
+           java.lang.String[] languageCode) {
            this.adDistribution = adDistribution;
            this.bidMatchType = bidMatchType;
            this.deliveredMatchType = deliveredMatchType;
@@ -100,7 +100,7 @@ public class ShareOfVoiceReportFilter  implements java.io.Serializable {
      * 
      * @return keywords
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getKeywords() {
+    public java.lang.String[] getKeywords() {
         return keywords;
     }
 
@@ -110,7 +110,7 @@ public class ShareOfVoiceReportFilter  implements java.io.Serializable {
      * 
      * @param keywords
      */
-    public void setKeywords(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords) {
+    public void setKeywords(java.lang.String[] keywords) {
         this.keywords = keywords;
     }
 
@@ -120,7 +120,7 @@ public class ShareOfVoiceReportFilter  implements java.io.Serializable {
      * 
      * @return languageCode
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getLanguageCode() {
+    public java.lang.String[] getLanguageCode() {
         return languageCode;
     }
 
@@ -130,7 +130,7 @@ public class ShareOfVoiceReportFilter  implements java.io.Serializable {
      * 
      * @param languageCode
      */
-    public void setLanguageCode(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode) {
+    public void setLanguageCode(java.lang.String[] languageCode) {
         this.languageCode = languageCode;
     }
 
@@ -157,10 +157,10 @@ public class ShareOfVoiceReportFilter  implements java.io.Serializable {
               java.util.Arrays.equals(this.deliveredMatchType, other.getDeliveredMatchType()))) &&
             ((this.keywords==null && other.getKeywords()==null) || 
              (this.keywords!=null &&
-              this.keywords.equals(other.getKeywords()))) &&
+              java.util.Arrays.equals(this.keywords, other.getKeywords()))) &&
             ((this.languageCode==null && other.getLanguageCode()==null) || 
              (this.languageCode!=null &&
-              this.languageCode.equals(other.getLanguageCode())));
+              java.util.Arrays.equals(this.languageCode, other.getLanguageCode())));
         __equalsCalc = null;
         return _equals;
     }
@@ -206,10 +206,26 @@ public class ShareOfVoiceReportFilter  implements java.io.Serializable {
             }
         }
         if (getKeywords() != null) {
-            _hashCode += getKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLanguageCode() != null) {
-            _hashCode += getLanguageCode().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getLanguageCode());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getLanguageCode(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -245,16 +261,18 @@ public class ShareOfVoiceReportFilter  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Keywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("languageCode");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "LanguageCode"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class AdExtensionDimensionReportRequest  extends com.microsoft.bingads.v9.reporting.ReportRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.reporting.ArrayOfAdExtensionDimensionReportColumn columns;
+    private com.microsoft.bingads.v9.reporting.AdExtensionDimensionReportColumn[] columns;
 
     private com.microsoft.bingads.v9.reporting.AdExtensionDimensionReportFilter filter;
 
@@ -22,7 +22,7 @@ public class AdExtensionDimensionReportRequest  extends com.microsoft.bingads.v9
            com.microsoft.bingads.v9.reporting.ReportLanguage language,
            java.lang.String reportName,
            java.lang.Boolean returnOnlyCompleteData,
-           com.microsoft.bingads.v9.reporting.ArrayOfAdExtensionDimensionReportColumn columns,
+           com.microsoft.bingads.v9.reporting.AdExtensionDimensionReportColumn[] columns,
            com.microsoft.bingads.v9.reporting.AdExtensionDimensionReportFilter filter,
            com.microsoft.bingads.v9.reporting.AccountReportScope scope) {
         super(
@@ -41,7 +41,7 @@ public class AdExtensionDimensionReportRequest  extends com.microsoft.bingads.v9
      * 
      * @return columns
      */
-    public com.microsoft.bingads.v9.reporting.ArrayOfAdExtensionDimensionReportColumn getColumns() {
+    public com.microsoft.bingads.v9.reporting.AdExtensionDimensionReportColumn[] getColumns() {
         return columns;
     }
 
@@ -51,7 +51,7 @@ public class AdExtensionDimensionReportRequest  extends com.microsoft.bingads.v9
      * 
      * @param columns
      */
-    public void setColumns(com.microsoft.bingads.v9.reporting.ArrayOfAdExtensionDimensionReportColumn columns) {
+    public void setColumns(com.microsoft.bingads.v9.reporting.AdExtensionDimensionReportColumn[] columns) {
         this.columns = columns;
     }
 
@@ -109,7 +109,7 @@ public class AdExtensionDimensionReportRequest  extends com.microsoft.bingads.v9
         _equals = super.equals(obj) && 
             ((this.columns==null && other.getColumns()==null) || 
              (this.columns!=null &&
-              this.columns.equals(other.getColumns()))) &&
+              java.util.Arrays.equals(this.columns, other.getColumns()))) &&
             ((this.filter==null && other.getFilter()==null) || 
              (this.filter!=null &&
               this.filter.equals(other.getFilter()))) &&
@@ -128,7 +128,15 @@ public class AdExtensionDimensionReportRequest  extends com.microsoft.bingads.v9
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getColumns() != null) {
-            _hashCode += getColumns().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getColumns());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getColumns(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getFilter() != null) {
             _hashCode += getFilter().hashCode();
@@ -149,8 +157,9 @@ public class AdExtensionDimensionReportRequest  extends com.microsoft.bingads.v9
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("columns");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Columns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfAdExtensionDimensionReportColumn"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdExtensionDimensionReportColumn"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdExtensionDimensionReportColumn"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filter");

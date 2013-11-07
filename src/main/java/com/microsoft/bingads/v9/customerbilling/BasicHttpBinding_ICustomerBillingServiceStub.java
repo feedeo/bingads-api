@@ -264,17 +264,21 @@ public class BasicHttpBinding_ICustomerBillingServiceStub extends org.apache.axi
             java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.schemas.arrays.ArrayOflong.class;
+            cls = long[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long");
+            qName2 = new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring.class;
+            cls = java.lang.String[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string");
+            qName2 = new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError");
             cachedSerQNames.add(qName);
@@ -299,10 +303,12 @@ public class BasicHttpBinding_ICustomerBillingServiceStub extends org.apache.axi
 
             qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "ArrayOfAdApiError");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.adapi.ArrayOfAdApiError.class;
+            cls = com.microsoft.bingads.v9.adapi.AdApiError[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError");
+            qName2 = new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Billing/v9", ">AddInsertionOrderRequest");
             cachedSerQNames.add(qName);
@@ -418,24 +424,30 @@ public class BasicHttpBinding_ICustomerBillingServiceStub extends org.apache.axi
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ArrayOfBillingDocument");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.customermanagement.entities.ArrayOfBillingDocument.class;
+            cls = com.microsoft.bingads.v9.customermanagement.entities.BillingDocument[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "BillingDocument");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "BillingDocument");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ArrayOfBillingDocumentInfo");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.customermanagement.entities.ArrayOfBillingDocumentInfo.class;
+            cls = com.microsoft.bingads.v9.customermanagement.entities.BillingDocumentInfo[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "BillingDocumentInfo");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "BillingDocumentInfo");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ArrayOfInsertionOrder");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.customermanagement.entities.ArrayOfInsertionOrder.class;
+            cls = com.microsoft.bingads.v9.customermanagement.entities.InsertionOrder[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "InsertionOrder");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "InsertionOrder");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "BillingDocument");
             cachedSerQNames.add(qName);
@@ -481,17 +493,21 @@ public class BasicHttpBinding_ICustomerBillingServiceStub extends org.apache.axi
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ArrayOfBatchError");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.customermanagement.exception.ArrayOfBatchError.class;
+            cls = com.microsoft.bingads.v9.customermanagement.exception.BatchError[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "BatchError");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "BatchError");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ArrayOfOperationError");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.customermanagement.exception.ArrayOfOperationError.class;
+            cls = com.microsoft.bingads.v9.customermanagement.exception.OperationError[].class;
             cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationError");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationError");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "BatchError");
             cachedSerQNames.add(qName);

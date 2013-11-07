@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class AdExtensionEditorialReasonCollection  implements java.io.Serializable {
     private java.lang.Long adExtensionId;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionEditorialReason reasons;
+    private com.microsoft.bingads.v9.campaignmanagement.AdExtensionEditorialReason[] reasons;
 
     public AdExtensionEditorialReasonCollection() {
     }
 
     public AdExtensionEditorialReasonCollection(
            java.lang.Long adExtensionId,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionEditorialReason reasons) {
+           com.microsoft.bingads.v9.campaignmanagement.AdExtensionEditorialReason[] reasons) {
            this.adExtensionId = adExtensionId;
            this.reasons = reasons;
     }
@@ -48,7 +48,7 @@ public class AdExtensionEditorialReasonCollection  implements java.io.Serializab
      * 
      * @return reasons
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionEditorialReason getReasons() {
+    public com.microsoft.bingads.v9.campaignmanagement.AdExtensionEditorialReason[] getReasons() {
         return reasons;
     }
 
@@ -58,7 +58,7 @@ public class AdExtensionEditorialReasonCollection  implements java.io.Serializab
      * 
      * @param reasons
      */
-    public void setReasons(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionEditorialReason reasons) {
+    public void setReasons(com.microsoft.bingads.v9.campaignmanagement.AdExtensionEditorialReason[] reasons) {
         this.reasons = reasons;
     }
 
@@ -79,7 +79,7 @@ public class AdExtensionEditorialReasonCollection  implements java.io.Serializab
               this.adExtensionId.equals(other.getAdExtensionId()))) &&
             ((this.reasons==null && other.getReasons()==null) || 
              (this.reasons!=null &&
-              this.reasons.equals(other.getReasons())));
+              java.util.Arrays.equals(this.reasons, other.getReasons())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class AdExtensionEditorialReasonCollection  implements java.io.Serializab
             _hashCode += getAdExtensionId().hashCode();
         }
         if (getReasons() != null) {
-            _hashCode += getReasons().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getReasons());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getReasons(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class AdExtensionEditorialReasonCollection  implements java.io.Serializab
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("reasons");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Reasons"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAdExtensionEditorialReason"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionEditorialReason"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionEditorialReason"));
         typeDesc.addFieldDesc(elemField);
     }
 

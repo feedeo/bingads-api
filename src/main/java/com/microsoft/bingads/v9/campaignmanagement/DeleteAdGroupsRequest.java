@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class DeleteAdGroupsRequest  implements java.io.Serializable {
     private java.lang.Long campaignId;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong adGroupIds;
+    private long[] adGroupIds;
 
     public DeleteAdGroupsRequest() {
     }
 
     public DeleteAdGroupsRequest(
            java.lang.Long campaignId,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong adGroupIds) {
+           long[] adGroupIds) {
            this.campaignId = campaignId;
            this.adGroupIds = adGroupIds;
     }
@@ -48,7 +48,7 @@ public class DeleteAdGroupsRequest  implements java.io.Serializable {
      * 
      * @return adGroupIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getAdGroupIds() {
+    public long[] getAdGroupIds() {
         return adGroupIds;
     }
 
@@ -58,7 +58,7 @@ public class DeleteAdGroupsRequest  implements java.io.Serializable {
      * 
      * @param adGroupIds
      */
-    public void setAdGroupIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong adGroupIds) {
+    public void setAdGroupIds(long[] adGroupIds) {
         this.adGroupIds = adGroupIds;
     }
 
@@ -79,7 +79,7 @@ public class DeleteAdGroupsRequest  implements java.io.Serializable {
               this.campaignId.equals(other.getCampaignId()))) &&
             ((this.adGroupIds==null && other.getAdGroupIds()==null) || 
              (this.adGroupIds!=null &&
-              this.adGroupIds.equals(other.getAdGroupIds())));
+              java.util.Arrays.equals(this.adGroupIds, other.getAdGroupIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class DeleteAdGroupsRequest  implements java.io.Serializable {
             _hashCode += getCampaignId().hashCode();
         }
         if (getAdGroupIds() != null) {
-            _hashCode += getAdGroupIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdGroupIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdGroupIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class DeleteAdGroupsRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adGroupIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

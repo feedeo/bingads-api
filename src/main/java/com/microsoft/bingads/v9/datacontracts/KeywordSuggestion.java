@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.datacontracts;
 public class KeywordSuggestion  implements java.io.Serializable {
     private java.lang.String keyword;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordAndConfidence suggestionsAndConfidence;
+    private com.microsoft.bingads.v9.datacontracts.KeywordAndConfidence[] suggestionsAndConfidence;
 
     public KeywordSuggestion() {
     }
 
     public KeywordSuggestion(
            java.lang.String keyword,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordAndConfidence suggestionsAndConfidence) {
+           com.microsoft.bingads.v9.datacontracts.KeywordAndConfidence[] suggestionsAndConfidence) {
            this.keyword = keyword;
            this.suggestionsAndConfidence = suggestionsAndConfidence;
     }
@@ -48,7 +48,7 @@ public class KeywordSuggestion  implements java.io.Serializable {
      * 
      * @return suggestionsAndConfidence
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordAndConfidence getSuggestionsAndConfidence() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordAndConfidence[] getSuggestionsAndConfidence() {
         return suggestionsAndConfidence;
     }
 
@@ -58,7 +58,7 @@ public class KeywordSuggestion  implements java.io.Serializable {
      * 
      * @param suggestionsAndConfidence
      */
-    public void setSuggestionsAndConfidence(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordAndConfidence suggestionsAndConfidence) {
+    public void setSuggestionsAndConfidence(com.microsoft.bingads.v9.datacontracts.KeywordAndConfidence[] suggestionsAndConfidence) {
         this.suggestionsAndConfidence = suggestionsAndConfidence;
     }
 
@@ -79,7 +79,7 @@ public class KeywordSuggestion  implements java.io.Serializable {
               this.keyword.equals(other.getKeyword()))) &&
             ((this.suggestionsAndConfidence==null && other.getSuggestionsAndConfidence()==null) || 
              (this.suggestionsAndConfidence!=null &&
-              this.suggestionsAndConfidence.equals(other.getSuggestionsAndConfidence())));
+              java.util.Arrays.equals(this.suggestionsAndConfidence, other.getSuggestionsAndConfidence())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class KeywordSuggestion  implements java.io.Serializable {
             _hashCode += getKeyword().hashCode();
         }
         if (getSuggestionsAndConfidence() != null) {
-            _hashCode += getSuggestionsAndConfidence().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSuggestionsAndConfidence());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSuggestionsAndConfidence(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class KeywordSuggestion  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("suggestionsAndConfidence");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "SuggestionsAndConfidence"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordAndConfidence"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordAndConfidence"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordAndConfidence"));
         typeDesc.addFieldDesc(elemField);
     }
 

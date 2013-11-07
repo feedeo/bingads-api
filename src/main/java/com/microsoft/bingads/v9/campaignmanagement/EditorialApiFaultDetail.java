@@ -8,20 +8,20 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class EditorialApiFaultDetail  extends com.microsoft.bingads.v9.adapi.ApplicationFault  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError batchErrors;
+    private com.microsoft.bingads.v9.campaignmanagement.BatchError[] batchErrors;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfEditorialError editorialErrors;
+    private com.microsoft.bingads.v9.campaignmanagement.EditorialError[] editorialErrors;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfOperationError operationErrors;
+    private com.microsoft.bingads.v9.campaignmanagement.OperationError[] operationErrors;
 
     public EditorialApiFaultDetail() {
     }
 
     public EditorialApiFaultDetail(
            java.lang.String trackingId,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError batchErrors,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfEditorialError editorialErrors,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfOperationError operationErrors) {
+           com.microsoft.bingads.v9.campaignmanagement.BatchError[] batchErrors,
+           com.microsoft.bingads.v9.campaignmanagement.EditorialError[] editorialErrors,
+           com.microsoft.bingads.v9.campaignmanagement.OperationError[] operationErrors) {
         super(
             trackingId);
         this.batchErrors = batchErrors;
@@ -35,7 +35,7 @@ public class EditorialApiFaultDetail  extends com.microsoft.bingads.v9.adapi.App
      * 
      * @return batchErrors
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError getBatchErrors() {
+    public com.microsoft.bingads.v9.campaignmanagement.BatchError[] getBatchErrors() {
         return batchErrors;
     }
 
@@ -45,7 +45,7 @@ public class EditorialApiFaultDetail  extends com.microsoft.bingads.v9.adapi.App
      * 
      * @param batchErrors
      */
-    public void setBatchErrors(com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError batchErrors) {
+    public void setBatchErrors(com.microsoft.bingads.v9.campaignmanagement.BatchError[] batchErrors) {
         this.batchErrors = batchErrors;
     }
 
@@ -55,7 +55,7 @@ public class EditorialApiFaultDetail  extends com.microsoft.bingads.v9.adapi.App
      * 
      * @return editorialErrors
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfEditorialError getEditorialErrors() {
+    public com.microsoft.bingads.v9.campaignmanagement.EditorialError[] getEditorialErrors() {
         return editorialErrors;
     }
 
@@ -65,7 +65,7 @@ public class EditorialApiFaultDetail  extends com.microsoft.bingads.v9.adapi.App
      * 
      * @param editorialErrors
      */
-    public void setEditorialErrors(com.microsoft.bingads.v9.campaignmanagement.ArrayOfEditorialError editorialErrors) {
+    public void setEditorialErrors(com.microsoft.bingads.v9.campaignmanagement.EditorialError[] editorialErrors) {
         this.editorialErrors = editorialErrors;
     }
 
@@ -75,7 +75,7 @@ public class EditorialApiFaultDetail  extends com.microsoft.bingads.v9.adapi.App
      * 
      * @return operationErrors
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfOperationError getOperationErrors() {
+    public com.microsoft.bingads.v9.campaignmanagement.OperationError[] getOperationErrors() {
         return operationErrors;
     }
 
@@ -85,7 +85,7 @@ public class EditorialApiFaultDetail  extends com.microsoft.bingads.v9.adapi.App
      * 
      * @param operationErrors
      */
-    public void setOperationErrors(com.microsoft.bingads.v9.campaignmanagement.ArrayOfOperationError operationErrors) {
+    public void setOperationErrors(com.microsoft.bingads.v9.campaignmanagement.OperationError[] operationErrors) {
         this.operationErrors = operationErrors;
     }
 
@@ -103,13 +103,13 @@ public class EditorialApiFaultDetail  extends com.microsoft.bingads.v9.adapi.App
         _equals = super.equals(obj) && 
             ((this.batchErrors==null && other.getBatchErrors()==null) || 
              (this.batchErrors!=null &&
-              this.batchErrors.equals(other.getBatchErrors()))) &&
+              java.util.Arrays.equals(this.batchErrors, other.getBatchErrors()))) &&
             ((this.editorialErrors==null && other.getEditorialErrors()==null) || 
              (this.editorialErrors!=null &&
-              this.editorialErrors.equals(other.getEditorialErrors()))) &&
+              java.util.Arrays.equals(this.editorialErrors, other.getEditorialErrors()))) &&
             ((this.operationErrors==null && other.getOperationErrors()==null) || 
              (this.operationErrors!=null &&
-              this.operationErrors.equals(other.getOperationErrors())));
+              java.util.Arrays.equals(this.operationErrors, other.getOperationErrors())));
         __equalsCalc = null;
         return _equals;
     }
@@ -122,13 +122,37 @@ public class EditorialApiFaultDetail  extends com.microsoft.bingads.v9.adapi.App
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getBatchErrors() != null) {
-            _hashCode += getBatchErrors().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getBatchErrors());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getBatchErrors(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getEditorialErrors() != null) {
-            _hashCode += getEditorialErrors().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getEditorialErrors());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getEditorialErrors(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getOperationErrors() != null) {
-            _hashCode += getOperationErrors().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getOperationErrors());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getOperationErrors(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -143,23 +167,26 @@ public class EditorialApiFaultDetail  extends com.microsoft.bingads.v9.adapi.App
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("batchErrors");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BatchErrors"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfBatchError"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BatchError"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BatchError"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("editorialErrors");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "EditorialErrors"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfEditorialError"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "EditorialError"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "EditorialError"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("operationErrors");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "OperationErrors"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfOperationError"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "OperationError"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "OperationError"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -26,7 +26,7 @@ public class LocationAdExtension  extends com.microsoft.bingads.v9.campaignmanag
     }
 
     public LocationAdExtension(
-           com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap,
+           com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap,
            java.lang.Long id,
            com.microsoft.bingads.v9.campaignmanagement.AdExtensionStatus status,
            java.lang.String type,

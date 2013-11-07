@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetNegativeSitesByAdGroupIdsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeSites adGroupNegativeSites;
+    private com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeSites[] adGroupNegativeSites;
 
     public GetNegativeSitesByAdGroupIdsResponse() {
     }
 
     public GetNegativeSitesByAdGroupIdsResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeSites adGroupNegativeSites) {
+           com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeSites[] adGroupNegativeSites) {
            this.adGroupNegativeSites = adGroupNegativeSites;
     }
 
@@ -24,7 +24,7 @@ public class GetNegativeSitesByAdGroupIdsResponse  implements java.io.Serializab
      * 
      * @return adGroupNegativeSites
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeSites getAdGroupNegativeSites() {
+    public com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeSites[] getAdGroupNegativeSites() {
         return adGroupNegativeSites;
     }
 
@@ -34,7 +34,7 @@ public class GetNegativeSitesByAdGroupIdsResponse  implements java.io.Serializab
      * 
      * @param adGroupNegativeSites
      */
-    public void setAdGroupNegativeSites(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeSites adGroupNegativeSites) {
+    public void setAdGroupNegativeSites(com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeSites[] adGroupNegativeSites) {
         this.adGroupNegativeSites = adGroupNegativeSites;
     }
 
@@ -52,7 +52,7 @@ public class GetNegativeSitesByAdGroupIdsResponse  implements java.io.Serializab
         _equals = true && 
             ((this.adGroupNegativeSites==null && other.getAdGroupNegativeSites()==null) || 
              (this.adGroupNegativeSites!=null &&
-              this.adGroupNegativeSites.equals(other.getAdGroupNegativeSites())));
+              java.util.Arrays.equals(this.adGroupNegativeSites, other.getAdGroupNegativeSites())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetNegativeSitesByAdGroupIdsResponse  implements java.io.Serializab
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAdGroupNegativeSites() != null) {
-            _hashCode += getAdGroupNegativeSites().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdGroupNegativeSites());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdGroupNegativeSites(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetNegativeSitesByAdGroupIdsResponse  implements java.io.Serializab
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adGroupNegativeSites");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupNegativeSites"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAdGroupNegativeSites"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupNegativeSites"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupNegativeSites"));
         typeDesc.addFieldDesc(elemField);
     }
 

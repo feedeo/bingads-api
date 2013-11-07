@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class MediaType  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfDimension dimensions;
+    private com.microsoft.bingads.v9.campaignmanagement.Dimension[] dimensions;
 
     private java.lang.String name;
 
@@ -16,7 +16,7 @@ public class MediaType  implements java.io.Serializable {
     }
 
     public MediaType(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfDimension dimensions,
+           com.microsoft.bingads.v9.campaignmanagement.Dimension[] dimensions,
            java.lang.String name) {
            this.dimensions = dimensions;
            this.name = name;
@@ -28,7 +28,7 @@ public class MediaType  implements java.io.Serializable {
      * 
      * @return dimensions
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfDimension getDimensions() {
+    public com.microsoft.bingads.v9.campaignmanagement.Dimension[] getDimensions() {
         return dimensions;
     }
 
@@ -38,7 +38,7 @@ public class MediaType  implements java.io.Serializable {
      * 
      * @param dimensions
      */
-    public void setDimensions(com.microsoft.bingads.v9.campaignmanagement.ArrayOfDimension dimensions) {
+    public void setDimensions(com.microsoft.bingads.v9.campaignmanagement.Dimension[] dimensions) {
         this.dimensions = dimensions;
     }
 
@@ -76,7 +76,7 @@ public class MediaType  implements java.io.Serializable {
         _equals = true && 
             ((this.dimensions==null && other.getDimensions()==null) || 
              (this.dimensions!=null &&
-              this.dimensions.equals(other.getDimensions()))) &&
+              java.util.Arrays.equals(this.dimensions, other.getDimensions()))) &&
             ((this.name==null && other.getName()==null) || 
              (this.name!=null &&
               this.name.equals(other.getName())));
@@ -92,7 +92,15 @@ public class MediaType  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getDimensions() != null) {
-            _hashCode += getDimensions().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getDimensions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getDimensions(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getName() != null) {
             _hashCode += getName().hashCode();
@@ -110,9 +118,10 @@ public class MediaType  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("dimensions");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Dimensions"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfDimension"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Dimension"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Dimension"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("name");

@@ -10,20 +10,20 @@ package com.microsoft.bingads.v9.customermanagement;
 public class GetUserResponse  implements java.io.Serializable {
     private com.microsoft.bingads.v9.customermanagement.entities.User user;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfint roles;
+    private int[] roles;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong accounts;
+    private long[] accounts;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong customers;
+    private long[] customers;
 
     public GetUserResponse() {
     }
 
     public GetUserResponse(
            com.microsoft.bingads.v9.customermanagement.entities.User user,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfint roles,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong accounts,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong customers) {
+           int[] roles,
+           long[] accounts,
+           long[] customers) {
            this.user = user;
            this.roles = roles;
            this.accounts = accounts;
@@ -56,7 +56,7 @@ public class GetUserResponse  implements java.io.Serializable {
      * 
      * @return roles
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfint getRoles() {
+    public int[] getRoles() {
         return roles;
     }
 
@@ -66,7 +66,7 @@ public class GetUserResponse  implements java.io.Serializable {
      * 
      * @param roles
      */
-    public void setRoles(com.microsoft.bingads.v9.schemas.arrays.ArrayOfint roles) {
+    public void setRoles(int[] roles) {
         this.roles = roles;
     }
 
@@ -76,7 +76,7 @@ public class GetUserResponse  implements java.io.Serializable {
      * 
      * @return accounts
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getAccounts() {
+    public long[] getAccounts() {
         return accounts;
     }
 
@@ -86,7 +86,7 @@ public class GetUserResponse  implements java.io.Serializable {
      * 
      * @param accounts
      */
-    public void setAccounts(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong accounts) {
+    public void setAccounts(long[] accounts) {
         this.accounts = accounts;
     }
 
@@ -96,7 +96,7 @@ public class GetUserResponse  implements java.io.Serializable {
      * 
      * @return customers
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getCustomers() {
+    public long[] getCustomers() {
         return customers;
     }
 
@@ -106,7 +106,7 @@ public class GetUserResponse  implements java.io.Serializable {
      * 
      * @param customers
      */
-    public void setCustomers(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong customers) {
+    public void setCustomers(long[] customers) {
         this.customers = customers;
     }
 
@@ -127,13 +127,13 @@ public class GetUserResponse  implements java.io.Serializable {
               this.user.equals(other.getUser()))) &&
             ((this.roles==null && other.getRoles()==null) || 
              (this.roles!=null &&
-              this.roles.equals(other.getRoles()))) &&
+              java.util.Arrays.equals(this.roles, other.getRoles()))) &&
             ((this.accounts==null && other.getAccounts()==null) || 
              (this.accounts!=null &&
-              this.accounts.equals(other.getAccounts()))) &&
+              java.util.Arrays.equals(this.accounts, other.getAccounts()))) &&
             ((this.customers==null && other.getCustomers()==null) || 
              (this.customers!=null &&
-              this.customers.equals(other.getCustomers())));
+              java.util.Arrays.equals(this.customers, other.getCustomers())));
         __equalsCalc = null;
         return _equals;
     }
@@ -149,13 +149,37 @@ public class GetUserResponse  implements java.io.Serializable {
             _hashCode += getUser().hashCode();
         }
         if (getRoles() != null) {
-            _hashCode += getRoles().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getRoles());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getRoles(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getAccounts() != null) {
-            _hashCode += getAccounts().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAccounts());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAccounts(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getCustomers() != null) {
-            _hashCode += getCustomers().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getCustomers());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getCustomers(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -177,23 +201,26 @@ public class GetUserResponse  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("roles");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "Roles"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfint"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "int"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("accounts");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "Accounts"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("customers");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "Customers"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -14,7 +14,7 @@ public class KeywordBidLandscape  implements java.io.Serializable {
 
     private com.microsoft.bingads.v9.datacontracts.DayMonthAndYear endDate;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfBidLandscapePoint bidLandscapePoints;
+    private com.microsoft.bingads.v9.datacontracts.BidLandscapePoint[] bidLandscapePoints;
 
     public KeywordBidLandscape() {
     }
@@ -23,7 +23,7 @@ public class KeywordBidLandscape  implements java.io.Serializable {
            java.lang.Long keywordId,
            com.microsoft.bingads.v9.datacontracts.DayMonthAndYear startDate,
            com.microsoft.bingads.v9.datacontracts.DayMonthAndYear endDate,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfBidLandscapePoint bidLandscapePoints) {
+           com.microsoft.bingads.v9.datacontracts.BidLandscapePoint[] bidLandscapePoints) {
            this.keywordId = keywordId;
            this.startDate = startDate;
            this.endDate = endDate;
@@ -96,7 +96,7 @@ public class KeywordBidLandscape  implements java.io.Serializable {
      * 
      * @return bidLandscapePoints
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfBidLandscapePoint getBidLandscapePoints() {
+    public com.microsoft.bingads.v9.datacontracts.BidLandscapePoint[] getBidLandscapePoints() {
         return bidLandscapePoints;
     }
 
@@ -106,7 +106,7 @@ public class KeywordBidLandscape  implements java.io.Serializable {
      * 
      * @param bidLandscapePoints
      */
-    public void setBidLandscapePoints(com.microsoft.bingads.v9.datacontracts.ArrayOfBidLandscapePoint bidLandscapePoints) {
+    public void setBidLandscapePoints(com.microsoft.bingads.v9.datacontracts.BidLandscapePoint[] bidLandscapePoints) {
         this.bidLandscapePoints = bidLandscapePoints;
     }
 
@@ -133,7 +133,7 @@ public class KeywordBidLandscape  implements java.io.Serializable {
               this.endDate.equals(other.getEndDate()))) &&
             ((this.bidLandscapePoints==null && other.getBidLandscapePoints()==null) || 
              (this.bidLandscapePoints!=null &&
-              this.bidLandscapePoints.equals(other.getBidLandscapePoints())));
+              java.util.Arrays.equals(this.bidLandscapePoints, other.getBidLandscapePoints())));
         __equalsCalc = null;
         return _equals;
     }
@@ -155,7 +155,15 @@ public class KeywordBidLandscape  implements java.io.Serializable {
             _hashCode += getEndDate().hashCode();
         }
         if (getBidLandscapePoints() != null) {
-            _hashCode += getBidLandscapePoints().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getBidLandscapePoints());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getBidLandscapePoints(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -191,9 +199,10 @@ public class KeywordBidLandscape  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("bidLandscapePoints");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "BidLandscapePoints"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfBidLandscapePoint"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "BidLandscapePoint"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "BidLandscapePoint"));
         typeDesc.addFieldDesc(elemField);
     }
 

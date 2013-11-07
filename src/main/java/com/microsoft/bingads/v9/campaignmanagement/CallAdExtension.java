@@ -24,7 +24,7 @@ public class CallAdExtension  extends com.microsoft.bingads.v9.campaignmanagemen
     }
 
     public CallAdExtension(
-           com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap,
+           com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap,
            java.lang.Long id,
            com.microsoft.bingads.v9.campaignmanagement.AdExtensionStatus status,
            java.lang.String type,

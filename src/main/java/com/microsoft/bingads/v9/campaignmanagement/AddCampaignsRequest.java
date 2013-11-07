@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class AddCampaignsRequest  implements java.io.Serializable {
     private java.lang.Long accountId;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaign campaigns;
+    private com.microsoft.bingads.v9.campaignmanagement.Campaign[] campaigns;
 
     public AddCampaignsRequest() {
     }
 
     public AddCampaignsRequest(
            java.lang.Long accountId,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaign campaigns) {
+           com.microsoft.bingads.v9.campaignmanagement.Campaign[] campaigns) {
            this.accountId = accountId;
            this.campaigns = campaigns;
     }
@@ -48,7 +48,7 @@ public class AddCampaignsRequest  implements java.io.Serializable {
      * 
      * @return campaigns
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaign getCampaigns() {
+    public com.microsoft.bingads.v9.campaignmanagement.Campaign[] getCampaigns() {
         return campaigns;
     }
 
@@ -58,7 +58,7 @@ public class AddCampaignsRequest  implements java.io.Serializable {
      * 
      * @param campaigns
      */
-    public void setCampaigns(com.microsoft.bingads.v9.campaignmanagement.ArrayOfCampaign campaigns) {
+    public void setCampaigns(com.microsoft.bingads.v9.campaignmanagement.Campaign[] campaigns) {
         this.campaigns = campaigns;
     }
 
@@ -79,7 +79,7 @@ public class AddCampaignsRequest  implements java.io.Serializable {
               this.accountId.equals(other.getAccountId()))) &&
             ((this.campaigns==null && other.getCampaigns()==null) || 
              (this.campaigns!=null &&
-              this.campaigns.equals(other.getCampaigns())));
+              java.util.Arrays.equals(this.campaigns, other.getCampaigns())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class AddCampaignsRequest  implements java.io.Serializable {
             _hashCode += getAccountId().hashCode();
         }
         if (getCampaigns() != null) {
-            _hashCode += getCampaigns().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getCampaigns());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getCampaigns(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class AddCampaignsRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("campaigns");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Campaigns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfCampaign"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Campaign"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Campaign"));
         typeDesc.addFieldDesc(elemField);
     }
 

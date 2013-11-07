@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetBMCStoresByCustomerIdResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfBMCStore BMCStores;
+    private com.microsoft.bingads.v9.campaignmanagement.BMCStore[] BMCStores;
 
     public GetBMCStoresByCustomerIdResponse() {
     }
 
     public GetBMCStoresByCustomerIdResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfBMCStore BMCStores) {
+           com.microsoft.bingads.v9.campaignmanagement.BMCStore[] BMCStores) {
            this.BMCStores = BMCStores;
     }
 
@@ -24,7 +24,7 @@ public class GetBMCStoresByCustomerIdResponse  implements java.io.Serializable {
      * 
      * @return BMCStores
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfBMCStore getBMCStores() {
+    public com.microsoft.bingads.v9.campaignmanagement.BMCStore[] getBMCStores() {
         return BMCStores;
     }
 
@@ -34,7 +34,7 @@ public class GetBMCStoresByCustomerIdResponse  implements java.io.Serializable {
      * 
      * @param BMCStores
      */
-    public void setBMCStores(com.microsoft.bingads.v9.campaignmanagement.ArrayOfBMCStore BMCStores) {
+    public void setBMCStores(com.microsoft.bingads.v9.campaignmanagement.BMCStore[] BMCStores) {
         this.BMCStores = BMCStores;
     }
 
@@ -52,7 +52,7 @@ public class GetBMCStoresByCustomerIdResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.BMCStores==null && other.getBMCStores()==null) || 
              (this.BMCStores!=null &&
-              this.BMCStores.equals(other.getBMCStores())));
+              java.util.Arrays.equals(this.BMCStores, other.getBMCStores())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetBMCStoresByCustomerIdResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getBMCStores() != null) {
-            _hashCode += getBMCStores().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getBMCStores());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getBMCStores(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetBMCStoresByCustomerIdResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("BMCStores");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BMCStores"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfBMCStore"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BMCStore"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BMCStore"));
         typeDesc.addFieldDesc(elemField);
     }
 

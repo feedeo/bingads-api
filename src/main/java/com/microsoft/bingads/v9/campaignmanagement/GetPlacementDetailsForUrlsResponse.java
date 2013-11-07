@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetPlacementDetailsForUrlsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfArrayOfPlacementDetail placementDetails;
+    private com.microsoft.bingads.v9.campaignmanagement.PlacementDetail[][] placementDetails;
 
     public GetPlacementDetailsForUrlsResponse() {
     }
 
     public GetPlacementDetailsForUrlsResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfArrayOfPlacementDetail placementDetails) {
+           com.microsoft.bingads.v9.campaignmanagement.PlacementDetail[][] placementDetails) {
            this.placementDetails = placementDetails;
     }
 
@@ -24,7 +24,7 @@ public class GetPlacementDetailsForUrlsResponse  implements java.io.Serializable
      * 
      * @return placementDetails
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfArrayOfPlacementDetail getPlacementDetails() {
+    public com.microsoft.bingads.v9.campaignmanagement.PlacementDetail[][] getPlacementDetails() {
         return placementDetails;
     }
 
@@ -34,7 +34,7 @@ public class GetPlacementDetailsForUrlsResponse  implements java.io.Serializable
      * 
      * @param placementDetails
      */
-    public void setPlacementDetails(com.microsoft.bingads.v9.campaignmanagement.ArrayOfArrayOfPlacementDetail placementDetails) {
+    public void setPlacementDetails(com.microsoft.bingads.v9.campaignmanagement.PlacementDetail[][] placementDetails) {
         this.placementDetails = placementDetails;
     }
 
@@ -52,7 +52,7 @@ public class GetPlacementDetailsForUrlsResponse  implements java.io.Serializable
         _equals = true && 
             ((this.placementDetails==null && other.getPlacementDetails()==null) || 
              (this.placementDetails!=null &&
-              this.placementDetails.equals(other.getPlacementDetails())));
+              java.util.Arrays.equals(this.placementDetails, other.getPlacementDetails())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetPlacementDetailsForUrlsResponse  implements java.io.Serializable
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getPlacementDetails() != null) {
-            _hashCode += getPlacementDetails().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPlacementDetails());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPlacementDetails(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetPlacementDetailsForUrlsResponse  implements java.io.Serializable
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("placementDetails");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "PlacementDetails"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfArrayOfPlacementDetail"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfPlacementDetail"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfPlacementDetail"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -8,14 +8,14 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class Product  extends com.microsoft.bingads.v9.campaignmanagement.Criterion  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductCondition conditions;
+    private com.microsoft.bingads.v9.campaignmanagement.ProductCondition[] conditions;
 
     public Product() {
     }
 
     public Product(
            java.lang.String type,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductCondition conditions) {
+           com.microsoft.bingads.v9.campaignmanagement.ProductCondition[] conditions) {
         super(
             type);
         this.conditions = conditions;
@@ -27,7 +27,7 @@ public class Product  extends com.microsoft.bingads.v9.campaignmanagement.Criter
      * 
      * @return conditions
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductCondition getConditions() {
+    public com.microsoft.bingads.v9.campaignmanagement.ProductCondition[] getConditions() {
         return conditions;
     }
 
@@ -37,7 +37,7 @@ public class Product  extends com.microsoft.bingads.v9.campaignmanagement.Criter
      * 
      * @param conditions
      */
-    public void setConditions(com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductCondition conditions) {
+    public void setConditions(com.microsoft.bingads.v9.campaignmanagement.ProductCondition[] conditions) {
         this.conditions = conditions;
     }
 
@@ -55,7 +55,7 @@ public class Product  extends com.microsoft.bingads.v9.campaignmanagement.Criter
         _equals = super.equals(obj) && 
             ((this.conditions==null && other.getConditions()==null) || 
              (this.conditions!=null &&
-              this.conditions.equals(other.getConditions())));
+              java.util.Arrays.equals(this.conditions, other.getConditions())));
         __equalsCalc = null;
         return _equals;
     }
@@ -68,7 +68,15 @@ public class Product  extends com.microsoft.bingads.v9.campaignmanagement.Criter
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getConditions() != null) {
-            _hashCode += getConditions().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getConditions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getConditions(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -83,9 +91,10 @@ public class Product  extends com.microsoft.bingads.v9.campaignmanagement.Criter
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("conditions");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Conditions"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfProductCondition"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ProductCondition"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ProductCondition"));
         typeDesc.addFieldDesc(elemField);
     }
 

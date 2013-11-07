@@ -8,18 +8,18 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class SiteLinksAdExtension  extends com.microsoft.bingads.v9.campaignmanagement.AdExtension  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfSiteLink siteLinks;
+    private com.microsoft.bingads.v9.campaignmanagement.SiteLink[] siteLinks;
 
     public SiteLinksAdExtension() {
     }
 
     public SiteLinksAdExtension(
-           com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap,
+           com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap,
            java.lang.Long id,
            com.microsoft.bingads.v9.campaignmanagement.AdExtensionStatus status,
            java.lang.String type,
            java.lang.Integer version,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfSiteLink siteLinks) {
+           com.microsoft.bingads.v9.campaignmanagement.SiteLink[] siteLinks) {
         super(
             forwardCompatibilityMap,
             id,
@@ -35,7 +35,7 @@ public class SiteLinksAdExtension  extends com.microsoft.bingads.v9.campaignmana
      * 
      * @return siteLinks
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfSiteLink getSiteLinks() {
+    public com.microsoft.bingads.v9.campaignmanagement.SiteLink[] getSiteLinks() {
         return siteLinks;
     }
 
@@ -45,7 +45,7 @@ public class SiteLinksAdExtension  extends com.microsoft.bingads.v9.campaignmana
      * 
      * @param siteLinks
      */
-    public void setSiteLinks(com.microsoft.bingads.v9.campaignmanagement.ArrayOfSiteLink siteLinks) {
+    public void setSiteLinks(com.microsoft.bingads.v9.campaignmanagement.SiteLink[] siteLinks) {
         this.siteLinks = siteLinks;
     }
 
@@ -63,7 +63,7 @@ public class SiteLinksAdExtension  extends com.microsoft.bingads.v9.campaignmana
         _equals = super.equals(obj) && 
             ((this.siteLinks==null && other.getSiteLinks()==null) || 
              (this.siteLinks!=null &&
-              this.siteLinks.equals(other.getSiteLinks())));
+              java.util.Arrays.equals(this.siteLinks, other.getSiteLinks())));
         __equalsCalc = null;
         return _equals;
     }
@@ -76,7 +76,15 @@ public class SiteLinksAdExtension  extends com.microsoft.bingads.v9.campaignmana
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
         if (getSiteLinks() != null) {
-            _hashCode += getSiteLinks().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSiteLinks());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSiteLinks(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -91,8 +99,9 @@ public class SiteLinksAdExtension  extends com.microsoft.bingads.v9.campaignmana
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("siteLinks");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "SiteLinks"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfSiteLink"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "SiteLink"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "SiteLink"));
         typeDesc.addFieldDesc(elemField);
     }
 

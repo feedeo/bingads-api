@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class SetAdExtensionsAssociationsRequest  implements java.io.Serializable {
     private java.lang.Long accountId;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionIdToEntityIdAssociation adExtensionIdToEntityIdAssociations;
+    private com.microsoft.bingads.v9.campaignmanagement.AdExtensionIdToEntityIdAssociation[] adExtensionIdToEntityIdAssociations;
 
     private com.microsoft.bingads.v9.campaignmanagement.AssociationType associationType;
 
@@ -19,7 +19,7 @@ public class SetAdExtensionsAssociationsRequest  implements java.io.Serializable
 
     public SetAdExtensionsAssociationsRequest(
            java.lang.Long accountId,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionIdToEntityIdAssociation adExtensionIdToEntityIdAssociations,
+           com.microsoft.bingads.v9.campaignmanagement.AdExtensionIdToEntityIdAssociation[] adExtensionIdToEntityIdAssociations,
            com.microsoft.bingads.v9.campaignmanagement.AssociationType associationType) {
            this.accountId = accountId;
            this.adExtensionIdToEntityIdAssociations = adExtensionIdToEntityIdAssociations;
@@ -52,7 +52,7 @@ public class SetAdExtensionsAssociationsRequest  implements java.io.Serializable
      * 
      * @return adExtensionIdToEntityIdAssociations
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionIdToEntityIdAssociation getAdExtensionIdToEntityIdAssociations() {
+    public com.microsoft.bingads.v9.campaignmanagement.AdExtensionIdToEntityIdAssociation[] getAdExtensionIdToEntityIdAssociations() {
         return adExtensionIdToEntityIdAssociations;
     }
 
@@ -62,7 +62,7 @@ public class SetAdExtensionsAssociationsRequest  implements java.io.Serializable
      * 
      * @param adExtensionIdToEntityIdAssociations
      */
-    public void setAdExtensionIdToEntityIdAssociations(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionIdToEntityIdAssociation adExtensionIdToEntityIdAssociations) {
+    public void setAdExtensionIdToEntityIdAssociations(com.microsoft.bingads.v9.campaignmanagement.AdExtensionIdToEntityIdAssociation[] adExtensionIdToEntityIdAssociations) {
         this.adExtensionIdToEntityIdAssociations = adExtensionIdToEntityIdAssociations;
     }
 
@@ -103,7 +103,7 @@ public class SetAdExtensionsAssociationsRequest  implements java.io.Serializable
               this.accountId.equals(other.getAccountId()))) &&
             ((this.adExtensionIdToEntityIdAssociations==null && other.getAdExtensionIdToEntityIdAssociations()==null) || 
              (this.adExtensionIdToEntityIdAssociations!=null &&
-              this.adExtensionIdToEntityIdAssociations.equals(other.getAdExtensionIdToEntityIdAssociations()))) &&
+              java.util.Arrays.equals(this.adExtensionIdToEntityIdAssociations, other.getAdExtensionIdToEntityIdAssociations()))) &&
             ((this.associationType==null && other.getAssociationType()==null) || 
              (this.associationType!=null &&
               this.associationType.equals(other.getAssociationType())));
@@ -122,7 +122,15 @@ public class SetAdExtensionsAssociationsRequest  implements java.io.Serializable
             _hashCode += getAccountId().hashCode();
         }
         if (getAdExtensionIdToEntityIdAssociations() != null) {
-            _hashCode += getAdExtensionIdToEntityIdAssociations().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdExtensionIdToEntityIdAssociations());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdExtensionIdToEntityIdAssociations(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getAssociationType() != null) {
             _hashCode += getAssociationType().hashCode();
@@ -147,9 +155,10 @@ public class SetAdExtensionsAssociationsRequest  implements java.io.Serializable
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adExtensionIdToEntityIdAssociations");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionIdToEntityIdAssociations"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAdExtensionIdToEntityIdAssociation"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionIdToEntityIdAssociation"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionIdToEntityIdAssociation"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("associationType");

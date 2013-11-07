@@ -14,15 +14,15 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
 
     private java.lang.Integer newRoleId;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong newAccountIds;
+    private long[] newAccountIds;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong newCustomerIds;
+    private long[] newCustomerIds;
 
     private java.lang.Integer deleteRoleId;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong deleteAccountIds;
+    private long[] deleteAccountIds;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong deleteCustomerIds;
+    private long[] deleteCustomerIds;
 
     public UpdateUserRolesRequest() {
     }
@@ -31,11 +31,11 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
            java.lang.Long customerId,
            java.lang.Long userId,
            java.lang.Integer newRoleId,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong newAccountIds,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong newCustomerIds,
+           long[] newAccountIds,
+           long[] newCustomerIds,
            java.lang.Integer deleteRoleId,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong deleteAccountIds,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong deleteCustomerIds) {
+           long[] deleteAccountIds,
+           long[] deleteCustomerIds) {
            this.customerId = customerId;
            this.userId = userId;
            this.newRoleId = newRoleId;
@@ -112,7 +112,7 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
      * 
      * @return newAccountIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getNewAccountIds() {
+    public long[] getNewAccountIds() {
         return newAccountIds;
     }
 
@@ -122,7 +122,7 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
      * 
      * @param newAccountIds
      */
-    public void setNewAccountIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong newAccountIds) {
+    public void setNewAccountIds(long[] newAccountIds) {
         this.newAccountIds = newAccountIds;
     }
 
@@ -132,7 +132,7 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
      * 
      * @return newCustomerIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getNewCustomerIds() {
+    public long[] getNewCustomerIds() {
         return newCustomerIds;
     }
 
@@ -142,7 +142,7 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
      * 
      * @param newCustomerIds
      */
-    public void setNewCustomerIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong newCustomerIds) {
+    public void setNewCustomerIds(long[] newCustomerIds) {
         this.newCustomerIds = newCustomerIds;
     }
 
@@ -172,7 +172,7 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
      * 
      * @return deleteAccountIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getDeleteAccountIds() {
+    public long[] getDeleteAccountIds() {
         return deleteAccountIds;
     }
 
@@ -182,7 +182,7 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
      * 
      * @param deleteAccountIds
      */
-    public void setDeleteAccountIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong deleteAccountIds) {
+    public void setDeleteAccountIds(long[] deleteAccountIds) {
         this.deleteAccountIds = deleteAccountIds;
     }
 
@@ -192,7 +192,7 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
      * 
      * @return deleteCustomerIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getDeleteCustomerIds() {
+    public long[] getDeleteCustomerIds() {
         return deleteCustomerIds;
     }
 
@@ -202,7 +202,7 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
      * 
      * @param deleteCustomerIds
      */
-    public void setDeleteCustomerIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong deleteCustomerIds) {
+    public void setDeleteCustomerIds(long[] deleteCustomerIds) {
         this.deleteCustomerIds = deleteCustomerIds;
     }
 
@@ -229,19 +229,19 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
               this.newRoleId.equals(other.getNewRoleId()))) &&
             ((this.newAccountIds==null && other.getNewAccountIds()==null) || 
              (this.newAccountIds!=null &&
-              this.newAccountIds.equals(other.getNewAccountIds()))) &&
+              java.util.Arrays.equals(this.newAccountIds, other.getNewAccountIds()))) &&
             ((this.newCustomerIds==null && other.getNewCustomerIds()==null) || 
              (this.newCustomerIds!=null &&
-              this.newCustomerIds.equals(other.getNewCustomerIds()))) &&
+              java.util.Arrays.equals(this.newCustomerIds, other.getNewCustomerIds()))) &&
             ((this.deleteRoleId==null && other.getDeleteRoleId()==null) || 
              (this.deleteRoleId!=null &&
               this.deleteRoleId.equals(other.getDeleteRoleId()))) &&
             ((this.deleteAccountIds==null && other.getDeleteAccountIds()==null) || 
              (this.deleteAccountIds!=null &&
-              this.deleteAccountIds.equals(other.getDeleteAccountIds()))) &&
+              java.util.Arrays.equals(this.deleteAccountIds, other.getDeleteAccountIds()))) &&
             ((this.deleteCustomerIds==null && other.getDeleteCustomerIds()==null) || 
              (this.deleteCustomerIds!=null &&
-              this.deleteCustomerIds.equals(other.getDeleteCustomerIds())));
+              java.util.Arrays.equals(this.deleteCustomerIds, other.getDeleteCustomerIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -263,19 +263,51 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
             _hashCode += getNewRoleId().hashCode();
         }
         if (getNewAccountIds() != null) {
-            _hashCode += getNewAccountIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getNewAccountIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getNewAccountIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getNewCustomerIds() != null) {
-            _hashCode += getNewCustomerIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getNewCustomerIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getNewCustomerIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getDeleteRoleId() != null) {
             _hashCode += getDeleteRoleId().hashCode();
         }
         if (getDeleteAccountIds() != null) {
-            _hashCode += getDeleteAccountIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getDeleteAccountIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getDeleteAccountIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getDeleteCustomerIds() != null) {
-            _hashCode += getDeleteCustomerIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getDeleteCustomerIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getDeleteCustomerIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -311,16 +343,18 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("newAccountIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "NewAccountIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("newCustomerIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "NewCustomerIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("deleteRoleId");
@@ -332,16 +366,18 @@ public class UpdateUserRolesRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("deleteAccountIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "DeleteAccountIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("deleteCustomerIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "DeleteCustomerIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

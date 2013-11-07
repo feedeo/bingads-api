@@ -33,7 +33,7 @@ public class AdvertiserAccount  extends com.microsoft.bingads.v9.customermanagem
            com.microsoft.bingads.v9.customermanagement.entities.AccountFinancialStatus accountFinancialStatus,
            java.lang.Long id,
            com.microsoft.bingads.v9.customermanagement.entities.LanguageType language,
-           com.microsoft.bingads.v9.schemas.generic.ArrayOfKeyValuePairOfstringstring forwardCompatibilityMap,
+           com.microsoft.bingads.v9.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap,
            java.lang.Long lastModifiedByUserId,
            java.util.Calendar lastModifiedTime,
            java.lang.String name,

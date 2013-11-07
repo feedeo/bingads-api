@@ -8,11 +8,11 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class SuggestKeywordsFromExistingKeywordsRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords;
+    private java.lang.String[] keywords;
 
     private java.lang.String language;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries;
+    private java.lang.String[] publisherCountries;
 
     private java.lang.Integer maxSuggestionsPerKeyword;
 
@@ -30,9 +30,9 @@ public class SuggestKeywordsFromExistingKeywordsRequest  implements java.io.Seri
     }
 
     public SuggestKeywordsFromExistingKeywordsRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords,
+           java.lang.String[] keywords,
            java.lang.String language,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries,
+           java.lang.String[] publisherCountries,
            java.lang.Integer maxSuggestionsPerKeyword,
            java.lang.Integer suggestionType,
            java.lang.Boolean removeDuplicates,
@@ -56,7 +56,7 @@ public class SuggestKeywordsFromExistingKeywordsRequest  implements java.io.Seri
      * 
      * @return keywords
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getKeywords() {
+    public java.lang.String[] getKeywords() {
         return keywords;
     }
 
@@ -66,7 +66,7 @@ public class SuggestKeywordsFromExistingKeywordsRequest  implements java.io.Seri
      * 
      * @param keywords
      */
-    public void setKeywords(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords) {
+    public void setKeywords(java.lang.String[] keywords) {
         this.keywords = keywords;
     }
 
@@ -96,7 +96,7 @@ public class SuggestKeywordsFromExistingKeywordsRequest  implements java.io.Seri
      * 
      * @return publisherCountries
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getPublisherCountries() {
+    public java.lang.String[] getPublisherCountries() {
         return publisherCountries;
     }
 
@@ -106,7 +106,7 @@ public class SuggestKeywordsFromExistingKeywordsRequest  implements java.io.Seri
      * 
      * @param publisherCountries
      */
-    public void setPublisherCountries(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries) {
+    public void setPublisherCountries(java.lang.String[] publisherCountries) {
         this.publisherCountries = publisherCountries;
     }
 
@@ -244,13 +244,13 @@ public class SuggestKeywordsFromExistingKeywordsRequest  implements java.io.Seri
         _equals = true && 
             ((this.keywords==null && other.getKeywords()==null) || 
              (this.keywords!=null &&
-              this.keywords.equals(other.getKeywords()))) &&
+              java.util.Arrays.equals(this.keywords, other.getKeywords()))) &&
             ((this.language==null && other.getLanguage()==null) || 
              (this.language!=null &&
               this.language.equals(other.getLanguage()))) &&
             ((this.publisherCountries==null && other.getPublisherCountries()==null) || 
              (this.publisherCountries!=null &&
-              this.publisherCountries.equals(other.getPublisherCountries()))) &&
+              java.util.Arrays.equals(this.publisherCountries, other.getPublisherCountries()))) &&
             ((this.maxSuggestionsPerKeyword==null && other.getMaxSuggestionsPerKeyword()==null) || 
              (this.maxSuggestionsPerKeyword!=null &&
               this.maxSuggestionsPerKeyword.equals(other.getMaxSuggestionsPerKeyword()))) &&
@@ -281,13 +281,29 @@ public class SuggestKeywordsFromExistingKeywordsRequest  implements java.io.Seri
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywords() != null) {
-            _hashCode += getKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLanguage() != null) {
             _hashCode += getLanguage().hashCode();
         }
         if (getPublisherCountries() != null) {
-            _hashCode += getPublisherCountries().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPublisherCountries());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPublisherCountries(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getMaxSuggestionsPerKeyword() != null) {
             _hashCode += getMaxSuggestionsPerKeyword().hashCode();
@@ -320,9 +336,10 @@ public class SuggestKeywordsFromExistingKeywordsRequest  implements java.io.Seri
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "Keywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("language");
@@ -334,9 +351,10 @@ public class SuggestKeywordsFromExistingKeywordsRequest  implements java.io.Seri
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("publisherCountries");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "PublisherCountries"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("maxSuggestionsPerKeyword");

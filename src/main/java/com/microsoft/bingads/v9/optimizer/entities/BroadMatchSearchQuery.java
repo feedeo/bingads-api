@@ -14,7 +14,7 @@ public class BroadMatchSearchQuery  implements java.io.Serializable {
 
     private java.lang.String keyword;
 
-    private com.microsoft.bingads.v9.optimizer.entities.ArrayOfBroadMatchSearchQueryKPI searchQueryKPIs;
+    private com.microsoft.bingads.v9.optimizer.entities.BroadMatchSearchQueryKPI[] searchQueryKPIs;
 
     public BroadMatchSearchQuery() {
     }
@@ -23,7 +23,7 @@ public class BroadMatchSearchQuery  implements java.io.Serializable {
            java.lang.Long accountId,
            java.lang.String accountName,
            java.lang.String keyword,
-           com.microsoft.bingads.v9.optimizer.entities.ArrayOfBroadMatchSearchQueryKPI searchQueryKPIs) {
+           com.microsoft.bingads.v9.optimizer.entities.BroadMatchSearchQueryKPI[] searchQueryKPIs) {
            this.accountId = accountId;
            this.accountName = accountName;
            this.keyword = keyword;
@@ -96,7 +96,7 @@ public class BroadMatchSearchQuery  implements java.io.Serializable {
      * 
      * @return searchQueryKPIs
      */
-    public com.microsoft.bingads.v9.optimizer.entities.ArrayOfBroadMatchSearchQueryKPI getSearchQueryKPIs() {
+    public com.microsoft.bingads.v9.optimizer.entities.BroadMatchSearchQueryKPI[] getSearchQueryKPIs() {
         return searchQueryKPIs;
     }
 
@@ -106,7 +106,7 @@ public class BroadMatchSearchQuery  implements java.io.Serializable {
      * 
      * @param searchQueryKPIs
      */
-    public void setSearchQueryKPIs(com.microsoft.bingads.v9.optimizer.entities.ArrayOfBroadMatchSearchQueryKPI searchQueryKPIs) {
+    public void setSearchQueryKPIs(com.microsoft.bingads.v9.optimizer.entities.BroadMatchSearchQueryKPI[] searchQueryKPIs) {
         this.searchQueryKPIs = searchQueryKPIs;
     }
 
@@ -133,7 +133,7 @@ public class BroadMatchSearchQuery  implements java.io.Serializable {
               this.keyword.equals(other.getKeyword()))) &&
             ((this.searchQueryKPIs==null && other.getSearchQueryKPIs()==null) || 
              (this.searchQueryKPIs!=null &&
-              this.searchQueryKPIs.equals(other.getSearchQueryKPIs())));
+              java.util.Arrays.equals(this.searchQueryKPIs, other.getSearchQueryKPIs())));
         __equalsCalc = null;
         return _equals;
     }
@@ -155,7 +155,15 @@ public class BroadMatchSearchQuery  implements java.io.Serializable {
             _hashCode += getKeyword().hashCode();
         }
         if (getSearchQueryKPIs() != null) {
-            _hashCode += getSearchQueryKPIs().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSearchQueryKPIs());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSearchQueryKPIs(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -191,9 +199,10 @@ public class BroadMatchSearchQuery  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("searchQueryKPIs");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "SearchQueryKPIs"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ArrayOfBroadMatchSearchQueryKPI"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BroadMatchSearchQueryKPI"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BroadMatchSearchQueryKPI"));
         typeDesc.addFieldDesc(elemField);
     }
 

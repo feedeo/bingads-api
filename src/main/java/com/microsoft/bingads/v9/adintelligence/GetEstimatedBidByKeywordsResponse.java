@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetEstimatedBidByKeywordsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordEstimatedBid keywordEstimatedBids;
+    private com.microsoft.bingads.v9.datacontracts.KeywordEstimatedBid[] keywordEstimatedBids;
 
     private com.microsoft.bingads.v9.datacontracts.AdGroupEstimatedBid adGroupEstimatedBid;
 
@@ -16,7 +16,7 @@ public class GetEstimatedBidByKeywordsResponse  implements java.io.Serializable 
     }
 
     public GetEstimatedBidByKeywordsResponse(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordEstimatedBid keywordEstimatedBids,
+           com.microsoft.bingads.v9.datacontracts.KeywordEstimatedBid[] keywordEstimatedBids,
            com.microsoft.bingads.v9.datacontracts.AdGroupEstimatedBid adGroupEstimatedBid) {
            this.keywordEstimatedBids = keywordEstimatedBids;
            this.adGroupEstimatedBid = adGroupEstimatedBid;
@@ -28,7 +28,7 @@ public class GetEstimatedBidByKeywordsResponse  implements java.io.Serializable 
      * 
      * @return keywordEstimatedBids
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordEstimatedBid getKeywordEstimatedBids() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordEstimatedBid[] getKeywordEstimatedBids() {
         return keywordEstimatedBids;
     }
 
@@ -38,7 +38,7 @@ public class GetEstimatedBidByKeywordsResponse  implements java.io.Serializable 
      * 
      * @param keywordEstimatedBids
      */
-    public void setKeywordEstimatedBids(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordEstimatedBid keywordEstimatedBids) {
+    public void setKeywordEstimatedBids(com.microsoft.bingads.v9.datacontracts.KeywordEstimatedBid[] keywordEstimatedBids) {
         this.keywordEstimatedBids = keywordEstimatedBids;
     }
 
@@ -76,7 +76,7 @@ public class GetEstimatedBidByKeywordsResponse  implements java.io.Serializable 
         _equals = true && 
             ((this.keywordEstimatedBids==null && other.getKeywordEstimatedBids()==null) || 
              (this.keywordEstimatedBids!=null &&
-              this.keywordEstimatedBids.equals(other.getKeywordEstimatedBids()))) &&
+              java.util.Arrays.equals(this.keywordEstimatedBids, other.getKeywordEstimatedBids()))) &&
             ((this.adGroupEstimatedBid==null && other.getAdGroupEstimatedBid()==null) || 
              (this.adGroupEstimatedBid!=null &&
               this.adGroupEstimatedBid.equals(other.getAdGroupEstimatedBid())));
@@ -92,7 +92,15 @@ public class GetEstimatedBidByKeywordsResponse  implements java.io.Serializable 
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywordEstimatedBids() != null) {
-            _hashCode += getKeywordEstimatedBids().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordEstimatedBids());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordEstimatedBids(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getAdGroupEstimatedBid() != null) {
             _hashCode += getAdGroupEstimatedBid().hashCode();
@@ -110,9 +118,10 @@ public class GetEstimatedBidByKeywordsResponse  implements java.io.Serializable 
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordEstimatedBids");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "KeywordEstimatedBids"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordEstimatedBid"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordEstimatedBid"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordEstimatedBid"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adGroupEstimatedBid");

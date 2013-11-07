@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class UpdateAdExtensionsRequest  implements java.io.Serializable {
     private java.lang.Long accountId;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtension adExtensions;
+    private com.microsoft.bingads.v9.campaignmanagement.AdExtension[] adExtensions;
 
     public UpdateAdExtensionsRequest() {
     }
 
     public UpdateAdExtensionsRequest(
            java.lang.Long accountId,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtension adExtensions) {
+           com.microsoft.bingads.v9.campaignmanagement.AdExtension[] adExtensions) {
            this.accountId = accountId;
            this.adExtensions = adExtensions;
     }
@@ -48,7 +48,7 @@ public class UpdateAdExtensionsRequest  implements java.io.Serializable {
      * 
      * @return adExtensions
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtension getAdExtensions() {
+    public com.microsoft.bingads.v9.campaignmanagement.AdExtension[] getAdExtensions() {
         return adExtensions;
     }
 
@@ -58,7 +58,7 @@ public class UpdateAdExtensionsRequest  implements java.io.Serializable {
      * 
      * @param adExtensions
      */
-    public void setAdExtensions(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtension adExtensions) {
+    public void setAdExtensions(com.microsoft.bingads.v9.campaignmanagement.AdExtension[] adExtensions) {
         this.adExtensions = adExtensions;
     }
 
@@ -79,7 +79,7 @@ public class UpdateAdExtensionsRequest  implements java.io.Serializable {
               this.accountId.equals(other.getAccountId()))) &&
             ((this.adExtensions==null && other.getAdExtensions()==null) || 
              (this.adExtensions!=null &&
-              this.adExtensions.equals(other.getAdExtensions())));
+              java.util.Arrays.equals(this.adExtensions, other.getAdExtensions())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class UpdateAdExtensionsRequest  implements java.io.Serializable {
             _hashCode += getAccountId().hashCode();
         }
         if (getAdExtensions() != null) {
-            _hashCode += getAdExtensions().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdExtensions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdExtensions(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class UpdateAdExtensionsRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adExtensions");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensions"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAdExtension"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtension"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtension"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class AddAdGroupsRequest  implements java.io.Serializable {
     private java.lang.Long campaignId;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroup adGroups;
+    private com.microsoft.bingads.v9.campaignmanagement.AdGroup[] adGroups;
 
     public AddAdGroupsRequest() {
     }
 
     public AddAdGroupsRequest(
            java.lang.Long campaignId,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroup adGroups) {
+           com.microsoft.bingads.v9.campaignmanagement.AdGroup[] adGroups) {
            this.campaignId = campaignId;
            this.adGroups = adGroups;
     }
@@ -48,7 +48,7 @@ public class AddAdGroupsRequest  implements java.io.Serializable {
      * 
      * @return adGroups
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroup getAdGroups() {
+    public com.microsoft.bingads.v9.campaignmanagement.AdGroup[] getAdGroups() {
         return adGroups;
     }
 
@@ -58,7 +58,7 @@ public class AddAdGroupsRequest  implements java.io.Serializable {
      * 
      * @param adGroups
      */
-    public void setAdGroups(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroup adGroups) {
+    public void setAdGroups(com.microsoft.bingads.v9.campaignmanagement.AdGroup[] adGroups) {
         this.adGroups = adGroups;
     }
 
@@ -79,7 +79,7 @@ public class AddAdGroupsRequest  implements java.io.Serializable {
               this.campaignId.equals(other.getCampaignId()))) &&
             ((this.adGroups==null && other.getAdGroups()==null) || 
              (this.adGroups!=null &&
-              this.adGroups.equals(other.getAdGroups())));
+              java.util.Arrays.equals(this.adGroups, other.getAdGroups())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class AddAdGroupsRequest  implements java.io.Serializable {
             _hashCode += getCampaignId().hashCode();
         }
         if (getAdGroups() != null) {
-            _hashCode += getAdGroups().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdGroups());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdGroups(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class AddAdGroupsRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adGroups");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroups"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAdGroup"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroup"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroup"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class ProductConditionCollection  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductCondition conditions;
+    private com.microsoft.bingads.v9.campaignmanagement.ProductCondition[] conditions;
 
     public ProductConditionCollection() {
     }
 
     public ProductConditionCollection(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductCondition conditions) {
+           com.microsoft.bingads.v9.campaignmanagement.ProductCondition[] conditions) {
            this.conditions = conditions;
     }
 
@@ -24,7 +24,7 @@ public class ProductConditionCollection  implements java.io.Serializable {
      * 
      * @return conditions
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductCondition getConditions() {
+    public com.microsoft.bingads.v9.campaignmanagement.ProductCondition[] getConditions() {
         return conditions;
     }
 
@@ -34,7 +34,7 @@ public class ProductConditionCollection  implements java.io.Serializable {
      * 
      * @param conditions
      */
-    public void setConditions(com.microsoft.bingads.v9.campaignmanagement.ArrayOfProductCondition conditions) {
+    public void setConditions(com.microsoft.bingads.v9.campaignmanagement.ProductCondition[] conditions) {
         this.conditions = conditions;
     }
 
@@ -52,7 +52,7 @@ public class ProductConditionCollection  implements java.io.Serializable {
         _equals = true && 
             ((this.conditions==null && other.getConditions()==null) || 
              (this.conditions!=null &&
-              this.conditions.equals(other.getConditions())));
+              java.util.Arrays.equals(this.conditions, other.getConditions())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class ProductConditionCollection  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getConditions() != null) {
-            _hashCode += getConditions().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getConditions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getConditions(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class ProductConditionCollection  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("conditions");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Conditions"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfProductCondition"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ProductCondition"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ProductCondition"));
         typeDesc.addFieldDesc(elemField);
     }
 

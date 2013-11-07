@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class GetEditorialReasonsByIdsRequest  implements java.io.Serializable {
     private java.lang.Long accountId;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong entityIds;
+    private long[] entityIds;
 
     private com.microsoft.bingads.v9.campaignmanagement.EntityType entityType;
 
@@ -19,7 +19,7 @@ public class GetEditorialReasonsByIdsRequest  implements java.io.Serializable {
 
     public GetEditorialReasonsByIdsRequest(
            java.lang.Long accountId,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong entityIds,
+           long[] entityIds,
            com.microsoft.bingads.v9.campaignmanagement.EntityType entityType) {
            this.accountId = accountId;
            this.entityIds = entityIds;
@@ -52,7 +52,7 @@ public class GetEditorialReasonsByIdsRequest  implements java.io.Serializable {
      * 
      * @return entityIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getEntityIds() {
+    public long[] getEntityIds() {
         return entityIds;
     }
 
@@ -62,7 +62,7 @@ public class GetEditorialReasonsByIdsRequest  implements java.io.Serializable {
      * 
      * @param entityIds
      */
-    public void setEntityIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong entityIds) {
+    public void setEntityIds(long[] entityIds) {
         this.entityIds = entityIds;
     }
 
@@ -103,7 +103,7 @@ public class GetEditorialReasonsByIdsRequest  implements java.io.Serializable {
               this.accountId.equals(other.getAccountId()))) &&
             ((this.entityIds==null && other.getEntityIds()==null) || 
              (this.entityIds!=null &&
-              this.entityIds.equals(other.getEntityIds()))) &&
+              java.util.Arrays.equals(this.entityIds, other.getEntityIds()))) &&
             ((this.entityType==null && other.getEntityType()==null) || 
              (this.entityType!=null &&
               this.entityType.equals(other.getEntityType())));
@@ -122,7 +122,15 @@ public class GetEditorialReasonsByIdsRequest  implements java.io.Serializable {
             _hashCode += getAccountId().hashCode();
         }
         if (getEntityIds() != null) {
-            _hashCode += getEntityIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getEntityIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getEntityIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getEntityType() != null) {
             _hashCode += getEntityType().hashCode();
@@ -147,9 +155,10 @@ public class GetEditorialReasonsByIdsRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("entityIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "EntityIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("entityType");

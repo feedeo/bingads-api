@@ -8,19 +8,19 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class AccountThroughAdGroupReportScope  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong accountIds;
+    private long[] accountIds;
 
-    private com.microsoft.bingads.v9.reporting.ArrayOfAdGroupReportScope adGroups;
+    private com.microsoft.bingads.v9.reporting.AdGroupReportScope[] adGroups;
 
-    private com.microsoft.bingads.v9.reporting.ArrayOfCampaignReportScope campaigns;
+    private com.microsoft.bingads.v9.reporting.CampaignReportScope[] campaigns;
 
     public AccountThroughAdGroupReportScope() {
     }
 
     public AccountThroughAdGroupReportScope(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong accountIds,
-           com.microsoft.bingads.v9.reporting.ArrayOfAdGroupReportScope adGroups,
-           com.microsoft.bingads.v9.reporting.ArrayOfCampaignReportScope campaigns) {
+           long[] accountIds,
+           com.microsoft.bingads.v9.reporting.AdGroupReportScope[] adGroups,
+           com.microsoft.bingads.v9.reporting.CampaignReportScope[] campaigns) {
            this.accountIds = accountIds;
            this.adGroups = adGroups;
            this.campaigns = campaigns;
@@ -32,7 +32,7 @@ public class AccountThroughAdGroupReportScope  implements java.io.Serializable {
      * 
      * @return accountIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getAccountIds() {
+    public long[] getAccountIds() {
         return accountIds;
     }
 
@@ -42,7 +42,7 @@ public class AccountThroughAdGroupReportScope  implements java.io.Serializable {
      * 
      * @param accountIds
      */
-    public void setAccountIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong accountIds) {
+    public void setAccountIds(long[] accountIds) {
         this.accountIds = accountIds;
     }
 
@@ -52,7 +52,7 @@ public class AccountThroughAdGroupReportScope  implements java.io.Serializable {
      * 
      * @return adGroups
      */
-    public com.microsoft.bingads.v9.reporting.ArrayOfAdGroupReportScope getAdGroups() {
+    public com.microsoft.bingads.v9.reporting.AdGroupReportScope[] getAdGroups() {
         return adGroups;
     }
 
@@ -62,7 +62,7 @@ public class AccountThroughAdGroupReportScope  implements java.io.Serializable {
      * 
      * @param adGroups
      */
-    public void setAdGroups(com.microsoft.bingads.v9.reporting.ArrayOfAdGroupReportScope adGroups) {
+    public void setAdGroups(com.microsoft.bingads.v9.reporting.AdGroupReportScope[] adGroups) {
         this.adGroups = adGroups;
     }
 
@@ -72,7 +72,7 @@ public class AccountThroughAdGroupReportScope  implements java.io.Serializable {
      * 
      * @return campaigns
      */
-    public com.microsoft.bingads.v9.reporting.ArrayOfCampaignReportScope getCampaigns() {
+    public com.microsoft.bingads.v9.reporting.CampaignReportScope[] getCampaigns() {
         return campaigns;
     }
 
@@ -82,7 +82,7 @@ public class AccountThroughAdGroupReportScope  implements java.io.Serializable {
      * 
      * @param campaigns
      */
-    public void setCampaigns(com.microsoft.bingads.v9.reporting.ArrayOfCampaignReportScope campaigns) {
+    public void setCampaigns(com.microsoft.bingads.v9.reporting.CampaignReportScope[] campaigns) {
         this.campaigns = campaigns;
     }
 
@@ -100,13 +100,13 @@ public class AccountThroughAdGroupReportScope  implements java.io.Serializable {
         _equals = true && 
             ((this.accountIds==null && other.getAccountIds()==null) || 
              (this.accountIds!=null &&
-              this.accountIds.equals(other.getAccountIds()))) &&
+              java.util.Arrays.equals(this.accountIds, other.getAccountIds()))) &&
             ((this.adGroups==null && other.getAdGroups()==null) || 
              (this.adGroups!=null &&
-              this.adGroups.equals(other.getAdGroups()))) &&
+              java.util.Arrays.equals(this.adGroups, other.getAdGroups()))) &&
             ((this.campaigns==null && other.getCampaigns()==null) || 
              (this.campaigns!=null &&
-              this.campaigns.equals(other.getCampaigns())));
+              java.util.Arrays.equals(this.campaigns, other.getCampaigns())));
         __equalsCalc = null;
         return _equals;
     }
@@ -119,13 +119,37 @@ public class AccountThroughAdGroupReportScope  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAccountIds() != null) {
-            _hashCode += getAccountIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAccountIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAccountIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getAdGroups() != null) {
-            _hashCode += getAdGroups().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdGroups());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdGroups(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getCampaigns() != null) {
-            _hashCode += getCampaigns().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getCampaigns());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getCampaigns(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -140,23 +164,26 @@ public class AccountThroughAdGroupReportScope  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("accountIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AccountIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adGroups");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdGroups"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfAdGroupReportScope"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdGroupReportScope"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdGroupReportScope"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("campaigns");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Campaigns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfCampaignReportScope"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "CampaignReportScope"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "CampaignReportScope"));
         typeDesc.addFieldDesc(elemField);
     }
 

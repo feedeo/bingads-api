@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.datacontracts;
 public class KeywordEstimatedBid  implements java.io.Serializable {
     private java.lang.String keyword;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfEstimatedBidAndTraffic estimatedBids;
+    private com.microsoft.bingads.v9.datacontracts.EstimatedBidAndTraffic[] estimatedBids;
 
     public KeywordEstimatedBid() {
     }
 
     public KeywordEstimatedBid(
            java.lang.String keyword,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfEstimatedBidAndTraffic estimatedBids) {
+           com.microsoft.bingads.v9.datacontracts.EstimatedBidAndTraffic[] estimatedBids) {
            this.keyword = keyword;
            this.estimatedBids = estimatedBids;
     }
@@ -48,7 +48,7 @@ public class KeywordEstimatedBid  implements java.io.Serializable {
      * 
      * @return estimatedBids
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfEstimatedBidAndTraffic getEstimatedBids() {
+    public com.microsoft.bingads.v9.datacontracts.EstimatedBidAndTraffic[] getEstimatedBids() {
         return estimatedBids;
     }
 
@@ -58,7 +58,7 @@ public class KeywordEstimatedBid  implements java.io.Serializable {
      * 
      * @param estimatedBids
      */
-    public void setEstimatedBids(com.microsoft.bingads.v9.datacontracts.ArrayOfEstimatedBidAndTraffic estimatedBids) {
+    public void setEstimatedBids(com.microsoft.bingads.v9.datacontracts.EstimatedBidAndTraffic[] estimatedBids) {
         this.estimatedBids = estimatedBids;
     }
 
@@ -79,7 +79,7 @@ public class KeywordEstimatedBid  implements java.io.Serializable {
               this.keyword.equals(other.getKeyword()))) &&
             ((this.estimatedBids==null && other.getEstimatedBids()==null) || 
              (this.estimatedBids!=null &&
-              this.estimatedBids.equals(other.getEstimatedBids())));
+              java.util.Arrays.equals(this.estimatedBids, other.getEstimatedBids())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class KeywordEstimatedBid  implements java.io.Serializable {
             _hashCode += getKeyword().hashCode();
         }
         if (getEstimatedBids() != null) {
-            _hashCode += getEstimatedBids().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getEstimatedBids());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getEstimatedBids(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class KeywordEstimatedBid  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("estimatedBids");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "EstimatedBids"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfEstimatedBidAndTraffic"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "EstimatedBidAndTraffic"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "EstimatedBidAndTraffic"));
         typeDesc.addFieldDesc(elemField);
     }
 

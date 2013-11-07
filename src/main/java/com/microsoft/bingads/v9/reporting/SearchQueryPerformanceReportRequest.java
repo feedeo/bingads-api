@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.reporting;
 public class SearchQueryPerformanceReportRequest  extends com.microsoft.bingads.v9.reporting.ReportRequest  implements java.io.Serializable {
     private com.microsoft.bingads.v9.reporting.SearchQueryReportAggregation aggregation;
 
-    private com.microsoft.bingads.v9.reporting.ArrayOfSearchQueryPerformanceReportColumn columns;
+    private com.microsoft.bingads.v9.reporting.SearchQueryPerformanceReportColumn[] columns;
 
     private com.microsoft.bingads.v9.reporting.SearchQueryPerformanceReportFilter filter;
 
@@ -27,7 +27,7 @@ public class SearchQueryPerformanceReportRequest  extends com.microsoft.bingads.
            java.lang.String reportName,
            java.lang.Boolean returnOnlyCompleteData,
            com.microsoft.bingads.v9.reporting.SearchQueryReportAggregation aggregation,
-           com.microsoft.bingads.v9.reporting.ArrayOfSearchQueryPerformanceReportColumn columns,
+           com.microsoft.bingads.v9.reporting.SearchQueryPerformanceReportColumn[] columns,
            com.microsoft.bingads.v9.reporting.SearchQueryPerformanceReportFilter filter,
            com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope,
            com.microsoft.bingads.v9.reporting.ReportTime time) {
@@ -69,7 +69,7 @@ public class SearchQueryPerformanceReportRequest  extends com.microsoft.bingads.
      * 
      * @return columns
      */
-    public com.microsoft.bingads.v9.reporting.ArrayOfSearchQueryPerformanceReportColumn getColumns() {
+    public com.microsoft.bingads.v9.reporting.SearchQueryPerformanceReportColumn[] getColumns() {
         return columns;
     }
 
@@ -79,7 +79,7 @@ public class SearchQueryPerformanceReportRequest  extends com.microsoft.bingads.
      * 
      * @param columns
      */
-    public void setColumns(com.microsoft.bingads.v9.reporting.ArrayOfSearchQueryPerformanceReportColumn columns) {
+    public void setColumns(com.microsoft.bingads.v9.reporting.SearchQueryPerformanceReportColumn[] columns) {
         this.columns = columns;
     }
 
@@ -160,7 +160,7 @@ public class SearchQueryPerformanceReportRequest  extends com.microsoft.bingads.
               this.aggregation.equals(other.getAggregation()))) &&
             ((this.columns==null && other.getColumns()==null) || 
              (this.columns!=null &&
-              this.columns.equals(other.getColumns()))) &&
+              java.util.Arrays.equals(this.columns, other.getColumns()))) &&
             ((this.filter==null && other.getFilter()==null) || 
              (this.filter!=null &&
               this.filter.equals(other.getFilter()))) &&
@@ -185,7 +185,15 @@ public class SearchQueryPerformanceReportRequest  extends com.microsoft.bingads.
             _hashCode += getAggregation().hashCode();
         }
         if (getColumns() != null) {
-            _hashCode += getColumns().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getColumns());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getColumns(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getFilter() != null) {
             _hashCode += getFilter().hashCode();
@@ -215,8 +223,9 @@ public class SearchQueryPerformanceReportRequest  extends com.microsoft.bingads.
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("columns");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Columns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfSearchQueryPerformanceReportColumn"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "SearchQueryPerformanceReportColumn"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "SearchQueryPerformanceReportColumn"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filter");

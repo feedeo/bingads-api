@@ -12,7 +12,7 @@ public class ApplyOpportunityModifiersRequest  implements java.io.Serializable {
 
     private com.microsoft.bingads.v9.optimizer.entities.OpportunityAction action;
 
-    private com.microsoft.bingads.v9.optimizer.entities.ArrayOfOpportunityModifier opportunities;
+    private com.microsoft.bingads.v9.optimizer.entities.OpportunityModifier[] opportunities;
 
     public ApplyOpportunityModifiersRequest() {
     }
@@ -20,7 +20,7 @@ public class ApplyOpportunityModifiersRequest  implements java.io.Serializable {
     public ApplyOpportunityModifiersRequest(
            java.lang.Long accountId,
            com.microsoft.bingads.v9.optimizer.entities.OpportunityAction action,
-           com.microsoft.bingads.v9.optimizer.entities.ArrayOfOpportunityModifier opportunities) {
+           com.microsoft.bingads.v9.optimizer.entities.OpportunityModifier[] opportunities) {
            this.accountId = accountId;
            this.action = action;
            this.opportunities = opportunities;
@@ -72,7 +72,7 @@ public class ApplyOpportunityModifiersRequest  implements java.io.Serializable {
      * 
      * @return opportunities
      */
-    public com.microsoft.bingads.v9.optimizer.entities.ArrayOfOpportunityModifier getOpportunities() {
+    public com.microsoft.bingads.v9.optimizer.entities.OpportunityModifier[] getOpportunities() {
         return opportunities;
     }
 
@@ -82,7 +82,7 @@ public class ApplyOpportunityModifiersRequest  implements java.io.Serializable {
      * 
      * @param opportunities
      */
-    public void setOpportunities(com.microsoft.bingads.v9.optimizer.entities.ArrayOfOpportunityModifier opportunities) {
+    public void setOpportunities(com.microsoft.bingads.v9.optimizer.entities.OpportunityModifier[] opportunities) {
         this.opportunities = opportunities;
     }
 
@@ -106,7 +106,7 @@ public class ApplyOpportunityModifiersRequest  implements java.io.Serializable {
               this.action.equals(other.getAction()))) &&
             ((this.opportunities==null && other.getOpportunities()==null) || 
              (this.opportunities!=null &&
-              this.opportunities.equals(other.getOpportunities())));
+              java.util.Arrays.equals(this.opportunities, other.getOpportunities())));
         __equalsCalc = null;
         return _equals;
     }
@@ -125,7 +125,15 @@ public class ApplyOpportunityModifiersRequest  implements java.io.Serializable {
             _hashCode += getAction().hashCode();
         }
         if (getOpportunities() != null) {
-            _hashCode += getOpportunities().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getOpportunities());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getOpportunities(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -154,9 +162,10 @@ public class ApplyOpportunityModifiersRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("opportunities");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Optimizer/v9", "Opportunities"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ArrayOfOpportunityModifier"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "OpportunityModifier"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "OpportunityModifier"));
         typeDesc.addFieldDesc(elemField);
     }
 

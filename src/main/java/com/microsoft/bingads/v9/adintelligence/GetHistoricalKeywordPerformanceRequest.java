@@ -8,31 +8,31 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords;
+    private java.lang.String[] keywords;
 
     private com.microsoft.bingads.v9.datacontracts.TimeInterval timeInterval;
 
     private com.microsoft.bingads.v9.datacontracts.AdPosition targetAdPosition;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType matchTypes;
+    private com.microsoft.bingads.v9.datacontracts.MatchType[] matchTypes;
 
     private java.lang.String language;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries;
+    private java.lang.String[] publisherCountries;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring devices;
+    private java.lang.String[] devices;
 
     public GetHistoricalKeywordPerformanceRequest() {
     }
 
     public GetHistoricalKeywordPerformanceRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords,
+           java.lang.String[] keywords,
            com.microsoft.bingads.v9.datacontracts.TimeInterval timeInterval,
            com.microsoft.bingads.v9.datacontracts.AdPosition targetAdPosition,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType matchTypes,
+           com.microsoft.bingads.v9.datacontracts.MatchType[] matchTypes,
            java.lang.String language,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring devices) {
+           java.lang.String[] publisherCountries,
+           java.lang.String[] devices) {
            this.keywords = keywords;
            this.timeInterval = timeInterval;
            this.targetAdPosition = targetAdPosition;
@@ -48,7 +48,7 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
      * 
      * @return keywords
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getKeywords() {
+    public java.lang.String[] getKeywords() {
         return keywords;
     }
 
@@ -58,7 +58,7 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
      * 
      * @param keywords
      */
-    public void setKeywords(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords) {
+    public void setKeywords(java.lang.String[] keywords) {
         this.keywords = keywords;
     }
 
@@ -108,7 +108,7 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
      * 
      * @return matchTypes
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType getMatchTypes() {
+    public com.microsoft.bingads.v9.datacontracts.MatchType[] getMatchTypes() {
         return matchTypes;
     }
 
@@ -118,7 +118,7 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
      * 
      * @param matchTypes
      */
-    public void setMatchTypes(com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType matchTypes) {
+    public void setMatchTypes(com.microsoft.bingads.v9.datacontracts.MatchType[] matchTypes) {
         this.matchTypes = matchTypes;
     }
 
@@ -148,7 +148,7 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
      * 
      * @return publisherCountries
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getPublisherCountries() {
+    public java.lang.String[] getPublisherCountries() {
         return publisherCountries;
     }
 
@@ -158,7 +158,7 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
      * 
      * @param publisherCountries
      */
-    public void setPublisherCountries(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries) {
+    public void setPublisherCountries(java.lang.String[] publisherCountries) {
         this.publisherCountries = publisherCountries;
     }
 
@@ -168,7 +168,7 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
      * 
      * @return devices
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getDevices() {
+    public java.lang.String[] getDevices() {
         return devices;
     }
 
@@ -178,7 +178,7 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
      * 
      * @param devices
      */
-    public void setDevices(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring devices) {
+    public void setDevices(java.lang.String[] devices) {
         this.devices = devices;
     }
 
@@ -196,7 +196,7 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
         _equals = true && 
             ((this.keywords==null && other.getKeywords()==null) || 
              (this.keywords!=null &&
-              this.keywords.equals(other.getKeywords()))) &&
+              java.util.Arrays.equals(this.keywords, other.getKeywords()))) &&
             ((this.timeInterval==null && other.getTimeInterval()==null) || 
              (this.timeInterval!=null &&
               this.timeInterval.equals(other.getTimeInterval()))) &&
@@ -205,16 +205,16 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
               this.targetAdPosition.equals(other.getTargetAdPosition()))) &&
             ((this.matchTypes==null && other.getMatchTypes()==null) || 
              (this.matchTypes!=null &&
-              this.matchTypes.equals(other.getMatchTypes()))) &&
+              java.util.Arrays.equals(this.matchTypes, other.getMatchTypes()))) &&
             ((this.language==null && other.getLanguage()==null) || 
              (this.language!=null &&
               this.language.equals(other.getLanguage()))) &&
             ((this.publisherCountries==null && other.getPublisherCountries()==null) || 
              (this.publisherCountries!=null &&
-              this.publisherCountries.equals(other.getPublisherCountries()))) &&
+              java.util.Arrays.equals(this.publisherCountries, other.getPublisherCountries()))) &&
             ((this.devices==null && other.getDevices()==null) || 
              (this.devices!=null &&
-              this.devices.equals(other.getDevices())));
+              java.util.Arrays.equals(this.devices, other.getDevices())));
         __equalsCalc = null;
         return _equals;
     }
@@ -227,7 +227,15 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywords() != null) {
-            _hashCode += getKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getTimeInterval() != null) {
             _hashCode += getTimeInterval().hashCode();
@@ -236,16 +244,40 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
             _hashCode += getTargetAdPosition().hashCode();
         }
         if (getMatchTypes() != null) {
-            _hashCode += getMatchTypes().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getMatchTypes());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getMatchTypes(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getLanguage() != null) {
             _hashCode += getLanguage().hashCode();
         }
         if (getPublisherCountries() != null) {
-            _hashCode += getPublisherCountries().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPublisherCountries());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPublisherCountries(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getDevices() != null) {
-            _hashCode += getDevices().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getDevices());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getDevices(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -260,9 +292,10 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "Keywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("timeInterval");
@@ -281,9 +314,10 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("matchTypes");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "MatchTypes"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfMatchType"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "MatchType"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "MatchType"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("language");
@@ -295,16 +329,18 @@ public class GetHistoricalKeywordPerformanceRequest  implements java.io.Serializ
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("publisherCountries");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "PublisherCountries"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("devices");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "Devices"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

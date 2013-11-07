@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetSitePlacementsByIdsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfSitePlacement sitePlacements;
+    private com.microsoft.bingads.v9.campaignmanagement.SitePlacement[] sitePlacements;
 
     public GetSitePlacementsByIdsResponse() {
     }
 
     public GetSitePlacementsByIdsResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfSitePlacement sitePlacements) {
+           com.microsoft.bingads.v9.campaignmanagement.SitePlacement[] sitePlacements) {
            this.sitePlacements = sitePlacements;
     }
 
@@ -24,7 +24,7 @@ public class GetSitePlacementsByIdsResponse  implements java.io.Serializable {
      * 
      * @return sitePlacements
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfSitePlacement getSitePlacements() {
+    public com.microsoft.bingads.v9.campaignmanagement.SitePlacement[] getSitePlacements() {
         return sitePlacements;
     }
 
@@ -34,7 +34,7 @@ public class GetSitePlacementsByIdsResponse  implements java.io.Serializable {
      * 
      * @param sitePlacements
      */
-    public void setSitePlacements(com.microsoft.bingads.v9.campaignmanagement.ArrayOfSitePlacement sitePlacements) {
+    public void setSitePlacements(com.microsoft.bingads.v9.campaignmanagement.SitePlacement[] sitePlacements) {
         this.sitePlacements = sitePlacements;
     }
 
@@ -52,7 +52,7 @@ public class GetSitePlacementsByIdsResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.sitePlacements==null && other.getSitePlacements()==null) || 
              (this.sitePlacements!=null &&
-              this.sitePlacements.equals(other.getSitePlacements())));
+              java.util.Arrays.equals(this.sitePlacements, other.getSitePlacements())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetSitePlacementsByIdsResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getSitePlacements() != null) {
-            _hashCode += getSitePlacements().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSitePlacements());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSitePlacements(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetSitePlacementsByIdsResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("sitePlacements");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "SitePlacements"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfSitePlacement"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "SitePlacement"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "SitePlacement"));
         typeDesc.addFieldDesc(elemField);
     }
 

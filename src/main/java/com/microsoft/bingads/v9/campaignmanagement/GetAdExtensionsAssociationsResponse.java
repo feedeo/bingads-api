@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetAdExtensionsAssociationsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionAssociationCollection adExtensionAssociationCollection;
+    private com.microsoft.bingads.v9.campaignmanagement.AdExtensionAssociationCollection[] adExtensionAssociationCollection;
 
     public GetAdExtensionsAssociationsResponse() {
     }
 
     public GetAdExtensionsAssociationsResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionAssociationCollection adExtensionAssociationCollection) {
+           com.microsoft.bingads.v9.campaignmanagement.AdExtensionAssociationCollection[] adExtensionAssociationCollection) {
            this.adExtensionAssociationCollection = adExtensionAssociationCollection;
     }
 
@@ -24,7 +24,7 @@ public class GetAdExtensionsAssociationsResponse  implements java.io.Serializabl
      * 
      * @return adExtensionAssociationCollection
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionAssociationCollection getAdExtensionAssociationCollection() {
+    public com.microsoft.bingads.v9.campaignmanagement.AdExtensionAssociationCollection[] getAdExtensionAssociationCollection() {
         return adExtensionAssociationCollection;
     }
 
@@ -34,7 +34,7 @@ public class GetAdExtensionsAssociationsResponse  implements java.io.Serializabl
      * 
      * @param adExtensionAssociationCollection
      */
-    public void setAdExtensionAssociationCollection(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionAssociationCollection adExtensionAssociationCollection) {
+    public void setAdExtensionAssociationCollection(com.microsoft.bingads.v9.campaignmanagement.AdExtensionAssociationCollection[] adExtensionAssociationCollection) {
         this.adExtensionAssociationCollection = adExtensionAssociationCollection;
     }
 
@@ -52,7 +52,7 @@ public class GetAdExtensionsAssociationsResponse  implements java.io.Serializabl
         _equals = true && 
             ((this.adExtensionAssociationCollection==null && other.getAdExtensionAssociationCollection()==null) || 
              (this.adExtensionAssociationCollection!=null &&
-              this.adExtensionAssociationCollection.equals(other.getAdExtensionAssociationCollection())));
+              java.util.Arrays.equals(this.adExtensionAssociationCollection, other.getAdExtensionAssociationCollection())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetAdExtensionsAssociationsResponse  implements java.io.Serializabl
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAdExtensionAssociationCollection() != null) {
-            _hashCode += getAdExtensionAssociationCollection().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdExtensionAssociationCollection());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdExtensionAssociationCollection(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetAdExtensionsAssociationsResponse  implements java.io.Serializabl
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adExtensionAssociationCollection");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionAssociationCollection"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAdExtensionAssociationCollection"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionAssociationCollection"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionAssociationCollection"));
         typeDesc.addFieldDesc(elemField);
     }
 

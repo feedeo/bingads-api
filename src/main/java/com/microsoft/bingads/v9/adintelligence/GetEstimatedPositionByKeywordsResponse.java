@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetEstimatedPositionByKeywordsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordEstimatedPosition keywordEstimatedPositions;
+    private com.microsoft.bingads.v9.datacontracts.KeywordEstimatedPosition[] keywordEstimatedPositions;
 
     public GetEstimatedPositionByKeywordsResponse() {
     }
 
     public GetEstimatedPositionByKeywordsResponse(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordEstimatedPosition keywordEstimatedPositions) {
+           com.microsoft.bingads.v9.datacontracts.KeywordEstimatedPosition[] keywordEstimatedPositions) {
            this.keywordEstimatedPositions = keywordEstimatedPositions;
     }
 
@@ -24,7 +24,7 @@ public class GetEstimatedPositionByKeywordsResponse  implements java.io.Serializ
      * 
      * @return keywordEstimatedPositions
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordEstimatedPosition getKeywordEstimatedPositions() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordEstimatedPosition[] getKeywordEstimatedPositions() {
         return keywordEstimatedPositions;
     }
 
@@ -34,7 +34,7 @@ public class GetEstimatedPositionByKeywordsResponse  implements java.io.Serializ
      * 
      * @param keywordEstimatedPositions
      */
-    public void setKeywordEstimatedPositions(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordEstimatedPosition keywordEstimatedPositions) {
+    public void setKeywordEstimatedPositions(com.microsoft.bingads.v9.datacontracts.KeywordEstimatedPosition[] keywordEstimatedPositions) {
         this.keywordEstimatedPositions = keywordEstimatedPositions;
     }
 
@@ -52,7 +52,7 @@ public class GetEstimatedPositionByKeywordsResponse  implements java.io.Serializ
         _equals = true && 
             ((this.keywordEstimatedPositions==null && other.getKeywordEstimatedPositions()==null) || 
              (this.keywordEstimatedPositions!=null &&
-              this.keywordEstimatedPositions.equals(other.getKeywordEstimatedPositions())));
+              java.util.Arrays.equals(this.keywordEstimatedPositions, other.getKeywordEstimatedPositions())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetEstimatedPositionByKeywordsResponse  implements java.io.Serializ
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywordEstimatedPositions() != null) {
-            _hashCode += getKeywordEstimatedPositions().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordEstimatedPositions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordEstimatedPositions(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetEstimatedPositionByKeywordsResponse  implements java.io.Serializ
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordEstimatedPositions");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "KeywordEstimatedPositions"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordEstimatedPosition"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordEstimatedPosition"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordEstimatedPosition"));
         typeDesc.addFieldDesc(elemField);
     }
 

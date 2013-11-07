@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class AccountReportScope  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong accountIds;
+    private long[] accountIds;
 
     public AccountReportScope() {
     }
 
     public AccountReportScope(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong accountIds) {
+           long[] accountIds) {
            this.accountIds = accountIds;
     }
 
@@ -24,7 +24,7 @@ public class AccountReportScope  implements java.io.Serializable {
      * 
      * @return accountIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getAccountIds() {
+    public long[] getAccountIds() {
         return accountIds;
     }
 
@@ -34,7 +34,7 @@ public class AccountReportScope  implements java.io.Serializable {
      * 
      * @param accountIds
      */
-    public void setAccountIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong accountIds) {
+    public void setAccountIds(long[] accountIds) {
         this.accountIds = accountIds;
     }
 
@@ -52,7 +52,7 @@ public class AccountReportScope  implements java.io.Serializable {
         _equals = true && 
             ((this.accountIds==null && other.getAccountIds()==null) || 
              (this.accountIds!=null &&
-              this.accountIds.equals(other.getAccountIds())));
+              java.util.Arrays.equals(this.accountIds, other.getAccountIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class AccountReportScope  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAccountIds() != null) {
-            _hashCode += getAccountIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAccountIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAccountIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class AccountReportScope  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("accountIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AccountIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

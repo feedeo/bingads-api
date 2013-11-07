@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetHistoricalKeywordPerformanceResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordHistoricalPerformance keywordHistoricalPerformances;
+    private com.microsoft.bingads.v9.datacontracts.KeywordHistoricalPerformance[] keywordHistoricalPerformances;
 
     public GetHistoricalKeywordPerformanceResponse() {
     }
 
     public GetHistoricalKeywordPerformanceResponse(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordHistoricalPerformance keywordHistoricalPerformances) {
+           com.microsoft.bingads.v9.datacontracts.KeywordHistoricalPerformance[] keywordHistoricalPerformances) {
            this.keywordHistoricalPerformances = keywordHistoricalPerformances;
     }
 
@@ -24,7 +24,7 @@ public class GetHistoricalKeywordPerformanceResponse  implements java.io.Seriali
      * 
      * @return keywordHistoricalPerformances
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordHistoricalPerformance getKeywordHistoricalPerformances() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordHistoricalPerformance[] getKeywordHistoricalPerformances() {
         return keywordHistoricalPerformances;
     }
 
@@ -34,7 +34,7 @@ public class GetHistoricalKeywordPerformanceResponse  implements java.io.Seriali
      * 
      * @param keywordHistoricalPerformances
      */
-    public void setKeywordHistoricalPerformances(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordHistoricalPerformance keywordHistoricalPerformances) {
+    public void setKeywordHistoricalPerformances(com.microsoft.bingads.v9.datacontracts.KeywordHistoricalPerformance[] keywordHistoricalPerformances) {
         this.keywordHistoricalPerformances = keywordHistoricalPerformances;
     }
 
@@ -52,7 +52,7 @@ public class GetHistoricalKeywordPerformanceResponse  implements java.io.Seriali
         _equals = true && 
             ((this.keywordHistoricalPerformances==null && other.getKeywordHistoricalPerformances()==null) || 
              (this.keywordHistoricalPerformances!=null &&
-              this.keywordHistoricalPerformances.equals(other.getKeywordHistoricalPerformances())));
+              java.util.Arrays.equals(this.keywordHistoricalPerformances, other.getKeywordHistoricalPerformances())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetHistoricalKeywordPerformanceResponse  implements java.io.Seriali
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywordHistoricalPerformances() != null) {
-            _hashCode += getKeywordHistoricalPerformances().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordHistoricalPerformances());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordHistoricalPerformances(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetHistoricalKeywordPerformanceResponse  implements java.io.Seriali
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordHistoricalPerformances");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "KeywordHistoricalPerformances"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordHistoricalPerformance"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordHistoricalPerformance"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordHistoricalPerformance"));
         typeDesc.addFieldDesc(elemField);
     }
 

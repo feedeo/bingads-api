@@ -8,17 +8,17 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords;
+    private java.lang.String[] keywords;
 
     private java.lang.Double maxBid;
 
     private java.lang.String language;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries;
+    private java.lang.String[] publisherCountries;
 
     private com.microsoft.bingads.v9.datacontracts.Currency currency;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType matchTypes;
+    private com.microsoft.bingads.v9.datacontracts.MatchType[] matchTypes;
 
     private java.lang.Long campaignId;
 
@@ -28,12 +28,12 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
     }
 
     public GetEstimatedPositionByKeywordsRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords,
+           java.lang.String[] keywords,
            java.lang.Double maxBid,
            java.lang.String language,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries,
+           java.lang.String[] publisherCountries,
            com.microsoft.bingads.v9.datacontracts.Currency currency,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType matchTypes,
+           com.microsoft.bingads.v9.datacontracts.MatchType[] matchTypes,
            java.lang.Long campaignId,
            java.lang.Long adgroupId) {
            this.keywords = keywords;
@@ -52,7 +52,7 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
      * 
      * @return keywords
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getKeywords() {
+    public java.lang.String[] getKeywords() {
         return keywords;
     }
 
@@ -62,7 +62,7 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
      * 
      * @param keywords
      */
-    public void setKeywords(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring keywords) {
+    public void setKeywords(java.lang.String[] keywords) {
         this.keywords = keywords;
     }
 
@@ -112,7 +112,7 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
      * 
      * @return publisherCountries
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getPublisherCountries() {
+    public java.lang.String[] getPublisherCountries() {
         return publisherCountries;
     }
 
@@ -122,7 +122,7 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
      * 
      * @param publisherCountries
      */
-    public void setPublisherCountries(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring publisherCountries) {
+    public void setPublisherCountries(java.lang.String[] publisherCountries) {
         this.publisherCountries = publisherCountries;
     }
 
@@ -152,7 +152,7 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
      * 
      * @return matchTypes
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType getMatchTypes() {
+    public com.microsoft.bingads.v9.datacontracts.MatchType[] getMatchTypes() {
         return matchTypes;
     }
 
@@ -162,7 +162,7 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
      * 
      * @param matchTypes
      */
-    public void setMatchTypes(com.microsoft.bingads.v9.datacontracts.ArrayOfMatchType matchTypes) {
+    public void setMatchTypes(com.microsoft.bingads.v9.datacontracts.MatchType[] matchTypes) {
         this.matchTypes = matchTypes;
     }
 
@@ -220,7 +220,7 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
         _equals = true && 
             ((this.keywords==null && other.getKeywords()==null) || 
              (this.keywords!=null &&
-              this.keywords.equals(other.getKeywords()))) &&
+              java.util.Arrays.equals(this.keywords, other.getKeywords()))) &&
             ((this.maxBid==null && other.getMaxBid()==null) || 
              (this.maxBid!=null &&
               this.maxBid.equals(other.getMaxBid()))) &&
@@ -229,13 +229,13 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
               this.language.equals(other.getLanguage()))) &&
             ((this.publisherCountries==null && other.getPublisherCountries()==null) || 
              (this.publisherCountries!=null &&
-              this.publisherCountries.equals(other.getPublisherCountries()))) &&
+              java.util.Arrays.equals(this.publisherCountries, other.getPublisherCountries()))) &&
             ((this.currency==null && other.getCurrency()==null) || 
              (this.currency!=null &&
               this.currency.equals(other.getCurrency()))) &&
             ((this.matchTypes==null && other.getMatchTypes()==null) || 
              (this.matchTypes!=null &&
-              this.matchTypes.equals(other.getMatchTypes()))) &&
+              java.util.Arrays.equals(this.matchTypes, other.getMatchTypes()))) &&
             ((this.campaignId==null && other.getCampaignId()==null) || 
              (this.campaignId!=null &&
               this.campaignId.equals(other.getCampaignId()))) &&
@@ -254,7 +254,15 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywords() != null) {
-            _hashCode += getKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getMaxBid() != null) {
             _hashCode += getMaxBid().hashCode();
@@ -263,13 +271,29 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
             _hashCode += getLanguage().hashCode();
         }
         if (getPublisherCountries() != null) {
-            _hashCode += getPublisherCountries().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPublisherCountries());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPublisherCountries(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getCurrency() != null) {
             _hashCode += getCurrency().hashCode();
         }
         if (getMatchTypes() != null) {
-            _hashCode += getMatchTypes().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getMatchTypes());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getMatchTypes(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getCampaignId() != null) {
             _hashCode += getCampaignId().hashCode();
@@ -290,9 +314,10 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "Keywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("maxBid");
@@ -311,9 +336,10 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("publisherCountries");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "PublisherCountries"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("currency");
@@ -325,9 +351,10 @@ public class GetEstimatedPositionByKeywordsRequest  implements java.io.Serializa
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("matchTypes");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "MatchTypes"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfMatchType"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "MatchType"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "MatchType"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("campaignId");

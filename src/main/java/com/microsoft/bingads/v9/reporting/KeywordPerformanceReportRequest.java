@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.reporting;
 public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.reporting.ReportRequest  implements java.io.Serializable {
     private com.microsoft.bingads.v9.reporting.ReportAggregation aggregation;
 
-    private com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportColumn columns;
+    private com.microsoft.bingads.v9.reporting.KeywordPerformanceReportColumn[] columns;
 
     private com.microsoft.bingads.v9.reporting.KeywordPerformanceReportFilter filter;
 
@@ -18,7 +18,7 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
 
     private com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope;
 
-    private com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportSort sort;
+    private com.microsoft.bingads.v9.reporting.KeywordPerformanceReportSort[] sort;
 
     private com.microsoft.bingads.v9.reporting.ReportTime time;
 
@@ -31,11 +31,11 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
            java.lang.String reportName,
            java.lang.Boolean returnOnlyCompleteData,
            com.microsoft.bingads.v9.reporting.ReportAggregation aggregation,
-           com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportColumn columns,
+           com.microsoft.bingads.v9.reporting.KeywordPerformanceReportColumn[] columns,
            com.microsoft.bingads.v9.reporting.KeywordPerformanceReportFilter filter,
            java.lang.Integer maxRows,
            com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope,
-           com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportSort sort,
+           com.microsoft.bingads.v9.reporting.KeywordPerformanceReportSort[] sort,
            com.microsoft.bingads.v9.reporting.ReportTime time) {
         super(
             format,
@@ -77,7 +77,7 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
      * 
      * @return columns
      */
-    public com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportColumn getColumns() {
+    public com.microsoft.bingads.v9.reporting.KeywordPerformanceReportColumn[] getColumns() {
         return columns;
     }
 
@@ -87,7 +87,7 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
      * 
      * @param columns
      */
-    public void setColumns(com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportColumn columns) {
+    public void setColumns(com.microsoft.bingads.v9.reporting.KeywordPerformanceReportColumn[] columns) {
         this.columns = columns;
     }
 
@@ -157,7 +157,7 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
      * 
      * @return sort
      */
-    public com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportSort getSort() {
+    public com.microsoft.bingads.v9.reporting.KeywordPerformanceReportSort[] getSort() {
         return sort;
     }
 
@@ -167,7 +167,7 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
      * 
      * @param sort
      */
-    public void setSort(com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportSort sort) {
+    public void setSort(com.microsoft.bingads.v9.reporting.KeywordPerformanceReportSort[] sort) {
         this.sort = sort;
     }
 
@@ -208,7 +208,7 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
               this.aggregation.equals(other.getAggregation()))) &&
             ((this.columns==null && other.getColumns()==null) || 
              (this.columns!=null &&
-              this.columns.equals(other.getColumns()))) &&
+              java.util.Arrays.equals(this.columns, other.getColumns()))) &&
             ((this.filter==null && other.getFilter()==null) || 
              (this.filter!=null &&
               this.filter.equals(other.getFilter()))) &&
@@ -220,7 +220,7 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
               this.scope.equals(other.getScope()))) &&
             ((this.sort==null && other.getSort()==null) || 
              (this.sort!=null &&
-              this.sort.equals(other.getSort()))) &&
+              java.util.Arrays.equals(this.sort, other.getSort()))) &&
             ((this.time==null && other.getTime()==null) || 
              (this.time!=null &&
               this.time.equals(other.getTime())));
@@ -239,7 +239,15 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
             _hashCode += getAggregation().hashCode();
         }
         if (getColumns() != null) {
-            _hashCode += getColumns().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getColumns());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getColumns(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getFilter() != null) {
             _hashCode += getFilter().hashCode();
@@ -251,7 +259,15 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
             _hashCode += getScope().hashCode();
         }
         if (getSort() != null) {
-            _hashCode += getSort().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSort());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSort(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getTime() != null) {
             _hashCode += getTime().hashCode();
@@ -275,8 +291,9 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("columns");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Columns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfKeywordPerformanceReportColumn"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "KeywordPerformanceReportColumn"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "KeywordPerformanceReportColumn"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filter");
@@ -301,9 +318,10 @@ public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.r
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("sort");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Sort"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfKeywordPerformanceReportSort"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "KeywordPerformanceReportSort"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "KeywordPerformanceReportSort"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("time");

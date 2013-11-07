@@ -10,11 +10,11 @@ package com.microsoft.bingads.v9.customermanagement;
 public class SearchCustomersRequest  implements java.io.Serializable {
     private com.microsoft.bingads.v9.customermanagement.entities.ApplicationType applicationScope;
 
-    private com.microsoft.bingads.v9.customermanagement.entities.ArrayOfPredicate predicates;
+    private com.microsoft.bingads.v9.customermanagement.entities.Predicate[] predicates;
 
     private com.microsoft.bingads.v9.customermanagement.entities.DateRange dateRange;
 
-    private com.microsoft.bingads.v9.customermanagement.entities.ArrayOfOrderBy ordering;
+    private com.microsoft.bingads.v9.customermanagement.entities.OrderBy[] ordering;
 
     private com.microsoft.bingads.v9.customermanagement.entities.Paging pageInfo;
 
@@ -23,9 +23,9 @@ public class SearchCustomersRequest  implements java.io.Serializable {
 
     public SearchCustomersRequest(
            com.microsoft.bingads.v9.customermanagement.entities.ApplicationType applicationScope,
-           com.microsoft.bingads.v9.customermanagement.entities.ArrayOfPredicate predicates,
+           com.microsoft.bingads.v9.customermanagement.entities.Predicate[] predicates,
            com.microsoft.bingads.v9.customermanagement.entities.DateRange dateRange,
-           com.microsoft.bingads.v9.customermanagement.entities.ArrayOfOrderBy ordering,
+           com.microsoft.bingads.v9.customermanagement.entities.OrderBy[] ordering,
            com.microsoft.bingads.v9.customermanagement.entities.Paging pageInfo) {
            this.applicationScope = applicationScope;
            this.predicates = predicates;
@@ -60,7 +60,7 @@ public class SearchCustomersRequest  implements java.io.Serializable {
      * 
      * @return predicates
      */
-    public com.microsoft.bingads.v9.customermanagement.entities.ArrayOfPredicate getPredicates() {
+    public com.microsoft.bingads.v9.customermanagement.entities.Predicate[] getPredicates() {
         return predicates;
     }
 
@@ -70,7 +70,7 @@ public class SearchCustomersRequest  implements java.io.Serializable {
      * 
      * @param predicates
      */
-    public void setPredicates(com.microsoft.bingads.v9.customermanagement.entities.ArrayOfPredicate predicates) {
+    public void setPredicates(com.microsoft.bingads.v9.customermanagement.entities.Predicate[] predicates) {
         this.predicates = predicates;
     }
 
@@ -100,7 +100,7 @@ public class SearchCustomersRequest  implements java.io.Serializable {
      * 
      * @return ordering
      */
-    public com.microsoft.bingads.v9.customermanagement.entities.ArrayOfOrderBy getOrdering() {
+    public com.microsoft.bingads.v9.customermanagement.entities.OrderBy[] getOrdering() {
         return ordering;
     }
 
@@ -110,7 +110,7 @@ public class SearchCustomersRequest  implements java.io.Serializable {
      * 
      * @param ordering
      */
-    public void setOrdering(com.microsoft.bingads.v9.customermanagement.entities.ArrayOfOrderBy ordering) {
+    public void setOrdering(com.microsoft.bingads.v9.customermanagement.entities.OrderBy[] ordering) {
         this.ordering = ordering;
     }
 
@@ -151,13 +151,13 @@ public class SearchCustomersRequest  implements java.io.Serializable {
               this.applicationScope.equals(other.getApplicationScope()))) &&
             ((this.predicates==null && other.getPredicates()==null) || 
              (this.predicates!=null &&
-              this.predicates.equals(other.getPredicates()))) &&
+              java.util.Arrays.equals(this.predicates, other.getPredicates()))) &&
             ((this.dateRange==null && other.getDateRange()==null) || 
              (this.dateRange!=null &&
               this.dateRange.equals(other.getDateRange()))) &&
             ((this.ordering==null && other.getOrdering()==null) || 
              (this.ordering!=null &&
-              this.ordering.equals(other.getOrdering()))) &&
+              java.util.Arrays.equals(this.ordering, other.getOrdering()))) &&
             ((this.pageInfo==null && other.getPageInfo()==null) || 
              (this.pageInfo!=null &&
               this.pageInfo.equals(other.getPageInfo())));
@@ -176,13 +176,29 @@ public class SearchCustomersRequest  implements java.io.Serializable {
             _hashCode += getApplicationScope().hashCode();
         }
         if (getPredicates() != null) {
-            _hashCode += getPredicates().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPredicates());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPredicates(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getDateRange() != null) {
             _hashCode += getDateRange().hashCode();
         }
         if (getOrdering() != null) {
-            _hashCode += getOrdering().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getOrdering());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getOrdering(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getPageInfo() != null) {
             _hashCode += getPageInfo().hashCode();
@@ -207,9 +223,10 @@ public class SearchCustomersRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("predicates");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "Predicates"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ArrayOfPredicate"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "Predicate"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "Predicate"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("dateRange");
@@ -221,9 +238,10 @@ public class SearchCustomersRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("ordering");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "Ordering"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ArrayOfOrderBy"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "OrderBy"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "OrderBy"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("pageInfo");

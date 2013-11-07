@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.customerbilling;
 
 public class GetBillingDocumentsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.customermanagement.entities.ArrayOfBillingDocument billingDocuments;
+    private com.microsoft.bingads.v9.customermanagement.entities.BillingDocument[] billingDocuments;
 
     public GetBillingDocumentsResponse() {
     }
 
     public GetBillingDocumentsResponse(
-           com.microsoft.bingads.v9.customermanagement.entities.ArrayOfBillingDocument billingDocuments) {
+           com.microsoft.bingads.v9.customermanagement.entities.BillingDocument[] billingDocuments) {
            this.billingDocuments = billingDocuments;
     }
 
@@ -24,7 +24,7 @@ public class GetBillingDocumentsResponse  implements java.io.Serializable {
      * 
      * @return billingDocuments
      */
-    public com.microsoft.bingads.v9.customermanagement.entities.ArrayOfBillingDocument getBillingDocuments() {
+    public com.microsoft.bingads.v9.customermanagement.entities.BillingDocument[] getBillingDocuments() {
         return billingDocuments;
     }
 
@@ -34,7 +34,7 @@ public class GetBillingDocumentsResponse  implements java.io.Serializable {
      * 
      * @param billingDocuments
      */
-    public void setBillingDocuments(com.microsoft.bingads.v9.customermanagement.entities.ArrayOfBillingDocument billingDocuments) {
+    public void setBillingDocuments(com.microsoft.bingads.v9.customermanagement.entities.BillingDocument[] billingDocuments) {
         this.billingDocuments = billingDocuments;
     }
 
@@ -52,7 +52,7 @@ public class GetBillingDocumentsResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.billingDocuments==null && other.getBillingDocuments()==null) || 
              (this.billingDocuments!=null &&
-              this.billingDocuments.equals(other.getBillingDocuments())));
+              java.util.Arrays.equals(this.billingDocuments, other.getBillingDocuments())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetBillingDocumentsResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getBillingDocuments() != null) {
-            _hashCode += getBillingDocuments().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getBillingDocuments());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getBillingDocuments(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetBillingDocumentsResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("billingDocuments");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Billing/v9", "BillingDocuments"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "ArrayOfBillingDocument"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "BillingDocument"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "BillingDocument"));
         typeDesc.addFieldDesc(elemField);
     }
 

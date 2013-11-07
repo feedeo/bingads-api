@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class AddAdExtensionsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionIdentity adExtensionIdentities;
+    private com.microsoft.bingads.v9.campaignmanagement.AdExtensionIdentity[] adExtensionIdentities;
 
     public AddAdExtensionsResponse() {
     }
 
     public AddAdExtensionsResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionIdentity adExtensionIdentities) {
+           com.microsoft.bingads.v9.campaignmanagement.AdExtensionIdentity[] adExtensionIdentities) {
            this.adExtensionIdentities = adExtensionIdentities;
     }
 
@@ -24,7 +24,7 @@ public class AddAdExtensionsResponse  implements java.io.Serializable {
      * 
      * @return adExtensionIdentities
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionIdentity getAdExtensionIdentities() {
+    public com.microsoft.bingads.v9.campaignmanagement.AdExtensionIdentity[] getAdExtensionIdentities() {
         return adExtensionIdentities;
     }
 
@@ -34,7 +34,7 @@ public class AddAdExtensionsResponse  implements java.io.Serializable {
      * 
      * @param adExtensionIdentities
      */
-    public void setAdExtensionIdentities(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdExtensionIdentity adExtensionIdentities) {
+    public void setAdExtensionIdentities(com.microsoft.bingads.v9.campaignmanagement.AdExtensionIdentity[] adExtensionIdentities) {
         this.adExtensionIdentities = adExtensionIdentities;
     }
 
@@ -52,7 +52,7 @@ public class AddAdExtensionsResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.adExtensionIdentities==null && other.getAdExtensionIdentities()==null) || 
              (this.adExtensionIdentities!=null &&
-              this.adExtensionIdentities.equals(other.getAdExtensionIdentities())));
+              java.util.Arrays.equals(this.adExtensionIdentities, other.getAdExtensionIdentities())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class AddAdExtensionsResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAdExtensionIdentities() != null) {
-            _hashCode += getAdExtensionIdentities().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdExtensionIdentities());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdExtensionIdentities(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class AddAdExtensionsResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adExtensionIdentities");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionIdentities"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAdExtensionIdentity"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionIdentity"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdExtensionIdentity"));
         typeDesc.addFieldDesc(elemField);
     }
 

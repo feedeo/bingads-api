@@ -14,7 +14,7 @@ public class GetAdExtensionsAssociationsRequest  implements java.io.Serializable
 
     private com.microsoft.bingads.v9.campaignmanagement.AssociationType associationType;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong entityIds;
+    private long[] entityIds;
 
     public GetAdExtensionsAssociationsRequest() {
     }
@@ -23,7 +23,7 @@ public class GetAdExtensionsAssociationsRequest  implements java.io.Serializable
            java.lang.Long accountId,
            java.lang.String[] adExtensionType,
            com.microsoft.bingads.v9.campaignmanagement.AssociationType associationType,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong entityIds) {
+           long[] entityIds) {
            this.accountId = accountId;
            this.adExtensionType = adExtensionType;
            this.associationType = associationType;
@@ -96,7 +96,7 @@ public class GetAdExtensionsAssociationsRequest  implements java.io.Serializable
      * 
      * @return entityIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getEntityIds() {
+    public long[] getEntityIds() {
         return entityIds;
     }
 
@@ -106,7 +106,7 @@ public class GetAdExtensionsAssociationsRequest  implements java.io.Serializable
      * 
      * @param entityIds
      */
-    public void setEntityIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong entityIds) {
+    public void setEntityIds(long[] entityIds) {
         this.entityIds = entityIds;
     }
 
@@ -133,7 +133,7 @@ public class GetAdExtensionsAssociationsRequest  implements java.io.Serializable
               this.associationType.equals(other.getAssociationType()))) &&
             ((this.entityIds==null && other.getEntityIds()==null) || 
              (this.entityIds!=null &&
-              this.entityIds.equals(other.getEntityIds())));
+              java.util.Arrays.equals(this.entityIds, other.getEntityIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -163,7 +163,15 @@ public class GetAdExtensionsAssociationsRequest  implements java.io.Serializable
             _hashCode += getAssociationType().hashCode();
         }
         if (getEntityIds() != null) {
-            _hashCode += getEntityIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getEntityIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getEntityIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -199,9 +207,10 @@ public class GetAdExtensionsAssociationsRequest  implements java.io.Serializable
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("entityIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "EntityIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.customermanagement;
 public class MapAccountIdToExternalAccountIdsRequest  implements java.io.Serializable {
     private java.lang.Long accountId;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring externalAccountIds;
+    private java.lang.String[] externalAccountIds;
 
     public MapAccountIdToExternalAccountIdsRequest() {
     }
 
     public MapAccountIdToExternalAccountIdsRequest(
            java.lang.Long accountId,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring externalAccountIds) {
+           java.lang.String[] externalAccountIds) {
            this.accountId = accountId;
            this.externalAccountIds = externalAccountIds;
     }
@@ -48,7 +48,7 @@ public class MapAccountIdToExternalAccountIdsRequest  implements java.io.Seriali
      * 
      * @return externalAccountIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getExternalAccountIds() {
+    public java.lang.String[] getExternalAccountIds() {
         return externalAccountIds;
     }
 
@@ -58,7 +58,7 @@ public class MapAccountIdToExternalAccountIdsRequest  implements java.io.Seriali
      * 
      * @param externalAccountIds
      */
-    public void setExternalAccountIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring externalAccountIds) {
+    public void setExternalAccountIds(java.lang.String[] externalAccountIds) {
         this.externalAccountIds = externalAccountIds;
     }
 
@@ -79,7 +79,7 @@ public class MapAccountIdToExternalAccountIdsRequest  implements java.io.Seriali
               this.accountId.equals(other.getAccountId()))) &&
             ((this.externalAccountIds==null && other.getExternalAccountIds()==null) || 
              (this.externalAccountIds!=null &&
-              this.externalAccountIds.equals(other.getExternalAccountIds())));
+              java.util.Arrays.equals(this.externalAccountIds, other.getExternalAccountIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class MapAccountIdToExternalAccountIdsRequest  implements java.io.Seriali
             _hashCode += getAccountId().hashCode();
         }
         if (getExternalAccountIds() != null) {
-            _hashCode += getExternalAccountIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getExternalAccountIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getExternalAccountIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class MapAccountIdToExternalAccountIdsRequest  implements java.io.Seriali
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("externalAccountIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ExternalAccountIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

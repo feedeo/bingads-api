@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class GoalsAndFunnelsReportFilter  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong goalIds;
+    private long[] goalIds;
 
     public GoalsAndFunnelsReportFilter() {
     }
 
     public GoalsAndFunnelsReportFilter(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong goalIds) {
+           long[] goalIds) {
            this.goalIds = goalIds;
     }
 
@@ -24,7 +24,7 @@ public class GoalsAndFunnelsReportFilter  implements java.io.Serializable {
      * 
      * @return goalIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getGoalIds() {
+    public long[] getGoalIds() {
         return goalIds;
     }
 
@@ -34,7 +34,7 @@ public class GoalsAndFunnelsReportFilter  implements java.io.Serializable {
      * 
      * @param goalIds
      */
-    public void setGoalIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong goalIds) {
+    public void setGoalIds(long[] goalIds) {
         this.goalIds = goalIds;
     }
 
@@ -52,7 +52,7 @@ public class GoalsAndFunnelsReportFilter  implements java.io.Serializable {
         _equals = true && 
             ((this.goalIds==null && other.getGoalIds()==null) || 
              (this.goalIds!=null &&
-              this.goalIds.equals(other.getGoalIds())));
+              java.util.Arrays.equals(this.goalIds, other.getGoalIds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GoalsAndFunnelsReportFilter  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getGoalIds() != null) {
-            _hashCode += getGoalIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getGoalIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getGoalIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GoalsAndFunnelsReportFilter  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("goalIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "GoalIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
     }
 

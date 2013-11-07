@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class SuggestKeywordsFromExistingKeywordsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordSuggestion keywordSuggestions;
+    private com.microsoft.bingads.v9.datacontracts.KeywordSuggestion[] keywordSuggestions;
 
     public SuggestKeywordsFromExistingKeywordsResponse() {
     }
 
     public SuggestKeywordsFromExistingKeywordsResponse(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordSuggestion keywordSuggestions) {
+           com.microsoft.bingads.v9.datacontracts.KeywordSuggestion[] keywordSuggestions) {
            this.keywordSuggestions = keywordSuggestions;
     }
 
@@ -24,7 +24,7 @@ public class SuggestKeywordsFromExistingKeywordsResponse  implements java.io.Ser
      * 
      * @return keywordSuggestions
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordSuggestion getKeywordSuggestions() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordSuggestion[] getKeywordSuggestions() {
         return keywordSuggestions;
     }
 
@@ -34,7 +34,7 @@ public class SuggestKeywordsFromExistingKeywordsResponse  implements java.io.Ser
      * 
      * @param keywordSuggestions
      */
-    public void setKeywordSuggestions(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordSuggestion keywordSuggestions) {
+    public void setKeywordSuggestions(com.microsoft.bingads.v9.datacontracts.KeywordSuggestion[] keywordSuggestions) {
         this.keywordSuggestions = keywordSuggestions;
     }
 
@@ -52,7 +52,7 @@ public class SuggestKeywordsFromExistingKeywordsResponse  implements java.io.Ser
         _equals = true && 
             ((this.keywordSuggestions==null && other.getKeywordSuggestions()==null) || 
              (this.keywordSuggestions!=null &&
-              this.keywordSuggestions.equals(other.getKeywordSuggestions())));
+              java.util.Arrays.equals(this.keywordSuggestions, other.getKeywordSuggestions())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class SuggestKeywordsFromExistingKeywordsResponse  implements java.io.Ser
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywordSuggestions() != null) {
-            _hashCode += getKeywordSuggestions().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordSuggestions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordSuggestions(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class SuggestKeywordsFromExistingKeywordsResponse  implements java.io.Ser
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordSuggestions");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "KeywordSuggestions"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordSuggestion"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordSuggestion"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordSuggestion"));
         typeDesc.addFieldDesc(elemField);
     }
 

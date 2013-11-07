@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.optimizer;
 
 public class GetBroadMatchSearchQueriesResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.optimizer.entities.ArrayOfBroadMatchSearchQuery searchQueries;
+    private com.microsoft.bingads.v9.optimizer.entities.BroadMatchSearchQuery[] searchQueries;
 
     public GetBroadMatchSearchQueriesResponse() {
     }
 
     public GetBroadMatchSearchQueriesResponse(
-           com.microsoft.bingads.v9.optimizer.entities.ArrayOfBroadMatchSearchQuery searchQueries) {
+           com.microsoft.bingads.v9.optimizer.entities.BroadMatchSearchQuery[] searchQueries) {
            this.searchQueries = searchQueries;
     }
 
@@ -24,7 +24,7 @@ public class GetBroadMatchSearchQueriesResponse  implements java.io.Serializable
      * 
      * @return searchQueries
      */
-    public com.microsoft.bingads.v9.optimizer.entities.ArrayOfBroadMatchSearchQuery getSearchQueries() {
+    public com.microsoft.bingads.v9.optimizer.entities.BroadMatchSearchQuery[] getSearchQueries() {
         return searchQueries;
     }
 
@@ -34,7 +34,7 @@ public class GetBroadMatchSearchQueriesResponse  implements java.io.Serializable
      * 
      * @param searchQueries
      */
-    public void setSearchQueries(com.microsoft.bingads.v9.optimizer.entities.ArrayOfBroadMatchSearchQuery searchQueries) {
+    public void setSearchQueries(com.microsoft.bingads.v9.optimizer.entities.BroadMatchSearchQuery[] searchQueries) {
         this.searchQueries = searchQueries;
     }
 
@@ -52,7 +52,7 @@ public class GetBroadMatchSearchQueriesResponse  implements java.io.Serializable
         _equals = true && 
             ((this.searchQueries==null && other.getSearchQueries()==null) || 
              (this.searchQueries!=null &&
-              this.searchQueries.equals(other.getSearchQueries())));
+              java.util.Arrays.equals(this.searchQueries, other.getSearchQueries())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetBroadMatchSearchQueriesResponse  implements java.io.Serializable
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getSearchQueries() != null) {
-            _hashCode += getSearchQueries().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getSearchQueries());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getSearchQueries(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetBroadMatchSearchQueriesResponse  implements java.io.Serializable
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("searchQueries");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Optimizer/v9", "SearchQueries"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ArrayOfBroadMatchSearchQuery"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BroadMatchSearchQuery"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BroadMatchSearchQuery"));
         typeDesc.addFieldDesc(elemField);
     }
 

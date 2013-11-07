@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.reporting;
 public class PublisherUsagePerformanceReportFilter  implements java.io.Serializable {
     private java.lang.String[] adDistribution;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode;
+    private java.lang.String[] languageCode;
 
     private java.lang.String[] pricingModel;
 
@@ -19,7 +19,7 @@ public class PublisherUsagePerformanceReportFilter  implements java.io.Serializa
 
     public PublisherUsagePerformanceReportFilter(
            java.lang.String[] adDistribution,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode,
+           java.lang.String[] languageCode,
            java.lang.String[] pricingModel) {
            this.adDistribution = adDistribution;
            this.languageCode = languageCode;
@@ -52,7 +52,7 @@ public class PublisherUsagePerformanceReportFilter  implements java.io.Serializa
      * 
      * @return languageCode
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getLanguageCode() {
+    public java.lang.String[] getLanguageCode() {
         return languageCode;
     }
 
@@ -62,7 +62,7 @@ public class PublisherUsagePerformanceReportFilter  implements java.io.Serializa
      * 
      * @param languageCode
      */
-    public void setLanguageCode(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode) {
+    public void setLanguageCode(java.lang.String[] languageCode) {
         this.languageCode = languageCode;
     }
 
@@ -103,7 +103,7 @@ public class PublisherUsagePerformanceReportFilter  implements java.io.Serializa
               java.util.Arrays.equals(this.adDistribution, other.getAdDistribution()))) &&
             ((this.languageCode==null && other.getLanguageCode()==null) || 
              (this.languageCode!=null &&
-              this.languageCode.equals(other.getLanguageCode()))) &&
+              java.util.Arrays.equals(this.languageCode, other.getLanguageCode()))) &&
             ((this.pricingModel==null && other.getPricingModel()==null) || 
              (this.pricingModel!=null &&
               java.util.Arrays.equals(this.pricingModel, other.getPricingModel())));
@@ -130,7 +130,15 @@ public class PublisherUsagePerformanceReportFilter  implements java.io.Serializa
             }
         }
         if (getLanguageCode() != null) {
-            _hashCode += getLanguageCode().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getLanguageCode());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getLanguageCode(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getPricingModel() != null) {
             for (int i=0;
@@ -163,9 +171,10 @@ public class PublisherUsagePerformanceReportFilter  implements java.io.Serializa
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("languageCode");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "LanguageCode"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("pricingModel");

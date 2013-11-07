@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class SetNegativeKeywordsToAdGroupsRequest  implements java.io.Serializable {
     private java.lang.Long campaignId;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeKeywords adGroupNegativeKeywords;
+    private com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeKeywords[] adGroupNegativeKeywords;
 
     public SetNegativeKeywordsToAdGroupsRequest() {
     }
 
     public SetNegativeKeywordsToAdGroupsRequest(
            java.lang.Long campaignId,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeKeywords adGroupNegativeKeywords) {
+           com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeKeywords[] adGroupNegativeKeywords) {
            this.campaignId = campaignId;
            this.adGroupNegativeKeywords = adGroupNegativeKeywords;
     }
@@ -48,7 +48,7 @@ public class SetNegativeKeywordsToAdGroupsRequest  implements java.io.Serializab
      * 
      * @return adGroupNegativeKeywords
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeKeywords getAdGroupNegativeKeywords() {
+    public com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeKeywords[] getAdGroupNegativeKeywords() {
         return adGroupNegativeKeywords;
     }
 
@@ -58,7 +58,7 @@ public class SetNegativeKeywordsToAdGroupsRequest  implements java.io.Serializab
      * 
      * @param adGroupNegativeKeywords
      */
-    public void setAdGroupNegativeKeywords(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupNegativeKeywords adGroupNegativeKeywords) {
+    public void setAdGroupNegativeKeywords(com.microsoft.bingads.v9.campaignmanagement.AdGroupNegativeKeywords[] adGroupNegativeKeywords) {
         this.adGroupNegativeKeywords = adGroupNegativeKeywords;
     }
 
@@ -79,7 +79,7 @@ public class SetNegativeKeywordsToAdGroupsRequest  implements java.io.Serializab
               this.campaignId.equals(other.getCampaignId()))) &&
             ((this.adGroupNegativeKeywords==null && other.getAdGroupNegativeKeywords()==null) || 
              (this.adGroupNegativeKeywords!=null &&
-              this.adGroupNegativeKeywords.equals(other.getAdGroupNegativeKeywords())));
+              java.util.Arrays.equals(this.adGroupNegativeKeywords, other.getAdGroupNegativeKeywords())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class SetNegativeKeywordsToAdGroupsRequest  implements java.io.Serializab
             _hashCode += getCampaignId().hashCode();
         }
         if (getAdGroupNegativeKeywords() != null) {
-            _hashCode += getAdGroupNegativeKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdGroupNegativeKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdGroupNegativeKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class SetNegativeKeywordsToAdGroupsRequest  implements java.io.Serializab
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adGroupNegativeKeywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupNegativeKeywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAdGroupNegativeKeywords"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupNegativeKeywords"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupNegativeKeywords"));
         typeDesc.addFieldDesc(elemField);
     }
 

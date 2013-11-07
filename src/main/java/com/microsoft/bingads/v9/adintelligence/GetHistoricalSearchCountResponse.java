@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetHistoricalSearchCountResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordSearchCount keywordSearchCounts;
+    private com.microsoft.bingads.v9.datacontracts.KeywordSearchCount[] keywordSearchCounts;
 
     public GetHistoricalSearchCountResponse() {
     }
 
     public GetHistoricalSearchCountResponse(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordSearchCount keywordSearchCounts) {
+           com.microsoft.bingads.v9.datacontracts.KeywordSearchCount[] keywordSearchCounts) {
            this.keywordSearchCounts = keywordSearchCounts;
     }
 
@@ -24,7 +24,7 @@ public class GetHistoricalSearchCountResponse  implements java.io.Serializable {
      * 
      * @return keywordSearchCounts
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordSearchCount getKeywordSearchCounts() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordSearchCount[] getKeywordSearchCounts() {
         return keywordSearchCounts;
     }
 
@@ -34,7 +34,7 @@ public class GetHistoricalSearchCountResponse  implements java.io.Serializable {
      * 
      * @param keywordSearchCounts
      */
-    public void setKeywordSearchCounts(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordSearchCount keywordSearchCounts) {
+    public void setKeywordSearchCounts(com.microsoft.bingads.v9.datacontracts.KeywordSearchCount[] keywordSearchCounts) {
         this.keywordSearchCounts = keywordSearchCounts;
     }
 
@@ -52,7 +52,7 @@ public class GetHistoricalSearchCountResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.keywordSearchCounts==null && other.getKeywordSearchCounts()==null) || 
              (this.keywordSearchCounts!=null &&
-              this.keywordSearchCounts.equals(other.getKeywordSearchCounts())));
+              java.util.Arrays.equals(this.keywordSearchCounts, other.getKeywordSearchCounts())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetHistoricalSearchCountResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywordSearchCounts() != null) {
-            _hashCode += getKeywordSearchCounts().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordSearchCounts());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordSearchCounts(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetHistoricalSearchCountResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordSearchCounts");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "KeywordSearchCounts"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordSearchCount"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordSearchCount"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordSearchCount"));
         typeDesc.addFieldDesc(elemField);
     }
 

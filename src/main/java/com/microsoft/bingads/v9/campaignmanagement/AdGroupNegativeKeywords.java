@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class AdGroupNegativeKeywords  implements java.io.Serializable {
     private java.lang.Long adGroupId;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring negativeKeywords;
+    private java.lang.String[] negativeKeywords;
 
     public AdGroupNegativeKeywords() {
     }
 
     public AdGroupNegativeKeywords(
            java.lang.Long adGroupId,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring negativeKeywords) {
+           java.lang.String[] negativeKeywords) {
            this.adGroupId = adGroupId;
            this.negativeKeywords = negativeKeywords;
     }
@@ -48,7 +48,7 @@ public class AdGroupNegativeKeywords  implements java.io.Serializable {
      * 
      * @return negativeKeywords
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getNegativeKeywords() {
+    public java.lang.String[] getNegativeKeywords() {
         return negativeKeywords;
     }
 
@@ -58,7 +58,7 @@ public class AdGroupNegativeKeywords  implements java.io.Serializable {
      * 
      * @param negativeKeywords
      */
-    public void setNegativeKeywords(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring negativeKeywords) {
+    public void setNegativeKeywords(java.lang.String[] negativeKeywords) {
         this.negativeKeywords = negativeKeywords;
     }
 
@@ -79,7 +79,7 @@ public class AdGroupNegativeKeywords  implements java.io.Serializable {
               this.adGroupId.equals(other.getAdGroupId()))) &&
             ((this.negativeKeywords==null && other.getNegativeKeywords()==null) || 
              (this.negativeKeywords!=null &&
-              this.negativeKeywords.equals(other.getNegativeKeywords())));
+              java.util.Arrays.equals(this.negativeKeywords, other.getNegativeKeywords())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class AdGroupNegativeKeywords  implements java.io.Serializable {
             _hashCode += getAdGroupId().hashCode();
         }
         if (getNegativeKeywords() != null) {
-            _hashCode += getNegativeKeywords().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getNegativeKeywords());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getNegativeKeywords(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class AdGroupNegativeKeywords  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("negativeKeywords");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "NegativeKeywords"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class GetAdsByEditorialStatusResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAd ads;
+    private com.microsoft.bingads.v9.campaignmanagement.Ad[] ads;
 
     public GetAdsByEditorialStatusResponse() {
     }
 
     public GetAdsByEditorialStatusResponse(
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAd ads) {
+           com.microsoft.bingads.v9.campaignmanagement.Ad[] ads) {
            this.ads = ads;
     }
 
@@ -24,7 +24,7 @@ public class GetAdsByEditorialStatusResponse  implements java.io.Serializable {
      * 
      * @return ads
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAd getAds() {
+    public com.microsoft.bingads.v9.campaignmanagement.Ad[] getAds() {
         return ads;
     }
 
@@ -34,7 +34,7 @@ public class GetAdsByEditorialStatusResponse  implements java.io.Serializable {
      * 
      * @param ads
      */
-    public void setAds(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAd ads) {
+    public void setAds(com.microsoft.bingads.v9.campaignmanagement.Ad[] ads) {
         this.ads = ads;
     }
 
@@ -52,7 +52,7 @@ public class GetAdsByEditorialStatusResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.ads==null && other.getAds()==null) || 
              (this.ads!=null &&
-              this.ads.equals(other.getAds())));
+              java.util.Arrays.equals(this.ads, other.getAds())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetAdsByEditorialStatusResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAds() != null) {
-            _hashCode += getAds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetAdsByEditorialStatusResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("ads");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Ads"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAd"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Ad"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "Ad"));
         typeDesc.addFieldDesc(elemField);
     }
 

@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.reporting;
 public class ProductTargetPerformanceReportFilter  implements java.io.Serializable {
     private java.lang.String[] deviceType;
 
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode;
+    private java.lang.String[] languageCode;
 
     public ProductTargetPerformanceReportFilter() {
     }
 
     public ProductTargetPerformanceReportFilter(
            java.lang.String[] deviceType,
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode) {
+           java.lang.String[] languageCode) {
            this.deviceType = deviceType;
            this.languageCode = languageCode;
     }
@@ -48,7 +48,7 @@ public class ProductTargetPerformanceReportFilter  implements java.io.Serializab
      * 
      * @return languageCode
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring getLanguageCode() {
+    public java.lang.String[] getLanguageCode() {
         return languageCode;
     }
 
@@ -58,7 +58,7 @@ public class ProductTargetPerformanceReportFilter  implements java.io.Serializab
      * 
      * @param languageCode
      */
-    public void setLanguageCode(com.microsoft.bingads.v9.schemas.arrays.ArrayOfstring languageCode) {
+    public void setLanguageCode(java.lang.String[] languageCode) {
         this.languageCode = languageCode;
     }
 
@@ -79,7 +79,7 @@ public class ProductTargetPerformanceReportFilter  implements java.io.Serializab
               java.util.Arrays.equals(this.deviceType, other.getDeviceType()))) &&
             ((this.languageCode==null && other.getLanguageCode()==null) || 
              (this.languageCode!=null &&
-              this.languageCode.equals(other.getLanguageCode())));
+              java.util.Arrays.equals(this.languageCode, other.getLanguageCode())));
         __equalsCalc = null;
         return _equals;
     }
@@ -103,7 +103,15 @@ public class ProductTargetPerformanceReportFilter  implements java.io.Serializab
             }
         }
         if (getLanguageCode() != null) {
-            _hashCode += getLanguageCode().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getLanguageCode());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getLanguageCode(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -125,9 +133,10 @@ public class ProductTargetPerformanceReportFilter  implements java.io.Serializab
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("languageCode");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "LanguageCode"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOfstring"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string"));
         typeDesc.addFieldDesc(elemField);
     }
 

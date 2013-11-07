@@ -12,7 +12,7 @@ public class KeywordLocationResult  implements java.io.Serializable {
 
     private java.lang.String device;
 
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordLocation keywordLocations;
+    private com.microsoft.bingads.v9.datacontracts.KeywordLocation[] keywordLocations;
 
     public KeywordLocationResult() {
     }
@@ -20,7 +20,7 @@ public class KeywordLocationResult  implements java.io.Serializable {
     public KeywordLocationResult(
            java.lang.String keyword,
            java.lang.String device,
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordLocation keywordLocations) {
+           com.microsoft.bingads.v9.datacontracts.KeywordLocation[] keywordLocations) {
            this.keyword = keyword;
            this.device = device;
            this.keywordLocations = keywordLocations;
@@ -72,7 +72,7 @@ public class KeywordLocationResult  implements java.io.Serializable {
      * 
      * @return keywordLocations
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordLocation getKeywordLocations() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordLocation[] getKeywordLocations() {
         return keywordLocations;
     }
 
@@ -82,7 +82,7 @@ public class KeywordLocationResult  implements java.io.Serializable {
      * 
      * @param keywordLocations
      */
-    public void setKeywordLocations(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordLocation keywordLocations) {
+    public void setKeywordLocations(com.microsoft.bingads.v9.datacontracts.KeywordLocation[] keywordLocations) {
         this.keywordLocations = keywordLocations;
     }
 
@@ -106,7 +106,7 @@ public class KeywordLocationResult  implements java.io.Serializable {
               this.device.equals(other.getDevice()))) &&
             ((this.keywordLocations==null && other.getKeywordLocations()==null) || 
              (this.keywordLocations!=null &&
-              this.keywordLocations.equals(other.getKeywordLocations())));
+              java.util.Arrays.equals(this.keywordLocations, other.getKeywordLocations())));
         __equalsCalc = null;
         return _equals;
     }
@@ -125,7 +125,15 @@ public class KeywordLocationResult  implements java.io.Serializable {
             _hashCode += getDevice().hashCode();
         }
         if (getKeywordLocations() != null) {
-            _hashCode += getKeywordLocations().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordLocations());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordLocations(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -154,9 +162,10 @@ public class KeywordLocationResult  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordLocations");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordLocations"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordLocation"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordLocation"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordLocation"));
         typeDesc.addFieldDesc(elemField);
     }
 

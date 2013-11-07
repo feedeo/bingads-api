@@ -8,16 +8,16 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class AddAdsResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfNullableOflong adIds;
+    private long[] adIds;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError partialErrors;
+    private com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors;
 
     public AddAdsResponse() {
     }
 
     public AddAdsResponse(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfNullableOflong adIds,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError partialErrors) {
+           long[] adIds,
+           com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors) {
            this.adIds = adIds;
            this.partialErrors = partialErrors;
     }
@@ -28,7 +28,7 @@ public class AddAdsResponse  implements java.io.Serializable {
      * 
      * @return adIds
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfNullableOflong getAdIds() {
+    public long[] getAdIds() {
         return adIds;
     }
 
@@ -38,7 +38,7 @@ public class AddAdsResponse  implements java.io.Serializable {
      * 
      * @param adIds
      */
-    public void setAdIds(com.microsoft.bingads.v9.datacontracts.ArrayOfNullableOflong adIds) {
+    public void setAdIds(long[] adIds) {
         this.adIds = adIds;
     }
 
@@ -48,7 +48,7 @@ public class AddAdsResponse  implements java.io.Serializable {
      * 
      * @return partialErrors
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError getPartialErrors() {
+    public com.microsoft.bingads.v9.campaignmanagement.BatchError[] getPartialErrors() {
         return partialErrors;
     }
 
@@ -58,7 +58,7 @@ public class AddAdsResponse  implements java.io.Serializable {
      * 
      * @param partialErrors
      */
-    public void setPartialErrors(com.microsoft.bingads.v9.campaignmanagement.ArrayOfBatchError partialErrors) {
+    public void setPartialErrors(com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors) {
         this.partialErrors = partialErrors;
     }
 
@@ -76,10 +76,10 @@ public class AddAdsResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.adIds==null && other.getAdIds()==null) || 
              (this.adIds!=null &&
-              this.adIds.equals(other.getAdIds()))) &&
+              java.util.Arrays.equals(this.adIds, other.getAdIds()))) &&
             ((this.partialErrors==null && other.getPartialErrors()==null) || 
              (this.partialErrors!=null &&
-              this.partialErrors.equals(other.getPartialErrors())));
+              java.util.Arrays.equals(this.partialErrors, other.getPartialErrors())));
         __equalsCalc = null;
         return _equals;
     }
@@ -92,10 +92,26 @@ public class AddAdsResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getAdIds() != null) {
-            _hashCode += getAdIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getPartialErrors() != null) {
-            _hashCode += getPartialErrors().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPartialErrors());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPartialErrors(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -110,16 +126,18 @@ public class AddAdsResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/System", "ArrayOfNullableOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/System", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("partialErrors");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "PartialErrors"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfBatchError"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BatchError"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "BatchError"));
         typeDesc.addFieldDesc(elemField);
     }
 

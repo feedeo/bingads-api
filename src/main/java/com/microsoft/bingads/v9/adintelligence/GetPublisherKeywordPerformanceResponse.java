@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.adintelligence;
 
 public class GetPublisherKeywordPerformanceResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordPerformance keywordPerformance;
+    private com.microsoft.bingads.v9.datacontracts.KeywordPerformance[] keywordPerformance;
 
     public GetPublisherKeywordPerformanceResponse() {
     }
 
     public GetPublisherKeywordPerformanceResponse(
-           com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordPerformance keywordPerformance) {
+           com.microsoft.bingads.v9.datacontracts.KeywordPerformance[] keywordPerformance) {
            this.keywordPerformance = keywordPerformance;
     }
 
@@ -24,7 +24,7 @@ public class GetPublisherKeywordPerformanceResponse  implements java.io.Serializ
      * 
      * @return keywordPerformance
      */
-    public com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordPerformance getKeywordPerformance() {
+    public com.microsoft.bingads.v9.datacontracts.KeywordPerformance[] getKeywordPerformance() {
         return keywordPerformance;
     }
 
@@ -34,7 +34,7 @@ public class GetPublisherKeywordPerformanceResponse  implements java.io.Serializ
      * 
      * @param keywordPerformance
      */
-    public void setKeywordPerformance(com.microsoft.bingads.v9.datacontracts.ArrayOfKeywordPerformance keywordPerformance) {
+    public void setKeywordPerformance(com.microsoft.bingads.v9.datacontracts.KeywordPerformance[] keywordPerformance) {
         this.keywordPerformance = keywordPerformance;
     }
 
@@ -52,7 +52,7 @@ public class GetPublisherKeywordPerformanceResponse  implements java.io.Serializ
         _equals = true && 
             ((this.keywordPerformance==null && other.getKeywordPerformance()==null) || 
              (this.keywordPerformance!=null &&
-              this.keywordPerformance.equals(other.getKeywordPerformance())));
+              java.util.Arrays.equals(this.keywordPerformance, other.getKeywordPerformance())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetPublisherKeywordPerformanceResponse  implements java.io.Serializ
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getKeywordPerformance() != null) {
-            _hashCode += getKeywordPerformance().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getKeywordPerformance());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getKeywordPerformance(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetPublisherKeywordPerformanceResponse  implements java.io.Serializ
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("keywordPerformance");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/AdIntelligence/v9", "KeywordPerformance"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "ArrayOfKeywordPerformance"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordPerformance"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts", "KeywordPerformance"));
         typeDesc.addFieldDesc(elemField);
     }
 

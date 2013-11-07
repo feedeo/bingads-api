@@ -8,13 +8,13 @@
 package com.microsoft.bingads.v9.optimizer;
 
 public class GetBidOpportunitiesResponse  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.optimizer.entities.ArrayOfBidOpportunity opportunities;
+    private com.microsoft.bingads.v9.optimizer.entities.BidOpportunity[] opportunities;
 
     public GetBidOpportunitiesResponse() {
     }
 
     public GetBidOpportunitiesResponse(
-           com.microsoft.bingads.v9.optimizer.entities.ArrayOfBidOpportunity opportunities) {
+           com.microsoft.bingads.v9.optimizer.entities.BidOpportunity[] opportunities) {
            this.opportunities = opportunities;
     }
 
@@ -24,7 +24,7 @@ public class GetBidOpportunitiesResponse  implements java.io.Serializable {
      * 
      * @return opportunities
      */
-    public com.microsoft.bingads.v9.optimizer.entities.ArrayOfBidOpportunity getOpportunities() {
+    public com.microsoft.bingads.v9.optimizer.entities.BidOpportunity[] getOpportunities() {
         return opportunities;
     }
 
@@ -34,7 +34,7 @@ public class GetBidOpportunitiesResponse  implements java.io.Serializable {
      * 
      * @param opportunities
      */
-    public void setOpportunities(com.microsoft.bingads.v9.optimizer.entities.ArrayOfBidOpportunity opportunities) {
+    public void setOpportunities(com.microsoft.bingads.v9.optimizer.entities.BidOpportunity[] opportunities) {
         this.opportunities = opportunities;
     }
 
@@ -52,7 +52,7 @@ public class GetBidOpportunitiesResponse  implements java.io.Serializable {
         _equals = true && 
             ((this.opportunities==null && other.getOpportunities()==null) || 
              (this.opportunities!=null &&
-              this.opportunities.equals(other.getOpportunities())));
+              java.util.Arrays.equals(this.opportunities, other.getOpportunities())));
         __equalsCalc = null;
         return _equals;
     }
@@ -65,7 +65,15 @@ public class GetBidOpportunitiesResponse  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getOpportunities() != null) {
-            _hashCode += getOpportunities().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getOpportunities());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getOpportunities(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -80,9 +88,10 @@ public class GetBidOpportunitiesResponse  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("opportunities");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Optimizer/v9", "Opportunities"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ArrayOfBidOpportunity"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BidOpportunity"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "BidOpportunity"));
         typeDesc.addFieldDesc(elemField);
     }
 

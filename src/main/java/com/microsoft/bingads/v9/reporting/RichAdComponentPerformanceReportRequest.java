@@ -10,7 +10,7 @@ package com.microsoft.bingads.v9.reporting;
 public class RichAdComponentPerformanceReportRequest  extends com.microsoft.bingads.v9.reporting.ReportRequest  implements java.io.Serializable {
     private com.microsoft.bingads.v9.reporting.NonHourlyReportAggregation aggregation;
 
-    private com.microsoft.bingads.v9.reporting.ArrayOfRichAdComponentPerformanceReportColumn columns;
+    private com.microsoft.bingads.v9.reporting.RichAdComponentPerformanceReportColumn[] columns;
 
     private com.microsoft.bingads.v9.reporting.RichAdComponentPerformanceReportFilter filter;
 
@@ -27,7 +27,7 @@ public class RichAdComponentPerformanceReportRequest  extends com.microsoft.bing
            java.lang.String reportName,
            java.lang.Boolean returnOnlyCompleteData,
            com.microsoft.bingads.v9.reporting.NonHourlyReportAggregation aggregation,
-           com.microsoft.bingads.v9.reporting.ArrayOfRichAdComponentPerformanceReportColumn columns,
+           com.microsoft.bingads.v9.reporting.RichAdComponentPerformanceReportColumn[] columns,
            com.microsoft.bingads.v9.reporting.RichAdComponentPerformanceReportFilter filter,
            com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope,
            com.microsoft.bingads.v9.reporting.ReportTime time) {
@@ -69,7 +69,7 @@ public class RichAdComponentPerformanceReportRequest  extends com.microsoft.bing
      * 
      * @return columns
      */
-    public com.microsoft.bingads.v9.reporting.ArrayOfRichAdComponentPerformanceReportColumn getColumns() {
+    public com.microsoft.bingads.v9.reporting.RichAdComponentPerformanceReportColumn[] getColumns() {
         return columns;
     }
 
@@ -79,7 +79,7 @@ public class RichAdComponentPerformanceReportRequest  extends com.microsoft.bing
      * 
      * @param columns
      */
-    public void setColumns(com.microsoft.bingads.v9.reporting.ArrayOfRichAdComponentPerformanceReportColumn columns) {
+    public void setColumns(com.microsoft.bingads.v9.reporting.RichAdComponentPerformanceReportColumn[] columns) {
         this.columns = columns;
     }
 
@@ -160,7 +160,7 @@ public class RichAdComponentPerformanceReportRequest  extends com.microsoft.bing
               this.aggregation.equals(other.getAggregation()))) &&
             ((this.columns==null && other.getColumns()==null) || 
              (this.columns!=null &&
-              this.columns.equals(other.getColumns()))) &&
+              java.util.Arrays.equals(this.columns, other.getColumns()))) &&
             ((this.filter==null && other.getFilter()==null) || 
              (this.filter!=null &&
               this.filter.equals(other.getFilter()))) &&
@@ -185,7 +185,15 @@ public class RichAdComponentPerformanceReportRequest  extends com.microsoft.bing
             _hashCode += getAggregation().hashCode();
         }
         if (getColumns() != null) {
-            _hashCode += getColumns().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getColumns());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getColumns(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getFilter() != null) {
             _hashCode += getFilter().hashCode();
@@ -215,8 +223,9 @@ public class RichAdComponentPerformanceReportRequest  extends com.microsoft.bing
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("columns");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Columns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfRichAdComponentPerformanceReportColumn"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "RichAdComponentPerformanceReportColumn"));
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "RichAdComponentPerformanceReportColumn"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filter");

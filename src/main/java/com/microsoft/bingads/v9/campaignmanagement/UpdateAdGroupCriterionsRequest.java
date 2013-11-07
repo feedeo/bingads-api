@@ -10,14 +10,14 @@ package com.microsoft.bingads.v9.campaignmanagement;
 public class UpdateAdGroupCriterionsRequest  implements java.io.Serializable {
     private java.lang.Long accountId;
 
-    private com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupCriterion adGroupCriterions;
+    private com.microsoft.bingads.v9.campaignmanagement.AdGroupCriterion[] adGroupCriterions;
 
     public UpdateAdGroupCriterionsRequest() {
     }
 
     public UpdateAdGroupCriterionsRequest(
            java.lang.Long accountId,
-           com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupCriterion adGroupCriterions) {
+           com.microsoft.bingads.v9.campaignmanagement.AdGroupCriterion[] adGroupCriterions) {
            this.accountId = accountId;
            this.adGroupCriterions = adGroupCriterions;
     }
@@ -48,7 +48,7 @@ public class UpdateAdGroupCriterionsRequest  implements java.io.Serializable {
      * 
      * @return adGroupCriterions
      */
-    public com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupCriterion getAdGroupCriterions() {
+    public com.microsoft.bingads.v9.campaignmanagement.AdGroupCriterion[] getAdGroupCriterions() {
         return adGroupCriterions;
     }
 
@@ -58,7 +58,7 @@ public class UpdateAdGroupCriterionsRequest  implements java.io.Serializable {
      * 
      * @param adGroupCriterions
      */
-    public void setAdGroupCriterions(com.microsoft.bingads.v9.campaignmanagement.ArrayOfAdGroupCriterion adGroupCriterions) {
+    public void setAdGroupCriterions(com.microsoft.bingads.v9.campaignmanagement.AdGroupCriterion[] adGroupCriterions) {
         this.adGroupCriterions = adGroupCriterions;
     }
 
@@ -79,7 +79,7 @@ public class UpdateAdGroupCriterionsRequest  implements java.io.Serializable {
               this.accountId.equals(other.getAccountId()))) &&
             ((this.adGroupCriterions==null && other.getAdGroupCriterions()==null) || 
              (this.adGroupCriterions!=null &&
-              this.adGroupCriterions.equals(other.getAdGroupCriterions())));
+              java.util.Arrays.equals(this.adGroupCriterions, other.getAdGroupCriterions())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,7 +95,15 @@ public class UpdateAdGroupCriterionsRequest  implements java.io.Serializable {
             _hashCode += getAccountId().hashCode();
         }
         if (getAdGroupCriterions() != null) {
-            _hashCode += getAdGroupCriterions().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getAdGroupCriterions());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getAdGroupCriterions(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -117,9 +125,10 @@ public class UpdateAdGroupCriterionsRequest  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("adGroupCriterions");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupCriterions"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "ArrayOfAdGroupCriterion"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupCriterion"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v9", "AdGroupCriterion"));
         typeDesc.addFieldDesc(elemField);
     }
 

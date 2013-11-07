@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.customerbilling;
 
 public class GetDisplayInvoicesRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.schemas.arrays.ArrayOflong invoiceIds;
+    private long[] invoiceIds;
 
     private com.microsoft.bingads.v9.customermanagement.entities.DataType type;
 
@@ -16,7 +16,7 @@ public class GetDisplayInvoicesRequest  implements java.io.Serializable {
     }
 
     public GetDisplayInvoicesRequest(
-           com.microsoft.bingads.v9.schemas.arrays.ArrayOflong invoiceIds,
+           long[] invoiceIds,
            com.microsoft.bingads.v9.customermanagement.entities.DataType type) {
            this.invoiceIds = invoiceIds;
            this.type = type;
@@ -28,7 +28,7 @@ public class GetDisplayInvoicesRequest  implements java.io.Serializable {
      * 
      * @return invoiceIds
      */
-    public com.microsoft.bingads.v9.schemas.arrays.ArrayOflong getInvoiceIds() {
+    public long[] getInvoiceIds() {
         return invoiceIds;
     }
 
@@ -38,7 +38,7 @@ public class GetDisplayInvoicesRequest  implements java.io.Serializable {
      * 
      * @param invoiceIds
      */
-    public void setInvoiceIds(com.microsoft.bingads.v9.schemas.arrays.ArrayOflong invoiceIds) {
+    public void setInvoiceIds(long[] invoiceIds) {
         this.invoiceIds = invoiceIds;
     }
 
@@ -76,7 +76,7 @@ public class GetDisplayInvoicesRequest  implements java.io.Serializable {
         _equals = true && 
             ((this.invoiceIds==null && other.getInvoiceIds()==null) || 
              (this.invoiceIds!=null &&
-              this.invoiceIds.equals(other.getInvoiceIds()))) &&
+              java.util.Arrays.equals(this.invoiceIds, other.getInvoiceIds()))) &&
             ((this.type==null && other.getType()==null) || 
              (this.type!=null &&
               this.type.equals(other.getType())));
@@ -92,7 +92,15 @@ public class GetDisplayInvoicesRequest  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getInvoiceIds() != null) {
-            _hashCode += getInvoiceIds().hashCode();
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getInvoiceIds());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getInvoiceIds(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
         }
         if (getType() != null) {
             _hashCode += getType().hashCode();
@@ -110,9 +118,10 @@ public class GetDisplayInvoicesRequest  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("invoiceIds");
         elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Billing/v9", "InvoiceIds"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "ArrayOflong"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long"));
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("type");
