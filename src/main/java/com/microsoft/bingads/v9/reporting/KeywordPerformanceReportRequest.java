@@ -1,0 +1,347 @@
+/**
+ * KeywordPerformanceReportRequest.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.microsoft.bingads.v9.reporting;
+
+public class KeywordPerformanceReportRequest  extends com.microsoft.bingads.v9.reporting.ReportRequest  implements java.io.Serializable {
+    private com.microsoft.bingads.v9.reporting.ReportAggregation aggregation;
+
+    private com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportColumn columns;
+
+    private com.microsoft.bingads.v9.reporting.KeywordPerformanceReportFilter filter;
+
+    private java.lang.Integer maxRows;
+
+    private com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope;
+
+    private com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportSort sort;
+
+    private com.microsoft.bingads.v9.reporting.ReportTime time;
+
+    public KeywordPerformanceReportRequest() {
+    }
+
+    public KeywordPerformanceReportRequest(
+           com.microsoft.bingads.v9.reporting.ReportFormat format,
+           com.microsoft.bingads.v9.reporting.ReportLanguage language,
+           java.lang.String reportName,
+           java.lang.Boolean returnOnlyCompleteData,
+           com.microsoft.bingads.v9.reporting.ReportAggregation aggregation,
+           com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportColumn columns,
+           com.microsoft.bingads.v9.reporting.KeywordPerformanceReportFilter filter,
+           java.lang.Integer maxRows,
+           com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope,
+           com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportSort sort,
+           com.microsoft.bingads.v9.reporting.ReportTime time) {
+        super(
+            format,
+            language,
+            reportName,
+            returnOnlyCompleteData);
+        this.aggregation = aggregation;
+        this.columns = columns;
+        this.filter = filter;
+        this.maxRows = maxRows;
+        this.scope = scope;
+        this.sort = sort;
+        this.time = time;
+    }
+
+
+    /**
+     * Gets the aggregation value for this KeywordPerformanceReportRequest.
+     * 
+     * @return aggregation
+     */
+    public com.microsoft.bingads.v9.reporting.ReportAggregation getAggregation() {
+        return aggregation;
+    }
+
+
+    /**
+     * Sets the aggregation value for this KeywordPerformanceReportRequest.
+     * 
+     * @param aggregation
+     */
+    public void setAggregation(com.microsoft.bingads.v9.reporting.ReportAggregation aggregation) {
+        this.aggregation = aggregation;
+    }
+
+
+    /**
+     * Gets the columns value for this KeywordPerformanceReportRequest.
+     * 
+     * @return columns
+     */
+    public com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportColumn getColumns() {
+        return columns;
+    }
+
+
+    /**
+     * Sets the columns value for this KeywordPerformanceReportRequest.
+     * 
+     * @param columns
+     */
+    public void setColumns(com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportColumn columns) {
+        this.columns = columns;
+    }
+
+
+    /**
+     * Gets the filter value for this KeywordPerformanceReportRequest.
+     * 
+     * @return filter
+     */
+    public com.microsoft.bingads.v9.reporting.KeywordPerformanceReportFilter getFilter() {
+        return filter;
+    }
+
+
+    /**
+     * Sets the filter value for this KeywordPerformanceReportRequest.
+     * 
+     * @param filter
+     */
+    public void setFilter(com.microsoft.bingads.v9.reporting.KeywordPerformanceReportFilter filter) {
+        this.filter = filter;
+    }
+
+
+    /**
+     * Gets the maxRows value for this KeywordPerformanceReportRequest.
+     * 
+     * @return maxRows
+     */
+    public java.lang.Integer getMaxRows() {
+        return maxRows;
+    }
+
+
+    /**
+     * Sets the maxRows value for this KeywordPerformanceReportRequest.
+     * 
+     * @param maxRows
+     */
+    public void setMaxRows(java.lang.Integer maxRows) {
+        this.maxRows = maxRows;
+    }
+
+
+    /**
+     * Gets the scope value for this KeywordPerformanceReportRequest.
+     * 
+     * @return scope
+     */
+    public com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope getScope() {
+        return scope;
+    }
+
+
+    /**
+     * Sets the scope value for this KeywordPerformanceReportRequest.
+     * 
+     * @param scope
+     */
+    public void setScope(com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope) {
+        this.scope = scope;
+    }
+
+
+    /**
+     * Gets the sort value for this KeywordPerformanceReportRequest.
+     * 
+     * @return sort
+     */
+    public com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportSort getSort() {
+        return sort;
+    }
+
+
+    /**
+     * Sets the sort value for this KeywordPerformanceReportRequest.
+     * 
+     * @param sort
+     */
+    public void setSort(com.microsoft.bingads.v9.reporting.ArrayOfKeywordPerformanceReportSort sort) {
+        this.sort = sort;
+    }
+
+
+    /**
+     * Gets the time value for this KeywordPerformanceReportRequest.
+     * 
+     * @return time
+     */
+    public com.microsoft.bingads.v9.reporting.ReportTime getTime() {
+        return time;
+    }
+
+
+    /**
+     * Sets the time value for this KeywordPerformanceReportRequest.
+     * 
+     * @param time
+     */
+    public void setTime(com.microsoft.bingads.v9.reporting.ReportTime time) {
+        this.time = time;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof KeywordPerformanceReportRequest)) return false;
+        KeywordPerformanceReportRequest other = (KeywordPerformanceReportRequest) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = super.equals(obj) && 
+            ((this.aggregation==null && other.getAggregation()==null) || 
+             (this.aggregation!=null &&
+              this.aggregation.equals(other.getAggregation()))) &&
+            ((this.columns==null && other.getColumns()==null) || 
+             (this.columns!=null &&
+              this.columns.equals(other.getColumns()))) &&
+            ((this.filter==null && other.getFilter()==null) || 
+             (this.filter!=null &&
+              this.filter.equals(other.getFilter()))) &&
+            ((this.maxRows==null && other.getMaxRows()==null) || 
+             (this.maxRows!=null &&
+              this.maxRows.equals(other.getMaxRows()))) &&
+            ((this.scope==null && other.getScope()==null) || 
+             (this.scope!=null &&
+              this.scope.equals(other.getScope()))) &&
+            ((this.sort==null && other.getSort()==null) || 
+             (this.sort!=null &&
+              this.sort.equals(other.getSort()))) &&
+            ((this.time==null && other.getTime()==null) || 
+             (this.time!=null &&
+              this.time.equals(other.getTime())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = super.hashCode();
+        if (getAggregation() != null) {
+            _hashCode += getAggregation().hashCode();
+        }
+        if (getColumns() != null) {
+            _hashCode += getColumns().hashCode();
+        }
+        if (getFilter() != null) {
+            _hashCode += getFilter().hashCode();
+        }
+        if (getMaxRows() != null) {
+            _hashCode += getMaxRows().hashCode();
+        }
+        if (getScope() != null) {
+            _hashCode += getScope().hashCode();
+        }
+        if (getSort() != null) {
+            _hashCode += getSort().hashCode();
+        }
+        if (getTime() != null) {
+            _hashCode += getTime().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(KeywordPerformanceReportRequest.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "KeywordPerformanceReportRequest"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("aggregation");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Aggregation"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ReportAggregation"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("columns");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Columns"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfKeywordPerformanceReportColumn"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("filter");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Filter"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "KeywordPerformanceReportFilter"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("maxRows");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "MaxRows"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("scope");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Scope"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AccountThroughAdGroupReportScope"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("sort");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Sort"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfKeywordPerformanceReportSort"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("time");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Time"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ReportTime"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}
