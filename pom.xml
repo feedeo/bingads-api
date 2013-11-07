@@ -7,12 +7,22 @@
     <groupId>com.feedeo</groupId>
     <artifactId>bingads-api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.axis</groupId>
             <artifactId>axis</artifactId>
             <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml</groupId>
+            <artifactId>jaxrpc-api</artifactId>
+            <version>1.1</version>
         </dependency>
     </dependencies>
 
@@ -130,17 +140,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>feedeo-release</id>
-            <name>libs-release-local</name>
-            <url>http://binary.feedeo.com/libs-release-local</url>
-        </repository>
-        <snapshotRepository>
-            <id>feedeo-snapshot</id>
-            <name>libs-snapshot-local</name>
-            <url>http://binary.feedeo.com/libs-snapshot-local</url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>
