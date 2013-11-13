@@ -1,4 +1,4 @@
-package com.feedeo.constants;
+package com.feedeo.bingadsapi.constants;
 
 /**
  * User: maglju
