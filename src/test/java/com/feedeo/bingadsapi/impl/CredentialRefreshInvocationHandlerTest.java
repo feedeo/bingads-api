@@ -34,7 +34,7 @@ public class CredentialRefreshInvocationHandlerTest {
     private BingAdsSession session;
 
     @Mock
-    private ICampaignManagementService proxy;
+    private ICampaignManagementService service;
 
     private Credential credential;
     private Method method;
@@ -50,22 +50,22 @@ public class CredentialRefreshInvocationHandlerTest {
                 .build());
         credential.setExpirationTimeMilliseconds(expirationTimeMillis);
         credential.setAccessToken("accessToken");
-        method = proxy.getClass().getMethod("getCampaignsByIds", GetCampaignsByIdsRequest.class);
+        method = service.getClass().getMethod("getCampaignsByIds", GetCampaignsByIdsRequest.class);
         parameter = new GetCampaignsByIdsRequest();
         parameters = new Object[] { parameter };
 
         when(session.getOAuth2Credential()).thenReturn(credential);
         when(session.getRefreshWindowSeconds()).thenReturn(60L);
 
-        target = new CredentialRefreshInvocationHandler(session);
+        target = new CredentialRefreshInvocationHandler<ICampaignManagementService>(session, service);
     }
 
     @Test
     public void shouldInvokeMethod() throws Throwable {
         credential.setExpirationTimeMilliseconds(expirationTimeMillis + 61*1000L);
-        target.invoke(proxy, method, parameters);
+        target.invoke(target, method, parameters);
 
-        verify(proxy).getCampaignsByIds(parameter);
+        verify(service).getCampaignsByIds(parameter);
         verify(credential, never()).refreshToken();
     }
 
@@ -73,11 +73,11 @@ public class CredentialRefreshInvocationHandlerTest {
     public void shouldRefreshTokenAndInvokeMethod() throws Throwable {
         credential.setAccessToken("accessToken");
 
-        target.invoke(proxy, method, parameters);
+        target.invoke(target, method, parameters);
 
-        InOrder inOrder = Mockito.inOrder(proxy, credential);
+        InOrder inOrder = Mockito.inOrder(service, credential);
         inOrder.verify(credential).refreshToken();
-        inOrder.verify(proxy).getCampaignsByIds(parameter);
+        inOrder.verify(service).getCampaignsByIds(parameter);
     }
 
 

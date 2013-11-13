@@ -12,13 +12,15 @@ import java.lang.reflect.Method;
  * Date: 2013-11-13
  * Time: 09:50
  */
-public class CredentialRefreshInvocationHandler implements InvocationHandler {
+public class CredentialRefreshInvocationHandler<T extends java.rmi.Remote> implements InvocationHandler {
     private static final Logger log = Logger.getLogger(CredentialRefreshInvocationHandler.class);
 
     private BingAdsSession session;
+    private T service;
 
-    public CredentialRefreshInvocationHandler(BingAdsSession session) {
+    public CredentialRefreshInvocationHandler(BingAdsSession session, T service) {
         this.session = session;
+        this.service = service;
     }
 
     @Override
@@ -28,7 +30,7 @@ public class CredentialRefreshInvocationHandler implements InvocationHandler {
             session.getOAuth2Credential().refreshToken();
         }
 
-        return method.invoke(proxy, args);
+        return method.invoke(service, args);
     }
 
     private boolean isCredentialRefreshable(Credential credential, long refreshWindowSeconds) {

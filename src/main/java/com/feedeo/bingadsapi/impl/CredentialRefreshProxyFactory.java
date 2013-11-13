@@ -13,7 +13,7 @@ import java.lang.reflect.Proxy;
  */
 public class CredentialRefreshProxyFactory {
     public <T extends java.rmi.Remote> T addCredentialRefreshProxy(BingAdsSession session, T service, Class<T> serviceClass) {
-        InvocationHandler handler = new CredentialRefreshInvocationHandler(session);
+        InvocationHandler handler = new CredentialRefreshInvocationHandler<T>(session, service);
         return (T) Proxy.newProxyInstance(service.getClass().getClassLoader(),
                                           new Class[] { serviceClass },
                                           handler);
