@@ -4,6 +4,7 @@ import com.feedeo.bingadsapi.session.BingAdsSession;
 import com.google.api.client.auth.oauth2.BearerToken;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.testing.http.FixedClock;
+import com.microsoft.bingads.v9.campaignmanagement.BasicHttpBinding_ICampaignManagementServiceStub;
 import com.microsoft.bingads.v9.campaignmanagement.GetCampaignsByIdsRequest;
 import com.microsoft.bingads.v9.campaignmanagement.ICampaignManagementService;
 import org.junit.Before;
@@ -34,17 +35,22 @@ public class CredentialRefreshInvocationHandlerTest {
     private BingAdsSession session;
 
     @Mock
-    private ICampaignManagementService service;
+    private BasicHttpBinding_ICampaignManagementServiceStub service;
+
+    @Mock
+    private StubHeaderSetterService stubHeaderSetterService;
 
     private Credential credential;
     private Method method;
     private Object[] parameters;
     private GetCampaignsByIdsRequest parameter;
     private long expirationTimeMillis;
+    private String apiNamespace;
 
     @Before
     public void setUp() throws Exception {
         expirationTimeMillis = 0L;
+        apiNamespace = "namespace";
         credential = spy(new Credential.Builder(BearerToken.authorizationHeaderAccessMethod())
                 .setClock(new FixedClock(expirationTimeMillis))
                 .build());
@@ -57,7 +63,7 @@ public class CredentialRefreshInvocationHandlerTest {
         when(session.getOAuth2Credential()).thenReturn(credential);
         when(session.getRefreshWindowSeconds()).thenReturn(60L);
 
-        target = new CredentialRefreshInvocationHandler<ICampaignManagementService>(session, service);
+        target = new CredentialRefreshInvocationHandler<ICampaignManagementService>(session, service, stubHeaderSetterService, apiNamespace);
     }
 
     @Test
@@ -75,8 +81,9 @@ public class CredentialRefreshInvocationHandlerTest {
 
         target.invoke(target, method, parameters);
 
-        InOrder inOrder = Mockito.inOrder(service, credential);
+        InOrder inOrder = Mockito.inOrder(service, credential, stubHeaderSetterService);
         inOrder.verify(credential).refreshToken();
+        inOrder.verify(stubHeaderSetterService).updateAuthenticationToken(service, session, apiNamespace);
         inOrder.verify(service).getCampaignsByIds(parameter);
     }
 

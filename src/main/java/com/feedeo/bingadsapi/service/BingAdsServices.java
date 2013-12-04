@@ -42,10 +42,11 @@ public class BingAdsServices {
         try {
             Service locator = locatorInstantiator.instantiateLocator(serviceClass);
             T service = serviceInstantiator.instantiateService(locator, serviceClass);
-            stubHeaderSetterService.setHeaders((Stub) service, session, locator.getServiceName().getNamespaceURI());
+            String namespaceURI = locator.getServiceName().getNamespaceURI();
+            stubHeaderSetterService.setHeaders((Stub) service, session, namespaceURI);
 
             if(session.hasOAuth2Credential()) {
-                service = credentialRefreshProxyFactory.addCredentialRefreshProxy(session, service, serviceClass);
+                service = credentialRefreshProxyFactory.addCredentialRefreshProxy(session, service, serviceClass, stubHeaderSetterService, namespaceURI);
             }
             return service;
         } catch (RuntimeException e) {

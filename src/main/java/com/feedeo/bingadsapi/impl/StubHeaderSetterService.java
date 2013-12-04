@@ -2,6 +2,7 @@ package com.feedeo.bingadsapi.impl;
 
 import com.feedeo.bingadsapi.session.BingAdsSession;
 import org.apache.axis.client.Stub;
+import org.apache.axis.message.SOAPHeaderElement;
 
 /**
  * User: maglju
@@ -23,8 +24,19 @@ public class StubHeaderSetterService {
         addAccountHeaders(service, session, apiNamespace);
     }
 
+    public void updateAuthenticationToken(Stub service, BingAdsSession session, String apiNamespace) {
+        if (session.hasOAuth2Credential()) {
+            SOAPHeaderElement authenticationHeader = service.getHeader(apiNamespace, AUTHENTICATION_TOKEN);
+            if (authenticationHeader == null) {
+                service.setHeader(apiNamespace, AUTHENTICATION_TOKEN, session.getOAuth2Credential().getAccessToken());
+            } else {
+                authenticationHeader.setValue(session.getOAuth2Credential().getAccessToken());
+            }
+        }
+    }
+
     private void addCredentialHeaders(Stub service, BingAdsSession session, String apiNamespace) {
-        if(session.hasOAuth2Credential()) {
+        if (session.hasOAuth2Credential()) {
             service.setHeader(apiNamespace, AUTHENTICATION_TOKEN, session.getOAuth2Credential().getAccessToken());
         } else {
             service.setHeader(apiNamespace, USER_NAME, session.getUsername());
@@ -33,10 +45,10 @@ public class StubHeaderSetterService {
     }
 
     private void addAccountHeaders(Stub service, BingAdsSession session, String apiNamespace) {
-        if(session.hasAccountId()) {
+        if (session.hasAccountId()) {
             service.setHeader(apiNamespace, CUSTOMER_ACCOUNT_ID, String.valueOf(session.getAccountId()));
         }
-        if(session.hasCustomerId()) {
+        if (session.hasCustomerId()) {
             service.setHeader(apiNamespace, CUSTOMER_ID, String.valueOf(session.getCustomerId()));
         }
     }

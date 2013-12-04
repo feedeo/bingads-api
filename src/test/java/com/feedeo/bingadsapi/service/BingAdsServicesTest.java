@@ -5,7 +5,6 @@ import com.feedeo.bingadsapi.impl.LocatorInstantiator;
 import com.feedeo.bingadsapi.impl.ServiceInstantiator;
 import com.feedeo.bingadsapi.impl.StubHeaderSetterService;
 import com.feedeo.bingadsapi.session.BingAdsSession;
-import com.google.api.client.auth.oauth2.Credential;
 import com.microsoft.bingads.v9.campaignmanagement.BasicHttpBinding_ICampaignManagementServiceStub;
 import com.microsoft.bingads.v9.campaignmanagement.CampaignManagementServiceLocator;
 import com.microsoft.bingads.v9.campaignmanagement.ICampaignManagementService;
@@ -17,11 +16,11 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import javax.xml.namespace.QName;
-
 import java.rmi.Remote;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -68,7 +67,11 @@ public class BingAdsServicesTest {
         when(locatorInstantiator.instantiateLocator(any(Class.class))).thenReturn(locator);
         when(serviceInstantiator.instantiateService(any(Service.class), any(Class.class))).thenReturn(service);
         when(locator.getServiceName()).thenReturn(serviceName);
-        when(credentialRefreshProxyFactory.addCredentialRefreshProxy(any(BingAdsSession.class), any(Remote.class), any(Class.class))).thenReturn(proxiedService);
+        when(credentialRefreshProxyFactory.addCredentialRefreshProxy(any(BingAdsSession.class),
+                                                                     any(Remote.class),
+                                                                     any(Class.class),
+                                                                     any(StubHeaderSetterService.class),
+                                                                     anyString())).thenReturn(proxiedService);
 
         target = new BingAdsServices(locatorInstantiator,
                                      serviceInstantiator,
@@ -107,7 +110,7 @@ public class BingAdsServicesTest {
         ICampaignManagementService result = target.getService(session, ICampaignManagementService.class);
 
         assertThat(result).isSameAs(proxiedService);
-        verify(credentialRefreshProxyFactory).addCredentialRefreshProxy(session, service, ICampaignManagementService.class);
+        verify(credentialRefreshProxyFactory).addCredentialRefreshProxy(session, service, ICampaignManagementService.class, stubHeaderSetterService, namespace);
     }
 
     @Test(expected = RuntimeException.class)
