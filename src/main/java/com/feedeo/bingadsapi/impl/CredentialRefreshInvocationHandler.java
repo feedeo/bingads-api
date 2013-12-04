@@ -32,16 +32,10 @@ public class CredentialRefreshInvocationHandler<T extends java.rmi.Remote> imple
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if(isCredentialRefreshable(session.getOAuth2Credential(), session.getRefreshWindowSeconds())) {
             log.debug("Refreshing token for BingAds session for account id " + session.getAccountId() + " and customer id " + session.getCustomerId());
-            log.debug("Current token: " + session.getOAuth2Credential().getAccessToken());
             session.getOAuth2Credential().refreshToken();
             stubHeaderSetterService.updateAuthenticationToken((Stub) service, session, apiNamespace);
-            log.debug("Refreshed token: " + session.getOAuth2Credential().getAccessToken());
         }
 
-        if (service instanceof Stub) {
-            Stub stub = (Stub) service;
-            log.debug("Invoking service with authentication header: " + stub.getHeader(apiNamespace, "AuthenticationToken"));
-        }
         return method.invoke(service, args);
     }
 
