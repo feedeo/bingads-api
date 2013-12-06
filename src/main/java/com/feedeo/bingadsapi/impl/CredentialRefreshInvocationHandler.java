@@ -3,6 +3,7 @@ package com.feedeo.bingadsapi.impl;
 import com.feedeo.bingadsapi.session.BingAdsSession;
 import com.google.api.client.auth.oauth2.Credential;
 import org.apache.axis.client.Stub;
+import org.apache.axis.message.SOAPHeaderElement;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.InvocationHandler;
@@ -30,10 +31,19 @@ public class CredentialRefreshInvocationHandler<T extends java.rmi.Remote> imple
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        if(isCredentialRefreshable(session.getOAuth2Credential(), session.getRefreshWindowSeconds())) {
-            log.debug("Refreshing token for BingAds session for account id " + session.getAccountId() + " and customer id " + session.getCustomerId());
-            session.getOAuth2Credential().refreshToken();
-            stubHeaderSetterService.updateAuthenticationToken((Stub) service, session, apiNamespace);
+        synchronized (session.getOAuth2Credential()) {
+            if (isCredentialRefreshable(session.getOAuth2Credential(), session.getRefreshWindowSeconds())) {
+                log.debug("Refreshing token for BingAds session for account id " + session.getAccountId() + " and customer id " + session.getCustomerId());
+                session.getOAuth2Credential().refreshToken();
+                stubHeaderSetterService.updateAuthenticationToken((Stub) service, session, apiNamespace);
+            }
+        }
+
+        if (log.isTraceEnabled() && service instanceof Stub) {
+            Stub stub = (Stub) service;
+            SOAPHeaderElement authHeader = stub.getHeader(apiNamespace, "AuthenticationToken");
+            String token = authHeader == null ? null : authHeader.getValue();
+            log.trace("Invoking service method " + method.getName() + " using credential " + session.getOAuth2Credential() + " with access token " + token);
         }
 
         return method.invoke(service, args);
