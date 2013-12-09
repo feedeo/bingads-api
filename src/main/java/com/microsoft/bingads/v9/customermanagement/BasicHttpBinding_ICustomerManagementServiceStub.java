@@ -104,15 +104,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
-                      "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
                       "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
                       new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
+                      "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
+                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
                       true
                      ));
         _operations[3] = oper;
@@ -173,15 +173,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
-                      "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
                       "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
                       new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
+                      "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
+                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
                       true
                      ));
         _operations[6] = oper;
@@ -219,15 +219,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
                       "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
                       true
                      ));
         _operations[8] = oper;
@@ -270,15 +270,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
                       "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
                       true
                      ));
         _operations[10] = oper;
@@ -339,15 +339,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
                       "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
                       true
                      ));
         _operations[13] = oper;
@@ -362,15 +362,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
                       "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
                       true
                      ));
         _operations[14] = oper;
@@ -408,15 +408,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
                       "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
                       true
                      ));
         _operations[16] = oper;
@@ -454,15 +454,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
                       "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
                       true
                      ));
         _operations[18] = oper;
@@ -477,15 +477,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
-                      "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
                       "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
                       new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
+                      "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
+                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
                       true
                      ));
         _operations[19] = oper;
@@ -505,15 +505,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
                       "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
                       true
                      ));
         _operations[20] = oper;
@@ -551,15 +551,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
-                      "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
                       "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
                       new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
+                      "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
+                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
                       true
                      ));
         _operations[22] = oper;
@@ -597,15 +597,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
                       "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
                       true
                      ));
         _operations[24] = oper;
@@ -620,15 +620,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
                       "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
                       true
                      ));
         _operations[25] = oper;
@@ -643,15 +643,15 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9", "ApiFault"),
                       "com.microsoft.bingads.v9.customermanagement.exception.ApiFault",
                       new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
+                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
                       true
                      ));
         _operations[26] = oper;
@@ -1719,7 +1719,7 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.UpdateAccountResponse updateAccount(com.microsoft.bingads.v9.customermanagement.UpdateAccountRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
+    public com.microsoft.bingads.v9.customermanagement.UpdateAccountResponse updateAccount(com.microsoft.bingads.v9.customermanagement.UpdateAccountRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -1753,11 +1753,11 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
-              throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
               throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
+              throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
          }
    }
   throw axisFaultException;
@@ -1854,7 +1854,7 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.SignupCustomerResponse signupCustomer(com.microsoft.bingads.v9.customermanagement.SignupCustomerRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
+    public com.microsoft.bingads.v9.customermanagement.SignupCustomerResponse signupCustomer(com.microsoft.bingads.v9.customermanagement.SignupCustomerRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -1888,11 +1888,11 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
-              throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
               throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
+              throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
          }
    }
   throw axisFaultException;
@@ -1944,7 +1944,7 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.GetCustomersInfoResponse getCustomersInfo(com.microsoft.bingads.v9.customermanagement.GetCustomersInfoRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
+    public com.microsoft.bingads.v9.customermanagement.GetCustomersInfoResponse getCustomersInfo(com.microsoft.bingads.v9.customermanagement.GetCustomersInfoRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -1978,11 +1978,11 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
               throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
+              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;
@@ -2034,7 +2034,7 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.DeleteCustomerResponse deleteCustomer(com.microsoft.bingads.v9.customermanagement.DeleteCustomerRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
+    public com.microsoft.bingads.v9.customermanagement.DeleteCustomerResponse deleteCustomer(com.microsoft.bingads.v9.customermanagement.DeleteCustomerRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2068,11 +2068,11 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
               throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
+              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;
@@ -2169,7 +2169,7 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.GetUserResponse getUser(com.microsoft.bingads.v9.customermanagement.GetUserRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
+    public com.microsoft.bingads.v9.customermanagement.GetUserResponse getUser(com.microsoft.bingads.v9.customermanagement.GetUserRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2203,18 +2203,18 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
               throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
+              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.GetCurrentUserResponse getCurrentUser(com.microsoft.bingads.v9.customermanagement.GetCurrentUserRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
+    public com.microsoft.bingads.v9.customermanagement.GetCurrentUserResponse getCurrentUser(com.microsoft.bingads.v9.customermanagement.GetCurrentUserRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2248,11 +2248,11 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
               throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
+              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;
@@ -2304,7 +2304,7 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.GetUsersInfoResponse getUsersInfo(com.microsoft.bingads.v9.customermanagement.GetUsersInfoRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
+    public com.microsoft.bingads.v9.customermanagement.GetUsersInfoResponse getUsersInfo(com.microsoft.bingads.v9.customermanagement.GetUsersInfoRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2338,11 +2338,11 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
               throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
+              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;
@@ -2394,7 +2394,7 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.GetPilotFeaturesCountriesResponse getPilotFeaturesCountries(com.microsoft.bingads.v9.customermanagement.GetPilotFeaturesCountriesRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
+    public com.microsoft.bingads.v9.customermanagement.GetPilotFeaturesCountriesResponse getPilotFeaturesCountries(com.microsoft.bingads.v9.customermanagement.GetPilotFeaturesCountriesRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2428,18 +2428,18 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
               throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
+              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.GetAccessibleCustomerResponse getAccessibleCustomer(com.microsoft.bingads.v9.customermanagement.GetAccessibleCustomerRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
+    public com.microsoft.bingads.v9.customermanagement.GetAccessibleCustomerResponse getAccessibleCustomer(com.microsoft.bingads.v9.customermanagement.GetAccessibleCustomerRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2473,18 +2473,18 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
-              throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
               throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
+              throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
          }
    }
   throw axisFaultException;
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.FindAccountsOrCustomersInfoResponse findAccountsOrCustomersInfo(com.microsoft.bingads.v9.customermanagement.FindAccountsOrCustomersInfoRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
+    public com.microsoft.bingads.v9.customermanagement.FindAccountsOrCustomersInfoResponse findAccountsOrCustomersInfo(com.microsoft.bingads.v9.customermanagement.FindAccountsOrCustomersInfoRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2518,11 +2518,11 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
               throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
+              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;
@@ -2574,7 +2574,7 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.AddPrepayAccountResponse addPrepayAccount(com.microsoft.bingads.v9.customermanagement.AddPrepayAccountRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
+    public com.microsoft.bingads.v9.customermanagement.AddPrepayAccountResponse addPrepayAccount(com.microsoft.bingads.v9.customermanagement.AddPrepayAccountRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2608,11 +2608,11 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
-              throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
               throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
+              throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
          }
    }
   throw axisFaultException;
@@ -2664,7 +2664,7 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.MapCustomerIdToExternalCustomerIdResponse mapCustomerIdToExternalCustomerId(com.microsoft.bingads.v9.customermanagement.MapCustomerIdToExternalCustomerIdRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
+    public com.microsoft.bingads.v9.customermanagement.MapCustomerIdToExternalCustomerIdResponse mapCustomerIdToExternalCustomerId(com.microsoft.bingads.v9.customermanagement.MapCustomerIdToExternalCustomerIdRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2698,18 +2698,18 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
               throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
+              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.MapAccountIdToExternalAccountIdsResponse mapAccountIdToExternalAccountIds(com.microsoft.bingads.v9.customermanagement.MapAccountIdToExternalAccountIdsRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
+    public com.microsoft.bingads.v9.customermanagement.MapAccountIdToExternalAccountIdsResponse mapAccountIdToExternalAccountIds(com.microsoft.bingads.v9.customermanagement.MapAccountIdToExternalAccountIdsRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2743,18 +2743,18 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
               throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
+              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;
 }
     }
 
-    public com.microsoft.bingads.v9.customermanagement.SearchCustomersResponse searchCustomers(com.microsoft.bingads.v9.customermanagement.SearchCustomersRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.customermanagement.exception.ApiFault {
+    public com.microsoft.bingads.v9.customermanagement.SearchCustomersResponse searchCustomers(com.microsoft.bingads.v9.customermanagement.SearchCustomersRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.customermanagement.exception.ApiFault, com.microsoft.bingads.v9.adapi.AdApiFaultDetail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -2788,11 +2788,11 @@ public class BasicHttpBinding_ICustomerManagementServiceStub extends org.apache.
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.customermanagement.exception.ApiFault) {
               throw (com.microsoft.bingads.v9.customermanagement.exception.ApiFault) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
+              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;

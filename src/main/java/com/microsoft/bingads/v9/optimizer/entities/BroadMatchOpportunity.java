@@ -40,7 +40,11 @@ public class BroadMatchOpportunity  extends com.microsoft.bingads.v9.optimizer.e
 
     private java.lang.Long mainLineImpressions;
 
+    private java.lang.Double referenceKeywordBid;
+
     private java.lang.Long referenceKeywordId;
+
+    private java.lang.Integer referenceKeywordMatchType;
 
     private java.lang.Double suggestedBid;
 
@@ -66,7 +70,9 @@ public class BroadMatchOpportunity  extends com.microsoft.bingads.v9.optimizer.e
            java.lang.String keyword,
            java.lang.Double mainLineImpressionShare,
            java.lang.Long mainLineImpressions,
+           java.lang.Double referenceKeywordBid,
            java.lang.Long referenceKeywordId,
+           java.lang.Integer referenceKeywordMatchType,
            java.lang.Double suggestedBid) {
         super(
             expirationDate,
@@ -87,7 +93,9 @@ public class BroadMatchOpportunity  extends com.microsoft.bingads.v9.optimizer.e
         this.keyword = keyword;
         this.mainLineImpressionShare = mainLineImpressionShare;
         this.mainLineImpressions = mainLineImpressions;
+        this.referenceKeywordBid = referenceKeywordBid;
         this.referenceKeywordId = referenceKeywordId;
+        this.referenceKeywordMatchType = referenceKeywordMatchType;
         this.suggestedBid = suggestedBid;
     }
 
@@ -413,6 +421,26 @@ public class BroadMatchOpportunity  extends com.microsoft.bingads.v9.optimizer.e
 
 
     /**
+     * Gets the referenceKeywordBid value for this BroadMatchOpportunity.
+     * 
+     * @return referenceKeywordBid
+     */
+    public java.lang.Double getReferenceKeywordBid() {
+        return referenceKeywordBid;
+    }
+
+
+    /**
+     * Sets the referenceKeywordBid value for this BroadMatchOpportunity.
+     * 
+     * @param referenceKeywordBid
+     */
+    public void setReferenceKeywordBid(java.lang.Double referenceKeywordBid) {
+        this.referenceKeywordBid = referenceKeywordBid;
+    }
+
+
+    /**
      * Gets the referenceKeywordId value for this BroadMatchOpportunity.
      * 
      * @return referenceKeywordId
@@ -429,6 +457,26 @@ public class BroadMatchOpportunity  extends com.microsoft.bingads.v9.optimizer.e
      */
     public void setReferenceKeywordId(java.lang.Long referenceKeywordId) {
         this.referenceKeywordId = referenceKeywordId;
+    }
+
+
+    /**
+     * Gets the referenceKeywordMatchType value for this BroadMatchOpportunity.
+     * 
+     * @return referenceKeywordMatchType
+     */
+    public java.lang.Integer getReferenceKeywordMatchType() {
+        return referenceKeywordMatchType;
+    }
+
+
+    /**
+     * Sets the referenceKeywordMatchType value for this BroadMatchOpportunity.
+     * 
+     * @param referenceKeywordMatchType
+     */
+    public void setReferenceKeywordMatchType(java.lang.Integer referenceKeywordMatchType) {
+        this.referenceKeywordMatchType = referenceKeywordMatchType;
     }
 
 
@@ -511,9 +559,15 @@ public class BroadMatchOpportunity  extends com.microsoft.bingads.v9.optimizer.e
             ((this.mainLineImpressions==null && other.getMainLineImpressions()==null) || 
              (this.mainLineImpressions!=null &&
               this.mainLineImpressions.equals(other.getMainLineImpressions()))) &&
+            ((this.referenceKeywordBid==null && other.getReferenceKeywordBid()==null) || 
+             (this.referenceKeywordBid!=null &&
+              this.referenceKeywordBid.equals(other.getReferenceKeywordBid()))) &&
             ((this.referenceKeywordId==null && other.getReferenceKeywordId()==null) || 
              (this.referenceKeywordId!=null &&
               this.referenceKeywordId.equals(other.getReferenceKeywordId()))) &&
+            ((this.referenceKeywordMatchType==null && other.getReferenceKeywordMatchType()==null) || 
+             (this.referenceKeywordMatchType!=null &&
+              this.referenceKeywordMatchType.equals(other.getReferenceKeywordMatchType()))) &&
             ((this.suggestedBid==null && other.getSuggestedBid()==null) || 
              (this.suggestedBid!=null &&
               this.suggestedBid.equals(other.getSuggestedBid())));
@@ -576,8 +630,14 @@ public class BroadMatchOpportunity  extends com.microsoft.bingads.v9.optimizer.e
         if (getMainLineImpressions() != null) {
             _hashCode += getMainLineImpressions().hashCode();
         }
+        if (getReferenceKeywordBid() != null) {
+            _hashCode += getReferenceKeywordBid().hashCode();
+        }
         if (getReferenceKeywordId() != null) {
             _hashCode += getReferenceKeywordId().hashCode();
+        }
+        if (getReferenceKeywordMatchType() != null) {
+            _hashCode += getReferenceKeywordMatchType().hashCode();
         }
         if (getSuggestedBid() != null) {
             _hashCode += getSuggestedBid().hashCode();
@@ -705,9 +765,23 @@ public class BroadMatchOpportunity  extends com.microsoft.bingads.v9.optimizer.e
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("referenceKeywordBid");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ReferenceKeywordBid"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("referenceKeywordId");
         elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ReferenceKeywordId"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("referenceKeywordMatchType");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities", "ReferenceKeywordMatchType"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

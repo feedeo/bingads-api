@@ -22,7 +22,7 @@ public class AdIntelligenceServiceLocator extends org.apache.axis.client.Service
     }
 
     // Use to get a proxy class for BasicHttpBinding_IAdIntelligenceService
-    private java.lang.String BasicHttpBinding_IAdIntelligenceService_address = "https://adcenterapi.microsoft.com/Api/Advertiser/AdIntelligence/V9/AdIntelligenceService.svc";
+    private java.lang.String BasicHttpBinding_IAdIntelligenceService_address = "https://api.bingads.microsoft.com/Api/Advertiser/AdIntelligence/V9/AdIntelligenceService.svc";
 
     public java.lang.String getBasicHttpBinding_IAdIntelligenceServiceAddress() {
         return BasicHttpBinding_IAdIntelligenceService_address;

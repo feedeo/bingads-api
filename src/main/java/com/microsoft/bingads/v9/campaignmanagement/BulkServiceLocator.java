@@ -22,7 +22,7 @@ public class BulkServiceLocator extends org.apache.axis.client.Service implement
     }
 
     // Use to get a proxy class for BasicHttpBinding_IBulkService
-    private java.lang.String BasicHttpBinding_IBulkService_address = "https://adcenterapi.microsoft.com/Api/Advertiser/CampaignManagement/v9/BulkService.svc";
+    private java.lang.String BasicHttpBinding_IBulkService_address = "https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V9/BulkService.svc";
 
     public java.lang.String getBasicHttpBinding_IBulkServiceAddress() {
         return BasicHttpBinding_IBulkService_address;

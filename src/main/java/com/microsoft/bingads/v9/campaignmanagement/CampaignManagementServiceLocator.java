@@ -22,7 +22,7 @@ public class CampaignManagementServiceLocator extends org.apache.axis.client.Ser
     }
 
     // Use to get a proxy class for BasicHttpBinding_ICampaignManagementService
-    private java.lang.String BasicHttpBinding_ICampaignManagementService_address = "https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc";
+    private java.lang.String BasicHttpBinding_ICampaignManagementService_address = "https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/V9/CampaignManagementService.svc";
 
     public java.lang.String getBasicHttpBinding_ICampaignManagementServiceAddress() {
         return BasicHttpBinding_ICampaignManagementService_address;
