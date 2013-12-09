@@ -71,7 +71,9 @@ public class CredentialRefreshInvocationHandlerTest {
         credential.setExpirationTimeMilliseconds(expirationTimeMillis + 61*1000L);
         target.invoke(target, method, parameters);
 
-        verify(service).getCampaignsByIds(parameter);
+        InOrder inOrder = Mockito.inOrder(service, credential, stubHeaderSetterService);
+        inOrder.verify(stubHeaderSetterService).updateAuthenticationToken(service, session, apiNamespace);
+        inOrder.verify(service).getCampaignsByIds(parameter);
         verify(credential, never()).refreshToken();
     }
 
