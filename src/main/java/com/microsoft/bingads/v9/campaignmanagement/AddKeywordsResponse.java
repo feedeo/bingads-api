@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class AddKeywordsResponse  implements java.io.Serializable {
-    private long[] keywordIds;
+    private Long[] keywordIds;
 
     private com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors;
 
@@ -16,7 +16,7 @@ public class AddKeywordsResponse  implements java.io.Serializable {
     }
 
     public AddKeywordsResponse(
-           long[] keywordIds,
+           Long[] keywordIds,
            com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors) {
            this.keywordIds = keywordIds;
            this.partialErrors = partialErrors;
@@ -28,7 +28,7 @@ public class AddKeywordsResponse  implements java.io.Serializable {
      * 
      * @return keywordIds
      */
-    public long[] getKeywordIds() {
+    public Long[] getKeywordIds() {
         return keywordIds;
     }
 
@@ -38,7 +38,7 @@ public class AddKeywordsResponse  implements java.io.Serializable {
      * 
      * @param keywordIds
      */
-    public void setKeywordIds(long[] keywordIds) {
+    public void setKeywordIds(Long[] keywordIds) {
         this.keywordIds = keywordIds;
     }
 

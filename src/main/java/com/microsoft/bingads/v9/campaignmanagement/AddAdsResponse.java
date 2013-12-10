@@ -8,7 +8,7 @@
 package com.microsoft.bingads.v9.campaignmanagement;
 
 public class AddAdsResponse  implements java.io.Serializable {
-    private long[] adIds;
+    private Long[] adIds;
 
     private com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors;
 
@@ -16,7 +16,7 @@ public class AddAdsResponse  implements java.io.Serializable {
     }
 
     public AddAdsResponse(
-           long[] adIds,
+           Long[] adIds,
            com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors) {
            this.adIds = adIds;
            this.partialErrors = partialErrors;
@@ -28,7 +28,7 @@ public class AddAdsResponse  implements java.io.Serializable {
      * 
      * @return adIds
      */
-    public long[] getAdIds() {
+    public Long[] getAdIds() {
         return adIds;
     }
 
@@ -38,7 +38,7 @@ public class AddAdsResponse  implements java.io.Serializable {
      * 
      * @param adIds
      */
-    public void setAdIds(long[] adIds) {
+    public void setAdIds(Long[] adIds) {
         this.adIds = adIds;
     }
 
