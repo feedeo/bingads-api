@@ -24,13 +24,16 @@ public class StubHeaderSetterService {
         addAccountHeaders(service, session, apiNamespace);
     }
 
-    public void updateAuthenticationToken(Stub service, BingAdsSession session, String apiNamespace) {
+    public void updateHeaders(Stub service, BingAdsSession session, String apiNamespace) {
         if (session.hasOAuth2Credential()) {
             SOAPHeaderElement authenticationHeader = service.getHeader(apiNamespace, AUTHENTICATION_TOKEN);
-            if (authenticationHeader == null) {
-                service.setHeader(apiNamespace, AUTHENTICATION_TOKEN, session.getOAuth2Credential().getAccessToken());
+            if(authenticationHeader != null) {
+                String currentAccessToken = authenticationHeader.getValue();
+                if(currentAccessToken != null && !currentAccessToken.equals(session.getOAuth2Credential().getAccessToken())) {
+                    setHeaders(service, session, apiNamespace);
+                }
             } else {
-                authenticationHeader.setValue(session.getOAuth2Credential().getAccessToken());
+                setHeaders(service, session, apiNamespace);
             }
         }
     }

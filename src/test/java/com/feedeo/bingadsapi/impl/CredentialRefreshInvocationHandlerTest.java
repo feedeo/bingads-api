@@ -72,7 +72,7 @@ public class CredentialRefreshInvocationHandlerTest {
         target.invoke(target, method, parameters);
 
         InOrder inOrder = Mockito.inOrder(service, credential, stubHeaderSetterService);
-        inOrder.verify(stubHeaderSetterService).updateAuthenticationToken(service, session, apiNamespace);
+        inOrder.verify(stubHeaderSetterService).updateHeaders(service, session, apiNamespace);
         inOrder.verify(service).getCampaignsByIds(parameter);
         verify(credential, never()).refreshToken();
     }
@@ -85,7 +85,7 @@ public class CredentialRefreshInvocationHandlerTest {
 
         InOrder inOrder = Mockito.inOrder(service, credential, stubHeaderSetterService);
         inOrder.verify(credential).refreshToken();
-        inOrder.verify(stubHeaderSetterService).updateAuthenticationToken(service, session, apiNamespace);
+        inOrder.verify(stubHeaderSetterService).updateHeaders(service, session, apiNamespace);
         inOrder.verify(service).getCampaignsByIds(parameter);
     }
 

@@ -60,6 +60,7 @@ public class StubHeaderSetterServiceTest {
         doReturn(password).when(session).getPassword();
         doReturn(accountId).when(session).getAccountId();
         doReturn(customerId).when(session).getCustomerId();
+        doReturn(accessToken).when(authHeader).getValue();
 
         target = new StubHeaderSetterService();
     }
@@ -92,14 +93,38 @@ public class StubHeaderSetterServiceTest {
     }
 
     @Test
-    public void shouldUpdateAuthenticationTokenIfPresent() {
+    public void shouldNotUpdateHeadersIfNoOAuth() {
+        when(session.hasOAuth2Credential()).thenReturn(false);
+
+        target.updateHeaders(service, session, apiNamespace);
+
+        verify(service, never()).clearHeaders();
+        verify(service, never()).setHeader(anyString(), anyString(), anyString());
+    }
+
+    @Test
+    public void shouldNotUpdateAuthenticationTokenIfPresentButSame() {
         when(session.hasOAuth2Credential()).thenReturn(true);
         when(session.getOAuth2Credential()).thenReturn(credential);
         when(service.getHeader(anyString(), anyString())).thenReturn(authHeader);
 
-        target.updateAuthenticationToken(service, session, apiNamespace);
+        target.updateHeaders(service, session, apiNamespace);
 
-        verify(authHeader).setValue(accessToken);
+        verify(service, never()).clearHeaders();
+        verify(service, never()).setHeader(anyString(), anyString(), anyString());
+    }
+
+    @Test
+    public void shouldNotUpdateAuthenticationTokenIfPresentAndDifferent() {
+        when(session.hasOAuth2Credential()).thenReturn(true);
+        when(session.getOAuth2Credential()).thenReturn(credential);
+        when(service.getHeader(anyString(), anyString())).thenReturn(authHeader);
+        when(authHeader.getValue()).thenReturn("oldAccessToken");
+
+        target.updateHeaders(service, session, apiNamespace);
+
+        verify(service).clearHeaders();
+        verify(service).setHeader(apiNamespace, "AuthenticationToken", accessToken);
     }
 
     @Test
@@ -108,8 +133,9 @@ public class StubHeaderSetterServiceTest {
         when(session.getOAuth2Credential()).thenReturn(credential);
         when(service.getHeader(anyString(), anyString())).thenReturn(null);
 
-        target.updateAuthenticationToken(service, session, apiNamespace);
+        target.updateHeaders(service, session, apiNamespace);
 
+        verify(service).clearHeaders();
         verify(service).setHeader(apiNamespace, "AuthenticationToken", accessToken);
     }
 

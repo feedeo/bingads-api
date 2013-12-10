@@ -7,6 +7,7 @@ import org.apache.axis.message.SOAPHeaderElement;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -38,7 +39,7 @@ public class CredentialRefreshInvocationHandler<T extends java.rmi.Remote> imple
             }
 
             // Always set the authentication header since the token may have been refreshed by a different thread
-            stubHeaderSetterService.updateAuthenticationToken((Stub) service, session, apiNamespace);
+            stubHeaderSetterService.updateHeaders((Stub) service, session, apiNamespace);
         }
 
         if (log.isTraceEnabled() && service instanceof Stub) {
@@ -48,7 +49,56 @@ public class CredentialRefreshInvocationHandler<T extends java.rmi.Remote> imple
             log.trace("Invoking service method " + method.getName() + " using credential " + session.getOAuth2Credential() + " with access token " + token);
         }
 
-        return method.invoke(service, args);
+        try {
+            return method.invoke(service, args);
+        } catch (InvocationTargetException e) {
+            log.debug("Error while invoking method " + service.getClass().getName() + "." + method.getName() + "(" + getClassNames(args) + ")\n" +
+                      "service: " + service + "\n" +
+                      "args: " + getArgs(args) + "\n" +
+                      "AuthenticationHeader: " + getAuthHeader(service),
+                      e);
+            throw e.getCause();
+        }
+    }
+
+    private SOAPHeaderElement getAuthHeader(T service) {
+        if (service instanceof Stub) {
+            Stub stub = (Stub) service;
+            return stub.getHeader(apiNamespace, "AuthenticationToken");
+        }
+        return null;
+    }
+
+    private String getClassNames(Object[] args) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < args.length; i++) {
+            Object arg = args[i];
+            if (i > 0) {
+                sb.append(", ");
+            }
+            if (arg == null) {
+                sb.append("null");
+            } else {
+                sb.append(arg.getClass().getName());
+            }
+        }
+
+        return sb.toString();
+    }
+
+    private String getArgs(Object[] args) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < args.length; i++) {
+            Object arg = args[i];
+            if (i > 0) {
+                sb.append(", ");
+            }
+            sb.append(arg);
+        }
+
+        return sb.toString();
     }
 
     private boolean isCredentialRefreshable(Credential credential, long refreshWindowSeconds) {
