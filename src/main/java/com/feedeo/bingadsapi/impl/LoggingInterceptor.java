@@ -1,5 +1,6 @@
 package com.feedeo.bingadsapi.impl;
 
+import com.feedeo.bingadsapi.service.HasPartialErrors;
 import com.feedeo.bingadsapi.session.BingAdsSession;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -24,17 +25,26 @@ public class LoggingInterceptor<T extends Remote> implements ReturnValueIntercep
 
     private void logSoapXml(SoapCallReturnInfo soapCallReturnInfo) {
         if (log.isEnabledFor(Level.INFO) ||
-            (log.isEnabledFor(Level.WARN) && soapCallReturnInfo.getThrowable() != null)) {
+            (log.isEnabledFor(Level.WARN) && hasError(soapCallReturnInfo))) {
             String prettyRequest = "SOAP Request:\n" + prettyPrinter.prettyPrint(soapCallReturnInfo.getSoapRequestXml());
             String prettyResponse = "SOAP Response:\n" + prettyPrinter.prettyPrint(soapCallReturnInfo.getSoapResponseXml());
-            if (soapCallReturnInfo.getThrowable() == null) {
-                log.info(prettyRequest);
-                log.info(prettyResponse);
-            } else {
+            if (hasError(soapCallReturnInfo)) {
                 log.warn(prettyRequest);
                 log.warn(prettyResponse);
+            } else {
+                log.info(prettyRequest);
+                log.info(prettyResponse);
             }
         }
+    }
+
+    private boolean hasError(SoapCallReturnInfo soapCallReturnInfo) {
+        if (soapCallReturnInfo.getReturnValue() instanceof HasPartialErrors) {
+            HasPartialErrors returnValue = (HasPartialErrors) soapCallReturnInfo.getReturnValue();
+            return returnValue.getPartialErrors() != null && returnValue.getPartialErrors().length > 0;
+        }
+
+        return soapCallReturnInfo.getThrowable() != null;
     }
 
     private void logRequest(SoapCallReturnInfo soapCallReturnInfo) {

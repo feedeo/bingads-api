@@ -7,7 +7,9 @@
 
 package com.microsoft.bingads.v9.campaignmanagement;
 
-public class GetKeywordsByIdsResponse  implements java.io.Serializable {
+import com.feedeo.bingadsapi.service.HasPartialErrors;
+
+public class GetKeywordsByIdsResponse  implements java.io.Serializable, HasPartialErrors {
     private com.microsoft.bingads.v9.campaignmanagement.Keyword[] keywords;
 
     private com.microsoft.bingads.v9.campaignmanagement.BatchError[] partialErrors;
