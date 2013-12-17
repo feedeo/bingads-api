@@ -1,8 +1,11 @@
 package com.feedeo.bingadsapi.service;
 
-import com.feedeo.bingadsapi.impl.CredentialRefreshProxyFactory;
+import com.feedeo.bingadsapi.impl.BeforeInvokeInterceptor;
+import com.feedeo.bingadsapi.impl.InterceptorFactory;
 import com.feedeo.bingadsapi.impl.LocatorInstantiator;
+import com.feedeo.bingadsapi.impl.ReturnValueInterceptor;
 import com.feedeo.bingadsapi.impl.ServiceInstantiator;
+import com.feedeo.bingadsapi.impl.ServiceInvocationProxyFactory;
 import com.feedeo.bingadsapi.impl.StubHeaderSetterService;
 import com.feedeo.bingadsapi.session.BingAdsSession;
 import com.microsoft.bingads.v9.campaignmanagement.BasicHttpBinding_ICampaignManagementServiceStub;
@@ -43,7 +46,7 @@ public class BingAdsServicesTest {
     private StubHeaderSetterService stubHeaderSetterService;
 
     @Mock
-    private CredentialRefreshProxyFactory credentialRefreshProxyFactory;
+    private ServiceInvocationProxyFactory serviceInvocationProxyFactory;
 
     @Mock
     private BingAdsSession session;
@@ -57,6 +60,18 @@ public class BingAdsServicesTest {
     @Mock
     private ICampaignManagementService proxiedService;
 
+    @Mock
+    private BeforeInvokeInterceptor<ICampaignManagementService> credentialBeforeInvokeInterceptor;
+
+    @Mock
+    private BeforeInvokeInterceptor<ICampaignManagementService> defaultBeforeInvokeInterceptor;
+
+    @Mock
+    private ReturnValueInterceptor<ICampaignManagementService> returnValueInterceptor;
+
+    @Mock
+    private InterceptorFactory interceptorFactory;
+
     private String namespace;
 
     @Before
@@ -67,16 +82,21 @@ public class BingAdsServicesTest {
         when(locatorInstantiator.instantiateLocator(any(Class.class))).thenReturn(locator);
         when(serviceInstantiator.instantiateService(any(Service.class), any(Class.class))).thenReturn(service);
         when(locator.getServiceName()).thenReturn(serviceName);
-        when(credentialRefreshProxyFactory.addCredentialRefreshProxy(any(BingAdsSession.class),
-                                                                     any(Remote.class),
-                                                                     any(Class.class),
-                                                                     any(StubHeaderSetterService.class),
-                                                                     anyString())).thenReturn(proxiedService);
+        when(serviceInvocationProxyFactory.createServiceProxy(any(BingAdsSession.class),
+                                                              any(Remote.class),
+                                                              any(Class.class),
+                                                              any(BeforeInvokeInterceptor.class),
+                                                              any(ReturnValueInterceptor.class))).thenReturn(proxiedService);
+        when(interceptorFactory.<ICampaignManagementService>createCredentialRefreshInterceptor(any(StubHeaderSetterService.class), anyString()))
+                .thenReturn(credentialBeforeInvokeInterceptor);
+        when(interceptorFactory.<ICampaignManagementService>createDefaultBeforeInterceptor()).thenReturn(defaultBeforeInvokeInterceptor);
+        when(interceptorFactory.<ICampaignManagementService>createLoggingInterceptor()).thenReturn(returnValueInterceptor);
 
         target = new BingAdsServices(locatorInstantiator,
                                      serviceInstantiator,
                                      stubHeaderSetterService,
-                                     credentialRefreshProxyFactory);
+                                     serviceInvocationProxyFactory,
+                                     interceptorFactory);
     }
 
     @Test
@@ -87,20 +107,24 @@ public class BingAdsServicesTest {
     }
 
     @Test
-    public void shouldInstantiateServiceAndReturnIt() throws Exception {
-        when(session.hasOAuth2Credential()).thenReturn(false);
-
-        ICampaignManagementService result = target.getService(session, ICampaignManagementService.class);
-
-        assertThat(result).isSameAs(service);
-        verify(serviceInstantiator).instantiateService(locator, ICampaignManagementService.class);
-    }
-
-    @Test
     public void shouldSetHeadersOnService() {
         target.getService(session, ICampaignManagementService.class);
 
         verify(stubHeaderSetterService).setHeaders(service, session, namespace);
+    }
+
+    @Test
+    public void shouldWrapServiceInProxyAndReturnProxiedServiceWhenNoOAuth() {
+        when(session.hasOAuth2Credential()).thenReturn(false);
+
+        ICampaignManagementService result = target.getService(session, ICampaignManagementService.class);
+
+        assertThat(result).isSameAs(proxiedService);
+        verify(serviceInvocationProxyFactory).createServiceProxy(session,
+                                                                 service,
+                                                                 ICampaignManagementService.class,
+                                                                 defaultBeforeInvokeInterceptor,
+                                                                 returnValueInterceptor);
     }
 
     @Test
@@ -110,7 +134,11 @@ public class BingAdsServicesTest {
         ICampaignManagementService result = target.getService(session, ICampaignManagementService.class);
 
         assertThat(result).isSameAs(proxiedService);
-        verify(credentialRefreshProxyFactory).addCredentialRefreshProxy(session, service, ICampaignManagementService.class, stubHeaderSetterService, namespace);
+        verify(serviceInvocationProxyFactory).createServiceProxy(session,
+                                                                 service,
+                                                                 ICampaignManagementService.class,
+                                                                 credentialBeforeInvokeInterceptor,
+                                                                 returnValueInterceptor);
     }
 
     @Test(expected = RuntimeException.class)
