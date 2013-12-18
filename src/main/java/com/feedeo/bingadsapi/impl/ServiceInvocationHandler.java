@@ -1,12 +1,9 @@
 package com.feedeo.bingadsapi.impl;
 
 import com.feedeo.bingadsapi.session.BingAdsSession;
-import com.google.api.client.auth.oauth2.Credential;
 import org.apache.axis.AxisFault;
 import org.apache.axis.MessageContext;
 import org.apache.axis.client.Stub;
-import org.apache.axis.message.SOAPHeaderElement;
-import org.apache.log4j.Logger;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -18,8 +15,6 @@ import java.lang.reflect.Method;
  * Time: 09:50
  */
 public class ServiceInvocationHandler<T extends java.rmi.Remote> implements InvocationHandler {
-    private static final Logger log = Logger.getLogger(ServiceInvocationHandler.class);
-
     private BingAdsSession session;
     private T service;
     private BeforeInvokeInterceptor<T> beforeInvokeInterceptor;
@@ -44,7 +39,7 @@ public class ServiceInvocationHandler<T extends java.rmi.Remote> implements Invo
         returnValueInterceptor.intercept(session, service, soapCallReturnInfo);
 
         Throwable throwable = soapCallReturnInfo.getThrowable();
-        if(throwable != null) {
+        if (throwable != null) {
             throw throwable;
         }
 
@@ -54,34 +49,77 @@ public class ServiceInvocationHandler<T extends java.rmi.Remote> implements Invo
     private SoapCallReturnInfo makeCall(Method method, Object[] args) {
         SoapCallReturnInfo soapCallReturnInfo = new SoapCallReturnInfo();
 
-        Object returnValue;
-
-        try {
-            returnValue = method.invoke(service, args);
-            soapCallReturnInfo.setReturnValue(returnValue);
-        } catch (InvocationTargetException e) {
-            soapCallReturnInfo.setThrowable(e.getTargetException());
-        } catch (Throwable t) {
-            soapCallReturnInfo.setThrowable(t);
-        } finally {
-            if (service instanceof Stub) {
-                Stub stub = (Stub) service;
-                MessageContext messageContext = stub._getCall().getMessageContext();
-                try {
-                    soapCallReturnInfo.setUrl(stub._getCall().getTargetEndpointAddress());
-                    soapCallReturnInfo.setMethodName(stub._getCall().getOperationName().getLocalPart());
-                    soapCallReturnInfo.setServiceName(stub.getPortName().getLocalPart());
-                    soapCallReturnInfo.setSoapRequestXml(messageContext.getRequestMessage().getSOAPPartAsString());
-                } catch (AxisFault e) {
-                    soapCallReturnInfo.setThrowable(e);
-                }
-                try {
-                    soapCallReturnInfo.setSoapResponseXml(messageContext.getResponseMessage().getSOAPPartAsString());
-                } catch (AxisFault e) {
-                    soapCallReturnInfo.setThrowable(e);
+        synchronized (service) {
+            Object returnValue = null;
+            try {
+                returnValue = method.invoke(service, args);
+                soapCallReturnInfo.setReturnValue(returnValue);
+            } catch (InvocationTargetException e) {
+                soapCallReturnInfo.setThrowable(e.getTargetException());
+            } catch (Throwable t) {
+                soapCallReturnInfo.setThrowable(t);
+            } finally {
+                if (service instanceof Stub) {
+                    Stub stub = (Stub) service;
+                    MessageContext messageContext = getMessageContext(stub);
+                    try {
+                        soapCallReturnInfo.setUrl(getUrl(stub));
+                        soapCallReturnInfo.setMethodName(getMethodName(stub));
+                        soapCallReturnInfo.setServiceName(getServiceName(stub));
+                        soapCallReturnInfo.setSoapRequestXml(getSoapRequestXml(messageContext));
+                    } catch (AxisFault e) {
+                        soapCallReturnInfo.setThrowable(e);
+                    }
+                    try {
+                        soapCallReturnInfo.setSoapResponseXml(getSoapResponseXml(messageContext));
+                    } catch (AxisFault e) {
+                        soapCallReturnInfo.setThrowable(e);
+                    }
                 }
             }
+            return soapCallReturnInfo;
         }
-        return soapCallReturnInfo;
+    }
+
+    private String getUrl(Stub stub) {
+        if (stub == null || stub._getCall() == null) {
+            return null;
+        }
+        return stub._getCall().getTargetEndpointAddress();
+    }
+
+    private String getMethodName(Stub stub) {
+        if (stub == null || stub._getCall() == null || stub._getCall().getOperationName() == null) {
+            return null;
+        }
+        return stub._getCall().getOperationName().getLocalPart();
+    }
+
+    private String getServiceName(Stub stub) {
+        if (stub == null || stub.getPortName() == null) {
+            return null;
+        }
+        return stub.getPortName().getLocalPart();
+    }
+
+    private String getSoapRequestXml(MessageContext messageContext) throws AxisFault {
+        if (messageContext == null || messageContext.getRequestMessage() == null) {
+            return null;
+        }
+        return messageContext.getRequestMessage().getSOAPPartAsString();
+    }
+
+    private String getSoapResponseXml(MessageContext messageContext) throws AxisFault {
+        if (messageContext == null || messageContext.getResponseMessage() == null) {
+            return null;
+        }
+        return messageContext.getResponseMessage().getSOAPPartAsString();
+    }
+
+    private MessageContext getMessageContext(Stub stub) {
+        if (stub == null || stub._getCall() == null) {
+            return null;
+        }
+        return stub._getCall().getMessageContext();
     }
 }

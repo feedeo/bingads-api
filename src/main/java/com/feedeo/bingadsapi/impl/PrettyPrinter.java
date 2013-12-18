@@ -46,6 +46,10 @@ public class PrettyPrinter {
      * @return the given message in pretty-printed format
      */
     public String prettyPrint(String xml) {
+        if (xml == null) {
+            return "<null>";
+        }
+
         if (transformer != null) {
             try {
                 StreamResult result = new StreamResult(new StringWriter());
