@@ -12,10 +12,20 @@ public class PaymentMethodType implements java.io.Serializable {
     public static final java.lang.String _Invoice = "Invoice";
     public static final java.lang.String _Check = "Check";
     public static final java.lang.String _ElectronicFundsTransfer = "ElectronicFundsTransfer";
+    public static final java.lang.String _PayPal = "PayPal";
+    public static final java.lang.String _ELV = "ELV";
+    public static final java.lang.String _OfflinePaymentMethod = "OfflinePaymentMethod";
+    public static final java.lang.String _VBA = "VBA";
+    public static final java.lang.String _Boleto = "Boleto";
     public static final PaymentMethodType CreditCard = new PaymentMethodType(_CreditCard);
     public static final PaymentMethodType Invoice = new PaymentMethodType(_Invoice);
     public static final PaymentMethodType Check = new PaymentMethodType(_Check);
     public static final PaymentMethodType ElectronicFundsTransfer = new PaymentMethodType(_ElectronicFundsTransfer);
+    public static final PaymentMethodType PayPal = new PaymentMethodType(_PayPal);
+    public static final PaymentMethodType ELV = new PaymentMethodType(_ELV);
+    public static final PaymentMethodType OfflinePaymentMethod = new PaymentMethodType(_OfflinePaymentMethod);
+    public static final PaymentMethodType VBA = new PaymentMethodType(_VBA);
+    public static final PaymentMethodType Boleto = new PaymentMethodType(_Boleto);
     private static java.util.HashMap _table_ = new java.util.HashMap();
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
@@ -26,6 +36,7 @@ public class PaymentMethodType implements java.io.Serializable {
     }
 
     private java.lang.String _value_;
+
     // Constructor
     protected PaymentMethodType(java.lang.String value) {
         _value_ = value;
