@@ -22,7 +22,7 @@ public class PaymentMethodType implements java.io.Serializable {
             new org.apache.axis.description.TypeDesc(PaymentMethodType.class);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v10/Entities", "PaymentMethodType"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "PaymentMethodType"));
     }
 
     private java.lang.String _value_;

@@ -24,7 +24,7 @@ public class AccountLifeCycleStatus implements java.io.Serializable {
             new org.apache.axis.description.TypeDesc(AccountLifeCycleStatus.class);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v10/Entities", "AccountLifeCycleStatus"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "AccountLifeCycleStatus"));
     }
 
     private java.lang.String _value_;
