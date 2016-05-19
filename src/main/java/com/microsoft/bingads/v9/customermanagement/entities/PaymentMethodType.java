@@ -12,31 +12,20 @@ public class PaymentMethodType implements java.io.Serializable {
     public static final java.lang.String _Invoice = "Invoice";
     public static final java.lang.String _Check = "Check";
     public static final java.lang.String _ElectronicFundsTransfer = "ElectronicFundsTransfer";
-    public static final java.lang.String _PayPal = "PayPal";
-    public static final java.lang.String _ELV = "ELV";
-    public static final java.lang.String _OfflinePaymentMethod = "OfflinePaymentMethod";
-    public static final java.lang.String _VBA = "VBA";
-    public static final java.lang.String _Boleto = "Boleto";
     public static final PaymentMethodType CreditCard = new PaymentMethodType(_CreditCard);
     public static final PaymentMethodType Invoice = new PaymentMethodType(_Invoice);
     public static final PaymentMethodType Check = new PaymentMethodType(_Check);
     public static final PaymentMethodType ElectronicFundsTransfer = new PaymentMethodType(_ElectronicFundsTransfer);
-    public static final PaymentMethodType PayPal = new PaymentMethodType(_PayPal);
-    public static final PaymentMethodType ELV = new PaymentMethodType(_ELV);
-    public static final PaymentMethodType OfflinePaymentMethod = new PaymentMethodType(_OfflinePaymentMethod);
-    public static final PaymentMethodType VBA = new PaymentMethodType(_VBA);
-    public static final PaymentMethodType Boleto = new PaymentMethodType(_Boleto);
     private static java.util.HashMap _table_ = new java.util.HashMap();
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
             new org.apache.axis.description.TypeDesc(PaymentMethodType.class);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Entities", "PaymentMethodType"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v10/Entities", "PaymentMethodType"));
     }
 
     private java.lang.String _value_;
-
     // Constructor
     protected PaymentMethodType(java.lang.String value) {
         _value_ = value;
@@ -44,15 +33,15 @@ public class PaymentMethodType implements java.io.Serializable {
     }
 
     public static PaymentMethodType fromValue(java.lang.String value)
-          throws java.lang.IllegalArgumentException {
+            throws java.lang.IllegalArgumentException {
         PaymentMethodType enumeration = (PaymentMethodType)
-            _table_.get(value);
+                _table_.get(value);
         if (enumeration==null) throw new java.lang.IllegalArgumentException();
         return enumeration;
     }
 
     public static PaymentMethodType fromString(java.lang.String value)
-          throws java.lang.IllegalArgumentException {
+            throws java.lang.IllegalArgumentException {
         return fromValue(value);
     }
 
@@ -61,8 +50,8 @@ public class PaymentMethodType implements java.io.Serializable {
             java.lang.Class _javaType,
             javax.xml.namespace.QName _xmlType) {
         return
-          new org.apache.axis.encoding.ser.EnumSerializer(
-            _javaType, _xmlType);
+                new org.apache.axis.encoding.ser.EnumSerializer(
+                        _javaType, _xmlType);
     }
 
     public static org.apache.axis.encoding.Deserializer getDeserializer(
@@ -70,8 +59,8 @@ public class PaymentMethodType implements java.io.Serializable {
             java.lang.Class _javaType,
             javax.xml.namespace.QName _xmlType) {
         return
-          new org.apache.axis.encoding.ser.EnumDeserializer(
-            _javaType, _xmlType);
+                new org.apache.axis.encoding.ser.EnumDeserializer(
+                        _javaType, _xmlType);
     }
 
     /**
