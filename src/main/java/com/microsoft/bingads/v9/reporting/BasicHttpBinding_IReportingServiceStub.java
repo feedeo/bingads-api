@@ -8,17 +8,50 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.client.Stub implements com.microsoft.bingads.v9.reporting.IReportingService {
+        static org.apache.axis.description.OperationDesc[] _operations;
+
+        static {
+                _operations = new org.apache.axis.description.OperationDesc[2];
+                _initOperationDesc1();
+        }
+
     private java.util.Vector cachedSerClasses = new java.util.Vector();
     private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();
     private java.util.Vector cachedDeserFactories = new java.util.Vector();
 
-    static org.apache.axis.description.OperationDesc [] _operations;
+        public BasicHttpBinding_IReportingServiceStub() throws org.apache.axis.AxisFault {
+                this(null);
+        }
 
-    static {
-        _operations = new org.apache.axis.description.OperationDesc[2];
-        _initOperationDesc1();
+        public BasicHttpBinding_IReportingServiceStub(java.net.URL endpointURL, javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
+                this(service);
+                super.cachedEndpoint = endpointURL;
     }
+
+        public BasicHttpBinding_IReportingServiceStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
+                if (service == null) {
+                        super.service = new org.apache.axis.client.Service();
+                } else {
+                        super.service = service;
+                }
+                ((org.apache.axis.client.Service) super.service).setTypeMappingVersion("1.1");
+                java.lang.Class cls;
+                javax.xml.namespace.QName qName;
+                javax.xml.namespace.QName qName2;
+                java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+                java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+                java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+                java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+                java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+                java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+                java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+                java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+                java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+                java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+                addBindings0();
+                addBindings1();
+        }
 
     private static void _initOperationDesc1(){
         org.apache.axis.description.OperationDesc oper;
@@ -33,15 +66,15 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
+                new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ApiFaultDetail"),
+                "com.microsoft.bingads.v9.reporting.ApiFaultDetail",
+                new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ApiFaultDetail"),
                       true
                      ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ApiFaultDetail"),
-                      "com.microsoft.bingads.v9.reporting.ApiFaultDetail",
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ApiFaultDetail"), 
+                new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                "com.microsoft.bingads.v10.adapi.AdApiFaultDetail",
+                new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
                       true
                      ));
         _operations[0] = oper;
@@ -56,52 +89,19 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
-                      "com.microsoft.bingads.v9.adapi.AdApiFaultDetail",
-                      new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"), 
+                new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ApiFaultDetail"),
+                "com.microsoft.bingads.v9.reporting.ApiFaultDetail",
+                new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ApiFaultDetail"),
                       true
                      ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ApiFaultDetail"),
-                      "com.microsoft.bingads.v9.reporting.ApiFaultDetail",
-                      new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ApiFaultDetail"), 
+                new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
+                "com.microsoft.bingads.v10.adapi.AdApiFaultDetail",
+                new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail"),
                       true
                      ));
         _operations[1] = oper;
 
-    }
-
-    public BasicHttpBinding_IReportingServiceStub() throws org.apache.axis.AxisFault {
-         this(null);
-    }
-
-    public BasicHttpBinding_IReportingServiceStub(java.net.URL endpointURL, javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
-         this(service);
-         super.cachedEndpoint = endpointURL;
-    }
-
-    public BasicHttpBinding_IReportingServiceStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
-        if (service == null) {
-            super.service = new org.apache.axis.client.Service();
-        } else {
-            super.service = service;
-        }
-        ((org.apache.axis.client.Service)super.service).setTypeMappingVersion("1.1");
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
-        addBindings0();
-        addBindings1();
     }
 
     private void addBindings0() {
@@ -147,28 +147,28 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
 
             qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.adapi.AdApiError.class;
+            cls = com.microsoft.bingads.v10.adapi.AdApiError.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiFaultDetail");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.adapi.AdApiFaultDetail.class;
+            cls = com.microsoft.bingads.v10.adapi.AdApiFaultDetail.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "ApplicationFault");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.adapi.ApplicationFault.class;
+            cls = com.microsoft.bingads.v10.adapi.ApplicationFault.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "ArrayOfAdApiError");
             cachedSerQNames.add(qName);
-            cls = com.microsoft.bingads.v9.adapi.AdApiError[].class;
+            cls = com.microsoft.bingads.v10.adapi.AdApiError[].class;
             cachedSerClasses.add(cls);
             qName = new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError");
             qName2 = new javax.xml.namespace.QName("https://adapi.microsoft.com", "AdApiError");
@@ -230,6 +230,13 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AccountStatusReportFilter");
+            cachedSerQNames.add(qName);
+            cls = java.lang.String[].class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(simplelistsf);
+            cachedDeserFactories.add(simplelistdf);
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AccountThroughAdGroupReportScope");
             cachedSerQNames.add(qName);
@@ -311,6 +318,27 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdExtensionByKeywordReportRequest");
             cachedSerQNames.add(qName);
             cls = com.microsoft.bingads.v9.reporting.AdExtensionByKeywordReportRequest.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdExtensionDetailReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.AdExtensionDetailReportColumn.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdExtensionDetailReportFilter");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.AdExtensionDetailReportFilter.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdExtensionDetailReportRequest");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.AdExtensionDetailReportRequest.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -470,6 +498,15 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfAdExtensionDetailReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.AdExtensionDetailReportColumn[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdExtensionDetailReportColumn");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdExtensionDetailReportColumn");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfAdExtensionDimensionReportColumn");
             cachedSerQNames.add(qName);
             cls = com.microsoft.bingads.v9.reporting.AdExtensionDimensionReportColumn[].class;
@@ -515,12 +552,30 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfAudiencePerformanceReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.AudiencePerformanceReportColumn[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AudiencePerformanceReportColumn");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AudiencePerformanceReportColumn");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfBatchError");
             cachedSerQNames.add(qName);
             cls = com.microsoft.bingads.v9.reporting.BatchError[].class;
             cachedSerClasses.add(cls);
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BatchError");
             qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BatchError");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfBrandZonePerformanceReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.BrandZonePerformanceReportColumn[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BrandZonePerformanceReportColumn");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BrandZonePerformanceReportColumn");
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
@@ -587,6 +642,15 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfGeoLocationPerformanceReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.GeoLocationPerformanceReportColumn[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "GeoLocationPerformanceReportColumn");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "GeoLocationPerformanceReportColumn");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfGoalsAndFunnelsReportColumn");
             cachedSerQNames.add(qName);
             cls = com.microsoft.bingads.v9.reporting.GoalsAndFunnelsReportColumn[].class;
@@ -629,6 +693,42 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerClasses.add(cls);
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "OperationError");
             qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "OperationError");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfProductDimensionPerformanceReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.ProductDimensionPerformanceReportColumn[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductDimensionPerformanceReportColumn");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductDimensionPerformanceReportColumn");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfProductOfferPerformanceReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.ProductOfferPerformanceReportColumn[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductOfferPerformanceReportColumn");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductOfferPerformanceReportColumn");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfProductPartitionPerformanceReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.ProductPartitionPerformanceReportColumn[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductPartitionPerformanceReportColumn");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductPartitionPerformanceReportColumn");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ArrayOfProductPartitionUnitPerformanceReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.ProductPartitionUnitPerformanceReportColumn[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductPartitionUnitPerformanceReportColumn");
+            qName2 = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductPartitionUnitPerformanceReportColumn");
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
@@ -713,6 +813,27 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AudiencePerformanceReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.AudiencePerformanceReportColumn.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AudiencePerformanceReportFilter");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.AudiencePerformanceReportFilter.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AudiencePerformanceReportRequest");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.AudiencePerformanceReportRequest.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BatchError");
             cachedSerQNames.add(qName);
             cls = com.microsoft.bingads.v9.reporting.BatchError.class;
@@ -726,6 +847,27 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerClasses.add(cls);
             cachedSerFactories.add(simplelistsf);
             cachedDeserFactories.add(simplelistdf);
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BrandZonePerformanceReportColumn");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.BrandZonePerformanceReportColumn.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(enumsf);
+            cachedDeserFactories.add(enumdf);
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BrandZonePerformanceReportFilter");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.BrandZonePerformanceReportFilter.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BrandZonePerformanceReportRequest");
+            cachedSerQNames.add(qName);
+            cls = com.microsoft.bingads.v9.reporting.BrandZonePerformanceReportRequest.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "BudgetSummaryReportColumn");
             cachedSerQNames.add(qName);
@@ -761,6 +903,29 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
+
+    }
+
+        private void addBindings1() {
+                java.lang.Class cls;
+                javax.xml.namespace.QName qName;
+                javax.xml.namespace.QName qName2;
+                java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+                java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+                java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+                java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+                java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+                java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+                java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+                java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+                java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+                java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "CallDetailReportFilter");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.CallDetailReportFilter.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "CallDetailReportRequest");
             cachedSerQNames.add(qName);
@@ -888,21 +1053,6 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerFactories.add(simplelistsf);
             cachedDeserFactories.add(simplelistdf);
 
-    }
-    private void addBindings1() {
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "DeviceTypeReportFilter");
             cachedSerQNames.add(qName);
             cls = java.lang.String[].class;
@@ -930,6 +1080,27 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "GeoLocationPerformanceReportColumn");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.GeoLocationPerformanceReportColumn.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(enumsf);
+                cachedDeserFactories.add(enumdf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "GeoLocationPerformanceReportFilter");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.GeoLocationPerformanceReportFilter.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "GeoLocationPerformanceReportRequest");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.GeoLocationPerformanceReportRequest.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "GoalsAndFunnelsReportColumn");
             cachedSerQNames.add(qName);
@@ -980,12 +1151,26 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "KeywordStatusReportFilter");
+                cachedSerQNames.add(qName);
+                cls = java.lang.String[].class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(simplelistsf);
+                cachedDeserFactories.add(simplelistdf);
+
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportColumn");
             cachedSerQNames.add(qName);
             cls = com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportFilter");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportFilter.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportRequest");
             cachedSerQNames.add(qName);
@@ -1014,6 +1199,90 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
             cachedSerClasses.add(cls);
             cachedSerFactories.add(simplelistsf);
             cachedDeserFactories.add(simplelistdf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductDimensionPerformanceReportColumn");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductDimensionPerformanceReportColumn.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(enumsf);
+                cachedDeserFactories.add(enumdf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductDimensionPerformanceReportFilter");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductDimensionPerformanceReportFilter.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductDimensionPerformanceReportRequest");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductDimensionPerformanceReportRequest.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductOfferPerformanceReportColumn");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductOfferPerformanceReportColumn.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(enumsf);
+                cachedDeserFactories.add(enumdf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductOfferPerformanceReportFilter");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductOfferPerformanceReportFilter.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductOfferPerformanceReportRequest");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductOfferPerformanceReportRequest.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductPartitionPerformanceReportColumn");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductPartitionPerformanceReportColumn.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(enumsf);
+                cachedDeserFactories.add(enumdf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductPartitionPerformanceReportFilter");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductPartitionPerformanceReportFilter.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductPartitionPerformanceReportRequest");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductPartitionPerformanceReportRequest.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductPartitionUnitPerformanceReportColumn");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductPartitionUnitPerformanceReportColumn.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(enumsf);
+                cachedDeserFactories.add(enumdf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductPartitionUnitPerformanceReportFilter");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductPartitionUnitPerformanceReportFilter.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
+
+                qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductPartitionUnitPerformanceReportRequest");
+                cachedSerQNames.add(qName);
+                cls = com.microsoft.bingads.v9.reporting.ProductPartitionUnitPerformanceReportRequest.class;
+                cachedSerClasses.add(cls);
+                cachedSerFactories.add(beansf);
+                cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ProductTargetPerformanceReportColumn");
             cachedSerQNames.add(qName);
@@ -1347,7 +1616,7 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
         }
     }
 
-    public com.microsoft.bingads.v9.reporting.SubmitGenerateReportResponse submitGenerateReport(com.microsoft.bingads.v9.reporting.SubmitGenerateReportRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.reporting.ApiFaultDetail {
+        public com.microsoft.bingads.v9.reporting.SubmitGenerateReportResponse submitGenerateReport(com.microsoft.bingads.v9.reporting.SubmitGenerateReportRequest parameters) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -1381,18 +1650,18 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.reporting.ApiFaultDetail) {
               throw (com.microsoft.bingads.v9.reporting.ApiFaultDetail) axisFaultException.detail;
          }
+            if (axisFaultException.detail instanceof com.microsoft.bingads.v10.adapi.AdApiFaultDetail) {
+                    throw (com.microsoft.bingads.v10.adapi.AdApiFaultDetail) axisFaultException.detail;
+            }
    }
   throw axisFaultException;
 }
     }
 
-    public com.microsoft.bingads.v9.reporting.PollGenerateReportResponse pollGenerateReport(com.microsoft.bingads.v9.reporting.PollGenerateReportRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.reporting.ApiFaultDetail {
+        public com.microsoft.bingads.v9.reporting.PollGenerateReportResponse pollGenerateReport(com.microsoft.bingads.v9.reporting.PollGenerateReportRequest parameters) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -1426,11 +1695,11 @@ public class BasicHttpBinding_IReportingServiceStub extends org.apache.axis.clie
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof com.microsoft.bingads.v9.adapi.AdApiFaultDetail) {
-              throw (com.microsoft.bingads.v9.adapi.AdApiFaultDetail) axisFaultException.detail;
-         }
         if (axisFaultException.detail instanceof com.microsoft.bingads.v9.reporting.ApiFaultDetail) {
               throw (com.microsoft.bingads.v9.reporting.ApiFaultDetail) axisFaultException.detail;
+        }
+            if (axisFaultException.detail instanceof com.microsoft.bingads.v10.adapi.AdApiFaultDetail) {
+                    throw (com.microsoft.bingads.v10.adapi.AdApiFaultDetail) axisFaultException.detail;
          }
    }
   throw axisFaultException;

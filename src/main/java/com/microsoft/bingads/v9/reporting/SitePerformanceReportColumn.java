@@ -8,15 +8,6 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class SitePerformanceReportColumn implements java.io.Serializable {
-    private java.lang.String _value_;
-    private static java.util.HashMap _table_ = new java.util.HashMap();
-
-    // Constructor
-    protected SitePerformanceReportColumn(java.lang.String value) {
-        _value_ = value;
-        _table_.put(_value_,this);
-    }
-
     public static final java.lang.String _AccountName = "AccountName";
     public static final java.lang.String _AccountNumber = "AccountNumber";
     public static final java.lang.String _AccountId = "AccountId";
@@ -47,6 +38,15 @@ public class SitePerformanceReportColumn implements java.io.Serializable {
     public static final java.lang.String _PricingModel = "PricingModel";
     public static final java.lang.String _DeviceType = "DeviceType";
     public static final java.lang.String _Language = "Language";
+    public static final java.lang.String _TrackingTemplate = "TrackingTemplate";
+    public static final java.lang.String _CustomParameters = "CustomParameters";
+    public static final java.lang.String _FinalURL = "FinalURL";
+    public static final java.lang.String _FinalMobileURL = "FinalMobileURL";
+    public static final java.lang.String _FinalAppURL = "FinalAppURL";
+    public static final java.lang.String _AccountStatus = "AccountStatus";
+    public static final java.lang.String _CampaignStatus = "CampaignStatus";
+    public static final java.lang.String _AdGroupStatus = "AdGroupStatus";
+    public static final java.lang.String _AdStatus = "AdStatus";
     public static final SitePerformanceReportColumn AccountName = new SitePerformanceReportColumn(_AccountName);
     public static final SitePerformanceReportColumn AccountNumber = new SitePerformanceReportColumn(_AccountNumber);
     public static final SitePerformanceReportColumn AccountId = new SitePerformanceReportColumn(_AccountId);
@@ -77,7 +77,32 @@ public class SitePerformanceReportColumn implements java.io.Serializable {
     public static final SitePerformanceReportColumn PricingModel = new SitePerformanceReportColumn(_PricingModel);
     public static final SitePerformanceReportColumn DeviceType = new SitePerformanceReportColumn(_DeviceType);
     public static final SitePerformanceReportColumn Language = new SitePerformanceReportColumn(_Language);
-    public java.lang.String getValue() { return _value_;}
+    public static final SitePerformanceReportColumn TrackingTemplate = new SitePerformanceReportColumn(_TrackingTemplate);
+    public static final SitePerformanceReportColumn CustomParameters = new SitePerformanceReportColumn(_CustomParameters);
+    public static final SitePerformanceReportColumn FinalURL = new SitePerformanceReportColumn(_FinalURL);
+    public static final SitePerformanceReportColumn FinalMobileURL = new SitePerformanceReportColumn(_FinalMobileURL);
+    public static final SitePerformanceReportColumn FinalAppURL = new SitePerformanceReportColumn(_FinalAppURL);
+    public static final SitePerformanceReportColumn AccountStatus = new SitePerformanceReportColumn(_AccountStatus);
+    public static final SitePerformanceReportColumn CampaignStatus = new SitePerformanceReportColumn(_CampaignStatus);
+    public static final SitePerformanceReportColumn AdGroupStatus = new SitePerformanceReportColumn(_AdGroupStatus);
+    public static final SitePerformanceReportColumn AdStatus = new SitePerformanceReportColumn(_AdStatus);
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+            new org.apache.axis.description.TypeDesc(SitePerformanceReportColumn.class);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "SitePerformanceReportColumn"));
+    }
+
+    private java.lang.String _value_;
+
+    // Constructor
+    protected SitePerformanceReportColumn(java.lang.String value) {
+        _value_ = value;
+        _table_.put(_value_, this);
+    }
+
     public static SitePerformanceReportColumn fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         SitePerformanceReportColumn enumeration = (SitePerformanceReportColumn)
@@ -85,42 +110,55 @@ public class SitePerformanceReportColumn implements java.io.Serializable {
         if (enumeration==null) throw new java.lang.IllegalArgumentException();
         return enumeration;
     }
+
     public static SitePerformanceReportColumn fromString(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         return fromValue(value);
     }
-    public boolean equals(java.lang.Object obj) {return (obj == this);}
-    public int hashCode() { return toString().hashCode();}
-    public java.lang.String toString() { return _value_;}
-    public java.lang.Object readResolve() throws java.io.ObjectStreamException { return fromValue(_value_);}
+
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumSerializer(
             _javaType, _xmlType);
     }
+
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumDeserializer(
             _javaType, _xmlType);
     }
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(SitePerformanceReportColumn.class);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "SitePerformanceReportColumn"));
-    }
     /**
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
         return typeDesc;
+    }
+
+    public java.lang.String getValue() {
+        return _value_;
+    }
+
+    public boolean equals(java.lang.Object obj) {
+        return (obj == this);
+    }
+
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    public java.lang.String toString() {
+        return _value_;
+    }
+
+    public java.lang.Object readResolve() throws java.io.ObjectStreamException {
+        return fromValue(_value_);
     }
 
 }

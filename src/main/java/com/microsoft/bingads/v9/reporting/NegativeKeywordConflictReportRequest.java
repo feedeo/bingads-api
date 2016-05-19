@@ -8,70 +8,148 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class NegativeKeywordConflictReportRequest  extends com.microsoft.bingads.v9.reporting.ReportRequest  implements java.io.Serializable {
-    private com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn[] columns;
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+            new org.apache.axis.description.TypeDesc(NegativeKeywordConflictReportRequest.class, true);
 
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportRequest"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("columns");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Columns"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportColumn"));
+        elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportColumn"));
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("filter");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Filter"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportFilter"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("scope");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Scope"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AccountThroughAdGroupReportScope"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    private com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn[] columns;
+    private com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportFilter filter;
     private com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope;
+    private java.lang.Object __equalsCalc = null;
+    private boolean __hashCodeCalc = false;
+
 
     public NegativeKeywordConflictReportRequest() {
     }
 
+
     public NegativeKeywordConflictReportRequest(
-           com.microsoft.bingads.v9.reporting.ReportFormat format,
-           com.microsoft.bingads.v9.reporting.ReportLanguage language,
-           java.lang.String reportName,
-           java.lang.Boolean returnOnlyCompleteData,
-           com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn[] columns,
-           com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope) {
+            com.microsoft.bingads.v9.reporting.ReportFormat format,
+            com.microsoft.bingads.v9.reporting.ReportLanguage language,
+            java.lang.String reportName,
+            java.lang.Boolean returnOnlyCompleteData,
+            com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn[] columns,
+            com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportFilter filter,
+            com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope) {
         super(
             format,
             language,
             reportName,
             returnOnlyCompleteData);
         this.columns = columns;
+        this.filter = filter;
         this.scope = scope;
     }
 
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanSerializer(
+                        _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanDeserializer(
+                        _javaType, _xmlType, typeDesc);
+    }
 
     /**
      * Gets the columns value for this NegativeKeywordConflictReportRequest.
-     * 
+     *
      * @return columns
      */
     public com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn[] getColumns() {
         return columns;
     }
 
-
     /**
      * Sets the columns value for this NegativeKeywordConflictReportRequest.
-     * 
+     *
      * @param columns
      */
     public void setColumns(com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportColumn[] columns) {
         this.columns = columns;
     }
 
+    /**
+     * Gets the filter value for this NegativeKeywordConflictReportRequest.
+     *
+     * @return filter
+     */
+    public com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportFilter getFilter() {
+        return filter;
+    }
+
+    /**
+     * Sets the filter value for this NegativeKeywordConflictReportRequest.
+     *
+     * @param filter
+     */
+    public void setFilter(com.microsoft.bingads.v9.reporting.NegativeKeywordConflictReportFilter filter) {
+        this.filter = filter;
+    }
 
     /**
      * Gets the scope value for this NegativeKeywordConflictReportRequest.
-     * 
+     *
      * @return scope
      */
     public com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope getScope() {
         return scope;
     }
 
-
     /**
      * Sets the scope value for this NegativeKeywordConflictReportRequest.
-     * 
+     *
      * @param scope
      */
     public void setScope(com.microsoft.bingads.v9.reporting.AccountThroughAdGroupReportScope scope) {
         this.scope = scope;
     }
 
-    private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof NegativeKeywordConflictReportRequest)) return false;
         NegativeKeywordConflictReportRequest other = (NegativeKeywordConflictReportRequest) obj;
@@ -82,18 +160,20 @@ public class NegativeKeywordConflictReportRequest  extends com.microsoft.bingads
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.columns==null && other.getColumns()==null) || 
-             (this.columns!=null &&
-              java.util.Arrays.equals(this.columns, other.getColumns()))) &&
-            ((this.scope==null && other.getScope()==null) || 
-             (this.scope!=null &&
-              this.scope.equals(other.getScope())));
+        _equals = super.equals(obj) &&
+                ((this.columns == null && other.getColumns() == null) ||
+                        (this.columns != null &&
+                                java.util.Arrays.equals(this.columns, other.getColumns()))) &&
+                ((this.filter == null && other.getFilter() == null) ||
+                        (this.filter != null &&
+                                this.filter.equals(other.getFilter()))) &&
+                ((this.scope == null && other.getScope() == null) ||
+                        (this.scope != null &&
+                                this.scope.equals(other.getScope())));
         __equalsCalc = null;
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
@@ -111,63 +191,14 @@ public class NegativeKeywordConflictReportRequest  extends com.microsoft.bingads
                 }
             }
         }
+        if (getFilter() != null) {
+            _hashCode += getFilter().hashCode();
+        }
         if (getScope() != null) {
             _hashCode += getScope().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
-    }
-
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(NegativeKeywordConflictReportRequest.class, true);
-
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportRequest"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("columns");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Columns"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportColumn"));
-        elemField.setNillable(true);
-        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "NegativeKeywordConflictReportColumn"));
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("scope");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "Scope"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AccountThroughAdGroupReportScope"));
-        elemField.setNillable(true);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
     }
 
 }

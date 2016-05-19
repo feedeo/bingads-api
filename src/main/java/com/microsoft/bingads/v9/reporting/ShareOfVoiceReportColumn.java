@@ -8,15 +8,6 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class ShareOfVoiceReportColumn implements java.io.Serializable {
-    private java.lang.String _value_;
-    private static java.util.HashMap _table_ = new java.util.HashMap();
-
-    // Constructor
-    protected ShareOfVoiceReportColumn(java.lang.String value) {
-        _value_ = value;
-        _table_.put(_value_,this);
-    }
-
     public static final java.lang.String _AccountName = "AccountName";
     public static final java.lang.String _TimePeriod = "TimePeriod";
     public static final java.lang.String _CampaignName = "CampaignName";
@@ -53,6 +44,12 @@ public class ShareOfVoiceReportColumn implements java.io.Serializable {
     public static final java.lang.String _CostPerConversion = "CostPerConversion";
     public static final java.lang.String _AdDistribution = "AdDistribution";
     public static final java.lang.String _ClickSharePercent = "ClickSharePercent";
+    public static final java.lang.String _DeviceType = "DeviceType";
+    public static final java.lang.String _Network = "Network";
+    public static final java.lang.String _AccountStatus = "AccountStatus";
+    public static final java.lang.String _CampaignStatus = "CampaignStatus";
+    public static final java.lang.String _AdGroupStatus = "AdGroupStatus";
+    public static final java.lang.String _KeywordStatus = "KeywordStatus";
     public static final ShareOfVoiceReportColumn AccountName = new ShareOfVoiceReportColumn(_AccountName);
     public static final ShareOfVoiceReportColumn TimePeriod = new ShareOfVoiceReportColumn(_TimePeriod);
     public static final ShareOfVoiceReportColumn CampaignName = new ShareOfVoiceReportColumn(_CampaignName);
@@ -89,7 +86,29 @@ public class ShareOfVoiceReportColumn implements java.io.Serializable {
     public static final ShareOfVoiceReportColumn CostPerConversion = new ShareOfVoiceReportColumn(_CostPerConversion);
     public static final ShareOfVoiceReportColumn AdDistribution = new ShareOfVoiceReportColumn(_AdDistribution);
     public static final ShareOfVoiceReportColumn ClickSharePercent = new ShareOfVoiceReportColumn(_ClickSharePercent);
-    public java.lang.String getValue() { return _value_;}
+    public static final ShareOfVoiceReportColumn DeviceType = new ShareOfVoiceReportColumn(_DeviceType);
+    public static final ShareOfVoiceReportColumn Network = new ShareOfVoiceReportColumn(_Network);
+    public static final ShareOfVoiceReportColumn AccountStatus = new ShareOfVoiceReportColumn(_AccountStatus);
+    public static final ShareOfVoiceReportColumn CampaignStatus = new ShareOfVoiceReportColumn(_CampaignStatus);
+    public static final ShareOfVoiceReportColumn AdGroupStatus = new ShareOfVoiceReportColumn(_AdGroupStatus);
+    public static final ShareOfVoiceReportColumn KeywordStatus = new ShareOfVoiceReportColumn(_KeywordStatus);
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+            new org.apache.axis.description.TypeDesc(ShareOfVoiceReportColumn.class);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ShareOfVoiceReportColumn"));
+    }
+
+    private java.lang.String _value_;
+
+    // Constructor
+    protected ShareOfVoiceReportColumn(java.lang.String value) {
+        _value_ = value;
+        _table_.put(_value_, this);
+    }
+
     public static ShareOfVoiceReportColumn fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         ShareOfVoiceReportColumn enumeration = (ShareOfVoiceReportColumn)
@@ -97,42 +116,55 @@ public class ShareOfVoiceReportColumn implements java.io.Serializable {
         if (enumeration==null) throw new java.lang.IllegalArgumentException();
         return enumeration;
     }
+
     public static ShareOfVoiceReportColumn fromString(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         return fromValue(value);
     }
-    public boolean equals(java.lang.Object obj) {return (obj == this);}
-    public int hashCode() { return toString().hashCode();}
-    public java.lang.String toString() { return _value_;}
-    public java.lang.Object readResolve() throws java.io.ObjectStreamException { return fromValue(_value_);}
+
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumSerializer(
             _javaType, _xmlType);
     }
+
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumDeserializer(
             _javaType, _xmlType);
     }
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ShareOfVoiceReportColumn.class);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ShareOfVoiceReportColumn"));
-    }
     /**
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
         return typeDesc;
+    }
+
+    public java.lang.String getValue() {
+        return _value_;
+    }
+
+    public boolean equals(java.lang.Object obj) {
+        return (obj == this);
+    }
+
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    public java.lang.String toString() {
+        return _value_;
+    }
+
+    public java.lang.Object readResolve() throws java.io.ObjectStreamException {
+        return fromValue(_value_);
     }
 
 }

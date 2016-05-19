@@ -7,12 +7,29 @@
 
 package com.microsoft.bingads.v9.customermanagement.exception;
 
-public class ApiFault  extends com.microsoft.bingads.v9.adapi.ApplicationFault  implements java.io.Serializable {
+public class ApiFault extends com.microsoft.bingads.v10.adapi.ApplicationFault implements java.io.Serializable {
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+            new org.apache.axis.description.TypeDesc(ApiFault.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("operationErrors");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationErrors"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationError"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationError"));
+        typeDesc.addFieldDesc(elemField);
+    }
+
     private com.microsoft.bingads.v9.customermanagement.exception.OperationError[] operationErrors;
+    private java.lang.Object __equalsCalc = null;
+    private boolean __hashCodeCalc = false;
 
     public ApiFault() {
     }
-
     public ApiFault(
            java.lang.String trackingId,
            com.microsoft.bingads.v9.customermanagement.exception.OperationError[] operationErrors) {
@@ -21,27 +38,55 @@ public class ApiFault  extends com.microsoft.bingads.v9.adapi.ApplicationFault  
         this.operationErrors = operationErrors;
     }
 
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanSerializer(
+                        _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanDeserializer(
+                        _javaType, _xmlType, typeDesc);
+    }
 
     /**
      * Gets the operationErrors value for this ApiFault.
-     * 
+     *
      * @return operationErrors
      */
     public com.microsoft.bingads.v9.customermanagement.exception.OperationError[] getOperationErrors() {
         return operationErrors;
     }
 
-
     /**
      * Sets the operationErrors value for this ApiFault.
-     * 
+     *
      * @param operationErrors
      */
     public void setOperationErrors(com.microsoft.bingads.v9.customermanagement.exception.OperationError[] operationErrors) {
         this.operationErrors = operationErrors;
     }
 
-    private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof ApiFault)) return false;
         ApiFault other = (ApiFault) obj;
@@ -52,15 +97,14 @@ public class ApiFault  extends com.microsoft.bingads.v9.adapi.ApplicationFault  
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.operationErrors==null && other.getOperationErrors()==null) || 
-             (this.operationErrors!=null &&
-              java.util.Arrays.equals(this.operationErrors, other.getOperationErrors())));
+        _equals = super.equals(obj) &&
+                ((this.operationErrors == null && other.getOperationErrors() == null) ||
+                        (this.operationErrors != null &&
+                                java.util.Arrays.equals(this.operationErrors, other.getOperationErrors())));
         __equalsCalc = null;
         return _equals;
     }
 
-    private boolean __hashCodeCalc = false;
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
@@ -81,54 +125,6 @@ public class ApiFault  extends com.microsoft.bingads.v9.adapi.ApplicationFault  
         __hashCodeCalc = false;
         return _hashCode;
     }
-
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ApiFault.class, true);
-
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "ApiFault"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("operationErrors");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationErrors"));
-        elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationError"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(true);
-        elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/Customer/v9/Exception", "OperationError"));
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
 
     /**
      * Writes the exception data to the faultDetails

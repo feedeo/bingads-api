@@ -8,15 +8,6 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class TacticChannelReportColumn implements java.io.Serializable {
-    private java.lang.String _value_;
-    private static java.util.HashMap _table_ = new java.util.HashMap();
-
-    // Constructor
-    protected TacticChannelReportColumn(java.lang.String value) {
-        _value_ = value;
-        _table_.put(_value_,this);
-    }
-
     public static final java.lang.String _AccountName = "AccountName";
     public static final java.lang.String _AccountNumber = "AccountNumber";
     public static final java.lang.String _AccountId = "AccountId";
@@ -44,6 +35,10 @@ public class TacticChannelReportColumn implements java.io.Serializable {
     public static final java.lang.String _FunnelConversionRate = "FunnelConversionRate";
     public static final java.lang.String _Revenue = "Revenue";
     public static final java.lang.String _ReturnOnAdSpend = "ReturnOnAdSpend";
+    public static final java.lang.String _AccountStatus = "AccountStatus";
+    public static final java.lang.String _CampaignStatus = "CampaignStatus";
+    public static final java.lang.String _AdGroupStatus = "AdGroupStatus";
+    public static final java.lang.String _KeywordStatus = "KeywordStatus";
     public static final TacticChannelReportColumn AccountName = new TacticChannelReportColumn(_AccountName);
     public static final TacticChannelReportColumn AccountNumber = new TacticChannelReportColumn(_AccountNumber);
     public static final TacticChannelReportColumn AccountId = new TacticChannelReportColumn(_AccountId);
@@ -71,7 +66,27 @@ public class TacticChannelReportColumn implements java.io.Serializable {
     public static final TacticChannelReportColumn FunnelConversionRate = new TacticChannelReportColumn(_FunnelConversionRate);
     public static final TacticChannelReportColumn Revenue = new TacticChannelReportColumn(_Revenue);
     public static final TacticChannelReportColumn ReturnOnAdSpend = new TacticChannelReportColumn(_ReturnOnAdSpend);
-    public java.lang.String getValue() { return _value_;}
+    public static final TacticChannelReportColumn AccountStatus = new TacticChannelReportColumn(_AccountStatus);
+    public static final TacticChannelReportColumn CampaignStatus = new TacticChannelReportColumn(_CampaignStatus);
+    public static final TacticChannelReportColumn AdGroupStatus = new TacticChannelReportColumn(_AdGroupStatus);
+    public static final TacticChannelReportColumn KeywordStatus = new TacticChannelReportColumn(_KeywordStatus);
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+            new org.apache.axis.description.TypeDesc(TacticChannelReportColumn.class);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "TacticChannelReportColumn"));
+    }
+
+    private java.lang.String _value_;
+
+    // Constructor
+    protected TacticChannelReportColumn(java.lang.String value) {
+        _value_ = value;
+        _table_.put(_value_, this);
+    }
+
     public static TacticChannelReportColumn fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         TacticChannelReportColumn enumeration = (TacticChannelReportColumn)
@@ -79,42 +94,55 @@ public class TacticChannelReportColumn implements java.io.Serializable {
         if (enumeration==null) throw new java.lang.IllegalArgumentException();
         return enumeration;
     }
+
     public static TacticChannelReportColumn fromString(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         return fromValue(value);
     }
-    public boolean equals(java.lang.Object obj) {return (obj == this);}
-    public int hashCode() { return toString().hashCode();}
-    public java.lang.String toString() { return _value_;}
-    public java.lang.Object readResolve() throws java.io.ObjectStreamException { return fromValue(_value_);}
+
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumSerializer(
             _javaType, _xmlType);
     }
+
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumDeserializer(
             _javaType, _xmlType);
     }
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(TacticChannelReportColumn.class);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "TacticChannelReportColumn"));
-    }
     /**
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
         return typeDesc;
+    }
+
+    public java.lang.String getValue() {
+        return _value_;
+    }
+
+    public boolean equals(java.lang.Object obj) {
+        return (obj == this);
+    }
+
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    public java.lang.String toString() {
+        return _value_;
+    }
+
+    public java.lang.Object readResolve() throws java.io.ObjectStreamException {
+        return fromValue(_value_);
     }
 
 }

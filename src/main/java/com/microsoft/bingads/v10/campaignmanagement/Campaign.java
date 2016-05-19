@@ -1,0 +1,654 @@
+/**
+ * Campaign.java
+ * <p>
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.microsoft.bingads.v10.campaignmanagement;
+
+public class Campaign implements java.io.Serializable {
+  // Type metadata
+  private static org.apache.axis.description.TypeDesc typeDesc =
+          new org.apache.axis.description.TypeDesc(Campaign.class, true);
+
+  static {
+    typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "Campaign"));
+    org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("biddingScheme");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "BiddingScheme"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10", "BiddingScheme"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("budgetType");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "BudgetType"));
+    elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "BudgetLimitType"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("dailyBudget");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "DailyBudget"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("daylightSaving");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "DaylightSaving"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("description");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "Description"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("forwardCompatibilityMap");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "ForwardCompatibilityMap"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/System.Collections.Generic", "KeyValuePairOfstringstring"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    elemField.setItemQName(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/System.Collections.Generic", "KeyValuePairOfstringstring"));
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("id");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "Id"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("monthlyBudget");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "MonthlyBudget"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("name");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "Name"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("nativeBidAdjustment");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "NativeBidAdjustment"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("status");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "Status"));
+    elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "CampaignStatus"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("timeZone");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "TimeZone"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("trackingUrlTemplate");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "TrackingUrlTemplate"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("urlCustomParameters");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "UrlCustomParameters"));
+    elemField.setXmlType(new javax.xml.namespace.QName("http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10", "CustomParameters"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("campaignType");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "CampaignType"));
+    elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "CampaignType"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    typeDesc.addFieldDesc(elemField);
+    elemField = new org.apache.axis.description.ElementDesc();
+    elemField.setFieldName("settings");
+    elemField.setXmlName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "Settings"));
+    elemField.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "Setting"));
+    elemField.setMinOccurs(0);
+    elemField.setNillable(true);
+    elemField.setItemQName(new javax.xml.namespace.QName("https://bingads.microsoft.com/CampaignManagement/v10", "Setting"));
+    typeDesc.addFieldDesc(elemField);
+  }
+
+  private com.microsoft.bingads.v10.datacontracts.BiddingScheme biddingScheme;
+  private com.microsoft.bingads.v10.campaignmanagement.BudgetLimitType budgetType;
+  private java.lang.Double dailyBudget;
+  private java.lang.Boolean daylightSaving;
+  private java.lang.String description;
+  private com.microsoft.bingads.v10.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap;
+  private java.lang.Long id;
+  private java.lang.Double monthlyBudget;
+  private java.lang.String name;
+  private java.lang.Integer nativeBidAdjustment;
+  private com.microsoft.bingads.v10.campaignmanagement.CampaignStatus status;
+  private java.lang.String timeZone;
+  private java.lang.String trackingUrlTemplate;
+  private com.microsoft.bingads.v10.datacontracts.CustomParameters urlCustomParameters;
+  private java.lang.String[] campaignType;
+  private com.microsoft.bingads.v10.campaignmanagement.Setting[] settings;
+  private java.lang.Object __equalsCalc = null;
+  private boolean __hashCodeCalc = false;
+
+  public Campaign() {
+  }
+
+  public Campaign(
+          com.microsoft.bingads.v10.datacontracts.BiddingScheme biddingScheme,
+          com.microsoft.bingads.v10.campaignmanagement.BudgetLimitType budgetType,
+          java.lang.Double dailyBudget,
+          java.lang.Boolean daylightSaving,
+          java.lang.String description,
+          com.microsoft.bingads.v10.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap,
+          java.lang.Long id,
+          java.lang.Double monthlyBudget,
+          java.lang.String name,
+          java.lang.Integer nativeBidAdjustment,
+          com.microsoft.bingads.v10.campaignmanagement.CampaignStatus status,
+          java.lang.String timeZone,
+          java.lang.String trackingUrlTemplate,
+          com.microsoft.bingads.v10.datacontracts.CustomParameters urlCustomParameters,
+          java.lang.String[] campaignType,
+          com.microsoft.bingads.v10.campaignmanagement.Setting[] settings) {
+    this.biddingScheme = biddingScheme;
+    this.budgetType = budgetType;
+    this.dailyBudget = dailyBudget;
+    this.daylightSaving = daylightSaving;
+    this.description = description;
+    this.forwardCompatibilityMap = forwardCompatibilityMap;
+    this.id = id;
+    this.monthlyBudget = monthlyBudget;
+    this.name = name;
+    this.nativeBidAdjustment = nativeBidAdjustment;
+    this.status = status;
+    this.timeZone = timeZone;
+    this.trackingUrlTemplate = trackingUrlTemplate;
+    this.urlCustomParameters = urlCustomParameters;
+    this.campaignType = campaignType;
+    this.settings = settings;
+  }
+
+  /**
+   * Return type metadata object
+   */
+  public static org.apache.axis.description.TypeDesc getTypeDesc() {
+    return typeDesc;
+  }
+
+  /**
+   * Get Custom Serializer
+   */
+  public static org.apache.axis.encoding.Serializer getSerializer(
+          java.lang.String mechType,
+          java.lang.Class _javaType,
+          javax.xml.namespace.QName _xmlType) {
+    return
+            new org.apache.axis.encoding.ser.BeanSerializer(
+                    _javaType, _xmlType, typeDesc);
+  }
+
+  /**
+   * Get Custom Deserializer
+   */
+  public static org.apache.axis.encoding.Deserializer getDeserializer(
+          java.lang.String mechType,
+          java.lang.Class _javaType,
+          javax.xml.namespace.QName _xmlType) {
+    return
+            new org.apache.axis.encoding.ser.BeanDeserializer(
+                    _javaType, _xmlType, typeDesc);
+  }
+
+  /**
+   * Gets the biddingScheme value for this Campaign.
+   *
+   * @return biddingScheme
+   */
+  public com.microsoft.bingads.v10.datacontracts.BiddingScheme getBiddingScheme() {
+    return biddingScheme;
+  }
+
+  /**
+   * Sets the biddingScheme value for this Campaign.
+   *
+   * @param biddingScheme
+   */
+  public void setBiddingScheme(com.microsoft.bingads.v10.datacontracts.BiddingScheme biddingScheme) {
+    this.biddingScheme = biddingScheme;
+  }
+
+  /**
+   * Gets the budgetType value for this Campaign.
+   *
+   * @return budgetType
+   */
+  public com.microsoft.bingads.v10.campaignmanagement.BudgetLimitType getBudgetType() {
+    return budgetType;
+  }
+
+  /**
+   * Sets the budgetType value for this Campaign.
+   *
+   * @param budgetType
+   */
+  public void setBudgetType(com.microsoft.bingads.v10.campaignmanagement.BudgetLimitType budgetType) {
+    this.budgetType = budgetType;
+  }
+
+  /**
+   * Gets the dailyBudget value for this Campaign.
+   *
+   * @return dailyBudget
+   */
+  public java.lang.Double getDailyBudget() {
+    return dailyBudget;
+  }
+
+  /**
+   * Sets the dailyBudget value for this Campaign.
+   *
+   * @param dailyBudget
+   */
+  public void setDailyBudget(java.lang.Double dailyBudget) {
+    this.dailyBudget = dailyBudget;
+  }
+
+  /**
+   * Gets the daylightSaving value for this Campaign.
+   *
+   * @return daylightSaving
+   */
+  public java.lang.Boolean getDaylightSaving() {
+    return daylightSaving;
+  }
+
+  /**
+   * Sets the daylightSaving value for this Campaign.
+   *
+   * @param daylightSaving
+   */
+  public void setDaylightSaving(java.lang.Boolean daylightSaving) {
+    this.daylightSaving = daylightSaving;
+  }
+
+  /**
+   * Gets the description value for this Campaign.
+   *
+   * @return description
+   */
+  public java.lang.String getDescription() {
+    return description;
+  }
+
+  /**
+   * Sets the description value for this Campaign.
+   *
+   * @param description
+   */
+  public void setDescription(java.lang.String description) {
+    this.description = description;
+  }
+
+  /**
+   * Gets the forwardCompatibilityMap value for this Campaign.
+   *
+   * @return forwardCompatibilityMap
+   */
+  public com.microsoft.bingads.v10.schemas.generic.KeyValuePairOfstringstring[] getForwardCompatibilityMap() {
+    return forwardCompatibilityMap;
+  }
+
+  /**
+   * Sets the forwardCompatibilityMap value for this Campaign.
+   *
+   * @param forwardCompatibilityMap
+   */
+  public void setForwardCompatibilityMap(com.microsoft.bingads.v10.schemas.generic.KeyValuePairOfstringstring[] forwardCompatibilityMap) {
+    this.forwardCompatibilityMap = forwardCompatibilityMap;
+  }
+
+  /**
+   * Gets the id value for this Campaign.
+   *
+   * @return id
+   */
+  public java.lang.Long getId() {
+    return id;
+  }
+
+  /**
+   * Sets the id value for this Campaign.
+   *
+   * @param id
+   */
+  public void setId(java.lang.Long id) {
+    this.id = id;
+  }
+
+  /**
+   * Gets the monthlyBudget value for this Campaign.
+   *
+   * @return monthlyBudget
+   */
+  public java.lang.Double getMonthlyBudget() {
+    return monthlyBudget;
+  }
+
+  /**
+   * Sets the monthlyBudget value for this Campaign.
+   *
+   * @param monthlyBudget
+   */
+  public void setMonthlyBudget(java.lang.Double monthlyBudget) {
+    this.monthlyBudget = monthlyBudget;
+  }
+
+  /**
+   * Gets the name value for this Campaign.
+   *
+   * @return name
+   */
+  public java.lang.String getName() {
+    return name;
+  }
+
+  /**
+   * Sets the name value for this Campaign.
+   *
+   * @param name
+   */
+  public void setName(java.lang.String name) {
+    this.name = name;
+  }
+
+  /**
+   * Gets the nativeBidAdjustment value for this Campaign.
+   *
+   * @return nativeBidAdjustment
+   */
+  public java.lang.Integer getNativeBidAdjustment() {
+    return nativeBidAdjustment;
+  }
+
+  /**
+   * Sets the nativeBidAdjustment value for this Campaign.
+   *
+   * @param nativeBidAdjustment
+   */
+  public void setNativeBidAdjustment(java.lang.Integer nativeBidAdjustment) {
+    this.nativeBidAdjustment = nativeBidAdjustment;
+  }
+
+  /**
+   * Gets the status value for this Campaign.
+   *
+   * @return status
+   */
+  public com.microsoft.bingads.v10.campaignmanagement.CampaignStatus getStatus() {
+    return status;
+  }
+
+  /**
+   * Sets the status value for this Campaign.
+   *
+   * @param status
+   */
+  public void setStatus(com.microsoft.bingads.v10.campaignmanagement.CampaignStatus status) {
+    this.status = status;
+  }
+
+  /**
+   * Gets the timeZone value for this Campaign.
+   *
+   * @return timeZone
+   */
+  public java.lang.String getTimeZone() {
+    return timeZone;
+  }
+
+  /**
+   * Sets the timeZone value for this Campaign.
+   *
+   * @param timeZone
+   */
+  public void setTimeZone(java.lang.String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  /**
+   * Gets the trackingUrlTemplate value for this Campaign.
+   *
+   * @return trackingUrlTemplate
+   */
+  public java.lang.String getTrackingUrlTemplate() {
+    return trackingUrlTemplate;
+  }
+
+  /**
+   * Sets the trackingUrlTemplate value for this Campaign.
+   *
+   * @param trackingUrlTemplate
+   */
+  public void setTrackingUrlTemplate(java.lang.String trackingUrlTemplate) {
+    this.trackingUrlTemplate = trackingUrlTemplate;
+  }
+
+  /**
+   * Gets the urlCustomParameters value for this Campaign.
+   *
+   * @return urlCustomParameters
+   */
+  public com.microsoft.bingads.v10.datacontracts.CustomParameters getUrlCustomParameters() {
+    return urlCustomParameters;
+  }
+
+  /**
+   * Sets the urlCustomParameters value for this Campaign.
+   *
+   * @param urlCustomParameters
+   */
+  public void setUrlCustomParameters(com.microsoft.bingads.v10.datacontracts.CustomParameters urlCustomParameters) {
+    this.urlCustomParameters = urlCustomParameters;
+  }
+
+  /**
+   * Gets the campaignType value for this Campaign.
+   *
+   * @return campaignType
+   */
+  public java.lang.String[] getCampaignType() {
+    return campaignType;
+  }
+
+  /**
+   * Sets the campaignType value for this Campaign.
+   *
+   * @param campaignType
+   */
+  public void setCampaignType(java.lang.String[] campaignType) {
+    this.campaignType = campaignType;
+  }
+
+  /**
+   * Gets the settings value for this Campaign.
+   *
+   * @return settings
+   */
+  public com.microsoft.bingads.v10.campaignmanagement.Setting[] getSettings() {
+    return settings;
+  }
+
+  /**
+   * Sets the settings value for this Campaign.
+   *
+   * @param settings
+   */
+  public void setSettings(com.microsoft.bingads.v10.campaignmanagement.Setting[] settings) {
+    this.settings = settings;
+  }
+
+  public synchronized boolean equals(java.lang.Object obj) {
+    if (!(obj instanceof Campaign)) return false;
+    Campaign other = (Campaign) obj;
+    if (obj == null) return false;
+    if (this == obj) return true;
+    if (__equalsCalc != null) {
+      return (__equalsCalc == obj);
+    }
+    __equalsCalc = obj;
+    boolean _equals;
+    _equals = true &&
+            ((this.biddingScheme == null && other.getBiddingScheme() == null) ||
+                    (this.biddingScheme != null &&
+                            this.biddingScheme.equals(other.getBiddingScheme()))) &&
+            ((this.budgetType == null && other.getBudgetType() == null) ||
+                    (this.budgetType != null &&
+                            this.budgetType.equals(other.getBudgetType()))) &&
+            ((this.dailyBudget == null && other.getDailyBudget() == null) ||
+                    (this.dailyBudget != null &&
+                            this.dailyBudget.equals(other.getDailyBudget()))) &&
+            ((this.daylightSaving == null && other.getDaylightSaving() == null) ||
+                    (this.daylightSaving != null &&
+                            this.daylightSaving.equals(other.getDaylightSaving()))) &&
+            ((this.description == null && other.getDescription() == null) ||
+                    (this.description != null &&
+                            this.description.equals(other.getDescription()))) &&
+            ((this.forwardCompatibilityMap == null && other.getForwardCompatibilityMap() == null) ||
+                    (this.forwardCompatibilityMap != null &&
+                            java.util.Arrays.equals(this.forwardCompatibilityMap, other.getForwardCompatibilityMap()))) &&
+            ((this.id == null && other.getId() == null) ||
+                    (this.id != null &&
+                            this.id.equals(other.getId()))) &&
+            ((this.monthlyBudget == null && other.getMonthlyBudget() == null) ||
+                    (this.monthlyBudget != null &&
+                            this.monthlyBudget.equals(other.getMonthlyBudget()))) &&
+            ((this.name == null && other.getName() == null) ||
+                    (this.name != null &&
+                            this.name.equals(other.getName()))) &&
+            ((this.nativeBidAdjustment == null && other.getNativeBidAdjustment() == null) ||
+                    (this.nativeBidAdjustment != null &&
+                            this.nativeBidAdjustment.equals(other.getNativeBidAdjustment()))) &&
+            ((this.status == null && other.getStatus() == null) ||
+                    (this.status != null &&
+                            this.status.equals(other.getStatus()))) &&
+            ((this.timeZone == null && other.getTimeZone() == null) ||
+                    (this.timeZone != null &&
+                            this.timeZone.equals(other.getTimeZone()))) &&
+            ((this.trackingUrlTemplate == null && other.getTrackingUrlTemplate() == null) ||
+                    (this.trackingUrlTemplate != null &&
+                            this.trackingUrlTemplate.equals(other.getTrackingUrlTemplate()))) &&
+            ((this.urlCustomParameters == null && other.getUrlCustomParameters() == null) ||
+                    (this.urlCustomParameters != null &&
+                            this.urlCustomParameters.equals(other.getUrlCustomParameters()))) &&
+            ((this.campaignType == null && other.getCampaignType() == null) ||
+                    (this.campaignType != null &&
+                            java.util.Arrays.equals(this.campaignType, other.getCampaignType()))) &&
+            ((this.settings == null && other.getSettings() == null) ||
+                    (this.settings != null &&
+                            java.util.Arrays.equals(this.settings, other.getSettings())));
+    __equalsCalc = null;
+    return _equals;
+  }
+
+  public synchronized int hashCode() {
+    if (__hashCodeCalc) {
+      return 0;
+    }
+    __hashCodeCalc = true;
+    int _hashCode = 1;
+    if (getBiddingScheme() != null) {
+      _hashCode += getBiddingScheme().hashCode();
+    }
+    if (getBudgetType() != null) {
+      _hashCode += getBudgetType().hashCode();
+    }
+    if (getDailyBudget() != null) {
+      _hashCode += getDailyBudget().hashCode();
+    }
+    if (getDaylightSaving() != null) {
+      _hashCode += getDaylightSaving().hashCode();
+    }
+    if (getDescription() != null) {
+      _hashCode += getDescription().hashCode();
+    }
+    if (getForwardCompatibilityMap() != null) {
+      for (int i = 0;
+           i < java.lang.reflect.Array.getLength(getForwardCompatibilityMap());
+           i++) {
+        java.lang.Object obj = java.lang.reflect.Array.get(getForwardCompatibilityMap(), i);
+        if (obj != null &&
+                !obj.getClass().isArray()) {
+          _hashCode += obj.hashCode();
+        }
+      }
+    }
+    if (getId() != null) {
+      _hashCode += getId().hashCode();
+    }
+    if (getMonthlyBudget() != null) {
+      _hashCode += getMonthlyBudget().hashCode();
+    }
+    if (getName() != null) {
+      _hashCode += getName().hashCode();
+    }
+    if (getNativeBidAdjustment() != null) {
+      _hashCode += getNativeBidAdjustment().hashCode();
+    }
+    if (getStatus() != null) {
+      _hashCode += getStatus().hashCode();
+    }
+    if (getTimeZone() != null) {
+      _hashCode += getTimeZone().hashCode();
+    }
+    if (getTrackingUrlTemplate() != null) {
+      _hashCode += getTrackingUrlTemplate().hashCode();
+    }
+    if (getUrlCustomParameters() != null) {
+      _hashCode += getUrlCustomParameters().hashCode();
+    }
+    if (getCampaignType() != null) {
+      for (int i = 0;
+           i < java.lang.reflect.Array.getLength(getCampaignType());
+           i++) {
+        java.lang.Object obj = java.lang.reflect.Array.get(getCampaignType(), i);
+        if (obj != null &&
+                !obj.getClass().isArray()) {
+          _hashCode += obj.hashCode();
+        }
+      }
+    }
+    if (getSettings() != null) {
+      for (int i = 0;
+           i < java.lang.reflect.Array.getLength(getSettings());
+           i++) {
+        java.lang.Object obj = java.lang.reflect.Array.get(getSettings(), i);
+        if (obj != null &&
+                !obj.getClass().isArray()) {
+          _hashCode += obj.hashCode();
+        }
+      }
+    }
+    __hashCodeCalc = false;
+    return _hashCode;
+  }
+
+}

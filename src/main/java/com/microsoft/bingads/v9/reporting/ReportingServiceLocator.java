@@ -9,9 +9,14 @@ package com.microsoft.bingads.v9.reporting;
 
 public class ReportingServiceLocator extends org.apache.axis.client.Service implements com.microsoft.bingads.v9.reporting.ReportingService {
 
+    // Use to get a proxy class for BasicHttpBinding_IReportingService
+    private java.lang.String BasicHttpBinding_IReportingService_address = "https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/V9/ReportingService.svc";
+    // The WSDD service name defaults to the port name.
+    private java.lang.String BasicHttpBinding_IReportingServiceWSDDServiceName = "BasicHttpBinding_IReportingService";
+    private java.util.HashSet ports = null;
+
     public ReportingServiceLocator() {
     }
-
 
     public ReportingServiceLocator(org.apache.axis.EngineConfiguration config) {
         super(config);
@@ -21,15 +26,9 @@ public class ReportingServiceLocator extends org.apache.axis.client.Service impl
         super(wsdlLoc, sName);
     }
 
-    // Use to get a proxy class for BasicHttpBinding_IReportingService
-    private java.lang.String BasicHttpBinding_IReportingService_address = "https://api.bingads.microsoft.com/Api/Advertiser/Reporting/V9/ReportingService.svc";
-
     public java.lang.String getBasicHttpBinding_IReportingServiceAddress() {
         return BasicHttpBinding_IReportingService_address;
     }
-
-    // The WSDD service name defaults to the port name.
-    private java.lang.String BasicHttpBinding_IReportingServiceWSDDServiceName = "BasicHttpBinding_IReportingService";
 
     public java.lang.String getBasicHttpBinding_IReportingServiceWSDDServiceName() {
         return BasicHttpBinding_IReportingServiceWSDDServiceName;
@@ -107,8 +106,6 @@ public class ReportingServiceLocator extends org.apache.axis.client.Service impl
     public javax.xml.namespace.QName getServiceName() {
         return new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "ReportingService");
     }
-
-    private java.util.HashSet ports = null;
 
     public java.util.Iterator getPorts() {
         if (ports == null) {
