@@ -71,7 +71,7 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>axistools-maven-plugin</artifactId>
                 <version>1.4</version>
@@ -84,14 +84,12 @@
                 </dependencies>
                 <configuration>
                     <urls>
-                        <!-- You should use version 9 of the Customer Billing, Customer Management, and Report services. -->
                         <url>https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc?wsdl</url>
                         <url>
                             https://clientcenter.api.bingads.microsoft.com/Api/Billing/v9/CustomerBillingService.svc?wsdl
                         </url>
                         <url>https://api.bingads.microsoft.com/Api/Advertiser/Reporting/v9/ReportingService.svc?wsdl</url>
 
-                        <!-- You should use version 10 of the Ad Insight, Bulk, and Campaign Management services.-->
                         <url>
                             https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/BulkService.svc?wsdl
                         </url>
@@ -99,7 +97,6 @@
                             https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/CampaignManagementService.svc?wsdl
                         </url>
 
-                        <!-- Ad Insight (Ad Intelligence and Optimizer Merged -->
                         <url>
                             https://adinsight.api.bingads.microsoft.com/Api/Advertiser/AdInsight/v10/AdInsightService.svc?wsdl
                         </url>
@@ -196,7 +193,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
