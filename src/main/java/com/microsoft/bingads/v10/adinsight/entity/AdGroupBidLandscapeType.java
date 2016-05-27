@@ -8,11 +8,12 @@
 package com.microsoft.bingads.v10.adinsight.entity;
 
 public class AdGroupBidLandscapeType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Uniform = "Uniform";
   public static final java.lang.String _DefaultBidOnly = "DefaultBidOnly";
   public static final AdGroupBidLandscapeType Uniform = new AdGroupBidLandscapeType(_Uniform);
   public static final AdGroupBidLandscapeType DefaultBidOnly = new AdGroupBidLandscapeType(_DefaultBidOnly);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AdGroupBidLandscapeType.class);

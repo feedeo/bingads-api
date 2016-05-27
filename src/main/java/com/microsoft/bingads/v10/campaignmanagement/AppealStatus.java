@@ -8,13 +8,14 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class AppealStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Appealable = "Appealable";
   public static final java.lang.String _AppealPending = "AppealPending";
   public static final java.lang.String _NotAppealable = "NotAppealable";
   public static final AppealStatus Appealable = new AppealStatus(_Appealable);
   public static final AppealStatus AppealPending = new AppealStatus(_AppealPending);
   public static final AppealStatus NotAppealable = new AppealStatus(_NotAppealable);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AppealStatus.class);

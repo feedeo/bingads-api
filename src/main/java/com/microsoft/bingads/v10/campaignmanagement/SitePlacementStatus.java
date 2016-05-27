@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class SitePlacementStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Active = "Active";
   public static final java.lang.String _Paused = "Paused";
   public static final java.lang.String _Deleted = "Deleted";
@@ -16,7 +18,6 @@ public class SitePlacementStatus implements java.io.Serializable {
   public static final SitePlacementStatus Paused = new SitePlacementStatus(_Paused);
   public static final SitePlacementStatus Deleted = new SitePlacementStatus(_Deleted);
   public static final SitePlacementStatus Inactive = new SitePlacementStatus(_Inactive);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(SitePlacementStatus.class);

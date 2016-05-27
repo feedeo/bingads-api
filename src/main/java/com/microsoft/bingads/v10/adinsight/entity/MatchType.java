@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.adinsight.entity;
 
 public class MatchType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Exact = "Exact";
   public static final java.lang.String _Phrase = "Phrase";
   public static final java.lang.String _Broad = "Broad";
@@ -18,7 +20,6 @@ public class MatchType implements java.io.Serializable {
   public static final MatchType Broad = new MatchType(_Broad);
   public static final MatchType Content = new MatchType(_Content);
   public static final MatchType Aggregate = new MatchType(_Aggregate);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(MatchType.class);

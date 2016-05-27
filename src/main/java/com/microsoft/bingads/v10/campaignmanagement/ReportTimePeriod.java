@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class ReportTimePeriod implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Today = "Today";
   public static final java.lang.String _Yesterday = "Yesterday";
   public static final java.lang.String _LastSevenDays = "LastSevenDays";
@@ -32,7 +34,6 @@ public class ReportTimePeriod implements java.io.Serializable {
   public static final ReportTimePeriod LastSixMonths = new ReportTimePeriod(_LastSixMonths);
   public static final ReportTimePeriod ThisYear = new ReportTimePeriod(_ThisYear);
   public static final ReportTimePeriod LastYear = new ReportTimePeriod(_LastYear);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(ReportTimePeriod.class);

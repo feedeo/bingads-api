@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class AdGroupStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Active = "Active";
   public static final java.lang.String _Paused = "Paused";
   public static final java.lang.String _Expired = "Expired";
@@ -16,7 +18,6 @@ public class AdGroupStatus implements java.io.Serializable {
   public static final AdGroupStatus Paused = new AdGroupStatus(_Paused);
   public static final AdGroupStatus Expired = new AdGroupStatus(_Expired);
   public static final AdGroupStatus Deleted = new AdGroupStatus(_Deleted);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AdGroupStatus.class);

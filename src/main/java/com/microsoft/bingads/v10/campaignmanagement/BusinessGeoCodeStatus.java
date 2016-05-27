@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class BusinessGeoCodeStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Pending = "Pending";
   public static final java.lang.String _Complete = "Complete";
   public static final java.lang.String _Invalid = "Invalid";
@@ -16,7 +18,6 @@ public class BusinessGeoCodeStatus implements java.io.Serializable {
   public static final BusinessGeoCodeStatus Complete = new BusinessGeoCodeStatus(_Complete);
   public static final BusinessGeoCodeStatus Invalid = new BusinessGeoCodeStatus(_Invalid);
   public static final BusinessGeoCodeStatus Failed = new BusinessGeoCodeStatus(_Failed);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(BusinessGeoCodeStatus.class);

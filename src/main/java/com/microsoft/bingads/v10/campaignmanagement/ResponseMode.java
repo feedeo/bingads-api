@@ -8,11 +8,12 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class ResponseMode implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _ErrorsOnly = "ErrorsOnly";
   public static final java.lang.String _ErrorsAndResults = "ErrorsAndResults";
   public static final ResponseMode ErrorsOnly = new ResponseMode(_ErrorsOnly);
   public static final ResponseMode ErrorsAndResults = new ResponseMode(_ErrorsAndResults);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(ResponseMode.class);

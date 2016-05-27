@@ -8,13 +8,14 @@
 package com.microsoft.bingads.v10.adinsight.entity;
 
 public class BudgetLimitType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _MonthlyBudgetSpendUntilDepleted = "MonthlyBudgetSpendUntilDepleted";
   public static final java.lang.String _DailyBudgetStandard = "DailyBudgetStandard";
   public static final java.lang.String _DailyBudgetAccelerated = "DailyBudgetAccelerated";
   public static final BudgetLimitType MonthlyBudgetSpendUntilDepleted = new BudgetLimitType(_MonthlyBudgetSpendUntilDepleted);
   public static final BudgetLimitType DailyBudgetStandard = new BudgetLimitType(_DailyBudgetStandard);
   public static final BudgetLimitType DailyBudgetAccelerated = new BudgetLimitType(_DailyBudgetAccelerated);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(BudgetLimitType.class);

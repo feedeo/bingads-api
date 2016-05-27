@@ -8,11 +8,12 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class DistanceUnit implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Miles = "Miles";
   public static final java.lang.String _Kilometers = "Kilometers";
   public static final DistanceUnit Miles = new DistanceUnit(_Miles);
   public static final DistanceUnit Kilometers = new DistanceUnit(_Kilometers);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(DistanceUnit.class);

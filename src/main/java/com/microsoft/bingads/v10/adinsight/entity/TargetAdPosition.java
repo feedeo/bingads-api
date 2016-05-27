@@ -8,13 +8,14 @@
 package com.microsoft.bingads.v10.adinsight.entity;
 
 public class TargetAdPosition implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _MainLine1 = "MainLine1";
   public static final java.lang.String _MainLine = "MainLine";
   public static final java.lang.String _SideBar = "SideBar";
   public static final TargetAdPosition MainLine1 = new TargetAdPosition(_MainLine1);
   public static final TargetAdPosition MainLine = new TargetAdPosition(_MainLine);
   public static final TargetAdPosition SideBar = new TargetAdPosition(_SideBar);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(TargetAdPosition.class);

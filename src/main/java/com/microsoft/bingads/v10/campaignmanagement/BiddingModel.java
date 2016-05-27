@@ -8,11 +8,12 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class BiddingModel implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Keyword = "Keyword";
   public static final java.lang.String _SitePlacement = "SitePlacement";
   public static final BiddingModel Keyword = new BiddingModel(_Keyword);
   public static final BiddingModel SitePlacement = new BiddingModel(_SitePlacement);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(BiddingModel.class);

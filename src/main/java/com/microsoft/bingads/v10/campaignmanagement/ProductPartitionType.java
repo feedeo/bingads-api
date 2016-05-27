@@ -8,11 +8,12 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class ProductPartitionType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Subdivision = "Subdivision";
   public static final java.lang.String _Unit = "Unit";
   public static final ProductPartitionType Subdivision = new ProductPartitionType(_Subdivision);
   public static final ProductPartitionType Unit = new ProductPartitionType(_Unit);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(ProductPartitionType.class);

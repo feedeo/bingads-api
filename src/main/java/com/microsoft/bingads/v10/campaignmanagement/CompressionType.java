@@ -8,11 +8,12 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class CompressionType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Zip = "Zip";
   public static final java.lang.String _GZip = "GZip";
   public static final CompressionType Zip = new CompressionType(_Zip);
   public static final CompressionType GZip = new CompressionType(_GZip);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(CompressionType.class);

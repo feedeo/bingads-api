@@ -8,11 +8,12 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class DownloadFileType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Csv = "Csv";
   public static final java.lang.String _Tsv = "Tsv";
   public static final DownloadFileType Csv = new DownloadFileType(_Csv);
   public static final DownloadFileType Tsv = new DownloadFileType(_Tsv);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(DownloadFileType.class);

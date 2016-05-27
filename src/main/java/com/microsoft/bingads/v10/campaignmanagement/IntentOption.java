@@ -8,13 +8,14 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class IntentOption implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _PeopleInOrSearchingForOrViewingPages = "PeopleInOrSearchingForOrViewingPages";
   public static final java.lang.String _PeopleIn = "PeopleIn";
   public static final java.lang.String _PeopleSearchingForOrViewingPages = "PeopleSearchingForOrViewingPages";
   public static final IntentOption PeopleInOrSearchingForOrViewingPages = new IntentOption(_PeopleInOrSearchingForOrViewingPages);
   public static final IntentOption PeopleIn = new IntentOption(_PeopleIn);
   public static final IntentOption PeopleSearchingForOrViewingPages = new IntentOption(_PeopleSearchingForOrViewingPages);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(IntentOption.class);

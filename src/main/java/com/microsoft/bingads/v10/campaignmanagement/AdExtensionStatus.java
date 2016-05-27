@@ -8,11 +8,12 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class AdExtensionStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Active = "Active";
   public static final java.lang.String _Deleted = "Deleted";
   public static final AdExtensionStatus Active = new AdExtensionStatus(_Active);
   public static final AdExtensionStatus Deleted = new AdExtensionStatus(_Deleted);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AdExtensionStatus.class);

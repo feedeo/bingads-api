@@ -8,13 +8,14 @@
 package com.microsoft.bingads.v10.adinsight.entity;
 
 public class TimeInterval implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _LastMonth = "LastMonth";
   public static final java.lang.String _LastWeek = "LastWeek";
   public static final java.lang.String _LastDay = "LastDay";
   public static final TimeInterval LastMonth = new TimeInterval(_LastMonth);
   public static final TimeInterval LastWeek = new TimeInterval(_LastWeek);
   public static final TimeInterval LastDay = new TimeInterval(_LastDay);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(TimeInterval.class);

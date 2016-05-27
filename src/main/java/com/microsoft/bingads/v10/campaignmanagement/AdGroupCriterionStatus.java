@@ -8,13 +8,14 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class AdGroupCriterionStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Active = "Active";
   public static final java.lang.String _Paused = "Paused";
   public static final java.lang.String _Deleted = "Deleted";
   public static final AdGroupCriterionStatus Active = new AdGroupCriterionStatus(_Active);
   public static final AdGroupCriterionStatus Paused = new AdGroupCriterionStatus(_Paused);
   public static final AdGroupCriterionStatus Deleted = new AdGroupCriterionStatus(_Deleted);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AdGroupCriterionStatus.class);

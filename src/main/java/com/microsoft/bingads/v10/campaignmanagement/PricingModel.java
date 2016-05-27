@@ -8,11 +8,12 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class PricingModel implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Cpc = "Cpc";
   public static final java.lang.String _Cpm = "Cpm";
   public static final PricingModel Cpc = new PricingModel(_Cpc);
   public static final PricingModel Cpm = new PricingModel(_Cpm);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(PricingModel.class);

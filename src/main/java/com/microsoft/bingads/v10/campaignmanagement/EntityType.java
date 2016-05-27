@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class EntityType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Campaign = "Campaign";
   public static final java.lang.String _AdGroup = "AdGroup";
   public static final java.lang.String _Target = "Target";
@@ -22,7 +24,6 @@ public class EntityType implements java.io.Serializable {
   public static final EntityType Keyword = new EntityType(_Keyword);
   public static final EntityType AdExtension = new EntityType(_AdExtension);
   public static final EntityType AdGroupCriterion = new EntityType(_AdGroupCriterion);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(EntityType.class);

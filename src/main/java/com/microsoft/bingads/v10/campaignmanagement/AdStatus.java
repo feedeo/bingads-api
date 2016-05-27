@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class AdStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Inactive = "Inactive";
   public static final java.lang.String _Active = "Active";
   public static final java.lang.String _Paused = "Paused";
@@ -16,7 +18,6 @@ public class AdStatus implements java.io.Serializable {
   public static final AdStatus Active = new AdStatus(_Active);
   public static final AdStatus Paused = new AdStatus(_Paused);
   public static final AdStatus Deleted = new AdStatus(_Deleted);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AdStatus.class);

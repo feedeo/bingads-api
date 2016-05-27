@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.adinsight.entity;
 
 public class Field implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _UNKNOW = "UNKNOW";
   public static final java.lang.String _BidLandscape = "BidLandscape";
   public static final java.lang.String _BidSuggestion = "BidSuggestion";
@@ -32,7 +34,6 @@ public class Field implements java.io.Serializable {
   public static final Field AdGroupId = new Field(_AdGroupId);
   public static final Field KeywordId = new Field(_KeywordId);
   public static final Field TimeInterval = new Field(_TimeInterval);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(Field.class);

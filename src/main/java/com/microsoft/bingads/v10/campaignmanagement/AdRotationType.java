@@ -8,11 +8,12 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class AdRotationType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _OptimizeForClicks = "OptimizeForClicks";
   public static final java.lang.String _RotateAdsEvenly = "RotateAdsEvenly";
   public static final AdRotationType OptimizeForClicks = new AdRotationType(_OptimizeForClicks);
   public static final AdRotationType RotateAdsEvenly = new AdRotationType(_RotateAdsEvenly);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AdRotationType.class);

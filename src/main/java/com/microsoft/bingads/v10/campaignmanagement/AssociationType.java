@@ -8,13 +8,14 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class AssociationType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Campaign = "Campaign";
   public static final java.lang.String _AdGroup = "AdGroup";
   public static final java.lang.String _Account = "Account";
   public static final AssociationType Campaign = new AssociationType(_Campaign);
   public static final AssociationType AdGroup = new AssociationType(_AdGroup);
   public static final AssociationType Account = new AssociationType(_Account);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AssociationType.class);

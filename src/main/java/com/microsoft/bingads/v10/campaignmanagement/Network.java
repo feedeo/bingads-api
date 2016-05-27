@@ -8,13 +8,14 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class Network implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _OwnedAndOperatedAndSyndicatedSearch = "OwnedAndOperatedAndSyndicatedSearch";
   public static final java.lang.String _OwnedAndOperatedOnly = "OwnedAndOperatedOnly";
   public static final java.lang.String _SyndicatedSearchOnly = "SyndicatedSearchOnly";
   public static final Network OwnedAndOperatedAndSyndicatedSearch = new Network(_OwnedAndOperatedAndSyndicatedSearch);
   public static final Network OwnedAndOperatedOnly = new Network(_OwnedAndOperatedOnly);
   public static final Network SyndicatedSearchOnly = new Network(_SyndicatedSearchOnly);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(Network.class);

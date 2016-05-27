@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class MigrationStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _NotInPilot = "NotInPilot";
   public static final java.lang.String _NotStarted = "NotStarted";
   public static final java.lang.String _InProgress = "InProgress";
@@ -16,7 +18,6 @@ public class MigrationStatus implements java.io.Serializable {
   public static final MigrationStatus NotStarted = new MigrationStatus(_NotStarted);
   public static final MigrationStatus InProgress = new MigrationStatus(_InProgress);
   public static final MigrationStatus Completed = new MigrationStatus(_Completed);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(MigrationStatus.class);

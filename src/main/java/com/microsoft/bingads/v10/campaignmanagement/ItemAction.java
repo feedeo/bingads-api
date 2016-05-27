@@ -8,13 +8,14 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class ItemAction implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Add = "Add";
   public static final java.lang.String _Delete = "Delete";
   public static final java.lang.String _Update = "Update";
   public static final ItemAction Add = new ItemAction(_Add);
   public static final ItemAction Delete = new ItemAction(_Delete);
   public static final ItemAction Update = new ItemAction(_Update);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(ItemAction.class);

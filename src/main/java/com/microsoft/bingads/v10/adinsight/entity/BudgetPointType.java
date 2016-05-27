@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.adinsight.entity;
 
 public class BudgetPointType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Current = "Current";
   public static final java.lang.String _Suggested = "Suggested";
   public static final java.lang.String _Maximum = "Maximum";
@@ -16,7 +18,6 @@ public class BudgetPointType implements java.io.Serializable {
   public static final BudgetPointType Suggested = new BudgetPointType(_Suggested);
   public static final BudgetPointType Maximum = new BudgetPointType(_Maximum);
   public static final BudgetPointType Other = new BudgetPointType(_Other);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(BudgetPointType.class);

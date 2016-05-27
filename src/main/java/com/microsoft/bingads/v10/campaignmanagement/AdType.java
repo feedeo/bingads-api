@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class AdType implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Text = "Text";
   public static final java.lang.String _Image = "Image";
   public static final java.lang.String _Product = "Product";
@@ -16,7 +18,6 @@ public class AdType implements java.io.Serializable {
   public static final AdType Image = new AdType(_Image);
   public static final AdType Product = new AdType(_Product);
   public static final AdType AppInstall = new AdType(_AppInstall);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AdType.class);

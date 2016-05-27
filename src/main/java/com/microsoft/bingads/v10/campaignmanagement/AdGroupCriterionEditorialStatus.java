@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class AdGroupCriterionEditorialStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Active = "Active";
   public static final java.lang.String _Disapproved = "Disapproved";
   public static final java.lang.String _Inactive = "Inactive";
@@ -16,7 +18,6 @@ public class AdGroupCriterionEditorialStatus implements java.io.Serializable {
   public static final AdGroupCriterionEditorialStatus Disapproved = new AdGroupCriterionEditorialStatus(_Disapproved);
   public static final AdGroupCriterionEditorialStatus Inactive = new AdGroupCriterionEditorialStatus(_Inactive);
   public static final AdGroupCriterionEditorialStatus ActiveLimited = new AdGroupCriterionEditorialStatus(_ActiveLimited);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AdGroupCriterionEditorialStatus.class);

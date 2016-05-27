@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.adinsight.entity;
 
 public class Operator implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _EQUALS = "EQUALS";
   public static final java.lang.String _NOT_EQUALS = "NOT_EQUALS";
   public static final java.lang.String _IN = "IN";
@@ -38,7 +40,6 @@ public class Operator implements java.io.Serializable {
   public static final Operator DOES_NOT_CONTAIN = new Operator(_DOES_NOT_CONTAIN);
   public static final Operator DOES_NOT_CONTAIN_IGNORE_CASE = new Operator(_DOES_NOT_CONTAIN_IGNORE_CASE);
   public static final Operator UNKNOWN = new Operator(_UNKNOWN);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(Operator.class);

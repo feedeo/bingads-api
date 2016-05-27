@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class Day implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Sunday = "Sunday";
   public static final java.lang.String _Monday = "Monday";
   public static final java.lang.String _Tuesday = "Tuesday";
@@ -22,7 +24,6 @@ public class Day implements java.io.Serializable {
   public static final Day Thursday = new Day(_Thursday);
   public static final Day Friday = new Day(_Friday);
   public static final Day Saturday = new Day(_Saturday);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(Day.class);

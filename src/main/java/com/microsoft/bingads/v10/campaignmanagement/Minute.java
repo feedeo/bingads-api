@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.campaignmanagement;
 
 public class Minute implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Zero = "Zero";
   public static final java.lang.String _Fifteen = "Fifteen";
   public static final java.lang.String _Thirty = "Thirty";
@@ -16,7 +18,6 @@ public class Minute implements java.io.Serializable {
   public static final Minute Fifteen = new Minute(_Fifteen);
   public static final Minute Thirty = new Minute(_Thirty);
   public static final Minute FortyFive = new Minute(_FortyFive);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(Minute.class);

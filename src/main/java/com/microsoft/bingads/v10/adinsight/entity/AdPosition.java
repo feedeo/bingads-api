@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v10.adinsight.entity;
 
 public class AdPosition implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _All = "All";
   public static final java.lang.String _MainLine1 = "MainLine1";
   public static final java.lang.String _MainLine2 = "MainLine2";
@@ -40,7 +42,6 @@ public class AdPosition implements java.io.Serializable {
   public static final AdPosition SideBar9 = new AdPosition(_SideBar9);
   public static final AdPosition SideBar10 = new AdPosition(_SideBar10);
   public static final AdPosition Aggregate = new AdPosition(_Aggregate);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(AdPosition.class);
