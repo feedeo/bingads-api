@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v9.customermanagement.entities;
 
 public class UserRole implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _AdvertiserCampaignManager = "AdvertiserCampaignManager";
   public static final java.lang.String _SuperAdmin = "SuperAdmin";
   public static final java.lang.String _ClientViewer = "ClientViewer";
@@ -28,7 +30,6 @@ public class UserRole implements java.io.Serializable {
   public static final UserRole PublisherListManager = new UserRole(_PublisherListManager);
   public static final UserRole PublisherAdViewer = new UserRole(_PublisherAdViewer);
   public static final UserRole ClientAdmin = new UserRole(_ClientAdmin);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(UserRole.class);

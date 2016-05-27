@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v9.customermanagement.entities;
 
 public class OrderByField implements java.io.Serializable {
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+
     public static final java.lang.String _Id = "Id";
     public static final java.lang.String _Name = "Name";
     public static final java.lang.String _Number = "Number";
@@ -16,7 +18,6 @@ public class OrderByField implements java.io.Serializable {
     public static final OrderByField Name = new OrderByField(_Name);
     public static final OrderByField Number = new OrderByField(_Number);
     public static final OrderByField LifeCycleStatus = new OrderByField(_LifeCycleStatus);
-    private static java.util.HashMap _table_ = new java.util.HashMap();
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
             new org.apache.axis.description.TypeDesc(OrderByField.class);

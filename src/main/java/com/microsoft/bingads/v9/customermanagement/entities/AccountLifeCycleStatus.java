@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v9.customermanagement.entities;
 
 public class AccountLifeCycleStatus implements java.io.Serializable {
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+
     public static final java.lang.String _Draft = "Draft";
     public static final java.lang.String _Active = "Active";
     public static final java.lang.String _Inactive = "Inactive";
@@ -18,7 +20,6 @@ public class AccountLifeCycleStatus implements java.io.Serializable {
     public static final AccountLifeCycleStatus Inactive = new AccountLifeCycleStatus(_Inactive);
     public static final AccountLifeCycleStatus Pause = new AccountLifeCycleStatus(_Pause);
     public static final AccountLifeCycleStatus Pending = new AccountLifeCycleStatus(_Pending);
-    private static java.util.HashMap _table_ = new java.util.HashMap();
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
             new org.apache.axis.description.TypeDesc(AccountLifeCycleStatus.class);

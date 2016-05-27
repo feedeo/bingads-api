@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v9.customermanagement.entities;
 
 public class PredicateOperator implements java.io.Serializable {
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+
     public static final java.lang.String _Equals = "Equals";
     public static final java.lang.String _NotEquals = "NotEquals";
     public static final java.lang.String _Contains = "Contains";
@@ -24,7 +26,6 @@ public class PredicateOperator implements java.io.Serializable {
     public static final PredicateOperator LessThanEquals = new PredicateOperator(_LessThanEquals);
     public static final PredicateOperator StartsWith = new PredicateOperator(_StartsWith);
     public static final PredicateOperator NotContains = new PredicateOperator(_NotContains);
-    private static java.util.HashMap _table_ = new java.util.HashMap();
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
             new org.apache.axis.description.TypeDesc(PredicateOperator.class);

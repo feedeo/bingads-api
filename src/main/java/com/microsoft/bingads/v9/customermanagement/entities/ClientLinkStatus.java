@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v9.customermanagement.entities;
 
 public class ClientLinkStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _LinkPending = "LinkPending";
   public static final java.lang.String _LinkCanceled = "LinkCanceled";
   public static final java.lang.String _LinkExpired = "LinkExpired";
@@ -36,7 +38,6 @@ public class ClientLinkStatus implements java.io.Serializable {
   public static final ClientLinkStatus UnlinkInProgress = new ClientLinkStatus(_UnlinkInProgress);
   public static final ClientLinkStatus Inactive = new ClientLinkStatus(_Inactive);
   public static final ClientLinkStatus UnlinkFailed = new ClientLinkStatus(_UnlinkFailed);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(ClientLinkStatus.class);

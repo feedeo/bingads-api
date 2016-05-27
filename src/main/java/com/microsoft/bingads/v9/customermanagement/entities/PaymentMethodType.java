@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v9.customermanagement.entities;
 
 public class PaymentMethodType implements java.io.Serializable {
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+
     public static final java.lang.String _CreditCard = "CreditCard";
     public static final java.lang.String _Invoice = "Invoice";
     public static final java.lang.String _Check = "Check";
@@ -26,7 +28,6 @@ public class PaymentMethodType implements java.io.Serializable {
     public static final PaymentMethodType OfflinePaymentMethod = new PaymentMethodType(_OfflinePaymentMethod);
     public static final PaymentMethodType VBA = new PaymentMethodType(_VBA);
     public static final PaymentMethodType Boleto = new PaymentMethodType(_Boleto);
-    private static java.util.HashMap _table_ = new java.util.HashMap();
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
             new org.apache.axis.description.TypeDesc(PaymentMethodType.class);

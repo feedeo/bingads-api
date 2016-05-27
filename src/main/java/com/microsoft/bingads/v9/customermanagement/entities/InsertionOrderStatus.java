@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v9.customermanagement.entities;
 
 public class InsertionOrderStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _PendingSystemReview = "PendingSystemReview";
   public static final java.lang.String _PendingUserReview = "PendingUserReview";
   public static final java.lang.String _Active = "Active";
@@ -20,7 +22,6 @@ public class InsertionOrderStatus implements java.io.Serializable {
   public static final InsertionOrderStatus Declined = new InsertionOrderStatus(_Declined);
   public static final InsertionOrderStatus Expired = new InsertionOrderStatus(_Expired);
   public static final InsertionOrderStatus Canceled = new InsertionOrderStatus(_Canceled);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(InsertionOrderStatus.class);

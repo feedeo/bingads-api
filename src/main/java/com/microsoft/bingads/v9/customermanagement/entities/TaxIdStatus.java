@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v9.customermanagement.entities;
 
 public class TaxIdStatus implements java.io.Serializable {
+  private static java.util.HashMap _table_ = new java.util.HashMap();
+
   public static final java.lang.String _Valid = "Valid";
   public static final java.lang.String _Invalid = "Invalid";
   public static final java.lang.String _Pending = "Pending";
@@ -16,7 +18,6 @@ public class TaxIdStatus implements java.io.Serializable {
   public static final TaxIdStatus Invalid = new TaxIdStatus(_Invalid);
   public static final TaxIdStatus Pending = new TaxIdStatus(_Pending);
   public static final TaxIdStatus Inactive = new TaxIdStatus(_Inactive);
-  private static java.util.HashMap _table_ = new java.util.HashMap();
   // Type metadata
   private static org.apache.axis.description.TypeDesc typeDesc =
           new org.apache.axis.description.TypeDesc(TaxIdStatus.class);
