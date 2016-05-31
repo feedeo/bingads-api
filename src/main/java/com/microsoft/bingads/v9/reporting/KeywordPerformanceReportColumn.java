@@ -8,6 +8,8 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class KeywordPerformanceReportColumn implements java.io.Serializable {
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+
     public static final java.lang.String _AccountName = "AccountName";
     public static final java.lang.String _AccountNumber = "AccountNumber";
     public static final java.lang.String _AccountId = "AccountId";
@@ -144,7 +146,6 @@ public class KeywordPerformanceReportColumn implements java.io.Serializable {
     public static final KeywordPerformanceReportColumn FinalURL = new KeywordPerformanceReportColumn(_FinalURL);
     public static final KeywordPerformanceReportColumn FinalMobileURL = new KeywordPerformanceReportColumn(_FinalMobileURL);
     public static final KeywordPerformanceReportColumn FinalAppURL = new KeywordPerformanceReportColumn(_FinalAppURL);
-    private static java.util.HashMap _table_ = new java.util.HashMap();
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
             new org.apache.axis.description.TypeDesc(KeywordPerformanceReportColumn.class);
