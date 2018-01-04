@@ -8,14 +8,7 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class KeywordPerformanceReportColumn implements java.io.Serializable {
-    private java.lang.String _value_;
     private static java.util.HashMap _table_ = new java.util.HashMap();
-
-    // Constructor
-    protected KeywordPerformanceReportColumn(java.lang.String value) {
-        _value_ = value;
-        _table_.put(_value_,this);
-    }
 
     public static final java.lang.String _AccountName = "AccountName";
     public static final java.lang.String _AccountNumber = "AccountNumber";
@@ -68,6 +61,23 @@ public class KeywordPerformanceReportColumn implements java.io.Serializable {
     public static final java.lang.String _KeywordStatus = "KeywordStatus";
     public static final java.lang.String _Network = "Network";
     public static final java.lang.String _TopVsOther = "TopVsOther";
+    public static final java.lang.String _DeviceOS = "DeviceOS";
+    public static final java.lang.String _Assists = "Assists";
+    public static final java.lang.String _ExtendedCost = "ExtendedCost";
+    public static final java.lang.String _Revenue = "Revenue";
+    public static final java.lang.String _ReturnOnAdSpend = "ReturnOnAdSpend";
+    public static final java.lang.String _CostPerAssist = "CostPerAssist";
+    public static final java.lang.String _RevenuePerConversion = "RevenuePerConversion";
+    public static final java.lang.String _RevenuePerAssist = "RevenuePerAssist";
+    public static final java.lang.String _BounceRate = "BounceRate";
+    public static final java.lang.String _TotalVisits = "TotalVisits";
+    public static final java.lang.String _AveragePagesPerVisit = "AveragePagesPerVisit";
+    public static final java.lang.String _AverageDurationPerVisit = "AverageDurationPerVisit";
+    public static final java.lang.String _TrackingTemplate = "TrackingTemplate";
+    public static final java.lang.String _CustomParameters = "CustomParameters";
+    public static final java.lang.String _FinalURL = "FinalURL";
+    public static final java.lang.String _FinalMobileURL = "FinalMobileURL";
+    public static final java.lang.String _FinalAppURL = "FinalAppURL";
     public static final KeywordPerformanceReportColumn AccountName = new KeywordPerformanceReportColumn(_AccountName);
     public static final KeywordPerformanceReportColumn AccountNumber = new KeywordPerformanceReportColumn(_AccountNumber);
     public static final KeywordPerformanceReportColumn AccountId = new KeywordPerformanceReportColumn(_AccountId);
@@ -119,7 +129,39 @@ public class KeywordPerformanceReportColumn implements java.io.Serializable {
     public static final KeywordPerformanceReportColumn KeywordStatus = new KeywordPerformanceReportColumn(_KeywordStatus);
     public static final KeywordPerformanceReportColumn Network = new KeywordPerformanceReportColumn(_Network);
     public static final KeywordPerformanceReportColumn TopVsOther = new KeywordPerformanceReportColumn(_TopVsOther);
-    public java.lang.String getValue() { return _value_;}
+    public static final KeywordPerformanceReportColumn DeviceOS = new KeywordPerformanceReportColumn(_DeviceOS);
+    public static final KeywordPerformanceReportColumn Assists = new KeywordPerformanceReportColumn(_Assists);
+    public static final KeywordPerformanceReportColumn ExtendedCost = new KeywordPerformanceReportColumn(_ExtendedCost);
+    public static final KeywordPerformanceReportColumn Revenue = new KeywordPerformanceReportColumn(_Revenue);
+    public static final KeywordPerformanceReportColumn ReturnOnAdSpend = new KeywordPerformanceReportColumn(_ReturnOnAdSpend);
+    public static final KeywordPerformanceReportColumn CostPerAssist = new KeywordPerformanceReportColumn(_CostPerAssist);
+    public static final KeywordPerformanceReportColumn RevenuePerConversion = new KeywordPerformanceReportColumn(_RevenuePerConversion);
+    public static final KeywordPerformanceReportColumn RevenuePerAssist = new KeywordPerformanceReportColumn(_RevenuePerAssist);
+    public static final KeywordPerformanceReportColumn BounceRate = new KeywordPerformanceReportColumn(_BounceRate);
+    public static final KeywordPerformanceReportColumn TotalVisits = new KeywordPerformanceReportColumn(_TotalVisits);
+    public static final KeywordPerformanceReportColumn AveragePagesPerVisit = new KeywordPerformanceReportColumn(_AveragePagesPerVisit);
+    public static final KeywordPerformanceReportColumn AverageDurationPerVisit = new KeywordPerformanceReportColumn(_AverageDurationPerVisit);
+    public static final KeywordPerformanceReportColumn TrackingTemplate = new KeywordPerformanceReportColumn(_TrackingTemplate);
+    public static final KeywordPerformanceReportColumn CustomParameters = new KeywordPerformanceReportColumn(_CustomParameters);
+    public static final KeywordPerformanceReportColumn FinalURL = new KeywordPerformanceReportColumn(_FinalURL);
+    public static final KeywordPerformanceReportColumn FinalMobileURL = new KeywordPerformanceReportColumn(_FinalMobileURL);
+    public static final KeywordPerformanceReportColumn FinalAppURL = new KeywordPerformanceReportColumn(_FinalAppURL);
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+            new org.apache.axis.description.TypeDesc(KeywordPerformanceReportColumn.class);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "KeywordPerformanceReportColumn"));
+    }
+
+    private java.lang.String _value_;
+
+    // Constructor
+    protected KeywordPerformanceReportColumn(java.lang.String value) {
+        _value_ = value;
+        _table_.put(_value_, this);
+    }
+
     public static KeywordPerformanceReportColumn fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         KeywordPerformanceReportColumn enumeration = (KeywordPerformanceReportColumn)
@@ -127,42 +169,55 @@ public class KeywordPerformanceReportColumn implements java.io.Serializable {
         if (enumeration==null) throw new java.lang.IllegalArgumentException();
         return enumeration;
     }
+
     public static KeywordPerformanceReportColumn fromString(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         return fromValue(value);
     }
-    public boolean equals(java.lang.Object obj) {return (obj == this);}
-    public int hashCode() { return toString().hashCode();}
-    public java.lang.String toString() { return _value_;}
-    public java.lang.Object readResolve() throws java.io.ObjectStreamException { return fromValue(_value_);}
+
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumSerializer(
             _javaType, _xmlType);
     }
+
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumDeserializer(
             _javaType, _xmlType);
     }
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(KeywordPerformanceReportColumn.class);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "KeywordPerformanceReportColumn"));
-    }
     /**
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
         return typeDesc;
+    }
+
+    public java.lang.String getValue() {
+        return _value_;
+    }
+
+    public boolean equals(java.lang.Object obj) {
+        return (obj == this);
+    }
+
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    public java.lang.String toString() {
+        return _value_;
+    }
+
+    public java.lang.Object readResolve() throws java.io.ObjectStreamException {
+        return fromValue(_value_);
     }
 
 }

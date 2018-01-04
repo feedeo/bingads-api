@@ -8,17 +8,9 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class AdGroupPerformanceReportColumn implements java.io.Serializable {
-    private java.lang.String _value_;
-    private static java.util.HashMap _table_ = new java.util.HashMap();
-
-    // Constructor
-    protected AdGroupPerformanceReportColumn(java.lang.String value) {
-        _value_ = value;
-        _table_.put(_value_,this);
-    }
-
     public static final java.lang.String _AccountName = "AccountName";
     public static final java.lang.String _AccountNumber = "AccountNumber";
+    public static final java.lang.String _AccountId = "AccountId";
     public static final java.lang.String _TimePeriod = "TimePeriod";
     public static final java.lang.String _Status = "Status";
     public static final java.lang.String _CampaignName = "CampaignName";
@@ -69,8 +61,26 @@ public class AdGroupPerformanceReportColumn implements java.io.Serializable {
     public static final java.lang.String _TotalCostPhoneAndClicks = "TotalCostPhoneAndClicks";
     public static final java.lang.String _Network = "Network";
     public static final java.lang.String _TopVsOther = "TopVsOther";
+    public static final java.lang.String _BidMatchType = "BidMatchType";
+    public static final java.lang.String _DeliveredMatchType = "DeliveredMatchType";
+    public static final java.lang.String _Assists = "Assists";
+    public static final java.lang.String _ExtendedCost = "ExtendedCost";
+    public static final java.lang.String _Revenue = "Revenue";
+    public static final java.lang.String _ReturnOnAdSpend = "ReturnOnAdSpend";
+    public static final java.lang.String _CostPerAssist = "CostPerAssist";
+    public static final java.lang.String _RevenuePerConversion = "RevenuePerConversion";
+    public static final java.lang.String _RevenuePerAssist = "RevenuePerAssist";
+    public static final java.lang.String _BounceRate = "BounceRate";
+    public static final java.lang.String _TotalVisits = "TotalVisits";
+    public static final java.lang.String _AveragePagesPerVisit = "AveragePagesPerVisit";
+    public static final java.lang.String _AverageDurationPerVisit = "AverageDurationPerVisit";
+    public static final java.lang.String _TrackingTemplate = "TrackingTemplate";
+    public static final java.lang.String _CustomParameters = "CustomParameters";
+    public static final java.lang.String _AccountStatus = "AccountStatus";
+    public static final java.lang.String _CampaignStatus = "CampaignStatus";
     public static final AdGroupPerformanceReportColumn AccountName = new AdGroupPerformanceReportColumn(_AccountName);
     public static final AdGroupPerformanceReportColumn AccountNumber = new AdGroupPerformanceReportColumn(_AccountNumber);
+    public static final AdGroupPerformanceReportColumn AccountId = new AdGroupPerformanceReportColumn(_AccountId);
     public static final AdGroupPerformanceReportColumn TimePeriod = new AdGroupPerformanceReportColumn(_TimePeriod);
     public static final AdGroupPerformanceReportColumn Status = new AdGroupPerformanceReportColumn(_Status);
     public static final AdGroupPerformanceReportColumn CampaignName = new AdGroupPerformanceReportColumn(_CampaignName);
@@ -121,7 +131,40 @@ public class AdGroupPerformanceReportColumn implements java.io.Serializable {
     public static final AdGroupPerformanceReportColumn TotalCostPhoneAndClicks = new AdGroupPerformanceReportColumn(_TotalCostPhoneAndClicks);
     public static final AdGroupPerformanceReportColumn Network = new AdGroupPerformanceReportColumn(_Network);
     public static final AdGroupPerformanceReportColumn TopVsOther = new AdGroupPerformanceReportColumn(_TopVsOther);
-    public java.lang.String getValue() { return _value_;}
+    public static final AdGroupPerformanceReportColumn BidMatchType = new AdGroupPerformanceReportColumn(_BidMatchType);
+    public static final AdGroupPerformanceReportColumn DeliveredMatchType = new AdGroupPerformanceReportColumn(_DeliveredMatchType);
+    public static final AdGroupPerformanceReportColumn Assists = new AdGroupPerformanceReportColumn(_Assists);
+    public static final AdGroupPerformanceReportColumn ExtendedCost = new AdGroupPerformanceReportColumn(_ExtendedCost);
+    public static final AdGroupPerformanceReportColumn Revenue = new AdGroupPerformanceReportColumn(_Revenue);
+    public static final AdGroupPerformanceReportColumn ReturnOnAdSpend = new AdGroupPerformanceReportColumn(_ReturnOnAdSpend);
+    public static final AdGroupPerformanceReportColumn CostPerAssist = new AdGroupPerformanceReportColumn(_CostPerAssist);
+    public static final AdGroupPerformanceReportColumn RevenuePerConversion = new AdGroupPerformanceReportColumn(_RevenuePerConversion);
+    public static final AdGroupPerformanceReportColumn RevenuePerAssist = new AdGroupPerformanceReportColumn(_RevenuePerAssist);
+    public static final AdGroupPerformanceReportColumn BounceRate = new AdGroupPerformanceReportColumn(_BounceRate);
+    public static final AdGroupPerformanceReportColumn TotalVisits = new AdGroupPerformanceReportColumn(_TotalVisits);
+    public static final AdGroupPerformanceReportColumn AveragePagesPerVisit = new AdGroupPerformanceReportColumn(_AveragePagesPerVisit);
+    public static final AdGroupPerformanceReportColumn AverageDurationPerVisit = new AdGroupPerformanceReportColumn(_AverageDurationPerVisit);
+    public static final AdGroupPerformanceReportColumn TrackingTemplate = new AdGroupPerformanceReportColumn(_TrackingTemplate);
+    public static final AdGroupPerformanceReportColumn CustomParameters = new AdGroupPerformanceReportColumn(_CustomParameters);
+    public static final AdGroupPerformanceReportColumn AccountStatus = new AdGroupPerformanceReportColumn(_AccountStatus);
+    public static final AdGroupPerformanceReportColumn CampaignStatus = new AdGroupPerformanceReportColumn(_CampaignStatus);
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+            new org.apache.axis.description.TypeDesc(AdGroupPerformanceReportColumn.class);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdGroupPerformanceReportColumn"));
+    }
+
+    private java.lang.String _value_;
+
+    // Constructor
+    protected AdGroupPerformanceReportColumn(java.lang.String value) {
+        _value_ = value;
+        _table_.put(_value_, this);
+    }
+
     public static AdGroupPerformanceReportColumn fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         AdGroupPerformanceReportColumn enumeration = (AdGroupPerformanceReportColumn)
@@ -129,42 +172,55 @@ public class AdGroupPerformanceReportColumn implements java.io.Serializable {
         if (enumeration==null) throw new java.lang.IllegalArgumentException();
         return enumeration;
     }
+
     public static AdGroupPerformanceReportColumn fromString(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         return fromValue(value);
     }
-    public boolean equals(java.lang.Object obj) {return (obj == this);}
-    public int hashCode() { return toString().hashCode();}
-    public java.lang.String toString() { return _value_;}
-    public java.lang.Object readResolve() throws java.io.ObjectStreamException { return fromValue(_value_);}
+
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumSerializer(
             _javaType, _xmlType);
     }
+
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumDeserializer(
             _javaType, _xmlType);
     }
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(AdGroupPerformanceReportColumn.class);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdGroupPerformanceReportColumn"));
-    }
     /**
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
         return typeDesc;
+    }
+
+    public java.lang.String getValue() {
+        return _value_;
+    }
+
+    public boolean equals(java.lang.Object obj) {
+        return (obj == this);
+    }
+
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    public java.lang.String toString() {
+        return _value_;
+    }
+
+    public java.lang.Object readResolve() throws java.io.ObjectStreamException {
+        return fromValue(_value_);
     }
 
 }

@@ -8,6 +8,7 @@
 package com.microsoft.bingads.v9.reporting;
 
 public interface IReportingService extends java.rmi.Remote {
-    public com.microsoft.bingads.v9.reporting.SubmitGenerateReportResponse submitGenerateReport(com.microsoft.bingads.v9.reporting.SubmitGenerateReportRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.reporting.ApiFaultDetail;
-    public com.microsoft.bingads.v9.reporting.PollGenerateReportResponse pollGenerateReport(com.microsoft.bingads.v9.reporting.PollGenerateReportRequest parameters) throws java.rmi.RemoteException, com.microsoft.bingads.v9.adapi.AdApiFaultDetail, com.microsoft.bingads.v9.reporting.ApiFaultDetail;
+    com.microsoft.bingads.v9.reporting.SubmitGenerateReportResponse submitGenerateReport(com.microsoft.bingads.v9.reporting.SubmitGenerateReportRequest parameters) throws java.rmi.RemoteException;
+
+    com.microsoft.bingads.v9.reporting.PollGenerateReportResponse pollGenerateReport(com.microsoft.bingads.v9.reporting.PollGenerateReportRequest parameters) throws java.rmi.RemoteException;
 }

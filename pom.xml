@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.feedeo</groupId>
     <artifactId>bingads-api</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Bing Ads API</name>
@@ -71,7 +71,7 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>axistools-maven-plugin</artifactId>
                 <version>1.4</version>
@@ -84,13 +84,22 @@
                 </dependencies>
                 <configuration>
                     <urls>
-                        <url>https://api.bingads.microsoft.com/Api/Advertiser/AdIntelligence/v9/AdIntelligenceService.svc?wsdl</url>
-                        <url>https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/BulkService.svc?wsdl</url>
-                        <url>https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?wsdl</url>
-                        <url>https://clientcenter.api.bingads.microsoft.com/Api/Billing/v9/CustomerBillingService.svc?wsdl</url>
                         <url>https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc?wsdl</url>
-                        <url>https://api.bingads.microsoft.com/Api/Advertiser/Optimizer/v9/OptimizerService.svc?wsdl</url>
+                        <url>
+                            https://clientcenter.api.bingads.microsoft.com/Api/Billing/v9/CustomerBillingService.svc?wsdl
+                        </url>
                         <url>https://api.bingads.microsoft.com/Api/Advertiser/Reporting/v9/ReportingService.svc?wsdl</url>
+
+                        <url>
+                            https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/BulkService.svc?wsdl
+                        </url>
+                        <url>
+                            https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/CampaignManagementService.svc?wsdl
+                        </url>
+
+                        <url>
+                            https://adinsight.api.bingads.microsoft.com/Api/Advertiser/AdInsight/v10/AdInsightService.svc?wsdl
+                        </url>
                     </urls>
                     <all>true</all>
                     <outputDirectory>src/main/java</outputDirectory>
@@ -99,35 +108,53 @@
                     <mappings>
                         <mapping>
                             <namespace>https://adapi.microsoft.com</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.adapi</targetPackage>
+                            <targetPackage>com.microsoft.bingads.v10.adapi</targetPackage>
                         </mapping>
                         <mapping>
-                            <namespace>http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignManagement.Api.DataContracts</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.datacontracts</targetPackage>
+                            <namespace>
+                                http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignManagement.Api.DataContracts.V10
+                            </namespace>
+                            <targetPackage>com.microsoft.bingads.v10.datacontracts</targetPackage>
+                        </mapping>
+                        <mapping>
+                            <namespace>
+                                http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Api.DataContract.Entity
+                            </namespace>
+                            <targetPackage>com.microsoft.bingads.v10.adinsight.entity</targetPackage>
+                        </mapping>
+                        <mapping>
+                            <namespace>
+                                http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Api.DataContract.Message
+                            </namespace>
+                            <targetPackage>com.microsoft.bingads.v10.adinsight.message</targetPackage>
                         </mapping>
                         <mapping>
                             <namespace>http://schemas.datacontract.org/2004/07/System</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.datacontracts</targetPackage>
+                            <targetPackage>com.microsoft.bingads.v10.datacontracts</targetPackage>
                         </mapping>
                         <mapping>
                             <namespace>http://schemas.datacontract.org/2004/07/System.Collections.Generic</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.schemas.generic</targetPackage>
+                            <targetPackage>com.microsoft.bingads.v10.schemas.generic</targetPackage>
                         </mapping>
                         <mapping>
                             <namespace>http://schemas.microsoft.com/2003/10/Serialization/Arrays</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.schemas.arrays</targetPackage>
+                            <targetPackage>com.microsoft.bingads.v10.schemas.arrays</targetPackage>
                         </mapping>
                         <mapping>
-                            <namespace>https://bingads.microsoft.com/AdIntelligence/v9</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.adintelligence</targetPackage>
+                            <namespace>https://bingads.microsoft.com/AdInsight/v10</namespace>
+                            <targetPackage>com.microsoft.bingads.v10.adinsight</targetPackage>
                         </mapping>
                         <mapping>
-                            <namespace>https://bingads.microsoft.com/CampaignManagement/v9</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.bulk</targetPackage>
+                            <namespace>Microsoft.Advertiser.AdInsight.Api.Service</namespace>
+                            <targetPackage>com.microsoft.bingads.v10.adinsight</targetPackage>
                         </mapping>
                         <mapping>
-                            <namespace>https://bingads.microsoft.com/CampaignManagement/v9</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.campaignmanagement</targetPackage>
+                            <namespace>https://bingads.microsoft.com/CampaignManagement/v10</namespace>
+                            <targetPackage>com.microsoft.bingads.v10.bulk</targetPackage>
+                        </mapping>
+                        <mapping>
+                            <namespace>https://bingads.microsoft.com/CampaignManagement/v10</namespace>
+                            <targetPackage>com.microsoft.bingads.v10.campaignmanagement</targetPackage>
                         </mapping>
                         <mapping>
                             <namespace>https://bingads.microsoft.com/Billing/v9</namespace>
@@ -154,22 +181,6 @@
                             <targetPackage>com.microsoft.bingads.v9.customermanagement.exception</targetPackage>
                         </mapping>
                         <mapping>
-                            <namespace>https://bingads.microsoft.com/Optimizer/v9</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.optimizer</targetPackage>
-                        </mapping>
-                        <mapping>
-                            <namespace>https://bingads.microsoft.com/Optimizer/v9</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.optimizer</targetPackage>
-                        </mapping>
-                        <mapping>
-                            <namespace>http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts.Entities</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.optimizer.entities</targetPackage>
-                        </mapping>
-                        <mapping>
-                            <namespace>http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Api.DataContracts</namespace>
-                            <targetPackage>com.microsoft.bingads.v9.optimizer.enums</targetPackage>
-                        </mapping>
-                        <mapping>
                             <namespace>https://bingads.microsoft.com/Reporting/v9</namespace>
                             <targetPackage>com.microsoft.bingads.v9.reporting</targetPackage>
                         </mapping>
@@ -182,7 +193,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>

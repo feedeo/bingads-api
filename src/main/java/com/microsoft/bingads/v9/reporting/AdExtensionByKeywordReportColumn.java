@@ -8,15 +8,6 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class AdExtensionByKeywordReportColumn implements java.io.Serializable {
-    private java.lang.String _value_;
-    private static java.util.HashMap _table_ = new java.util.HashMap();
-
-    // Constructor
-    protected AdExtensionByKeywordReportColumn(java.lang.String value) {
-        _value_ = value;
-        _table_.put(_value_,this);
-    }
-
     public static final java.lang.String _AccountName = "AccountName";
     public static final java.lang.String _TimePeriod = "TimePeriod";
     public static final java.lang.String _CampaignName = "CampaignName";
@@ -41,6 +32,22 @@ public class AdExtensionByKeywordReportColumn implements java.io.Serializable {
     public static final java.lang.String _AdExtensionVersion = "AdExtensionVersion";
     public static final java.lang.String _AccountNumber = "AccountNumber";
     public static final java.lang.String _AccountId = "AccountId";
+    public static final java.lang.String _BidMatchType = "BidMatchType";
+    public static final java.lang.String _DeliveredMatchType = "DeliveredMatchType";
+    public static final java.lang.String _Network = "Network";
+    public static final java.lang.String _TopVsOther = "TopVsOther";
+    public static final java.lang.String _Assists = "Assists";
+    public static final java.lang.String _ExtendedCost = "ExtendedCost";
+    public static final java.lang.String _Revenue = "Revenue";
+    public static final java.lang.String _ReturnOnAdSpend = "ReturnOnAdSpend";
+    public static final java.lang.String _CostPerConversion = "CostPerConversion";
+    public static final java.lang.String _CostPerAssist = "CostPerAssist";
+    public static final java.lang.String _RevenuePerConversion = "RevenuePerConversion";
+    public static final java.lang.String _RevenuePerAssist = "RevenuePerAssist";
+    public static final java.lang.String _AccountStatus = "AccountStatus";
+    public static final java.lang.String _CampaignStatus = "CampaignStatus";
+    public static final java.lang.String _AdGroupStatus = "AdGroupStatus";
+    public static final java.lang.String _KeywordStatus = "KeywordStatus";
     public static final AdExtensionByKeywordReportColumn AccountName = new AdExtensionByKeywordReportColumn(_AccountName);
     public static final AdExtensionByKeywordReportColumn TimePeriod = new AdExtensionByKeywordReportColumn(_TimePeriod);
     public static final AdExtensionByKeywordReportColumn CampaignName = new AdExtensionByKeywordReportColumn(_CampaignName);
@@ -65,7 +72,39 @@ public class AdExtensionByKeywordReportColumn implements java.io.Serializable {
     public static final AdExtensionByKeywordReportColumn AdExtensionVersion = new AdExtensionByKeywordReportColumn(_AdExtensionVersion);
     public static final AdExtensionByKeywordReportColumn AccountNumber = new AdExtensionByKeywordReportColumn(_AccountNumber);
     public static final AdExtensionByKeywordReportColumn AccountId = new AdExtensionByKeywordReportColumn(_AccountId);
-    public java.lang.String getValue() { return _value_;}
+    public static final AdExtensionByKeywordReportColumn BidMatchType = new AdExtensionByKeywordReportColumn(_BidMatchType);
+    public static final AdExtensionByKeywordReportColumn DeliveredMatchType = new AdExtensionByKeywordReportColumn(_DeliveredMatchType);
+    public static final AdExtensionByKeywordReportColumn Network = new AdExtensionByKeywordReportColumn(_Network);
+    public static final AdExtensionByKeywordReportColumn TopVsOther = new AdExtensionByKeywordReportColumn(_TopVsOther);
+    public static final AdExtensionByKeywordReportColumn Assists = new AdExtensionByKeywordReportColumn(_Assists);
+    public static final AdExtensionByKeywordReportColumn ExtendedCost = new AdExtensionByKeywordReportColumn(_ExtendedCost);
+    public static final AdExtensionByKeywordReportColumn Revenue = new AdExtensionByKeywordReportColumn(_Revenue);
+    public static final AdExtensionByKeywordReportColumn ReturnOnAdSpend = new AdExtensionByKeywordReportColumn(_ReturnOnAdSpend);
+    public static final AdExtensionByKeywordReportColumn CostPerConversion = new AdExtensionByKeywordReportColumn(_CostPerConversion);
+    public static final AdExtensionByKeywordReportColumn CostPerAssist = new AdExtensionByKeywordReportColumn(_CostPerAssist);
+    public static final AdExtensionByKeywordReportColumn RevenuePerConversion = new AdExtensionByKeywordReportColumn(_RevenuePerConversion);
+    public static final AdExtensionByKeywordReportColumn RevenuePerAssist = new AdExtensionByKeywordReportColumn(_RevenuePerAssist);
+    public static final AdExtensionByKeywordReportColumn AccountStatus = new AdExtensionByKeywordReportColumn(_AccountStatus);
+    public static final AdExtensionByKeywordReportColumn CampaignStatus = new AdExtensionByKeywordReportColumn(_CampaignStatus);
+    public static final AdExtensionByKeywordReportColumn AdGroupStatus = new AdExtensionByKeywordReportColumn(_AdGroupStatus);
+    public static final AdExtensionByKeywordReportColumn KeywordStatus = new AdExtensionByKeywordReportColumn(_KeywordStatus);
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+            new org.apache.axis.description.TypeDesc(AdExtensionByKeywordReportColumn.class);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdExtensionByKeywordReportColumn"));
+    }
+
+    private java.lang.String _value_;
+
+    // Constructor
+    protected AdExtensionByKeywordReportColumn(java.lang.String value) {
+        _value_ = value;
+        _table_.put(_value_, this);
+    }
+
     public static AdExtensionByKeywordReportColumn fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         AdExtensionByKeywordReportColumn enumeration = (AdExtensionByKeywordReportColumn)
@@ -73,42 +112,55 @@ public class AdExtensionByKeywordReportColumn implements java.io.Serializable {
         if (enumeration==null) throw new java.lang.IllegalArgumentException();
         return enumeration;
     }
+
     public static AdExtensionByKeywordReportColumn fromString(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         return fromValue(value);
     }
-    public boolean equals(java.lang.Object obj) {return (obj == this);}
-    public int hashCode() { return toString().hashCode();}
-    public java.lang.String toString() { return _value_;}
-    public java.lang.Object readResolve() throws java.io.ObjectStreamException { return fromValue(_value_);}
+
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumSerializer(
             _javaType, _xmlType);
     }
+
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumDeserializer(
             _javaType, _xmlType);
     }
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(AdExtensionByKeywordReportColumn.class);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "AdExtensionByKeywordReportColumn"));
-    }
     /**
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
         return typeDesc;
+    }
+
+    public java.lang.String getValue() {
+        return _value_;
+    }
+
+    public boolean equals(java.lang.Object obj) {
+        return (obj == this);
+    }
+
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    public java.lang.String toString() {
+        return _value_;
+    }
+
+    public java.lang.Object readResolve() throws java.io.ObjectStreamException {
+        return fromValue(_value_);
     }
 
 }

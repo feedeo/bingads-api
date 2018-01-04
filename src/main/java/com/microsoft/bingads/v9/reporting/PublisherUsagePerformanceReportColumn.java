@@ -8,15 +8,6 @@
 package com.microsoft.bingads.v9.reporting;
 
 public class PublisherUsagePerformanceReportColumn implements java.io.Serializable {
-    private java.lang.String _value_;
-    private static java.util.HashMap _table_ = new java.util.HashMap();
-
-    // Constructor
-    protected PublisherUsagePerformanceReportColumn(java.lang.String value) {
-        _value_ = value;
-        _table_.put(_value_,this);
-    }
-
     public static final java.lang.String _AccountName = "AccountName";
     public static final java.lang.String _AccountNumber = "AccountNumber";
     public static final java.lang.String _AccountId = "AccountId";
@@ -40,6 +31,22 @@ public class PublisherUsagePerformanceReportColumn implements java.io.Serializab
     public static final java.lang.String _AverageCpm = "AverageCpm";
     public static final java.lang.String _PricingModel = "PricingModel";
     public static final java.lang.String _Language = "Language";
+    public static final java.lang.String _BidMatchType = "BidMatchType";
+    public static final java.lang.String _DeliveredMatchType = "DeliveredMatchType";
+    public static final java.lang.String _Network = "Network";
+    public static final java.lang.String _TopVsOther = "TopVsOther";
+    public static final java.lang.String _DeviceType = "DeviceType";
+    public static final java.lang.String _DeviceOS = "DeviceOS";
+    public static final java.lang.String _Assists = "Assists";
+    public static final java.lang.String _ExtendedCost = "ExtendedCost";
+    public static final java.lang.String _Revenue = "Revenue";
+    public static final java.lang.String _ReturnOnAdSpend = "ReturnOnAdSpend";
+    public static final java.lang.String _CostPerAssist = "CostPerAssist";
+    public static final java.lang.String _RevenuePerConversion = "RevenuePerConversion";
+    public static final java.lang.String _RevenuePerAssist = "RevenuePerAssist";
+    public static final java.lang.String _AccountStatus = "AccountStatus";
+    public static final java.lang.String _CampaignStatus = "CampaignStatus";
+    public static final java.lang.String _AdGroupStatus = "AdGroupStatus";
     public static final PublisherUsagePerformanceReportColumn AccountName = new PublisherUsagePerformanceReportColumn(_AccountName);
     public static final PublisherUsagePerformanceReportColumn AccountNumber = new PublisherUsagePerformanceReportColumn(_AccountNumber);
     public static final PublisherUsagePerformanceReportColumn AccountId = new PublisherUsagePerformanceReportColumn(_AccountId);
@@ -63,7 +70,39 @@ public class PublisherUsagePerformanceReportColumn implements java.io.Serializab
     public static final PublisherUsagePerformanceReportColumn AverageCpm = new PublisherUsagePerformanceReportColumn(_AverageCpm);
     public static final PublisherUsagePerformanceReportColumn PricingModel = new PublisherUsagePerformanceReportColumn(_PricingModel);
     public static final PublisherUsagePerformanceReportColumn Language = new PublisherUsagePerformanceReportColumn(_Language);
-    public java.lang.String getValue() { return _value_;}
+    public static final PublisherUsagePerformanceReportColumn BidMatchType = new PublisherUsagePerformanceReportColumn(_BidMatchType);
+    public static final PublisherUsagePerformanceReportColumn DeliveredMatchType = new PublisherUsagePerformanceReportColumn(_DeliveredMatchType);
+    public static final PublisherUsagePerformanceReportColumn Network = new PublisherUsagePerformanceReportColumn(_Network);
+    public static final PublisherUsagePerformanceReportColumn TopVsOther = new PublisherUsagePerformanceReportColumn(_TopVsOther);
+    public static final PublisherUsagePerformanceReportColumn DeviceType = new PublisherUsagePerformanceReportColumn(_DeviceType);
+    public static final PublisherUsagePerformanceReportColumn DeviceOS = new PublisherUsagePerformanceReportColumn(_DeviceOS);
+    public static final PublisherUsagePerformanceReportColumn Assists = new PublisherUsagePerformanceReportColumn(_Assists);
+    public static final PublisherUsagePerformanceReportColumn ExtendedCost = new PublisherUsagePerformanceReportColumn(_ExtendedCost);
+    public static final PublisherUsagePerformanceReportColumn Revenue = new PublisherUsagePerformanceReportColumn(_Revenue);
+    public static final PublisherUsagePerformanceReportColumn ReturnOnAdSpend = new PublisherUsagePerformanceReportColumn(_ReturnOnAdSpend);
+    public static final PublisherUsagePerformanceReportColumn CostPerAssist = new PublisherUsagePerformanceReportColumn(_CostPerAssist);
+    public static final PublisherUsagePerformanceReportColumn RevenuePerConversion = new PublisherUsagePerformanceReportColumn(_RevenuePerConversion);
+    public static final PublisherUsagePerformanceReportColumn RevenuePerAssist = new PublisherUsagePerformanceReportColumn(_RevenuePerAssist);
+    public static final PublisherUsagePerformanceReportColumn AccountStatus = new PublisherUsagePerformanceReportColumn(_AccountStatus);
+    public static final PublisherUsagePerformanceReportColumn CampaignStatus = new PublisherUsagePerformanceReportColumn(_CampaignStatus);
+    public static final PublisherUsagePerformanceReportColumn AdGroupStatus = new PublisherUsagePerformanceReportColumn(_AdGroupStatus);
+    private static java.util.HashMap _table_ = new java.util.HashMap();
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+            new org.apache.axis.description.TypeDesc(PublisherUsagePerformanceReportColumn.class);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "PublisherUsagePerformanceReportColumn"));
+    }
+
+    private java.lang.String _value_;
+
+    // Constructor
+    protected PublisherUsagePerformanceReportColumn(java.lang.String value) {
+        _value_ = value;
+        _table_.put(_value_, this);
+    }
+
     public static PublisherUsagePerformanceReportColumn fromValue(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         PublisherUsagePerformanceReportColumn enumeration = (PublisherUsagePerformanceReportColumn)
@@ -71,42 +110,55 @@ public class PublisherUsagePerformanceReportColumn implements java.io.Serializab
         if (enumeration==null) throw new java.lang.IllegalArgumentException();
         return enumeration;
     }
+
     public static PublisherUsagePerformanceReportColumn fromString(java.lang.String value)
           throws java.lang.IllegalArgumentException {
         return fromValue(value);
     }
-    public boolean equals(java.lang.Object obj) {return (obj == this);}
-    public int hashCode() { return toString().hashCode();}
-    public java.lang.String toString() { return _value_;}
-    public java.lang.Object readResolve() throws java.io.ObjectStreamException { return fromValue(_value_);}
+
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumSerializer(
             _javaType, _xmlType);
     }
+
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
           new org.apache.axis.encoding.ser.EnumDeserializer(
             _javaType, _xmlType);
     }
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(PublisherUsagePerformanceReportColumn.class);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://bingads.microsoft.com/Reporting/v9", "PublisherUsagePerformanceReportColumn"));
-    }
     /**
      * Return type metadata object
      */
     public static org.apache.axis.description.TypeDesc getTypeDesc() {
         return typeDesc;
+    }
+
+    public java.lang.String getValue() {
+        return _value_;
+    }
+
+    public boolean equals(java.lang.Object obj) {
+        return (obj == this);
+    }
+
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    public java.lang.String toString() {
+        return _value_;
+    }
+
+    public java.lang.Object readResolve() throws java.io.ObjectStreamException {
+        return fromValue(_value_);
     }
 
 }
